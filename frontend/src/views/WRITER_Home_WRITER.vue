@@ -7,6 +7,5 @@
 <script>
 export default {
   name: "WRITER_Home_WRITER",
-  components: {},
 };
 </script>
