@@ -1,0 +1,25 @@
+.all {
+  display: flex;
+  margin: 30px;
+}
+
+.all .sub {
+  margin: 20px;
+}
+
+.all .sub .sub-title {
+  display: flex;
+}
+
+.all .sub .sub-title {
+  display: flex;
+}
+
+.all .sub .sub-title img {
+  position: absolute;
+  left: 92%;
+}
+
+.all .sub .sub-p {
+  margin-top: 20px;
+}
