@@ -1,15 +1,17 @@
 <template>
-  <hello-world />
+  <v-for>
+    <Thumbnail />
+  </v-for>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld";
+import Thumbnail from "../components/Thumbnail";
 
 export default {
   name: "Home",
 
   components: {
-    HelloWorld,
+    Thumbnail,
   },
 };
 </script>
