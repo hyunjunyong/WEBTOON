@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
 import WriterWebtoon_intro from "../components/WriterWebtoon-intro.vue";
+import Webtoon_image from "../components/Webtoon-image.vue";
 
 Vue.use(VueRouter);
 
@@ -18,9 +19,14 @@ const routes = [
     component: TOTAL,
   },
   {
-    path: "/writerwbtoon_intro",
+    path: "/writerwebtoon_intro",
     name: "WriterWebtoon_intro",
     component: WriterWebtoon_intro,
+  },
+  {
+    path: "/webtoon_image",
+    name: "Webtoon_image",
+    component: Webtoon_image,
   },
 ];
 
