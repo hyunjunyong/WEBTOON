@@ -7,7 +7,7 @@
             alt="Vuetify Logo"
             class="shrink"
             contain
-            src="../img/개발자의품격 로고.png"
+            src="../img/개발자의품격로고.png"
             transition="scale-transition"
             width="40"
           />
