@@ -1,6 +1,6 @@
 <template>
   <div class="Webtoon-image-all">
-      <img src="../image/code.png" alt="" height="60%" width="60%">
+      <img src="../img/code.png" alt="" height="60%" width="60%">
       
   </div>
 </template>
