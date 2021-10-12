@@ -1,8 +1,8 @@
 <template>
   <v-app>
-<<<<<<< HEAD
+
     <Header />
-=======
+
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
@@ -22,7 +22,7 @@
       <div>검색</div>
       <div>로고</div>
     </v-app-bar>
->>>>>>> hjy
+
 
     <v-main>
       <router-view />
@@ -33,25 +33,19 @@
 </template>
 
 <script>
-<<<<<<< HEAD
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-=======
-import Footer from "./components/Footer.vue";
->>>>>>> hjy
+
 
 export default {
   name: "App",
-
   data: () => ({
     //
   }),
   components: {
     Footer,
-<<<<<<< HEAD
     Header,
-=======
->>>>>>> hjy
   },
 };
 </script>
