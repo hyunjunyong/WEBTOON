@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "Webtoon_image",
+  name: "Webtoonimage",
   data() {
     return {};
   },
