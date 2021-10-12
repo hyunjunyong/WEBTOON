@@ -7,7 +7,11 @@
             alt="Vuetify Logo"
             class="shrink"
             contain
+<<<<<<< HEAD
             src="../img/개발자의품격로고.png"
+=======
+            src="../img/pic.png"
+>>>>>>> hjy
             transition="scale-transition"
             width="40"
           />
@@ -31,9 +35,16 @@
 <script>
 export default {
   name: "Footer",
+<<<<<<< HEAD
 
+=======
+>>>>>>> hjy
   data: () => ({
     //
   }),
 };
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> hjy
