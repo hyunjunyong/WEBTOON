@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
 import VIEWER from "../views/VIEWER.vue";
+import WEBTOON_Home from "../views/WEBTOON_Home.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: "/viewer",
     name: "VIEWER",
     component: VIEWER,
+  },
+  {
+    path: "/webtoon_home",
+    name: "WEBTOON_Home",
+    component: WEBTOON_Home,
   },
 ];
 

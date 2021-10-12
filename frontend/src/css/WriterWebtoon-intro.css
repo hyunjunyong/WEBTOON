@@ -1,6 +1,7 @@
 .all {
   display: flex;
   margin: 30px;
+  width: 800px;
 }
 
 .all .sub {
@@ -8,18 +9,21 @@
 }
 
 .all .sub .sub-title {
+  padding: 10px;
   display: flex;
-}
-
-.all .sub .sub-title {
-  display: flex;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 300px;
 }
 
 .all .sub .sub-title img {
   position: absolute;
-  left: 92%;
+  left: 50%;
 }
 
 .all .sub .sub-p {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
   margin-top: 20px;
 }
