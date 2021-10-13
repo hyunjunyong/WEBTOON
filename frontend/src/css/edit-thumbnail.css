@@ -1,0 +1,25 @@
+.edit-thumbnail {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.ebutton {
+  background-color: #a2a5aa;
+  border: none;
+  color: white;
+  width: 50px;
+  height: 150px;
+  cursor: pointer;
+  float: left;
+  margin: 0px 10px;
+}
+
+.mbutton {
+  background-color: #a2a5aa;
+  border: none;
+  color: white;
+  width: 600px;
+  align-items: center;
+  margin: 20px;
+}

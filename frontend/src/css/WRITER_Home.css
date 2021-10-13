@@ -1,0 +1,9 @@
+.profile_all {
+  /* float: left; */
+}
+.status_thm {
+  border-style: dotted;
+  border-color: gray;
+  width: 60%;
+  margin-left: 30px;
+}

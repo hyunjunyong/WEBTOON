@@ -4,6 +4,9 @@ import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
 import VIEWER from "../views/VIEWER.vue";
 import WEBTOON_Home from "../views/WEBTOON_Home.vue";
+import WEBTOON_Home_WRITER from "../views/WEBTOON_Home_WRITER.vue";
+import WRITER_Home from "../views/WRITER_Home.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -26,6 +29,16 @@ const routes = [
     path: "/webtoon_home",
     name: "WEBTOON_Home",
     component: WEBTOON_Home,
+  },
+  {
+    path: "/webtoon_home_writer",
+    name: "WEBTOON_Home_WRITER",
+    component: WEBTOON_Home_WRITER,
+  },
+  {
+    path: "/writer_home",
+    name: "WRITER_Home",
+    component: WRITER_Home,
   },
 ];
 

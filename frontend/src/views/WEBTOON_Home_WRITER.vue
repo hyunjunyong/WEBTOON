@@ -1,27 +1,31 @@
 <template>
-  <div class="WRITER_Home">
+  <div class="WEBTOON_Home_WRITER">
     <WriterWebtoonIntro />
     <Writerprofile />
-    <Webtoonsortvar />
+    <div class="plus_Thumbnail">+</div>
+    <editThumbnail />
+    <editThumbnail />
+    
   </div>
 </template>
 
 <script>
+import editThumbnail from "../components/edit-thumbnail.vue"
 import WriterWebtoonIntro from '../components/WriterWebtoon-intro.vue';
 import Writerprofile from '../components/Writer-profile.vue'
-import Webtoonsortvar from '../components/Webtoon-sortvar.vue'
+
 export default {
-  name: "WEBTOON_Home",
+  name: "WEBTOON_Home_WRITER",
   data: () => ({
     //
   }),
   components: {
-    Webtoonsortvar,
+    editThumbnail,
     WriterWebtoonIntro,
     Writerprofile,
   },
 };
 </script>
 <style scoped>
-  @import "../css/WEBTOON_Home.css"
+  @import "../css/WEBTOON_Home_WRITER.css"
 </style>
