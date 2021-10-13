@@ -11,7 +11,11 @@
           width="40"
         />
 
-        <div>개발자의 품격</div>
+        <div>개발자의 품격 </div> |
+        <router-link to="/viewer" :style="{ color: 'white'}">viewer</router-link> |
+        <router-link to="/webtoon_home" :style="{ color: 'white'}">wetoon_home</router-link> | 
+        <router-link to="/webtoon_home_writer" :style="{ color: 'white'}">webtoon_home_writer</router-link> |
+        <router-link to="/writer_home" :style="{ color: 'white'}">writer_home</router-link>
       </div>
 
       <v-spacer></v-spacer>
