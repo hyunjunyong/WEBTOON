@@ -22,6 +22,26 @@
         <router-link to="/total"
           ><strong class="router-text">전체만화</strong></router-link
         >
+        <span class="router-text"> | </span>
+
+        <router-link to="/viewer"
+          ><strong class="router-text">이미지뷰어</strong></router-link
+        >
+        <span class="router-text"> | </span>
+
+        <router-link to="/webtoon_home"
+          ><strong class="router-text">작품</strong></router-link
+        >
+        <span class="router-text"> | </span>
+
+        <router-link to="/webtoon_home_writer"
+          ><strong class="router-text">작가</strong></router-link
+        >
+        <span class="router-text"> | </span>
+
+        <router-link to="/writer_home"
+          ><strong class="router-text">작가홈</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
