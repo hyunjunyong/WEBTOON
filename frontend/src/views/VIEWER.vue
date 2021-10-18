@@ -52,6 +52,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../css/VIEWER.css"
-  
+
 </style>
