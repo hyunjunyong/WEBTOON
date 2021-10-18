@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="justify-center">
     <v-row>
-      <v-col class="col-3 d-flex">
+      <v-col class="col-2 d-flex ml-10 pl-10">
         <v-img src="../img/writer_profile.png" alt="" height="150px" width="150px" />
         <v-img src="../img/setting.png" alt="" height="40px" width="40px" />
         <v-img class="align-self-end" src="../img/like.png" alt="" height="40px" width="40px" />   
