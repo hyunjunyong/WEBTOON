@@ -1,24 +1,41 @@
 <template>
-  <div class="profile_all">
-    <div class="profile_img">
-        <img src="../img/setting.png" class="profile_img setting" alt="" height="50px" width="50px">
-        <img src="../img/writer_profile.png" class="profile_img main" alt="" height="150px" width="150px">
-        <img src="../img/like.png" class="profile_img like" alt="" height="50px" width="50px">    
-    </div>
-
-    <div class="profile_border">
-        <p>작가명</p>
-    </div>
-    <div class="profile_border">
-        <p>작가의 말</p>
-        <p>가입날짜</p>
-    </div>
-
-    <div>
-        <div class="profile_border">획득 뱃지</div>
-        <img src="../img/badge.png" alt="" height="65px" width="65px">
-    </div>
-  </div>
+  <v-container fluid class="justify-center">
+    <v-row>
+      <v-col class="col-3 d-flex">
+        <v-img src="../img/writer_profile.png" alt="" height="150px" width="150px" />
+        <v-img src="../img/setting.png" alt="" height="40px" width="40px" />
+        <v-img class="align-self-end" src="../img/like.png" alt="" height="40px" width="40px" />   
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="col-3">
+        <v-card class="text-center">작가명</v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="col-3">
+        <v-card class="text-center">작가명</v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="col-3">
+        <v-card class="text-center">
+          <p>작가의 말</p>
+          <p>가입날짜</p>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="col-3">
+        <v-card class="text-center">획득뱃지</v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="col-3 pt-0">
+        <v-img src="../img/badge.png" alt="" height="65px" width="65px" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -32,5 +49,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "../css/Writer-profile.css"
+    
 </style>
