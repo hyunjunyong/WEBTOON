@@ -1,8 +1,8 @@
 <template>
     <v-container fluid>
         <v-row v-for="(toon,index) in webtoon" :key="index">
-            <v-col class="col-2"><v-img :src="toon.url" width="150" height="150" /></v-col>
-            <v-col class="col-8"><v-card>{{toon.round}} | toon.date</v-card></v-col>
+            <v-col class="col-3"><v-img :src="toon.url" width="150" height="150" /></v-col>
+            <v-col class="col-9"><v-card>{{toon.round}} | toon.date</v-card></v-col>
         </v-row>
     </v-container>
 </template>

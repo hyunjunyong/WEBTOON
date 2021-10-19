@@ -1,9 +1,15 @@
 <template>
-  <div class="WRITER_Home">
-    <WriterWebtoonIntro />
-    <Writerprofile />
-    <Webtoonsortvar />
-  </div>
+  <v-container fluid>
+    <v-row>
+      <v-col class="col-7">
+        <WriterWebtoonIntro />
+        <Webtoonsortvar />
+      </v-col>
+      <v-col class="col-4">
+        <Writerprofile />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

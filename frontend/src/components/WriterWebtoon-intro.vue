@@ -4,7 +4,7 @@
       <v-col class="col-3">
         <v-img src="../img/nft.png" height="150px" width="300px"/>
       </v-col>
-      <v-col class="col-7">
+      <v-col class="col-9">
         <v-row>
           <v-col class="col-9">
             <v-card class="mb-5" height="40px" width="80%">
