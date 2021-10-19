@@ -1,8 +1,7 @@
 <template>
-  <div class="Webtoon-image-all">
-      <img src="../img/code.png" alt="" height="60%" width="60%">
-      
-  </div>
+  <v-img src="../img/code.png" 
+  max-width="624px" 
+  max-height="600px" />
 </template>
 
 <script>
