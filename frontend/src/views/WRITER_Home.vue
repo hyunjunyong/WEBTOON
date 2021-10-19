@@ -1,38 +1,18 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col>
-        <v-card class="text-center">작가의 다른 작품 추천</v-card>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col v-for="n in 4" :key="n" cols="3" class="pa-0">
-        <Thumbnail />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="pa-0">
-        <v-btn block>
-          <v-icon>mdi-arrow-left</v-icon>
-        </v-btn>
-      </v-col>
-      <v-col class="pa-0">
-        <v-btn block>
-          <v-icon>mdi-arrow-right</v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
+    <viewerend />
+    <rejectreason />
   </v-container>
 </template>
 
 <script>
-import Thumbnail from '../components/Thumbnail.vue';
-
+import viewerend from '../components/viewer-end.vue';
+import rejectreason from '../components/reject-reason.vue'
 export default {
   name: "WRITER_Home",
   components: {
-    Thumbnail
-    
+    viewerend,
+    rejectreason
   },
 };
 </script>
