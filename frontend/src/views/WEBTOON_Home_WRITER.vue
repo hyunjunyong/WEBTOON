@@ -1,11 +1,11 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-row>
-      <v-col class="col-7">
+      <v-col cols="8">
         <WriterWebtoonIntro />
         <editthumbnail />
       </v-col>
-      <v-col class="col-4">
+      <v-col cols=4>
         <Writerprofile />
       </v-col>
     </v-row>
