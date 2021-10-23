@@ -1,24 +1,27 @@
 <template>
     <v-container fluid>
         <v-row v-for="(toon,index) in webtoon" :key="index">
-            <v-btn class="col-1" dark small color="green" height="150"> <v-icon dark>mdi-pencil</v-icon></v-btn>
             <v-col class="col-3"><v-img :src="toon.url" width="150" height="150" /></v-col>
             <v-col class="col-7"><v-card>{{toon.round}} | {{toon.date}}</v-card></v-col>
+            <approvebtn />
         </v-row>
     </v-container>
 </template>
 
 <script>
+import approvebtn from "../components/approve-btn";
 
 export default {
-    name:'adit-thumbnail',
-    components: {},
+    name:'approve-thumbnail',
+    components: {
+        approvebtn,
+    },
     data(){
         return{
             webtoon:[
-                {url:require("../img/nft.png"), round:"3화", date:"2021-10-13"},
-                {url:require("../img/nft.png"), round:"2화", date:"2021-10-6"},
-                {url:require("../img/nft.png"), round:"1화", date:"2021-10-1"},
+                {url:require("../img/nft.png"), round:"3화", date:"2021-10-13", approve:"심사 중"},
+                {url:require("../img/nft.png"), round:"2화", date:"2021-10-6", approve:"반려"},
+                {url:require("../img/nft.png"), round:"1화", date:"2021-10-1", approve:"승인"},
             ]
         }
     },
