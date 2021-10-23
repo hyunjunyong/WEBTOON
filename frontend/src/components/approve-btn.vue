@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-flex xs1>
-        <v-btn :label="approve" class="col-1" dark small color="green" height="150">{{approve}}</v-btn>
+        <v-btn class="col-1" dark small color="green" height="150">심사 중</v-btn>
         </v-flex>
     </v-container>
 </template>
@@ -15,7 +15,7 @@ export default {
     data(){
         return{
             webtoon:[
-                {approve:"심사 중"},
+                
             ]
         }
     },
