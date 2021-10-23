@@ -16,6 +16,7 @@
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue";
 import Writerprofile from "../components/Writer-profile.vue";
 import Webtoonsortvar from "../components/Webtoon-sortvar.vue";
+
 export default {
   name: "WEBTOON_Home",
   data: () => ({
