@@ -30,5 +30,5 @@ export default {
 };
 </script>
 <style scoped>
-@import "../css/WEBTOON_Home.css";
+
 </style>
