@@ -14,6 +14,7 @@
         <div>개발자의 품격</div>
       </div>
 
+      <!-- 화면 이동용 라우터 -->
       <p class="ma-4">
         <router-link to="/"
           ><strong class="router-text">홈</strong></router-link
@@ -41,6 +42,12 @@
 
         <router-link to="/writer_home"
           ><strong class="router-text">작가홈</strong></router-link
+        >
+
+        <span class="router-text"> | </span>
+
+        <router-link to="/모달테스트"
+          ><strong class="router-text">모달테스트</strong></router-link
         >
       </p>
 
