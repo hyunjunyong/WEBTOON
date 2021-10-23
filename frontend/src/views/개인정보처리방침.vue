@@ -1,8 +1,8 @@
 <template>
-  <v-container class="공지">
+  <v-container class="개인정보처리방침">
     <v-card>
       <v-card-text>
-        공지 ㅋㅋㄹㅃㅃ
+        개인정보처리방침 ㅋㅋㄹㅃㅃ
       </v-card-text>
     </v-card>
   </v-container>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "공지",
+  name: "개인정보처리방침",
   components: {},
 };
 </script>
