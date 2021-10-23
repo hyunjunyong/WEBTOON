@@ -11,6 +11,7 @@ import 이용약관 from "../views/이용약관.vue";
 import 공지 from "../views/공지.vue";
 import 회사정보 from "../views/회사정보.vue";
 import 모달테스트 from "../views/모달테스트.vue";
+import EDIT_EPISODE from "../views/EDIT_EPISODE";
 
 Vue.use(VueRouter);
 
@@ -69,6 +70,11 @@ const routes = [
     path: "/모달테스트",
     name: "모달테스트",
     component: 모달테스트,
+  },
+  {
+    path: "/EDIT_EPISODE",
+    name: "EDIT_EPISODE",
+    component: EDIT_EPISODE,
   },
 ];
 

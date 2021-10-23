@@ -1,4 +1,12 @@
 <template>
+  <!--  
+  작가 사용자에게 보이는 작품 홈 페이지 에피소드 컴포넌트
+  
+  수정 버튼이 있으며 상단 EDIT 클릭시 에피소드 작성 페이지로 이동
+
+  에피소드 옆 연필 버튼 클릭시 에피소드 수정 페이지 모달 생성
+  
+-->
     <v-container fluid>
         <v-app id="inspire">
         <v-card
@@ -12,15 +20,18 @@
           >
             최신화부터 | 1화부터
           </v-banner>
-            <v-btn
-            block
-            height="100"
-            >
+
+          <router-link to="/EDIT_EPISODE" class="ma-2">
+             <v-btn
+             block
+             height="100"
+             >
                 <v-icon>
                     mdi-pencil
                 </v-icon>
                     Edit
             </v-btn>
+          </router-link>
           <v-card-text>
             <div
               :key="n"
