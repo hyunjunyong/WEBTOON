@@ -30,13 +30,14 @@
             </v-icon>
         </v-btn>
       </v-col>
+      <viewerend />
     </v-row>
   </v-container>
 </template>
 
 <script>
 import Webtoonimage from "../components/Webtoon-image";
-
+import viewerend from '../components/viewer-end.vue';
 export default {
   name: "VIEWER",
   data: () => ({
@@ -44,6 +45,7 @@ export default {
   }),
   components: {
     Webtoonimage,
+    viewerend,
   },
   method: {
    
