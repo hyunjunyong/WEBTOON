@@ -1,8 +1,8 @@
 <template>
-  <v-container class="이용약관">
+  <v-container class="공지">
     <v-card>
       <v-card-text>
-        이용약관임 ㅋㅋㄹㅃㅃ
+        공지 ㅋㅋㄹㅃㅃ
       </v-card-text>
     </v-card>
   </v-container>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "이용약관",
+  name: "공지",
   components: {},
 };
 </script>

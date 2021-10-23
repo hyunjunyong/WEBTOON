@@ -1,11 +1,18 @@
 <template>
-  <v-container fluid>
+  <!--  
+  작품 홈
+  작품 소개, 에피소드, 작가프로필 컴포넌트를 사용함
+  
+  썸네일을 누르면 이동하는 화면
+-->
+  <v-container>
     <v-row>
-      <v-col class="col-7">
+      <v-col cols="8">
         <WriterWebtoonIntro />
         <Webtoonsortvar />
       </v-col>
-      <v-col class="col-4">
+
+      <v-col cols="4">
         <Writerprofile />
       </v-col>
     </v-row>
@@ -29,6 +36,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import "../css/WEBTOON_Home.css";
-</style>
+<style scoped></style>
