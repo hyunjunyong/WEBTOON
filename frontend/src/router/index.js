@@ -10,6 +10,7 @@ import 개인정보처리방침 from "../views/개인정보처리방침.vue";
 import 이용약관 from "../views/이용약관.vue";
 import 공지 from "../views/공지.vue";
 import 회사정보 from "../views/회사정보.vue";
+import EDIT_EPISODE from "../views/EDIT_EPISODE";
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const routes = [
     path: "/회사정보",
     name: "회사정보",
     component: 회사정보,
+  },
+  {
+    path: "/EDIT_EPISODE",
+    name: "EDIT_EPISODE",
+    component: EDIT_EPISODE,
   },
 ];
 
