@@ -1,4 +1,10 @@
 <template>
+  <!--  
+  승인 버튼 컴포넌트
+  
+  심사 중  
+  
+-->
     <v-container>
         <v-flex xs1>
         <v-btn class="col-1" dark small color="green" height="150">심사 중</v-btn>
