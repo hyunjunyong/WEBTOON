@@ -1,4 +1,5 @@
 <template>
+<!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
     <v-row class="mb-2">
       <v-col class="col-3">

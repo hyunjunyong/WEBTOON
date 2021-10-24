@@ -12,6 +12,7 @@ import 공지 from "../views/공지.vue";
 import 회사정보 from "../views/회사정보.vue";
 import 모달테스트 from "../views/모달테스트.vue";
 import EDIT_EPISODE from "../views/EDIT_EPISODE";
+import register_writer from "../views/register_writer";
 
 Vue.use(VueRouter);
 
@@ -75,6 +76,11 @@ const routes = [
     path: "/EDIT_EPISODE",
     name: "EDIT_EPISODE",
     component: EDIT_EPISODE,
+  },
+  {
+    path: "/register_writer",
+    name: "register_writer",
+    component: register_writer,
   },
 ];
 

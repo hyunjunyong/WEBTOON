@@ -1,4 +1,5 @@
 <template>
+<!-- 웹툰 홈에 들어갈 웹툰 썸네일과 화수, 등록일자 -->
     <div id="app">
       <v-app id="inspire">
         <v-card
@@ -35,12 +36,7 @@
 </template>
 
 <script>
-// <v-container fluid>
-        // <v-row v-for="(toon,index) in webtoon" :key="index">
-        //     <v-col class="col-3"><v-img :src="toon.url" width="150" height="150" /></v-col>
-        //     <v-col class="col-9"><v-card>{{toon.round}} | toon.date</v-card></v-col>
-        // </v-row>
-//     </v-container>
+
 export default {
     name:'Webtoon-sortvar',
     components: {},

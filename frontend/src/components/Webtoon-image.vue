@@ -1,4 +1,5 @@
 <template>
+<!-- 웹툰 화면 -->
   <v-img src="../img/code.png" 
   max-width="624px" 
   max-height="600px" />
