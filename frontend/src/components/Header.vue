@@ -68,7 +68,7 @@
         <input />
       </v-row>
 
-      <v-img src="../img/premium-icon-user-5461392.png" max-width="40" />
+      <v-avatar color="red" size="40">HJ</v-avatar>
     </v-app-bar>
   </v-container>
 </template>
