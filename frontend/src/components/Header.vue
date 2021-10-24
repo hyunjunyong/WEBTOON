@@ -68,7 +68,7 @@
         <input />
       </v-row>
 
-      <v-avatar color="red" size="40">HJ</v-avatar>
+      <v-hover><v-avatar color="red" size="40">HJ</v-avatar></v-hover>
     </v-app-bar>
   </v-container>
 </template>

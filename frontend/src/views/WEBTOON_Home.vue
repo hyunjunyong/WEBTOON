@@ -8,7 +8,10 @@
   <v-container>
     <v-row>
       <v-col cols="8">
+        <!-- 작품 설명 -->
         <WriterWebtoonIntro />
+
+        <!-- 에피소드 리스트  -->
         <Webtoonsortvar />
       </v-col>
 
@@ -20,9 +23,9 @@
 </template>
 
 <script>
-import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue";
+import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
+import Webtoonsortvar from "../components/Webtoon-sortvar.vue"; //에피소드 리스트
 import Writerprofile from "../components/Writer-profile.vue";
-import Webtoonsortvar from "../components/Webtoon-sortvar.vue";
 
 export default {
   name: "WEBTOON_Home",
