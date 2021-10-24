@@ -1,4 +1,6 @@
 <template>
+<!-- 만화 보는 페이지에 하단 
+작가의 다른작품 추천과 다음화 이전화로 넘어갈 수 있게함 -->
       <v-container>
     <v-row dense>
       <v-col>

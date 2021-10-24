@@ -1,4 +1,5 @@
 <template>
+<!-- 작가 프로필 -->
   <v-container fluid class="justify-center">
     <v-row>
       <v-col class="col-7 d-flex ml-10 pl-10">

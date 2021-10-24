@@ -1,4 +1,5 @@
 <template>
+<!-- 웹툰 썸네일 컴포넌트 -->
   <v-container>
     <router-link to="/webtoon_home">
       <v-card max-width="250" v-cl v-on:click="testF">

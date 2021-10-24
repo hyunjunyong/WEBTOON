@@ -49,6 +49,11 @@
         <router-link to="/모달테스트"
           ><strong class="router-text">모달테스트</strong></router-link
         >
+        <span class="router-text"> | </span>
+
+        <router-link to="/register_writer"
+          ><strong class="router-text">작품 등록하기</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>

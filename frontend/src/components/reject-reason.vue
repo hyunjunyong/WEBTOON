@@ -1,4 +1,5 @@
 <template>
+<!-- 반려를 진행할때 해당 사유와 함께 체크 -->
     <v-container>
         <v-row>
             <v-col
