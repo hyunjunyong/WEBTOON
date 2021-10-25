@@ -54,6 +54,9 @@
         <router-link to="/register_writer"
           ><strong class="router-text">{{ testingText }}</strong></router-link
         >
+        <router-link to="/Boardlist"
+          ><strong class="router-text">게시판</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>

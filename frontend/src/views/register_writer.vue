@@ -1,4 +1,5 @@
 <template>
+<!-- 작품 등록 페이지 -->
     <v-container>
         <v-row>
             <v-col>
@@ -16,7 +17,7 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="col-3" >
+            <v-col cols="3" >
                 <v-card class="text-center" height="40">장르 선택</v-card>
             </v-col>
             <v-col v-for="item in genre" :key="item.index">
@@ -54,14 +55,14 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="col-7">
+            <v-col cols="7">
                 <v-file-input
                     truncate-length="15"
                     class="align-center"
                 ></v-file-input>
             </v-col>
              <v-spacer></v-spacer>
-            <v-col class="col-3 text-center">
+            <v-col class="text-center" cols="3">
                 <img src="../img/nft.png" alt="" width="150px" height="150px">
             </v-col>
         </v-row>

@@ -13,6 +13,8 @@ import 회사정보 from "../views/회사정보.vue";
 import 모달테스트 from "../views/모달테스트.vue";
 import EDIT_EPISODE from "../views/EDIT_EPISODE";
 import register_writer from "../views/register_writer";
+import BOARDLIST from "../views/BOARDLIST.vue";
+import BOARDWRITER from "../views/BOARDWRITER.vue";
 
 Vue.use(VueRouter);
 
@@ -81,6 +83,16 @@ const routes = [
     path: "/register_writer",
     name: "register_writer",
     component: register_writer,
+  },
+  {
+    path: "/Boardlist",
+    name: "BOARDLIST",
+    component: BOARDLIST,
+  },
+  {
+    path: "/Boardwriter",
+    name: "BOARDWRITER",
+    component: BOARDWRITER,
   },
 ];
 
