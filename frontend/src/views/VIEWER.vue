@@ -16,8 +16,8 @@
           </v-icon>
         </v-btn>
       </v-col>
-      <v-col class="col-6"><Webtoonimage/></v-col>
-      <!-- webtoon viewer -->
+      <v-col cols="6"><Webtoonimage/></v-col>
+      <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
       <v-col>
         <v-btn
           to="/"

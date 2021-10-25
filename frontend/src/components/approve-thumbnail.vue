@@ -11,18 +11,21 @@
         <v-row v-for="(toon,index) in webtoon" :key="index">
             <v-col class="col-3"><v-img :src="toon.url" width="150" height="150" /></v-col>
             <v-col class="col-7"><v-card>{{toon.round}} | {{toon.date}}</v-card></v-col>
-            <v-col class="col-1"><approvebtn /></v-col>
+            <v-col class="col-1">
+                <v-flex xs1>
+                <v-btn class="col-1" dark small color="green" height="150">심사 중</v-btn>
+                </v-flex>
+            </v-col>
         </v-row>
+        
     </v-container>
 </template>
 
 <script>
-import approvebtn from "../components/approve-btn";
 
 export default {
     name:'approve-thumbnail',
     components: {
-        approvebtn,
     },
     data(){
         return{

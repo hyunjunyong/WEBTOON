@@ -9,11 +9,14 @@
     <v-row>
       <v-col cols="8">
         <WriterWebtoonIntro />
-        <Webtoonsortvar />
+        <!-- 특정 웹툰을 소개하는 컴포넌트 -->
+        <webtoonround :webtoon_round_State="0" />
+        <!-- 특정 웹툰의 화수를 나타내는 컴포넌트 -->
       </v-col>
 
       <v-col cols="4">
         <Writerprofile />
+        <!-- 작가 프로필 컴포넌트-->
       </v-col>
     </v-row>
   </v-container>
@@ -22,17 +25,16 @@
 <script>
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue";
 import Writerprofile from "../components/Writer-profile.vue";
-import Webtoonsortvar from "../components/Webtoon-sortvar.vue";
-
+import webtoonround from "../components/webtoon-round.vue"
 export default {
   name: "WEBTOON_Home",
   data: () => ({
     //
   }),
   components: {
-    Webtoonsortvar,
     WriterWebtoonIntro,
     Writerprofile,
+    webtoonround,
   },
 };
 </script>

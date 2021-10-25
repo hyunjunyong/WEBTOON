@@ -5,7 +5,7 @@
       <v-col cols="8">
         <WriterWebtoonIntro />
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
-        <editthumbnail />
+        <webtoonround :webtoon_round_State="1" />
         <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
       </v-col>
       <v-col cols=4>
@@ -19,7 +19,7 @@
 <script>
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue";
 import Writerprofile from "../components/Writer-profile.vue";
-import editthumbnail from "../components/edit-thumbnail.vue";
+import webtoonround from "../components/webtoon-round.vue"
 
 
 export default {
@@ -28,10 +28,9 @@ export default {
     //
   }),
   components: {
-    editthumbnail,
+    webtoonround,
     WriterWebtoonIntro,
     Writerprofile,
-    
   },
 };
 </script>
