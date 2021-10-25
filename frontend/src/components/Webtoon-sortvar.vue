@@ -1,7 +1,7 @@
 <template>
   <!-- 웹툰 홈에 들어갈 웹툰 썸네일과 화수, 등록일자 -->
   <v-container>
-    <v-card v-scroll.self="onScroll" class="overflow-y-auto" max-height="400">
+    <v-card v-scroll.self="onScroll" class="overflow-y-auto" max-height="450">
       <v-banner class="justify-center font-weight-light white" sticky>
         최신화부터 | 1231화부터
       </v-banner>
