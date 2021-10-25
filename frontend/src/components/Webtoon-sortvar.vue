@@ -25,8 +25,8 @@
               class="mb-4"
             >
                 <v-row v-for="(toon,index) in webtoon" :key="index">
-                    <v-col class="col-3"><v-img :src="toon.url" width="150" height="150" /></v-col>
-                    <v-col class="col-9"><v-card>{{toon.round}} | toon.date</v-card></v-col>
+                    <v-col cols="3"><router-link to="/viewer"><v-img :src="toon.url" width="150" height="150" /></router-link></v-col>
+                    <v-col cols="9"><v-card>{{toon.round}} | {{toon.date}}</v-card></v-col>
                 </v-row>
             </div>
           </v-card-text>

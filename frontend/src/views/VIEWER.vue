@@ -1,4 +1,8 @@
 <template>
+  <!-- 
+    웹툰에서 특정 화수를 클릭시 보이는 화면
+
+   -->
   <v-container fluid>
     <v-row>
       <v-col>
