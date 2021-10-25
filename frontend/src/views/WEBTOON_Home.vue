@@ -16,7 +16,9 @@
       </v-col>
 
       <v-col cols="4">
-        <Writerprofile />
+        <router-link to="/writer_home">
+          <Writerprofile />
+        </router-link>
         <!-- 작가 프로필 컴포넌트-->
       </v-col>
     </v-row>
