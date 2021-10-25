@@ -51,8 +51,8 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/register_writer"
-          ><strong class="router-text">작품 등록하기</strong></router-link
+        <router-link to="/Boardlist"
+          ><strong class="router-text">게시판</strong></router-link
         >
       </p>
 
