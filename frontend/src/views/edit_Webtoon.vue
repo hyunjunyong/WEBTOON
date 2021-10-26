@@ -1,5 +1,5 @@
 <template>
-<!-- 작품 등록 페이지 -->
+<!-- 작품 수정 페이지 -->
     <v-container>
         <v-row>
             <v-col>

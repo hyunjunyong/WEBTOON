@@ -18,7 +18,7 @@ import BOARDWRITER from "../views/BOARDWRITER.vue";
 import APPLY_WRITER from "../views/apply_writer.vue";
 import APPLY_COMPANY from "../views/apply_company.vue";
 import edit_Webtoon from "../views/edit_Webtoon";
-
+import register_state from "../views/register_state";
 Vue.use(VueRouter);
 
 const routes = [
@@ -111,6 +111,11 @@ const routes = [
     path: "/edit_Webtoon",
     name: "edit_Webtoon",
     component: edit_Webtoon,
+  },
+  {
+    path: "/register_state",
+    name: "register_state",
+    component: register_state,
   },
 ];
 
