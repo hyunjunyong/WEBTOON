@@ -123,7 +123,39 @@
             <v-col class="col-7"><v-card>{{toon.round}} | {{toon.date}}</v-card></v-col>
             <v-col class="col-1">
                 <v-flex xs1>
-                <v-btn class="col-1" dark small color="green" height="150">심사 중</v-btn>
+                <v-dialog
+                v-model="dialog"
+                width="500"
+                >
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn class="col-1"
+                        dark 
+                        small 
+                        color="green" 
+                        height="150" 
+                        v-bind="attrs"
+                        v-on="on">{{toon.state}}</v-btn>
+                    </template>
+
+                    <v-card>
+                        <v-card-title class="text-h5 grey lighten-2">
+                        작품 반려 사유
+                        </v-card-title>
+                        <v-card-text height="40">
+                        사유 <br />작품 중복
+                        </v-card-text>
+                        <v-divider />
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            block
+                            color="primary"
+                            text
+                            @click="dialog = false"
+                        >
+                            확인
+                        </v-btn>
+                    </v-card>
+                    </v-dialog>
                 </v-flex>
             </v-col>
         </v-row>
@@ -147,9 +179,9 @@ export default {
         return{
             dialog: false,
             webtoon:[
-                {url:require("../img/nft2.png"), round:"3화", date:"2021-10-13"},
-                {url:require("../img/nft2.png"), round:"2화", date:"2021-10-6"},
-                {url:require("../img/nft2.png"), round:"1화", date:"2021-10-1"},
+                {url:require("../img/nft2.png"), round:"3화", date:"2021-10-13", state:"승인완료"},
+                {url:require("../img/nft2.png"), round:"2화", date:"2021-10-6", state:"반려중"},
+                {url:require("../img/nft2.png"), round:"1화", date:"2021-10-1", state:"승인대기중"},
             ]
             
             
