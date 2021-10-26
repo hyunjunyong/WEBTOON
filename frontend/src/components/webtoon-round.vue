@@ -101,7 +101,10 @@
     </v-container>
   </div>
 </template>
+
 <script>
+import editepisode from "./edit-episode";
+
 export default {
   name: "",
   components: {},

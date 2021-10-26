@@ -54,6 +54,8 @@
         <router-link to="/register_writer"
           ><strong class="router-text">{{ testingText }}</strong></router-link
         >
+        <span class="router-text"> | </span>
+
         <router-link to="/Boardlist"
           ><strong class="router-text">게시판</strong></router-link
         >
@@ -95,7 +97,14 @@
           USER 3
         </v-card-text>
         <v-card-text>
-          USER 4
+          <router-link to="/apply_writer">
+            작가 신청
+          </router-link>
+        </v-card-text>
+        <v-card-text>
+          <router-link to="/apply_company">
+            기업 회원 신청
+          </router-link>
         </v-card-text>
       </v-card>
     </v-app-bar>
