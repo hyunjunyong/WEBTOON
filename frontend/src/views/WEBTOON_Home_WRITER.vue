@@ -8,7 +8,7 @@
         <webtoonround :webtoon_round_State="1" />
         <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
       </v-col>
-      <v-col cols=4>
+      <v-col cols="4">
         <Writerprofile />
         <!-- 작가 프로필 컴포넌트-->
       </v-col>
@@ -20,7 +20,6 @@
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue";
 import Writerprofile from "../components/Writer-profile.vue";
 import webtoonround from "../components/webtoon-round.vue"
-
 
 export default {
   name: "WEBTOON_Home_WRITER",
@@ -34,6 +33,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

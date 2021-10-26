@@ -1,9 +1,9 @@
 <template>
-<!-- 웹툰 썸네일 컴포넌트 -->
+  <!-- 웹툰 썸네일 컴포넌트 -->
   <v-container>
     <router-link to="/webtoon_home">
-      <v-card max-width="250" v-cl v-on:click="testF">
-        <v-img max-height="150" max-width="250" src="../img/leon.jpg" />
+      <v-card v-on:click="testF">
+        <v-img max-height="150" src="../img/leon.jpg" />
 
         <v-card-title class="ma-1">
           개발자의 품격

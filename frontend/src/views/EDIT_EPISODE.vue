@@ -1,16 +1,24 @@
 <template>
-  <v-container class="EDIT_EPISODE">
-    <v-card>
-      <v-card-text>
-        에피소드 올리는 페이지
-      </v-card-text>
-    </v-card>
-  </v-container>
-</template>
+<!-- 에피소드 등록 페이지 -->
+    <v-container>
+        <v-row>
+            <v-col>
+                <v-card class="text-center text-h3" height="60">에피소드 등록하기</v-card>
+            </v-col>
+        </v-row>
+        <editepisode />
+    </v-container>
+
+</template> 
+
 
 <script>
-export default {
-  name: "EDIT_EPISODE",
-  components: {},
+import editepisode from "../components/edit-episode"
+
+export default { 
+    name: '', 
+    components: {
+        editepisode,
+    },
 };
 </script>

@@ -8,6 +8,7 @@
   <v-container>
     <v-row>
       <v-col cols="8">
+        <!-- 작품 설명 -->
         <WriterWebtoonIntro />
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
         <webtoonround :webtoon_round_State="0" />
@@ -15,7 +16,9 @@
       </v-col>
 
       <v-col cols="4">
-        <Writerprofile />
+        <router-link to="/writer_home">
+          <Writerprofile />
+        </router-link>
         <!-- 작가 프로필 컴포넌트-->
       </v-col>
     </v-row>
@@ -23,9 +26,10 @@
 </template>
 
 <script>
-import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue";
+import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
 import Writerprofile from "../components/Writer-profile.vue";
 import webtoonround from "../components/webtoon-round.vue"
+
 export default {
   name: "WEBTOON_Home",
   data: () => ({
