@@ -12,11 +12,12 @@ import 공지 from "../views/공지.vue";
 import 회사정보 from "../views/회사정보.vue";
 import 모달테스트 from "../views/모달테스트.vue";
 import EDIT_EPISODE from "../views/EDIT_EPISODE";
-import register_writer from "../views/register_writer";
+import register_Webtoon from "../views/register_Webtoon";
 import BOARDLIST from "../views/BOARDLIST.vue";
 import BOARDWRITER from "../views/BOARDWRITER.vue";
 import APPLY_WRITER from "../views/apply_writer.vue";
 import APPLY_COMPANY from "../views/apply_company.vue";
+import edit_Webtoon from "../views/edit_Webtoon";
 
 Vue.use(VueRouter);
 
@@ -82,9 +83,9 @@ const routes = [
     component: EDIT_EPISODE,
   },
   {
-    path: "/register_writer",
-    name: "register_writer",
-    component: register_writer,
+    path: "/register_Webtoon",
+    name: "register_Webtoon",
+    component: register_Webtoon,
   },
   {
     path: "/Boardlist",
@@ -105,6 +106,11 @@ const routes = [
     path: "/apply_company",
     name: "APPLY_COMPANY",
     component: APPLY_COMPANY,
+  },
+  {
+    path: "/edit_Webtoon",
+    name: "edit_Webtoon",
+    component: edit_Webtoon,
   },
 ];
 
