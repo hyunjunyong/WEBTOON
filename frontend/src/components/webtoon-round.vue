@@ -72,9 +72,36 @@
               :key="n"
               class="mb-4"
             >
-                 <v-row v-for="(toon,index) in webtoon" :key="index">
-                    <v-btn class="col-1" dark small color="green" height="150"> <v-icon dark>mdi-pencil</v-icon></v-btn>
-                    <v-col class="col-3"><v-img :src="toon.url" width="150" height="150" /></v-col>
+            <!-- 에피소드 수정하기 모달창 -->
+                <v-row v-for="(toon,index) in webtoon" :key="index">
+                    <v-dialog v-model="dialog" width="500">
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn class="col-1" color="green" dark v-bind="attrs" v-on="on" small  height="150">
+                                <v-icon dark>mdi-pencil</v-icon>
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-card-title class="text-h5 grey lighten-2">
+                             에피소드 등록하기
+                             </v-card-title>
+  
+                             <v-card-text>
+                                <editepisode />
+                             </v-card-text>
+                              <v-divider></v-divider>
+  
+                             <v-card-actions>
+                               <v-spacer></v-spacer>
+                             <v-btn color="primary" text @click="dialog = false" >
+                                취소
+                             </v-btn>
+                            </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+
+                    <!-- 에피소드 썸네일 -->
+                    <v-col class="col-3"><router-link to="/viewer"><v-img :src="toon.url" width="150" height="150" /></router-link></v-col>
                     <v-col class="col-7"><v-card>{{toon.round}} | {{toon.date}}</v-card></v-col>
                 </v-row>
             </div>
@@ -104,18 +131,28 @@
     </v-container>
     </div>
 </template>
+
+
 <script>
+import editepisode from "./edit-episode"
+
+
 export default {
     name:'',
-    components: {},
+    components: {
+        editepisode
+    },
     props: ["webtoon_round_State"],
     data(){
         return{
+            dialog: false,
             webtoon:[
                 {url:require("../img/nft2.png"), round:"3화", date:"2021-10-13"},
                 {url:require("../img/nft2.png"), round:"2화", date:"2021-10-6"},
                 {url:require("../img/nft2.png"), round:"1화", date:"2021-10-1"},
             ]
+            
+            
         }
     },
     setup(){},

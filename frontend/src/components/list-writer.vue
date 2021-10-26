@@ -32,7 +32,6 @@
                     class="align-center"
                 ></v-file-input>
             </v-col>
-        <v-col>
         <v-row justify="center" >
             <v-spacer></v-spacer>
             <router-link to="/Boardlist">
@@ -44,7 +43,6 @@
             </router-link>
             <v-spacer></v-spacer>
         </v-row>
-        </v-col>
         </v-container>
     </v-form>
 </template>
