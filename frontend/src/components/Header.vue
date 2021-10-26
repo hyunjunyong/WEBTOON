@@ -95,6 +95,11 @@
             작가 신청
             </router-link>
         </v-card-text>
+        <v-card-text>
+            <router-link to="/apply_company">
+            기업 회원 신청
+            </router-link>
+        </v-card-text>
       </v-card>
     </v-app-bar>
   </v-container>
