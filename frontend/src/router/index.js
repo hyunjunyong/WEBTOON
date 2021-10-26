@@ -15,6 +15,7 @@ import EDIT_EPISODE from "../views/EDIT_EPISODE";
 import register_writer from "../views/register_writer";
 import BOARDLIST from "../views/BOARDLIST.vue";
 import BOARDWRITER from "../views/BOARDWRITER.vue";
+import kakao_login from "../views/kakao_login.vue";
 
 Vue.use(VueRouter);
 
@@ -93,6 +94,11 @@ const routes = [
     path: "/Boardwriter",
     name: "BOARDWRITER",
     component: BOARDWRITER,
+  },
+  {
+    path: "/kakao_login",
+    name: "kakao_login",
+    component: kakao_login,
   },
 ];
 

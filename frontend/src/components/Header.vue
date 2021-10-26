@@ -57,6 +57,12 @@
         <router-link to="/Boardlist"
           ><strong class="router-text">게시판</strong></router-link
         >
+
+        <span class="router-text"> | </span>
+
+        <router-link to="/kakao_login"
+          ><strong class="router-text">kakao_login</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
