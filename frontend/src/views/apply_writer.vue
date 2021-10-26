@@ -64,7 +64,7 @@
             </v-col>
             <v-spacer></v-spacer>
             <v-col class="text-center">
-                <v-btn block>등록</v-btn>
+                <v-btn block>신청</v-btn>
             </v-col>
             <v-spacer></v-spacer>
         </v-row>
