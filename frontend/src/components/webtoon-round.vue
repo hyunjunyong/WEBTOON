@@ -4,8 +4,7 @@
  -->
   <div class="webtoon_round">
     <!-- 가장 기본적인 웹툰 화수를 표현하는 컴포넌트 -->
-    <v-app v-if="webtoon_round_State == 0" id="inspire">
-      <v-card v-scroll.self="onScroll" class="overflow-y-auto" max-height="400">
+      <v-card v-if="webtoon_round_State == 0" v-scroll.self="onScroll" class="overflow-y-auto" max-height="400">
         <v-banner class="justify-center text-h5 font-weight-light" sticky>
           최신화부터 | 1화부터
           <span class="font-weight-bold" v-text="scrollInvoked"></span>
@@ -28,7 +27,6 @@
           </div>
         </v-card-text>
       </v-card>
-    </v-app>
     <!--  
             작가 사용자에게 보이는 작품 홈 페이지 에피소드 컴포넌트
             
@@ -37,9 +35,8 @@
             에피소드 옆 연필 버튼 클릭시 에피소드 수정 페이지 모달 생성
             
             -->
-    <v-container fluid v-if="webtoon_round_State == 1">
-      <v-app id="inspire">
         <v-card
+          v-if="webtoon_round_State == 1"
           v-scroll.self="onScroll"
           class="overflow-y-auto"
           max-height="400"
@@ -72,8 +69,6 @@
             </div>
           </v-card-text>
         </v-card>
-      </v-app>
-    </v-container>
     <!--  
         승인 페이지 에피소드 컴포넌트
         
@@ -103,7 +98,6 @@
 </template>
 
 <script>
-import editepisode from "./edit-episode";
 
 export default {
   name: "",
