@@ -1,5 +1,6 @@
 # 개발자의 품격3기 1팀 WEBTOON
-
+![개발자의품격 로고](https://user-images.githubusercontent.com/26618280/139163653-be1ea7b5-3091-498e-95f7-1991f1d8711e.png)
+(현준용,유형진,유희정)
 ## 개발구현 1주차
 
 ### Implement
