@@ -15,15 +15,13 @@ import EDIT_EPISODE from "../views/EDIT_EPISODE";
 import register_Webtoon from "../views/register_Webtoon";
 import BOARDLIST from "../views/BOARDLIST.vue";
 import BOARDWRITER from "../views/BOARDWRITER.vue";
-<<<<<<< HEAD
 import kakao_login from "../views/kakao_login.vue";
-
-=======
 import APPLY_WRITER from "../views/apply_writer.vue";
 import APPLY_COMPANY from "../views/apply_company.vue";
 import edit_Webtoon from "../views/edit_Webtoon";
 import register_state from "../views/register_state";
->>>>>>> eaee148233f70fb4e0d44c993be0a44f6693702f
+import ono_writer from "../views/ono-writer";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -103,11 +101,11 @@ const routes = [
     component: BOARDWRITER,
   },
   {
-<<<<<<< HEAD
     path: "/kakao_login",
     name: "kakao_login",
     component: kakao_login,
-=======
+  },
+  {
     path: "/apply_writer",
     name: "APPLY_WRITER",
     component: APPLY_WRITER,
@@ -126,7 +124,11 @@ const routes = [
     path: "/register_state",
     name: "register_state",
     component: register_state,
->>>>>>> eaee148233f70fb4e0d44c993be0a44f6693702f
+  },
+  {
+    path: "/ono_writer",
+    name: "ono_writer",
+    component: ono_writer,
   },
 ];
 
