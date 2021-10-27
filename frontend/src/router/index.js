@@ -20,6 +20,8 @@ import APPLY_WRITER from "../views/apply_writer.vue";
 import APPLY_COMPANY from "../views/apply_company.vue";
 import edit_Webtoon from "../views/edit_Webtoon";
 import register_state from "../views/register_state";
+import ono_writer from "../views/ono-writer";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -122,6 +124,11 @@ const routes = [
     path: "/register_state",
     name: "register_state",
     component: register_state,
+  },
+  {
+    path: "/ono_writer",
+    name: "ono_writer",
+    component: ono_writer,
   },
 ];
 
