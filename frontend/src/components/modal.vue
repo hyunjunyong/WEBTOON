@@ -8,6 +8,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
 3 : 이미지선택
 4 : 반려사유
  -->
+
   <div class="modal">
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on, attrs }">

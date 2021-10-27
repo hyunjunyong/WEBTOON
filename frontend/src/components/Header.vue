@@ -58,7 +58,13 @@
 
         <router-link to="/Boardlist"
           ><strong class="router-text">게시판</strong></router-link
-        >      
+        >
+
+        <span class="router-text"> | </span>
+
+        <router-link to="/kakao_login"
+          ><strong class="router-text">kakao_login</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
@@ -91,14 +97,14 @@
           USER 3
         </v-card-text>
         <v-card-text>
-            <router-link to="/apply_writer">
+          <router-link to="/apply_writer">
             작가 신청
-            </router-link>
+          </router-link>
         </v-card-text>
         <v-card-text>
-            <router-link to="/apply_company">
+          <router-link to="/apply_company">
             기업 회원 신청
-            </router-link>
+          </router-link>
         </v-card-text>
       </v-card>
     </v-app-bar>
