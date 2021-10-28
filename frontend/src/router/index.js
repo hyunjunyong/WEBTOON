@@ -27,6 +27,7 @@ import 작가정보문의 from "../views/작가정보문의.vue";
 import WRITER_Home_Company from "../views/WRITER_Home_COMPANY.vue";
 import 작가정보문의작성 from "../views/작가정보문의작성.vue";
 import LIKE_LIST_COMPANY from "../views/Like_list_company.vue";
+import MANAGER_HOME from "../views/MANAGER_HOME.vue";
 
 Vue.use(VueRouter);
 
@@ -170,6 +171,11 @@ const routes = [
     path: "/like_list_company",
     name: "LIKE_LIST_COMPANY",
     component: LIKE_LIST_COMPANY,
+  },
+  {
+    path: "/Manager_home",
+    name: "MANAGER_HOME",
+    component: MANAGER_HOME,
   },
 ];
 

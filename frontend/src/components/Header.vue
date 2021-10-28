@@ -25,11 +25,6 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/viewer"
-          ><strong class="router-text">이미지뷰어</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
         <router-link to="/webtoon_home"
           ><strong class="router-text">작품</strong></router-link
         >
@@ -43,23 +38,17 @@
         <router-link to="/writer_home"
           ><strong class="router-text">작가홈</strong></router-link
         >
-
+        <!--
         <span class="router-text"> | </span>
 
         <router-link to="/모달테스트"
           ><strong class="router-text">모달테스트</strong></router-link
-        >
+        > -->
         <span class="router-text"> | </span>
 
         <router-link to="/register_webtoon"
           ><strong class="router-text">{{ testingText }}</strong></router-link
         >
-        <span class="router-text"> | </span>
-
-        <router-link to="/Boardlist"
-          ><strong class="router-text">게시판</strong></router-link
-        >
-
         <span class="router-text"> | </span>
 
         <router-link to="/kakao_login"
@@ -69,6 +58,11 @@
 
         <router-link to="/writer_home_company"
           ><strong class="router-text">작가홈,회사</strong></router-link
+        >
+        <span class="router-text"> | </span>
+
+        <router-link to="/Manager_home"
+          ><strong class="router-text">관리자홈</strong></router-link
         >
 
       </p>

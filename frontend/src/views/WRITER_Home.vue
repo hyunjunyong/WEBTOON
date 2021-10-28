@@ -9,6 +9,10 @@
       <v-col class="pl-8" cols="4">
         <writerprofile/>
         <!-- 작가 프로필 -->
+        <router-link to="/ono_writer">
+          <v-col align="center">
+            <v-btn>1:1 문의</v-btn>
+        </v-col></router-link>
       </v-col>
       <v-col cols="8">
         <webtoonround :webtoon_round_State="1" />
