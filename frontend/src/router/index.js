@@ -130,6 +130,11 @@ const routes = [
     name: "ono_writer",
     component: ono_writer,
   },
+  {
+    path: "/register_webtoon",
+    name: "register_Webtoon",
+    component: register_Webtoon,
+  },
 ];
 
 const router = new VueRouter({

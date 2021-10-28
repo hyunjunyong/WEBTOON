@@ -51,7 +51,7 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/register_writer"
+        <router-link to="/register_webtoon"
           ><strong class="router-text">{{ testingText }}</strong></router-link
         >
         <span class="router-text"> | </span>
