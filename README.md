@@ -38,5 +38,5 @@
 
 
 ### Language
- * front-end : vue,vuetify,vuex
+ * front-end : vue, vuetify, vuex
  * back-end : node.js, express, mysql
