@@ -1,6 +1,6 @@
 # 개발자의 품격3기 1팀 WEBTOON
 <img src="https://user-images.githubusercontent.com/26618280/139163653-be1ea7b5-3091-498e-95f7-1991f1d8711e.png" width="30%" height="30%">
-(현준용,유형진,유희정)
+(현준용,유형진,유희정 + ★김동완★)
 
 ## 개발구현 1주차
 
