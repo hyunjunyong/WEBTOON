@@ -23,6 +23,8 @@ import register_state from "../views/register_state";
 import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/Like_list.vue"
 import register_writer from "../views/register_writer";
+import Notice from "../views/notice.vue";
+import Notice_List from "../views/notice_list.vue";
 
 
 Vue.use(VueRouter);
@@ -142,6 +144,16 @@ const routes = [
     path: "/register_writer",
     name: "register_writer",
     component: register_writer,
+  },
+  {
+    path: "/Notice",
+    name: "NoticE",
+    component: Notice,
+  },
+  {
+    path: "/Notice_list",
+    name: "NOTICE_LIST",
+    component: Notice_List,
   },
 ];
 

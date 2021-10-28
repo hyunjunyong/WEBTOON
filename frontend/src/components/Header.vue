@@ -65,6 +65,11 @@
         <router-link to="/kakao_login"
           ><strong class="router-text">kakao_login</strong></router-link
         >
+        <span class="router-text"> | </span>
+
+        <router-link to="/Notice_list"
+          ><strong class="router-text">공지</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
