@@ -29,6 +29,7 @@ import 작가정보문의작성 from "../views/작가정보문의작성.vue";
 import LIKE_LIST_COMPANY from "../views/Like_list_company.vue";
 import MANAGER_HOME from "../views/MANAGER_HOME.vue";
 import APPLY_WEBTOON from "../views/apply_webtoon.vue";
+import APPLY_WEBTOON_DETAIL from "../views/apply_webtoon_detail.vue";
 
 Vue.use(VueRouter);
 
@@ -182,6 +183,11 @@ const routes = [
     path: "/apply_webtoon",
     name: "APPLY_WEBTOON",
     component: APPLY_WEBTOON,
+  },
+  {
+  path: "/apply_webtoon_detail",
+  name: "APPLY_WEBTOON_DETAIL",
+  component: APPLY_WEBTOON_DETAIL,
   },
 ];
 

@@ -188,9 +188,10 @@
       max-height="800">
       
       <v-row v-for="(toon, index) in webtoon" :key="index">
-        <v-col cols="3"
-          ><v-img :src="toon.url" width="150" height="150"
-        /></v-col>
+        <v-col cols="3">
+        <router-link to="/apply_webtoon_detail">
+          <v-img :src="toon.url" width="150" height="150"/></router-link>
+        </v-col>
         <v-col cols="7">
           <v-card>{{ toon.title }} | {{ toon.round }} | {{ toon.date }}</v-card>
             <v-divider />
