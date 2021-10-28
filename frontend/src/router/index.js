@@ -22,6 +22,8 @@ import edit_Webtoon from "../views/edit_Webtoon";
 import register_state from "../views/register_state";
 import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/Like_list.vue"
+import register_writer from "../views/register_writer";
+
 
 Vue.use(VueRouter);
 
@@ -135,6 +137,11 @@ const routes = [
     path: "/like_list",
     name: "LIKE_LIST",
     component: LIKE_LIST,
+  },
+  {
+    path: "/register_writer",
+    name: "register_writer",
+    component: register_writer,
   },
 ];
 
