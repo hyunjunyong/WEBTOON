@@ -35,3 +35,9 @@
 * ?~? - 다음 에피소드로 이동
 * ?~? - 공지사항
 * ?~? - 뱃지획득 시스템
+
+
+
+### Language
+ * front-end : vue,vuetify,vuex
+ * back-end : node.js, express
