@@ -4,9 +4,6 @@
 -->
     <v-form>
         <v-container>
-            <v-col>
-            <v-card class="text-center text-h3" height="60">1 : 1 문의</v-card>
-            </v-col>
             <v-row dense>
                 <v-text-field
                     :counter="50"
@@ -32,17 +29,6 @@
                     class="align-center"
                 ></v-file-input>
             </v-col>
-        <v-row justify="center" >
-            <v-spacer></v-spacer>
-            <router-link to="/Boardlist">
-            <v-btn > 취소 </v-btn>
-            </router-link>
-            <v-spacer></v-spacer>
-            <router-link to="/Boardlist">
-            <v-btn > 등록 </v-btn>
-            </router-link>
-            <v-spacer></v-spacer>
-        </v-row>
         </v-container>
     </v-form>
 </template>

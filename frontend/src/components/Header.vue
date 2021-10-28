@@ -65,6 +65,12 @@
         <router-link to="/kakao_login"
           ><strong class="router-text">kakao_login</strong></router-link
         >
+        <span class="router-text"> | </span>
+
+        <router-link to="/writer_home_company"
+          ><strong class="router-text">작가홈,회사</strong></router-link
+        >
+
       </p>
 
       <v-spacer></v-spacer>
@@ -91,10 +97,19 @@
           </router-link>
         </v-card-text>
         <v-card-text>
-          USER 2
+          <router-link to="/작가정보문의">
+            작가 정보 문의
+          </router-link>
         </v-card-text>
         <v-card-text>
-          USER 3
+          <router-link to="/like_list_company">
+            찜한 작가
+          </router-link>
+        </v-card-text>
+        <v-card-text>
+          <router-link to="/like_list">
+            찜한 목록
+          </router-link>
         </v-card-text>
         <v-card-text>
           <router-link to="/apply_writer">
