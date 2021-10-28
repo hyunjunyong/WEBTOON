@@ -1,19 +1,20 @@
 # 개발자의 품격3기 1팀 WEBTOON
-![개발자의품격 로고](https://user-images.githubusercontent.com/26618280/139163653-be1ea7b5-3091-498e-95f7-1991f1d8711e.png)
+<img src="https://user-images.githubusercontent.com/26618280/139163653-be1ea7b5-3091-498e-95f7-1991f1d8711e.png" width="30%" height="30%">
 (현준용,유형진,유희정)
+
 ## 개발구현 1주차
 
 ### Implement
 * 작가사용자, 일반사용자 페이지
 * 재사용이 가능한 모듈들을 컴포넌트화
 * 카카오 로그인 구현
-* DB설계
+* DB설계,피드백 보완
 
 ### Issue
 
 * style 보완
 * 기업, 관리자 페이지 마무리
-* 각 페이지 기능
+* vuetify에 이미지 업로드가 없음
 
 ### 개발 일정
 * 10.29~11.11 - 기업,관리자 페이지 추가 ,대표님에게 받은 웹툰 및 썸네일 적용 및 회사에 사용하는 style규격 수정 
