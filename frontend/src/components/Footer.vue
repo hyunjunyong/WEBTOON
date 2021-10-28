@@ -23,7 +23,7 @@
           <span class="footer-font"> <strong>개인정보처리방침</strong> </span>
         </router-link>
 
-        <router-link to="/공지" class="ma-2">
+        <router-link to="/Notice_list" class="ma-2">
           <span class="footer-font"> <strong>공지</strong> </span>
         </router-link>
 

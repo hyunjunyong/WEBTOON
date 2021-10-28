@@ -67,9 +67,10 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/Notice_list"
-          ><strong class="router-text">공지</strong></router-link
+        <router-link to="/writer_home_company"
+          ><strong class="router-text">작가홈,회사</strong></router-link
         >
+
       </p>
 
       <v-spacer></v-spacer>
@@ -96,7 +97,9 @@
           </router-link>
         </v-card-text>
         <v-card-text>
-          USER 2
+          <router-link to="/작가정보문의">
+            작가 정보 문의
+          </router-link>
         </v-card-text>
         <v-card-text>
           <router-link to="/like_list">
