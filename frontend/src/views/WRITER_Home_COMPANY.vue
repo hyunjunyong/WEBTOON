@@ -5,13 +5,15 @@
         <v-img src="../img/code.png" alt="" height="300" />
       </v-col>
     </v-row>
-    <v-row>
+    <v-row >
       <!-- 작가 프로필 -->
-      <v-col class="pl-8" cols="4">
+      <v-col class="pl-8 align-center" cols="4"> 
         <writerprofile/>
 
       <router-link to="/작가정보문의작성">
-        <v-btn>작가에게 제안하기</v-btn></router-link>
+          <v-col align="center">
+            <v-btn>작가에게 제안하기</v-btn>
+          </v-col></router-link>
       </v-col>
       <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
       <v-col cols="8">

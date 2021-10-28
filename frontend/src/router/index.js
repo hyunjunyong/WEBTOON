@@ -20,14 +20,14 @@ import APPLY_COMPANY from "../views/apply_company.vue";
 import edit_Webtoon from "../views/edit_Webtoon";
 import register_state from "../views/register_state";
 import ono_writer from "../views/ono-writer";
-import LIKE_LIST from "../views/Like_list.vue"
+import LIKE_LIST from "../views/Like_list.vue";
 import register_writer from "../views/register_writer";
 import Notice from "../views/notice.vue";
 import Notice_List from "../views/notice_list.vue";
 import 작가정보문의 from "../views/작가정보문의.vue";
 import WRITER_Home_Company from "../views/WRITER_Home_COMPANY.vue";
 import 작가정보문의작성 from "../views/작가정보문의작성.vue";
-
+import LIKE_LIST_COMPANY from "../views/Like_list_company.vue";
 
 Vue.use(VueRouter);
 
@@ -166,6 +166,11 @@ const routes = [
     path: "/작가정보문의작성",
     name: "작가정보문의작성",
     component: 작가정보문의작성,
+  },
+  {
+    path: "/like_list_company",
+    name: "LIKE_LIST_COMPANY",
+    component: LIKE_LIST_COMPANY,
   },
 ];
 

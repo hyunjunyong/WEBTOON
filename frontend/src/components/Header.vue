@@ -102,6 +102,11 @@
           </router-link>
         </v-card-text>
         <v-card-text>
+          <router-link to="/like_list_company">
+            찜한 작가
+          </router-link>
+        </v-card-text>
+        <v-card-text>
           <router-link to="/like_list">
             찜한 목록
           </router-link>
