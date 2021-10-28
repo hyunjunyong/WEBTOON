@@ -39,4 +39,4 @@
 
 ### Language
  * front-end : vue,vuetify,vuex
- * back-end : node.js, express
+ * back-end : node.js, express, mysql
