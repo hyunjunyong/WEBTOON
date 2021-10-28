@@ -1,14 +1,11 @@
 <template>
-    <div>
-        <v-container>
+    <v-container>
         <v-row>
             <v-col>
-                <v-card class="text-center text-h3" height="60">찜한 목록</v-card>
+                <v-card class="text-center text-h4">찜한 목록</v-card>
             </v-col>
         </v-row>
-        </v-container>
 
-    <v-app>
         <v-row no-gutters justify="center">
             <v-col cols="auto">
             <v-card 
@@ -33,8 +30,7 @@
             </v-card>
             </v-col>
             </v-row>
-        </v-app>
-    </div>
+    </v-container>
 </template>
 
 

@@ -1,5 +1,4 @@
 <template>
-    <div>
         <v-container>
         <v-row>
             <v-col >
@@ -11,7 +10,6 @@
             <webtoonround :webtoon_round_State="3" />
         </v-col>
       </v-container>
-    </div>
 </template>
 
 
