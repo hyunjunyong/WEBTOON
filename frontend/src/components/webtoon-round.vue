@@ -2,7 +2,7 @@
   <!-- 특정 웹툰의 화수를 보여주는 컴포넌트 입니다.
     상태 관리를 통해 수정 가능합니다.
  -->
-  <div class="webtoon_round">
+  <v-container class="webtoon_round">
     <!-- 가장 기본적인 웹툰 화수를 표현하는 컴포넌트 -->
     <v-card
       v-if="webtoon_round_State == 0"
@@ -79,7 +79,7 @@
         상태는 심사 중 / 반려 / 승인 이 있음
         
         -->
-    <v-container fluid v-if="webtoon_round_State == 2">
+    <v-card fluid v-if="webtoon_round_State == 2">
       <v-row v-for="(toon, index) in webtoon" :key="index">
         <v-col class="col-3"
           ><v-img :src="toon.url" width="150" height="150"
@@ -118,35 +118,180 @@
           </v-flex>
         </v-col>
       </v-row>
-    </v-container>
-  </div>
+    </v-card>
+        <!--  
+        찜한 작가 페이지 작가 목록 컴포넌트
+        
+        찜한 작가 확인
+
+        작가별 코멘트 작성 가능
+        
+        -->
+    <v-card 
+      fluid v-if="webtoon_round_State == 3"
+      v-scroll.self="onScroll"
+      class="overflow-y-auto"
+      max-height="800">
+      
+      <v-row v-for="(toon, index) in webtoon" :key="index">
+        <v-col cols="3"
+          ><v-img :src="toon.url" width="150" height="150"
+        /></v-col>
+        <v-col cols="7">
+          <v-card>{{ toon.round }} | {{ toon.date }}</v-card>
+            <v-divider />
+          <v-card>{{ toon.comment }}</v-card>
+        </v-col>
+        <v-col cols="1">
+          <v-flex xs1>
+            <v-dialog v-model="dialog" width="500">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  cols="1"
+                  dark
+                  small
+                  color="green"
+                  height="150"
+                  v-bind="attrs"
+                  v-on="on"
+                  >{{ toon.delete }}</v-btn
+                >
+              </template>
+
+              <v-card>
+                <v-card-title class="text-h6 grey lighten-2">
+                  관심 작가 목록에서 삭제 하시겠습니까?
+                </v-card-title>
+                <v-divider />
+                <v-spacer></v-spacer>
+                <v-btn block color="primary" text @click="dialog = false">
+                  확인
+                </v-btn>
+              </v-card>
+            </v-dialog>
+          </v-flex>
+        </v-col>
+      </v-row>
+    </v-card>
+        <!--  
+        찜한 작가 페이지 작가 목록 컴포넌트
+        
+        찜한 작가 확인
+
+        작가별 코멘트 작성 가능
+        
+        -->
+    <v-card 
+      fluid v-if="webtoon_round_State == 4"
+      v-scroll.self="onScroll"
+      class="overflow-y-auto"
+      max-height="800">
+      
+      <v-row v-for="(toon, index) in webtoon" :key="index">
+        <v-col cols="3">
+        <router-link to="/apply_webtoon_detail">
+          <v-img :src="toon.url" width="150" height="150"/></router-link>
+        </v-col>
+        <v-col cols="7">
+          <v-card>{{ toon.title }} | {{ toon.round }} | {{ toon.date }}</v-card>
+            <v-divider />
+        </v-col>
+        <v-col cols="1">
+          <v-flex xs1>
+            <v-dialog v-model="dialog" width="500">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  cols="1"
+                  dark
+                  small
+                  color="green"
+                  height="150"
+                  v-bind="attrs"
+                  v-on="on"
+                  >{{ toon.apply }}</v-btn
+                >
+              </template>
+
+              <v-card>
+                <v-card-title class="text-h6 grey lighten-2">
+                  작품을 승인 하시겠습니까?
+                </v-card-title>
+                <v-divider />
+                <v-spacer></v-spacer>
+                <v-btn block color="primary" text @click="dialog = false">
+                  승인
+                </v-btn>
+              </v-card>
+            </v-dialog>
+          </v-flex>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-container>
 </template>
 
+
 <script>
+
 export default {
   name: "",
-  components: {},
+  components: { },
   props: ["webtoon_round_State"],
   data() {
     return {
       webtoon: [
         {
           url: require("../img/nft2.png"),
+          round: "5화",
+          date: "2021-10-27",
+          state: "승인대기중",
+          comment: "2순위",
+          delete: "삭제",
+          title: "작품 명",
+          apply: "승인",
+          
+        },
+        {
+          url: require("../img/nft2.png"),
+          round: "4화",
+          date: "2021-10-20",
+          state: "승인완료",
+          comment: "성장 중",
+          delete: "삭제",
+          title: "작품 명",
+          apply: "승인",
+          
+        },
+        {
+          url: require("../img/nft2.png"),
           round: "3화",
           date: "2021-10-13",
           state: "승인완료",
+          comment: "1순위",
+          delete: "삭제",
+          title: "작품 명",
+          apply: "승인",
+          
         },
         {
           url: require("../img/nft2.png"),
           round: "2화",
           date: "2021-10-6",
           state: "반려중",
+          comment: "성장 가능성 있음",
+          delete: "삭제",
+          title: "작품 명",
+          apply: "승인",
         },
         {
           url: require("../img/nft2.png"),
           round: "1화",
           date: "2021-10-1",
           state: "승인대기중",
+          comment: "제안 완료",
+          delete: "삭제",
+          title: "작품 명",
+          apply: "승인",
         },
       ],
     };

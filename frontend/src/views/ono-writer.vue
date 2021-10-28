@@ -4,7 +4,7 @@
  -->
   <v-container>
     <v-row align="center" justify="space-around">
-      <v-card class="text-h3" width="100%">내 1:1 문의</v-card>
+      <v-card class="text-h4 text-center" width="100%">내 1:1 문의</v-card>
       <oneonone_question />
       <v-btn>글 쓰기</v-btn>
     </v-row>

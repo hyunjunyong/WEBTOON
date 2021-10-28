@@ -114,8 +114,21 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
           {{ modalTitle[modalState] }}
         </v-card-title>
 
-        <v-card-text v-html="modalText[modalState]"> </v-card-text>
-
+                <v-row>
+            <v-col
+            cols="12"
+            sm="12"
+            >
+                <v-text-field
+                    label="txst"
+                    single-line
+                    solo
+                    height="100"
+                >
+                    반려사유작성
+                </v-text-field>
+            </v-col>
+        </v-row>
         <v-divider></v-divider>
 
         <v-card-actions>
@@ -145,7 +158,7 @@ export default {
         "작품삭제",
         "수정하기",
         "이미지선택",
-        "반려사유",
+        "반려사유작성",
       ],
       modalText: [
         "modalText",
