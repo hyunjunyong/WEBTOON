@@ -94,7 +94,9 @@
           USER 2
         </v-card-text>
         <v-card-text>
-          USER 3
+          <router-link to="/like_list">
+            찜한 목록
+          </router-link>
         </v-card-text>
         <v-card-text>
           <router-link to="/apply_writer">

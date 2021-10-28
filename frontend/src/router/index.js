@@ -21,6 +21,7 @@ import APPLY_COMPANY from "../views/apply_company.vue";
 import edit_Webtoon from "../views/edit_Webtoon";
 import register_state from "../views/register_state";
 import ono_writer from "../views/ono-writer";
+import LIKE_LIST from "../views/Like_list.vue"
 
 Vue.use(VueRouter);
 
@@ -129,6 +130,11 @@ const routes = [
     path: "/ono_writer",
     name: "ono_writer",
     component: ono_writer,
+  },
+  {
+    path: "/like_list",
+    name: "LIKE_LIST",
+    component: LIKE_LIST,
   },
 ];
 
