@@ -5,11 +5,13 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-card>
+        <router-link to="/apply_webtoon" class="ma-2">
+            <v-card>
           <v-card-title>
             작품 승인 신규 요청
           </v-card-title>
         </v-card>
+        </router-link>
       </v-col>
     </v-row>
 
@@ -26,7 +28,9 @@
             공지
           </v-card-title>
         </v-card>
-            <oneonone_question />
+            <router-link to="/Notice_list" class="ma-2">
+                <oneonone_question />
+            </router-link>
       </v-col>
     </v-row>
 
