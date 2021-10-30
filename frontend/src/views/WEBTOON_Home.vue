@@ -16,7 +16,7 @@
         <webtoonround :webtoon_round_State="0" />
       </v-col>
 
-      <v-col cols="4">
+      <v-col cols="2">
         <router-link to="/writer_home">
           <!-- 작가 프로필 컴포넌트-->
           <Writerprofile />
