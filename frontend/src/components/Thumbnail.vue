@@ -3,7 +3,7 @@
   <v-container>
     <router-link to="/webtoon_home">
       <v-card v-on:click="testF">
-        <v-img max-height="150" src="../img/leon.jpg" />
+        <v-img max-height="150" :src="webtoon.url" />
 
         <v-card-title class="ma-1">
           개발자의 품격
@@ -22,6 +22,9 @@
 <script>
 export default {
   name: "Thumbnail",
+  props: {
+    webtoon: Object,
+  },
   data() {
     return {
       testData: "testing",
@@ -32,5 +35,6 @@ export default {
       this.testData = "abc";
     },
   },
+  mount() {},
 };
 </script>
