@@ -6,7 +6,7 @@
   썸네일을 누르면 이동하는 화면
 -->
   <v-container>
-    <v-row>
+    <v-row justify="center">
       <v-col cols="8">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->

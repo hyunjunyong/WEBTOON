@@ -8,23 +8,24 @@
       v-if="webtoon_round_State == 0"
       v-scroll.self="onScroll"
       class="overflow-y-auto"
-      max-height="400"
+      max-height="700"
     >
-      <v-banner class="justify-center text-h5 font-weight-light" sticky>
-        최신화부터 | 1화부터
-        <span class="font-weight-bold" v-text="scrollInvoked"></span>
+      <v-banner class="justify-center white" sticky>
+        <v-btn> 최신화부터 </v-btn>
+        <v-btn class="ml-4"> 1화부터 </v-btn>
+        <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
       <v-card-text>
         <div :key="n" class="mb-4">
           <v-row v-for="(toon, index) in webtoon" :key="index">
-            <v-col cols="3"
-              ><router-link to="/viewer"
-                ><v-img :src="toon.url" width="150" height="150"/></router-link
+            <v-col cols="3">
+              <router-link to="/viewer">
+                <v-img :src="toon.url" width="150" height="150" /> </router-link
             ></v-col>
-            <v-col cols="9"
-              ><v-card>{{ toon.round }} | {{ toon.date }}</v-card></v-col
-            >
+            <v-col cols="9">
+              <v-card>{{ toon.round }} | {{ toon.date }}</v-card>
+            </v-col>
           </v-row>
         </div>
       </v-card-text>
@@ -119,7 +120,7 @@
         </v-col>
       </v-row>
     </v-card>
-        <!--  
+    <!--  
         찜한 작가 페이지 작가 목록 컴포넌트
         
         찜한 작가 확인
@@ -127,19 +128,20 @@
         작가별 코멘트 작성 가능
         
         -->
-    <v-card 
-      fluid v-if="webtoon_round_State == 3"
+    <v-card
+      fluid
+      v-if="webtoon_round_State == 3"
       v-scroll.self="onScroll"
       class="overflow-y-auto"
-      max-height="800">
-      
+      max-height="800"
+    >
       <v-row v-for="(toon, index) in webtoon" :key="index">
         <v-col cols="3"
           ><v-img :src="toon.url" width="150" height="150"
         /></v-col>
         <v-col cols="7">
           <v-card>{{ toon.round }} | {{ toon.date }}</v-card>
-            <v-divider />
+          <v-divider />
           <v-card>{{ toon.comment }}</v-card>
         </v-col>
         <v-col cols="1">
@@ -173,7 +175,7 @@
         </v-col>
       </v-row>
     </v-card>
-        <!--  
+    <!--  
         찜한 작가 페이지 작가 목록 컴포넌트
         
         찜한 작가 확인
@@ -181,20 +183,22 @@
         작가별 코멘트 작성 가능
         
         -->
-    <v-card 
-      fluid v-if="webtoon_round_State == 4"
+    <v-card
+      fluid
+      v-if="webtoon_round_State == 4"
       v-scroll.self="onScroll"
       class="overflow-y-auto"
-      max-height="800">
-      
+      max-height="800"
+    >
       <v-row v-for="(toon, index) in webtoon" :key="index">
         <v-col cols="3">
-        <router-link to="/apply_webtoon_detail">
-          <v-img :src="toon.url" width="150" height="150"/></router-link>
+          <router-link to="/apply_webtoon_detail">
+            <v-img :src="toon.url" width="150" height="150"
+          /></router-link>
         </v-col>
         <v-col cols="7">
           <v-card>{{ toon.title }} | {{ toon.round }} | {{ toon.date }}</v-card>
-            <v-divider />
+          <v-divider />
         </v-col>
         <v-col cols="1">
           <v-flex xs1>
@@ -230,12 +234,10 @@
   </v-container>
 </template>
 
-
 <script>
-
 export default {
   name: "",
-  components: { },
+  components: {},
   props: ["webtoon_round_State"],
   data() {
     return {
@@ -249,7 +251,6 @@ export default {
           delete: "삭제",
           title: "작품 명",
           apply: "승인",
-          
         },
         {
           url: require("../img/nft2.png"),
@@ -260,7 +261,6 @@ export default {
           delete: "삭제",
           title: "작품 명",
           apply: "승인",
-          
         },
         {
           url: require("../img/nft2.png"),
@@ -271,7 +271,6 @@ export default {
           delete: "삭제",
           title: "작품 명",
           apply: "승인",
-          
         },
         {
           url: require("../img/nft2.png"),
