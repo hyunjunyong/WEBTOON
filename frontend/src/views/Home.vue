@@ -16,7 +16,7 @@
 
     <v-row no-gutters>
       <v-col v-for="n in webtoon" :key="n" cols="3">
-        <Thumbnail :webtoon="webtoon" />
+        <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
 
@@ -40,7 +40,7 @@
 
     <v-row no-gutters>
       <v-col v-for="n in webtoon" :key="n" cols="3">
-        <Thumbnail :webtoon="webtoon" />
+        <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
 
@@ -56,7 +56,7 @@
 
     <v-row no-gutters v-for="m in 3" :key="m">
       <v-col v-for="n in webtoon" :key="n" cols="3">
-        <Thumbnail :webtoon="webtoon" />
+        <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
   </v-container>
@@ -76,22 +76,22 @@ export default {
         {
           id: "0",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_01.png"),
+          url: require("../img/webtoon/04. 물고기인간(출판형)/01_01.png"),
         },
         {
           id: "1",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_02.png"),
+          url: require("../img/webtoon/04. 물고기인간(출판형)/01_02.png"),
         },
         {
           id: "2",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_03.png"),
+          url: require("../img/webtoon/04. 물고기인간(출판형)/01_03.png"),
         },
         {
           id: "3",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_04.png"),
+          url: require("../img/webtoon/04. 물고기인간(출판형)/01_04.png"),
         },
       ],
     };

@@ -6,7 +6,7 @@
         <v-img max-height="150" :src="webtoon.url" />
 
         <v-card-title class="ma-1">
-          개발자의 품격
+          {{ webtoon.title }}
         </v-card-title>
 
         <v-card-subtitle>
