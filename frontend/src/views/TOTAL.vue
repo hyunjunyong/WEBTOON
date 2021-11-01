@@ -4,8 +4,8 @@
       <Genre />
     </v-col>
     <v-row v-for="m in 4" :key="m" no-gutters>
-      <v-col v-for="n in 6" :key="n" cols="2">
-        <Thumbnail :webtoon="webtoon[n]" />
+      <v-col v-for="n in webtoon" :key="n" cols="2">
+        <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
   </v-container>

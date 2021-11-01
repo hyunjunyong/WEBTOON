@@ -18,14 +18,14 @@
 
       <v-card-text>
         <div :key="n" class="mb-4">
-          <v-row v-for="(toon, index) in webtoon" :key="index">
-            <v-col cols="3">
-              <router-link to="/viewer">
-                <v-img :src="toon.url" width="150" height="150" /> </router-link
+          <v-row v-for="(toon, n) in webtoons" :key="{ n }">
+            <v-col cols="3"
+              ><router-link to="/viewer"
+                ><v-img :src="toon.url" width="150" height="150"/></router-link
             ></v-col>
-            <v-col cols="9">
-              <v-card>{{ toon.round }} | {{ toon.date }}</v-card>
-            </v-col>
+            <v-col cols="9"
+              ><v-card> {{ toon.round }} | {{ toon.date }} </v-card></v-col
+            >
           </v-row>
         </div>
       </v-card-text>
@@ -238,12 +238,12 @@
 export default {
   name: "",
   components: {},
-  props: ["webtoon_round_State"],
+  props: ["webtoon_round_State", "webtoons"],
   data() {
     return {
       webtoon: [
         {
-          url: require("../img/nft2.png"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/05.jpg"),
           round: "5화",
           date: "2021-10-27",
           state: "승인대기중",
@@ -253,7 +253,7 @@ export default {
           apply: "승인",
         },
         {
-          url: require("../img/nft2.png"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04.jpg"),
           round: "4화",
           date: "2021-10-20",
           state: "승인완료",
@@ -263,7 +263,7 @@ export default {
           apply: "승인",
         },
         {
-          url: require("../img/nft2.png"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03.jpg"),
           round: "3화",
           date: "2021-10-13",
           state: "승인완료",
@@ -273,7 +273,7 @@ export default {
           apply: "승인",
         },
         {
-          url: require("../img/nft2.png"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02.jpg"),
           round: "2화",
           date: "2021-10-6",
           state: "반려중",
@@ -283,7 +283,7 @@ export default {
           apply: "승인",
         },
         {
-          url: require("../img/nft2.png"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"),
           round: "1화",
           date: "2021-10-1",
           state: "승인대기중",

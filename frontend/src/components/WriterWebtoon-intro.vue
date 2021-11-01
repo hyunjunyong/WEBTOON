@@ -3,7 +3,11 @@
   <v-container fluid>
     <v-row class="mb-2">
       <v-col cols="3">
-        <v-img src="../img/nft.png" height="150px" width="150px"/>
+        <v-img
+          src="../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"
+          height="150px"
+          width="150px"
+        />
       </v-col>
       <v-col cols="9">
         <v-row>
@@ -13,7 +17,7 @@
             </v-card>
           </v-col>
           <v-col cols="1">
-            <v-img src="../img/like.png" height="30px" width="30px"/>
+            <v-img src="../img/like.png" height="30px" width="30px" />
           </v-col>
           <v-col cols="1">
             <router-link to="/edit_Webtoon">
