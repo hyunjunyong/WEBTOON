@@ -8,7 +8,7 @@
       v-if="webtoon_round_State == 0"
       v-scroll.self="onScroll"
       class="overflow-y-auto"
-      max-height="700"
+      max-height="600"
     >
       <v-banner class="justify-center white" sticky>
         <v-btn> 최신화부터 </v-btn>
@@ -42,7 +42,7 @@
       v-if="webtoon_round_State == 1"
       v-scroll.self="onScroll"
       class="overflow-y-auto"
-      max-height="400"
+      max-height="600"
     >
       <v-banner class="justify-center font-weight-light text-end" sticky>
         최신화부터 | 1화부터
