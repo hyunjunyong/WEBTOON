@@ -9,14 +9,17 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "kakaoLogin",
   methods: {
     kakaoLogin() {
-      const params = {
-        redirectUri: "http://localhost:8080/kakao_login",
-      };
-      window.Kakao.Auth.authorize(params);
+      const result = axios.get(
+        "https://webtoon3.herokuapp.com/oauth/kakao-login"
+      );
+      window.Kakao.Auth.authorize(result);
+      // console.log(result);
     },
   },
 };
