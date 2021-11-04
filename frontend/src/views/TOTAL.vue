@@ -1,9 +1,11 @@
 <template>
   <v-container class="TOTAL">
-    <v-col>
+    <v-row no-gutters justify="center">
+    <v-col cols="10">
       <Genre />
     </v-col>
-    <v-row v-for="m in 4" :key="m" no-gutters>
+    </v-row>
+    <v-row v-for="m in 4" :key="m" no-gutters justify="center"> 
       <v-col v-for="n in webtoon" :key="n" cols="2">
         <Thumbnail :webtoon="n" />
       </v-col>
@@ -27,32 +29,27 @@ export default {
         {
           id: "0",
           title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01_썸네일.jpg"),
         },
         {
           id: "1",
           title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02.jpg"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02_썸네일.jpg"),
         },
         {
           id: "2",
-          title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03.jpg"),
+          title: "물고기인간",
+          url: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
         },
         {
           id: "3",
           title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04.jpg"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
         },
         {
           id: "4",
           title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/05.jpg"),
-        },
-        {
-          id: "5",
-          title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/06.jpg"),
+          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04_썸네일.jpg"),
         },
       ],
     };

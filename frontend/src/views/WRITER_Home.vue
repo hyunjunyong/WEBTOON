@@ -3,8 +3,9 @@
     <v-row justify="center">
       <v-col cols="10">
         <v-img
-          src="../img/webtoon/04. 물고기인간(출판형)/01_01.png"
+          src="../img/webtoon/04. 물고기인간(출판형)/01_01_writer_썸네일.png"
           height="200"
+          contain
         />
       </v-col>
 

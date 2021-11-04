@@ -1,7 +1,7 @@
 <template>
   <!-- 작가입장에서 보여지는 작가홈화면 -->
   <v-container>
-    <v-row>
+    <v-row justify="center">
       <v-col cols="10">
         <WriterWebtoonIntro />
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
