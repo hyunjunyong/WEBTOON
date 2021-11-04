@@ -31,6 +31,8 @@ import MANAGER_HOME from "../views/ManagePage/MANAGER_HOME.vue";
 import APPLY_WEBTOON from "../views/ManagePage/apply_webtoon.vue";
 import APPLY_WEBTOON_DETAIL from "../views/ManagePage/apply_webtoon_detail.vue";
 import WRITER_Home_WRITER from "../views/WriterPage/WRITER_Home_WRITER.vue";
+import Login from "../views/login.vue";
+import Join from  "../views/join.vue";
 
 Vue.use(VueRouter);
 
@@ -194,6 +196,16 @@ const routes = [
     path: "/writer_home_writer",
     name: "WRITER_Home_WRITER",
     component: WRITER_Home_WRITER,
+  },
+  {
+    path: "/login",
+    name: "LOGIN",
+    component: Login,
+  },
+  {
+    path: "/join",
+    name: "JOIN",
+    component: Join,
   },
 ];
 

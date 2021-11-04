@@ -46,6 +46,11 @@
         <router-link to="/Manager_home"
           ><strong class="router-text">관리자홈</strong></router-link
         >
+        <span class="router-text"> | </span>
+
+        <router-link to="/login"
+          ><strong class="router-text">로그인</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
