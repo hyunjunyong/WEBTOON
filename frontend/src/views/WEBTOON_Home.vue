@@ -7,18 +7,20 @@
 -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="8">
+      <v-col cols="10">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
         <WriterWebtoonIntro />
-
+      </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-col cols="8">
         <!-- 특정 웹툰의 화수를 나타내는 컴포넌트 -->
         <webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
       </v-col>
-
       <v-col cols="2">
           <!-- 작가 프로필 컴포넌트-->
-          <Writerprofile />
+        <Writerprofile />
       </v-col>
     </v-row>
   </v-container>

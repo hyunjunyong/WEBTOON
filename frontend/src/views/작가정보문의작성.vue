@@ -1,9 +1,11 @@
 <template>
-<!-- 관리자 공지 작성 페이지 -->
+<!-- 회사 사용자가 작가에게 정보 문의하는 메시지 작성하는 페이지 -->
     <v-container>
-            <v-col>
+        <v-row justify="center">
+            <v-col cols="10">
                 <v-card class="text-center text-h4" > 작가에게 제안하기 </v-card>
-            </v-col>        
+            </v-col> 
+        </v-row>       
         <listwriter />
     
             <v-row justify="center" >

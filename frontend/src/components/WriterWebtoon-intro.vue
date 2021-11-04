@@ -1,8 +1,8 @@
 <template>
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
-    <v-row justify="center" class="mb-2">
-      <v-col cols="6">
+    <v-row justify="center">
+      <v-col cols="5">
         <v-img
           src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
           height="200px"

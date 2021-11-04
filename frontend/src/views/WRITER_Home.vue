@@ -12,11 +12,11 @@
       <!-- 최상단 이미지 -->
       <v-row justify="center">
         <v-col cols="2">
-          <writerprofile />
+          <Writerprofile />
           <!-- 작가 프로필 -->
         </v-col>
         <v-col cols="8">
-          <webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
+          <Webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
           <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
         </v-col>
       </v-row>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import writerprofile from "../components/Writer-profile.vue";
-import webtoonround from "../components/webtoon-round.vue";
+import Writerprofile from "../components/Writer-profile.vue";
+import Webtoonround from "../components/webtoon-round.vue";
 
 export default {
   name: "WRITER_Home",
@@ -61,8 +61,8 @@ export default {
     };
   },
   components: {
-    writerprofile,
-    webtoonround,
+    Writerprofile,
+    Webtoonround,
   },
 };
 </script>
