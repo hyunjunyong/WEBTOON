@@ -1,32 +1,32 @@
 <template>
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
-    <v-row class="mb-2">
-      <v-col cols="3">
+    <v-row justify="center" class="mb-2">
+      <v-col cols="6">
         <v-img
-          src="../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"
-          height="150px"
-          width="150px"
+          src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
+          height="200px"
+          contain
         />
       </v-col>
-      <v-col cols="9">
+      <v-col cols="5">
         <v-row>
           <v-col cols="8">
-            <v-card class="mb-5" height="40px" width="80%">
-              작품명을 입력 해주세요
+            <v-card class="mb-10" width="auto" >
+              눈내리는 소리
             </v-card>
           </v-col>
-          <v-col cols="1">
-            <v-img src="../img/like.png" height="30px" width="30px" />
+          <v-col cols="2">
+            <v-img contain src="../img/like.png" height="30px" width="30px" />
           </v-col>
-          <v-col cols="1">
+          <v-col cols="2">
             <router-link to="/edit_Webtoon">
-              <v-img src="../img/setting.png" height="30px" width="30px" />
+              <v-img contain src="../img/setting.png" height="30px" width="30px" />
             </router-link>
           </v-col>
         </v-row>
         <v-card height="90px">
-          작품 소개를 진행해 주세요
+          작품 소개 <br> 겨울을 빼았긴 마을에<br>눈을 찾아오려는 소년의 모험
         </v-card>
       </v-col>
     </v-row>

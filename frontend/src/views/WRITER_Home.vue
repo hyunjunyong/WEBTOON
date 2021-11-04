@@ -1,31 +1,25 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="auto" class="black"> 
         <v-img
           src="../img/webtoon/04. 물고기인간(출판형)/01_01_writer_썸네일.png"
           height="200"
           contain
         />
       </v-col>
-
+    </v-row>
       <!-- 최상단 이미지 -->
       <v-row justify="center">
         <v-col cols="2">
           <writerprofile />
           <!-- 작가 프로필 -->
-          <router-link to="/ono_writer">
-            <v-col align="center">
-              <v-btn>1:1 문의</v-btn>
-            </v-col>
-          </router-link>
         </v-col>
         <v-col cols="8">
           <webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
           <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
         </v-col>
       </v-row>
-    </v-row>
   </v-container>
 </template>
 

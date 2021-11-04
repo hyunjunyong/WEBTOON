@@ -1,9 +1,12 @@
 <template>
     <v-container>
-            <v-col>
+        <v-row justify="center">
+            <v-col cols="10">
                 <v-card class="text-center text-h4" > 공지 </v-card>
-            </v-col>        
+            </v-col>
+        </v-row>    
         <listwriter />
+        
     
             <v-row justify="center" >
             <v-spacer></v-spacer>
@@ -15,7 +18,7 @@
             <v-btn > 등록 </v-btn>
             </router-link>
             <v-spacer></v-spacer>
-        </v-row>
+            </v-row>
     </v-container>
 </template> 
 

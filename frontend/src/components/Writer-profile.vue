@@ -9,7 +9,9 @@
     <v-row>
       <v-col>
         <div class="justify-space-between align-center">
-          <v-img :aspect-ratio="1" src="../img/writer_profile.png" />
+          <router-link to="/writer_home">
+            <v-img :aspect-ratio="1" src="../img/writer_profile.png" />
+          </router-link>
         </div>
       </v-col>
     </v-row>
@@ -26,19 +28,14 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card class="text-center">작가명</v-card>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-card class="text-center">작가명</v-card>
+        <router-link to="/writer_home"><v-card class="text-center">작가A</v-card></router-link>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
         <v-card class="text-center">
-          <p>작가의 말</p>
-          <p>가입날짜</p>
+          <p>눈내리는 소리 연재</p>
+          <p>2020-04-05</p>
         </v-card>
       </v-col>
     </v-row>

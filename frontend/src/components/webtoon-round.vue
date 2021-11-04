@@ -10,9 +10,9 @@
       class="overflow-y-auto"
       max-height="600"
     >
-      <v-banner class="justify-center white" sticky>
-        <v-btn> 최신화부터 </v-btn>
-        <v-btn class="ml-4"> 1화부터 </v-btn>
+      <v-banner class="justify-center white text-end" sticky>
+        <v-btn color="black" text> 최신화부터 </v-btn> /
+        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
@@ -44,11 +44,13 @@
       class="overflow-y-auto"
       max-height="600"
     >
-      <v-banner class="justify-center font-weight-light text-end" sticky>
-        최신화부터 | 1화부터
+      <v-banner class="justify-center white text-end" sticky>
+        <v-btn color="black" text> 최신화부터 </v-btn> /
+        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
+        <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
-      <router-link to="/EDIT_EPISODE" class="ma-2">
+      <router-link to="../EDIT_EPISODE" class="ma-2">
         <v-btn block height="100">
           <v-icon>
             mdi-pencil
@@ -65,9 +67,9 @@
             <v-col class="col-3"
               ><v-img :src="toon.url" width="150" height="150"
             /></v-col>
-            <v-col class="col-7"
-              ><v-card>{{ toon.round }} | {{ toon.date }}</v-card></v-col
-            >
+            <v-col class="col-7">
+              <v-card>{{ toon.round }} | {{ toon.date }}</v-card>
+            </v-col>
           </v-row>
         </div>
       </v-card-text>

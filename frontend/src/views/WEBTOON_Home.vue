@@ -7,7 +7,7 @@
 -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="8">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
         <WriterWebtoonIntro />
@@ -17,10 +17,8 @@
       </v-col>
 
       <v-col cols="2">
-        <router-link to="/writer_home">
           <!-- 작가 프로필 컴포넌트-->
           <Writerprofile />
-        </router-link>
       </v-col>
     </v-row>
   </v-container>
