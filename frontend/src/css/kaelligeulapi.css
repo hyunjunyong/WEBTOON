@@ -1,0 +1,37 @@
+/* 회사 웹툰 규격  */
+:root {
+  /* 앱에서 적용되는 썸네일 - sbanner */
+  --sbanner-width: 600px;
+  --sbanner-width: 600px;
+
+  /* w배너 - 웹 연재페이지, 선물함 등에 노출되며,
+홈화면 대형 배너 등 홍보와 이벤트 목적으로의 활용도가 높은 중요한 배너. */
+  --wbanner-width: 1200px;
+  --wbanner-width: 600px;
+
+  /* 웹툰에 기본적으로 적용되는 폰트 */
+  /* font 
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap'); */
+  --webtoon-font-fm: "Zen Antique", serif;
+  --webtoon-font-sz: 48px;
+
+  /* 웹에서 적용되는 썸네일  */
+  --thumnail-width: 260px;
+  --thumnail-height: 260px;
+
+  /* 작품 상세 페이지 및 웹, 앱 주요 위치에 노출되는 가장 대표적인 배너
+작품 상세 페이지와 홈, 랭킹, 완결 등 각종 작품 리스팅에 보편적으로 활용됩니다. */
+  --cover-width: 600px;
+  --cover-height: 800px;
+
+  /* 회차별 커버(Episode Cover) 
+독자가 작품 상세 페이지 및 내 서재 소장 작품 목록에서 볼 수 있는 배너. */
+  --ep-cover-width: 300px;
+  --ep-cover-height: 400px;
+
+  /* 1-1. 웹툰(스크롤뷰)
+• 파일 형식 : JPG (72dpi 추천), GIF(가능하나, 용량이 큰 경우 로딩 시간 지연 등의 문제가 발생할 수 있습니다)
+• 파일 용량 : 파일 하나당 최대 2mb • 가로 1280px(고정) / 세로 5120px(이하) */
+  --viewer-width: 1280px;
+  --viewer-max-height: 5120px;
+}
