@@ -15,6 +15,7 @@
 * 카카오 로그인
 * 회사 style 규격 정리 및 적용
 * 라우터 링크 정리
+* 카톡을 이용한 사용자 authentication & authorization 두가지 구현되었습니다
 
 ### Issue
 * 규격 적용에 따른 전체적인 코드 수정이 필요
