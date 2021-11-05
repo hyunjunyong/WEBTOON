@@ -51,7 +51,7 @@
       <v-spacer></v-spacer>
       <v-col cols="5">
         <v-img
-          src="../img/writer_profile.png"
+          src="../../img/writer_profile.png"
           alt=""
           height="250px"
           width="250px"

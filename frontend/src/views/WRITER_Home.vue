@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col cols="auto" class="black"> 
+      <v-col cols="auto" class="black">
         <v-img
           src="../img/webtoon/04. 물고기인간(출판형)/01_01_writer_썸네일.png"
           height="200"
@@ -9,17 +9,33 @@
         />
       </v-col>
     </v-row>
-      <!-- 최상단 이미지 -->
-      <v-row justify="center">
-        <v-col cols="2">
-          <Writerprofile />
-          <!-- 작가 프로필 -->
-        </v-col>
-        <v-col cols="8">
-          <Webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
-          <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
-        </v-col>
-      </v-row>
+    <!-- 최상단 이미지 -->
+    <v-row justify="center">
+      <v-col cols="2">
+        <!-- 회사사용자만 볼 수 있음 -->
+        <v-row>
+          <router-link to="/작가정보문의작성">
+            <v-col align="center">
+              <v-btn>작가에게 제안하기</v-btn>
+            </v-col>
+          </router-link>
+
+          <router-link to="/ono_writer">
+            <v-col align="center">
+              <v-btn>1:1 문의</v-btn>
+            </v-col>
+          </router-link>
+        </v-row>
+
+        <writerprofile />
+        <!-- 작가 프로필 -->
+      </v-col>
+
+      <v-col cols="8">
+        <Webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
+        <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
