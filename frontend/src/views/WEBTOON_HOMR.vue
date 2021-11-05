@@ -19,7 +19,7 @@
         <webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
       </v-col>
       <v-col cols="2">
-          <!-- 작가 프로필 컴포넌트-->
+        <!-- 작가 프로필 컴포넌트-->
         <Writerprofile />
       </v-col>
     </v-row>

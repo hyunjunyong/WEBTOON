@@ -14,7 +14,7 @@
       <v-col cols="2">
         <!-- 회사사용자만 볼 수 있음 -->
         <v-row>
-          <router-link to="/작가정보문의작성">
+          <router-link to="/propose">
             <v-col align="center">
               <v-btn>작가에게 제안하기</v-btn>
             </v-col>
@@ -27,13 +27,13 @@
           </router-link>
         </v-row>
 
-        <writerprofile />
+        <Writerprofile />
         <!-- 작가 프로필 -->
       </v-col>
 
       <v-col cols="8">
+        <!-- 작품으로 이동하는 컴포넌트를 사용해야합니다. -->
         <Webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
-        <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
       </v-col>
     </v-row>
   </v-container>
@@ -50,27 +50,27 @@ export default {
       webtoons: [
         {
           url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_005.jpg"),
-          round: "5화",
+          round: "반지의 제왕",
           date: "2021-10-27",
         },
         {
           url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_004.jpg"),
-          round: "4화",
+          round: "슬램덩크",
           date: "2021-10-20",
         },
         {
           url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_003.jpg"),
-          round: "3화",
+          round: "호빗",
           date: "2021-10-13",
         },
         {
           url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_002.jpg"),
-          round: "2화",
+          round: "왕좌의 게임",
           date: "2021-10-06",
         },
         {
           url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_001.jpg"),
-          round: "1화",
+          round: "오징어게임",
           date: "2021-09-30",
         },
       ],

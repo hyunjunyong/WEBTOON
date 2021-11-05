@@ -20,7 +20,7 @@
         <div :key="n" class="mb-4">
           <v-row v-for="(toon, n) in webtoons" :key="{ n }">
             <v-col cols="3"
-              ><router-link to="/viewer"
+              ><router-link to="/episode"
                 ><v-img :src="toon.url" width="150" height="150"/></router-link
             ></v-col>
             <v-col cols="9"

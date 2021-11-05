@@ -27,7 +27,7 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/writer_home"
+        <router-link to="/writer"
           ><strong class="router-text">작가홈</strong></router-link
         >
 
@@ -77,33 +77,34 @@
               </p>
 
               <v-divider class="my-3"></v-divider>
+
               <v-btn depressed rounded text>
                 작품
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                작가 정보 문의
+                작가 제안 현황
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                찜한 작가
+                찜한 작가 보기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                찜한 목록
+                찜한 작품 목록보기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                작가 신청
+                작가 신청 하기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                기업 회원 신청
+                기업 신청 하기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>

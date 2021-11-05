@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
-import VIEWER from "../views/VIEWER.vue";
+import Episode from "../views/Episode.vue";
 
 import WEBTOON_HOMR from "../views/WEBTOON_HOMR.vue";
 import WEBTOON_Home_WRITER from "../views/WriterPage/WEBTOON_Home_WRITER.vue";
@@ -12,10 +12,10 @@ import 개인정보처리방침 from "../views/개인정보처리방침.vue";
 import 이용약관 from "../views/이용약관.vue";
 import 회사정보 from "../views/회사정보.vue";
 
-import EDIT_EPISODE from "../views/WriterPage/EDIT_EPISODE";
+import ADD_EPISODE from "../views/WriterPage/ADD_Episode";
 import register_Webtoon from "../views/WriterPage/register_Webtoon";
 
-import edit_Webtoon from "../views/WriterPage/edit_Webtoon";
+import ADD_Webtoon from "../views/WriterPage/ADD_Webtoon";
 import register_state from "../views/WriterPage/register_state";
 import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/UserPage/Like_list.vue";
@@ -25,7 +25,7 @@ import Admin_Home from "../views/Admin/Admin_Home.vue";
 
 import WRITER_Home_WRITER from "../views/WriterPage/WRITER_Home_WRITER.vue";
 import Login from "../views/login.vue";
-import Join from  "../views/join.vue";
+import Join from "../views/join.vue";
 
 //Apply 관리자의 승인이 필요한 부분
 import APPLY_WRITER from "../views/Apply/Writer.vue";
@@ -57,9 +57,9 @@ const routes = [
     component: TOTAL,
   },
   {
-    path: "/viewer",
-    name: "VIEWER",
-    component: VIEWER,
+    path: "/episode",
+    name: "Episode",
+    component: Episode,
   },
   //Apply 관리자의 승인이 필요한 부분
   {
@@ -93,7 +93,7 @@ const routes = [
     component: WEBTOON_Home_WRITER,
   },
   {
-    path: "/writer_home",
+    path: "/writer",
     name: "WRITER_Home",
     component: WRITER_Home,
   },
@@ -113,9 +113,9 @@ const routes = [
     component: 회사정보,
   },
   {
-    path: "/EDIT_EPISODE",
-    name: "EDIT_EPISODE",
-    component: EDIT_EPISODE,
+    path: "/episode/add",
+    name: "ADD_EPISODE",
+    component: ADD_EPISODE,
   },
   {
     path: "/register_Webtoon",
@@ -133,9 +133,9 @@ const routes = [
     component: BoardWriter,
   },
   {
-    path: "/edit_Webtoon",
-    name: "edit_Webtoon",
-    component: edit_Webtoon,
+    path: "/webtoon/add",
+    name: "ADD_Webtoon",
+    component: ADD_Webtoon,
   },
   {
     path: "/register_state",
