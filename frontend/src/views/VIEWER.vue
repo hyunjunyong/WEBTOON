@@ -4,7 +4,7 @@
 
    -->
   <v-container fluid>
-    <v-row class="justify-space-between">
+    <v-row justify="center">
       <v-col>
         <v-btn class="mx-2" fab>
           <!-- header show btn -->
@@ -13,7 +13,7 @@
           </v-icon>
         </v-btn>
       </v-col>
-      <v-col><Webtoonimage /> </v-col>
+      <v-col cols="auto"><Webtoonimage /> </v-col>
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
       <v-col>
         <v-btn to="/" depressed elevation="5" fab large class="float-right">

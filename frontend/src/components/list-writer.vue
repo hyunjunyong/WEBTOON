@@ -4,7 +4,8 @@
 -->
     <v-form>
         <v-container>
-            <v-row dense>
+            <v-row dense justify="center">
+            <v-col cols="10">
                 <v-text-field
                     :counter="50"
                     label="제목"
@@ -13,8 +14,8 @@
                     v-model="title"
                     maxlength="50" >
                 </v-text-field>
-            </v-row>
-            <v-row dense>
+            </v-col>
+            <v-col cols="10">
                 <v-textarea
                     filled name="context"
                     hint="내용을 입력해주세요."
@@ -22,13 +23,14 @@
                     :counter="1000"
                     maxlength="1000" >
                 </v-textarea>
-            </v-row>
+            </v-col>
             <v-col cols="7">
                 <v-file-input
                     truncate-length="15"
                     class="align-center"
                 ></v-file-input>
             </v-col>
+            </v-row>
         </v-container>
     </v-form>
 </template>

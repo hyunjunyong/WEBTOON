@@ -1,18 +1,20 @@
 <template>
   <v-container>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="../img/개발자의품격로고.png"
-          transition="scale-transition"
-          width="40"
-        />
+      <router-link to="/">
+        <div class="d-flex align-center">
+          <v-img
+            alt="Vuetify Logo"
+            class="shrink mr-2"
+            contain
+            src="../img/개발자의품격로고.png"
+            transition="scale-transition"
+            width="40"
+          />
 
-        <div>개발자의 품격</div>
-      </div>
+          <div>개발자의 품격</div>
+        </div>
+      </router-link>
 
       <!-- 화면 이동용 라우터 -->
       <p class="ma-4">
@@ -25,30 +27,10 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/webtoon_home"
-          ><strong class="router-text">작품</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
-        <router-link to="/webtoon_home_writer"
-          ><strong class="router-text">작가</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
         <router-link to="/writer_home"
           ><strong class="router-text">작가홈</strong></router-link
         >
-        <!--
-        <span class="router-text"> | </span>
 
-        <router-link to="/모달테스트"
-          ><strong class="router-text">모달테스트</strong></router-link
-        > -->
-        <span class="router-text"> | </span>
-
-        <router-link to="/register_webtoon"
-          ><strong class="router-text">{{ testingText }}</strong></router-link
-        >
         <span class="router-text"> | </span>
 
         <router-link to="/kakao_login"
@@ -64,26 +46,86 @@
         <router-link to="/Manager_home"
           ><strong class="router-text">관리자홈</strong></router-link
         >
+        <span class="router-text"> | </span>
 
+        <router-link to="/login"
+          ><strong class="router-text">로그인</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <!-- 검색창 -->
+      <v-text-field
+        hide-details
+        prepend-icon="mdi-magnify"
+        single-line
+      ></v-text-field>
 
-      <v-row class="red ma-3 serchInput">
-        <v-col>
-          <v-img
-            src="../img/free-icon-detective-magnifying-glass-14877.png"
-            max-width="30"
-            class="ma-1 radius"
-          />
-        </v-col>
-        <v-col>
-          <input />
-        </v-col>
-      </v-row>
+      <v-spacer></v-spacer>
 
-      <v-avatar @click="test" color="red" size="40" v-click="test">HJ</v-avatar>
+      <!-- 사용사 아바타 -->
 
+      <v-menu min-width="350px" rounded offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn icon x-large v-on="on" right absolute>
+            <v-avatar color="red" size="40">
+              {{ user.initials }}
+            </v-avatar>
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-list-item-content class="justify-center">
+            <div class="mx-auto text-center">
+              <v-avatar color="red">
+                {{ user.initials }}
+              </v-avatar>
+              <h3>Team 1</h3>
+              <p class="text-caption mt-1">
+                {{ user.email }}
+              </p>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                작품
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                작가 정보 문의
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                찜한 작가
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                찜한 목록
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                작가 신청
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                기업 회원 신청
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                로그아웃
+              </v-btn>
+            </div>
+          </v-list-item-content>
+        </v-card>
+      </v-menu>
+
+      <!-- 
       <v-card id="userStatusCard" v-if="userStatus">
         <v-card-text class="user-state-text">
           <router-link to="/webtoon_home">
@@ -91,24 +133,16 @@
           </router-link>
         </v-card-text>
         <v-card-text>
-          <router-link to="/작가정보문의">
-            작가 정보 문의
-          </router-link>
+          <router-link to="/작가정보문의"> </router-link>
         </v-card-text>
         <v-card-text>
-          <router-link to="/like_list_company">
-            찜한 작가
-          </router-link>
+          <router-link to="/like_list_company"> </router-link>
         </v-card-text>
         <v-card-text>
-          <router-link to="/like_list">
-            찜한 목록
-          </router-link>
+          <router-link to="/like_list"> </router-link>
         </v-card-text>
         <v-card-text>
-          <router-link to="/apply_writer">
-            작가 신청
-          </router-link>
+          <router-link to="/apply_writer"> </router-link>
         </v-card-text>
         <v-card-text>
           <router-link to="/apply_company">
@@ -116,6 +150,7 @@
           </router-link>
         </v-card-text>
       </v-card>
+      -->
     </v-app-bar>
   </v-container>
 </template>
@@ -127,6 +162,11 @@ export default {
     return {
       testingText: "작품등록하기",
       userStatus: false,
+      user: {
+        initials: "HJ",
+        fullName: "Yoo HJ",
+        email: "yhj970105@gmail.com",
+      },
     };
   },
   methods: {

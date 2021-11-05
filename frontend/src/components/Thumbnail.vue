@@ -3,10 +3,10 @@
   <v-container>
     <router-link to="/webtoon_home">
       <v-card v-on:click="testF">
-        <v-img max-height="150" :src="webtoon.url" />
+        <v-img max-height="260" max-weight="260" contain :src="webtoon.url" />
 
         <v-card-title class="ma-1">
-          개발자의 품격
+          {{ webtoon.title }}
         </v-card-title>
 
         <v-card-subtitle>
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      testData: "testing",
+      testData: "작가A",
     };
   },
   methods: {

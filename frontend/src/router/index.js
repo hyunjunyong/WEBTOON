@@ -4,32 +4,35 @@ import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
 import VIEWER from "../views/VIEWER.vue";
 import WEBTOON_Home from "../views/WEBTOON_Home.vue";
-import WEBTOON_Home_WRITER from "../views/WEBTOON_Home_WRITER.vue";
+import WEBTOON_Home_WRITER from "../views/WriterPage/WEBTOON_Home_WRITER.vue";
 import WRITER_Home from "../views/WRITER_Home.vue";
 import 개인정보처리방침 from "../views/개인정보처리방침.vue";
 import 이용약관 from "../views/이용약관.vue";
 import 회사정보 from "../views/회사정보.vue";
 import 모달테스트 from "../views/모달테스트.vue";
-import EDIT_EPISODE from "../views/EDIT_EPISODE";
-import register_Webtoon from "../views/register_Webtoon";
-import BOARDLIST from "../views/BOARDLIST.vue";
-import BOARDWRITER from "../views/BOARDWRITER.vue";
+import EDIT_EPISODE from "../views/WriterPage/EDIT_EPISODE";
+import register_Webtoon from "../views/WriterPage/register_Webtoon";
+import BOARDLIST from "../views/UserPage/BOARDLIST.vue";
+import BOARDWRITER from "../views/UserPage/BOARDWRITER.vue";
 import kakao_login from "../views/kakao_login.vue";
 import APPLY_WRITER from "../views/apply_writer.vue";
-import APPLY_COMPANY from "../views/apply_company.vue";
-import edit_Webtoon from "../views/edit_Webtoon";
-import register_state from "../views/register_state";
+import APPLY_COMPANY from "../views/CompanyPage/apply_company.vue";
+import edit_Webtoon from "../views/WriterPage/edit_Webtoon";
+import register_state from "../views/WriterPage/register_state";
 import ono_writer from "../views/ono-writer";
-import LIKE_LIST from "../views/Like_list.vue";
+import LIKE_LIST from "../views/UserPage/Like_list.vue";
 import Notice from "../views/notice.vue";
 import Notice_List from "../views/notice_list.vue";
 import 작가정보문의 from "../views/작가정보문의.vue";
-import WRITER_Home_Company from "../views/WRITER_Home_COMPANY.vue";
+import WRITER_Home_Company from "../views/CompanyPage/WRITER_Home_COMPANY.vue";
 import 작가정보문의작성 from "../views/작가정보문의작성.vue";
-import LIKE_LIST_COMPANY from "../views/Like_list_company.vue";
-import MANAGER_HOME from "../views/MANAGER_HOME.vue";
-import APPLY_WEBTOON from "../views/apply_webtoon.vue";
-import APPLY_WEBTOON_DETAIL from "../views/apply_webtoon_detail.vue";
+import LIKE_LIST_COMPANY from "../views/UserPage/Like_list_company.vue";
+import MANAGER_HOME from "../views/ManagePage/MANAGER_HOME.vue";
+import APPLY_WEBTOON from "../views/ManagePage/apply_webtoon.vue";
+import APPLY_WEBTOON_DETAIL from "../views/ManagePage/apply_webtoon_detail.vue";
+import WRITER_Home_WRITER from "../views/WriterPage/WRITER_Home_WRITER.vue";
+import Login from "../views/login.vue";
+import Join from  "../views/join.vue";
 
 Vue.use(VueRouter);
 
@@ -185,9 +188,24 @@ const routes = [
     component: APPLY_WEBTOON,
   },
   {
-  path: "/apply_webtoon_detail",
-  name: "APPLY_WEBTOON_DETAIL",
-  component: APPLY_WEBTOON_DETAIL,
+    path: "/apply_webtoon_detail",
+    name: "APPLY_WEBTOON_DETAIL",
+    component: APPLY_WEBTOON_DETAIL,
+  },
+  {
+    path: "/writer_home_writer",
+    name: "WRITER_Home_WRITER",
+    component: WRITER_Home_WRITER,
+  },
+  {
+    path: "/login",
+    name: "LOGIN",
+    component: Login,
+  },
+  {
+    path: "/join",
+    name: "JOIN",
+    component: Join,
   },
 ];
 
