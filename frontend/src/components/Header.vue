@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-app-bar app color="primary" dark>
-      <router-link to="/">
+      <router-link to="/home">
         <div class="d-flex align-center">
           <v-img
             alt="Vuetify Logo"
@@ -18,7 +18,7 @@
 
       <!-- 화면 이동용 라우터 -->
       <p class="ma-4">
-        <router-link to="/"
+        <router-link to="/home"
           ><strong class="router-text">홈</strong></router-link
         >
         <span class="router-text"> | </span>
@@ -33,17 +33,7 @@
 
         <span class="router-text"> | </span>
 
-        <router-link to="/kakao_login"
-          ><strong class="router-text">kakao_login</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
-        <router-link to="/writer_home_company"
-          ><strong class="router-text">작가홈,회사</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
-        <router-link to="/Manager_home"
+        <router-link to="/admin"
           ><strong class="router-text">관리자홈</strong></router-link
         >
       </p>

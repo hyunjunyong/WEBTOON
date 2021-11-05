@@ -11,14 +11,25 @@
       <!-- 최상단 이미지 -->
       <v-row justify="center">
         <v-col cols="2">
+          <!-- 회사사용자만 볼 수 있음 -->
+          <v-row>
+            <router-link to="/작가정보문의작성">
+              <v-col align="center">
+                <v-btn>작가에게 제안하기</v-btn>
+              </v-col>
+            </router-link>
+
+            <router-link to="/ono_writer">
+              <v-col align="center">
+                <v-btn>1:1 문의</v-btn>
+              </v-col>
+            </router-link>
+          </v-row>
+
           <writerprofile />
           <!-- 작가 프로필 -->
-          <router-link to="/ono_writer">
-            <v-col align="center">
-              <v-btn>1:1 문의</v-btn>
-            </v-col>
-          </router-link>
         </v-col>
+
         <v-col cols="8">
           <webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
           <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
