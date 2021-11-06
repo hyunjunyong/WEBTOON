@@ -11,7 +11,7 @@
     </v-row>
     <!-- 최상단 이미지 -->
     <v-row justify="center">
-      <v-col cols="2">
+      <v-col cols="3">
         <!-- 회사사용자만 볼 수 있음 -->
         <v-row>
           <router-link to="/propose">
@@ -31,7 +31,7 @@
         <!-- 작가 프로필 -->
       </v-col>
 
-      <v-col cols="8">
+      <v-col cols="9">
         <!-- 작품으로 이동하는 컴포넌트를 사용해야합니다. -->
         <Webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
       </v-col>
