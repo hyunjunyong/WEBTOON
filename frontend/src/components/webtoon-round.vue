@@ -6,7 +6,6 @@
     <!-- 가장 기본적인 웹툰 화수를 표현하는 컴포넌트 -->
     <v-card
       v-if="webtoon_round_State == 0"
-      v-scroll.self="onScroll"
       class="overflow-y-auto"
       max-height="600"
     >
@@ -17,17 +16,36 @@
       </v-banner>
 
       <v-card-text>
-        <div :key="n" class="mb-4">
-          <v-row v-for="(toon, n) in webtoons" :key="{ n }">
-            <v-col cols="3"
-              ><router-link to="/episode"
-                ><v-img :src="toon.url" width="150" height="150"/></router-link
-            ></v-col>
-            <v-col cols="9"
-              ><v-card> {{ toon.round }} | {{ toon.date }} </v-card></v-col
-            >
-          </v-row>
-        </div>
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  이미지
+                </th>
+                <th class="text-left">
+                  화 | 등록일
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(toon, n) in webtoons" :key="{ n }">
+                <td>
+                  <router-link to="/episode"
+                    ><v-img :src="toon.url" width="50" height="50"
+                  /></router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/episode"
+                    style="text-decoration: none; color: inherit;"
+                    >{{ toon.round }} | {{ toon.date }}</router-link
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
       </v-card-text>
     </v-card>
     <!--  
