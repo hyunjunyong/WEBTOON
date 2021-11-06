@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     data: () => ({
       valid: true,
@@ -116,7 +117,13 @@
     }),
     methods: {
       validate () {
-        this.$http.post('http://localhost:5000/auth/signup')
+        axios.post('http://localhost:5000/auth/signup', {name:this.name, email:this.email, password:this.password}
+        ).then(respon => {
+          console.log(respon);
+        }).catch((err)=> {
+          console.err(err);
+        })
+
       },
       reset () {
         this.$refs.form.reset()
