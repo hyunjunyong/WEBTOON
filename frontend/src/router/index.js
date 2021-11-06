@@ -61,37 +61,13 @@ const routes = [
     name: "Episode",
     component: Episode,
   },
-  //Apply 관리자의 승인이 필요한 부분
-  {
-    path: "/Apply/writer",
-    name: "APPLY_WRITER",
-    component: APPLY_WRITER,
-  },
-  {
-    path: "/Apply/Company",
-    name: "APPLY_COMPANY",
-    component: APPLY_COMPANY,
-  },
-  {
-    path: "/Apply/webtoon",
-    name: "APPLY_WEBTOON",
-    component: APPLY_WEBTOON,
-  },
-  {
-    path: "/Apply/episode",
-    name: "APPLY_WEBTOON_DETAIL",
-    component: APPLY_WEBTOON_DETAIL,
-  },
+
   {
     path: "/webtoon",
     name: "WEBTOON_HOMR",
     component: WEBTOON_HOMR,
   },
-  {
-    path: "/webtoon_home_writer",
-    name: "WEBTOON_Home_WRITER",
-    component: WEBTOON_Home_WRITER,
-  },
+
   {
     path: "/writer",
     name: "WRITER_Home",
@@ -113,36 +89,6 @@ const routes = [
     component: 회사정보,
   },
   {
-    path: "/episode/add",
-    name: "ADD_EPISODE",
-    component: ADD_EPISODE,
-  },
-  {
-    path: "/register_Webtoon",
-    name: "register_Webtoon",
-    component: register_Webtoon,
-  },
-  {
-    path: "/Boardlist",
-    name: "Boardlist",
-    component: Boardlist,
-  },
-  {
-    path: "/Boardwriter",
-    name: "BoardWriter",
-    component: BoardWriter,
-  },
-  {
-    path: "/webtoon/add",
-    name: "ADD_Webtoon",
-    component: ADD_Webtoon,
-  },
-  {
-    path: "/register_state",
-    name: "register_state",
-    component: register_state,
-  },
-  {
     path: "/ono_writer",
     name: "ono_writer",
     component: ono_writer,
@@ -152,11 +98,7 @@ const routes = [
     name: "register_Webtoon",
     component: register_Webtoon,
   },
-  {
-    path: "/like_list",
-    name: "LIKE_LIST",
-    component: LIKE_LIST,
-  },
+
   {
     path: "/Notice",
     name: "NoticE",
@@ -177,21 +119,61 @@ const routes = [
     name: "Propose",
     component: Propose,
   },
-  {
-    path: "/like_list_company",
-    name: "LIKE_LIST_COMPANY",
-    component: LIKE_LIST_COMPANY,
-  },
+
+  //admin
   {
     path: "/admin",
     name: "Admin_Home",
     component: Admin_Home,
   },
+
+  //Apply 관리자의 승인이 필요한 부분
   {
-    path: "/writer_home_writer",
-    name: "WRITER_Home_WRITER",
-    component: WRITER_Home_WRITER,
+    path: "/Apply/writer",
+    name: "APPLY_WRITER",
+    component: APPLY_WRITER,
   },
+  {
+    path: "/Apply/Company",
+    name: "APPLY_COMPANY",
+    component: APPLY_COMPANY,
+  },
+  {
+    path: "/Apply/webtoon",
+    name: "APPLY_WEBTOON",
+    component: APPLY_WEBTOON,
+  },
+  {
+    path: "/Apply/episode",
+    name: "APPLY_WEBTOON_DETAIL",
+    component: APPLY_WEBTOON_DETAIL,
+  },
+
+  //CompanyPage ????
+
+  // UserPage
+  {
+    path: "/Boardlist",
+    name: "Boardlist",
+    component: Boardlist,
+  },
+  {
+    path: "/Boardwriter",
+    name: "BoardWriter",
+    component: BoardWriter,
+  },
+  {
+    path: "/like_list",
+    name: "LIKE_LIST",
+    component: LIKE_LIST,
+  },
+  {
+    path: "/like_list_company",
+    name: "LIKE_LIST_COMPANY",
+    component: LIKE_LIST_COMPANY,
+  },
+
+  // 로그인 연결
   {
     path: "/login",
     name: "LOGIN",
@@ -201,6 +183,37 @@ const routes = [
     path: "/join",
     name: "JOIN",
     component: Join,
+  },
+  // WriterPage
+  {
+    path: "/writer_home_writer",
+    name: "WRITER_Home_WRITER",
+    component: WRITER_Home_WRITER,
+  },
+  {
+    path: "/webtoon_home_writer",
+    name: "WEBTOON_Home_WRITER",
+    component: WEBTOON_Home_WRITER,
+  },
+  {
+    path: "/register_Webtoon",
+    name: "register_Webtoon",
+    component: register_Webtoon,
+  },
+  {
+    path: "/register_state",
+    name: "register_state",
+    component: register_state,
+  },
+  {
+    path: "/episode/add",
+    name: "ADD_EPISODE",
+    component: ADD_EPISODE,
+  },
+  {
+    path: "/webtoon/add",
+    name: "ADD_Webtoon",
+    component: ADD_Webtoon,
   },
 ];
 

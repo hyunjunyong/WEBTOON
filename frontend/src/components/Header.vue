@@ -54,9 +54,21 @@
 
       <v-spacer></v-spacer>
 
+      <!-- 로그인 버튼 -->
+      <router-link to="/login">
+        <v-btn class="black--text" rounded color="indigo">
+          <v-img
+            src="../img/login.png"
+            max-width="30px"
+            max-height="30px"
+          ></v-img>
+          로그인
+        </v-btn>
+      </router-link>
+
       <!-- 사용사 아바타 -->
 
-      <v-menu min-width="350px" rounded offset-y>
+      <v-menu v-if="isActive" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -151,6 +163,7 @@ export default {
   name: "이용약관",
   data() {
     return {
+      isActive: false,
       testingText: "작품등록하기",
       userStatus: false,
       user: {
