@@ -111,6 +111,7 @@
         v => !!v || '휴대전화번호는 필수항목입니다.',
         v => (v && v.length == 11) || '-를 생략하고 적어주세요.(ex.01022223333)',
       ],
+      bday:'',
       bdayRules: [
         v => !!v || '생년월일은 필수항목입니다.',
         v => (v && v.length == 8) || '8자리를 적어주세요.(ex.19901010)',
@@ -125,7 +126,7 @@
     }),
     methods: {
       validate () {
-        this.$refs.form.validate()
+        this.$http.post('http://localhost:5000/auth/signup')
       },
       reset () {
         this.$refs.form.reset()
