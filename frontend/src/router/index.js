@@ -36,8 +36,8 @@ import APPLY_WEBTOON_DETAIL from "../views/Apply/Episode.vue";
 //회사의 작가제안사항 확인
 import ProposeStatus from "../views/ProposeStatus.vue";
 import Propose from "../views/Propose.vue";
-import Boardlist from "../views/UserPage/BOARDLIST.vue";
-import BoardWriter from "../views/UserPage/BOARDWRITER.vue";
+import Boardlist from "../views/UserPage/Boardlist.vue";
+import BoardWriter from "../views/UserPage/BoardWriter.vue";
 
 //공지
 import Notice from "../views/notice.vue";
