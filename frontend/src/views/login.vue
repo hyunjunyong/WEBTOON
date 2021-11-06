@@ -44,30 +44,36 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: "Login",
   data() {
     return {
       email: null,
       password: null,
-      allUsers: [
-        { id: 1, name: "희정", email: "heejung@gmail.com", password: "123456" },
-      ],
       NotSuccess: false,
       Success: false,
     };
   },
   methods: {
     login() {
-      let selectedUser = null;
-      this.allUsers.forEach((user) => {
-        if (user.email === this.email) selectedUser = user;
-      });
-      selectedUser === null
-        ? (this.NotSuccess = true)
-        : selectedUser.password !== this.password
-        ? (this.NotSuccess = true)
-        : (this.Success = true);
+      // let selectedUser = null;
+      // this.allUsers.forEach((user) => {
+      //   if (user.email === this.email) selectedUser = user;
+      // });
+      // selectedUser === null
+      //   ? (this.NotSuccess = true)
+      //   : selectedUser.password !== this.password
+      //   ? (this.NotSuccess = true)
+      //   : (this.Success = true);
+
+      axios.post('http://localhost:5000/auth/session', {email:this.email, password:this.password}
+        ).then(respon => {
+          console.log(respon);
+        }).catch((err)=> {
+          console.err(err);
+        })
     },
   },
 };

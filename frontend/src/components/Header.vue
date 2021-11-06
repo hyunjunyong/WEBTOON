@@ -108,7 +108,7 @@
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text>
+              <v-btn depressed rounded text @click='logout'>
                 로그아웃
               </v-btn>
             </div>
@@ -147,6 +147,8 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
   name: "이용약관",
   data() {
@@ -164,6 +166,9 @@ export default {
     test() {
       this.userStatus = !this.userStatus;
     },
+    logout(){
+      axios.delete('http://localhost:5000/auth/session').then().catch();
+    }
   },
 };
 </script>
