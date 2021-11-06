@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     data: () => ({
       valid: true,
@@ -95,7 +96,17 @@
       password: '',
       passwordRules: [
         v => !!v || '비밀번호는 필수항목입니다.',
-        v => /^.*(?=^.{6,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/.test(v) || '6~12자의 영문 대소문자, 숫자 및 특수기호를 최소 1개 이상 포함해야합니다.',
+        v => (v && v.length >= 5) || '비밀번호는 5자 이상으로 적어주세요.',
+      ],
+      phonenumber: '',
+      phonenumberRules: [
+        v => !!v || '휴대전화번호는 필수항목입니다.',
+        v => (v && v.length == 11) || '-를 생략하고 적어주세요.(ex.01022223333)',
+      ],
+      bday:'',
+      bdayRules: [
+        v => !!v || '생년월일은 필수항목입니다.',
+        v => (v && v.length == 8) || '8자리를 적어주세요.(ex.19901010)',
       ],
       password_checkRules: [
         v => !!v || '비밀번호는 필수항목입니다.',
@@ -106,7 +117,13 @@
     }),
     methods: {
       validate () {
-        this.$refs.form.validate()
+        axios.post('http://localhost:5000/auth/signup', {name:this.name, email:this.email, password:this.password}
+        ).then(respon => {
+          console.log(respon);
+        }).catch((err)=> {
+          console.err(err);
+        })
+
       },
       reset () {
         this.$refs.form.reset()
