@@ -9,7 +9,7 @@
     <v-row>
       <v-col>
         <div class="justify-space-between align-center">
-          <router-link to="/writer_home">
+          <router-link to="/writer">
             <v-img :aspect-ratio="1" src="../img/writer_profile.png" />
           </router-link>
         </div>
@@ -28,7 +28,9 @@
     </v-row>
     <v-row>
       <v-col>
-        <router-link to="/writer_home"><v-card class="text-center">작가A</v-card></router-link>
+        <router-link to="/writer_home"
+          ><v-card class="text-center">작가A</v-card></router-link
+        >
       </v-col>
     </v-row>
     <v-row>

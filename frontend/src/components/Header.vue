@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-app-bar app color="primary" dark>
-      <router-link to="/">
+      <router-link to="/home">
         <div class="d-flex align-center">
           <v-img
             alt="Vuetify Logo"
@@ -18,7 +18,7 @@
 
       <!-- 화면 이동용 라우터 -->
       <p class="ma-4">
-        <router-link to="/"
+        <router-link to="/home"
           ><strong class="router-text">홈</strong></router-link
         >
         <span class="router-text"> | </span>
@@ -27,23 +27,13 @@
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/writer_home"
+        <router-link to="/writer"
           ><strong class="router-text">작가홈</strong></router-link
         >
 
         <span class="router-text"> | </span>
 
-        <router-link to="/kakao_login"
-          ><strong class="router-text">kakao_login</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
-        <router-link to="/writer_home_company"
-          ><strong class="router-text">작가홈,회사</strong></router-link
-        >
-        <span class="router-text"> | </span>
-
-        <router-link to="/Manager_home"
+        <router-link to="/admin"
           ><strong class="router-text">관리자홈</strong></router-link
         >
         <span class="router-text"> | </span>
@@ -64,9 +54,21 @@
 
       <v-spacer></v-spacer>
 
+      <!-- 로그인 버튼 -->
+      <router-link to="/login">
+        <v-btn class="black--text" rounded color="indigo">
+          <v-img
+            src="../img/login.png"
+            max-width="30px"
+            max-height="30px"
+          ></v-img>
+          로그인
+        </v-btn>
+      </router-link>
+
       <!-- 사용사 아바타 -->
 
-      <v-menu min-width="350px" rounded offset-y>
+      <v-menu v-if="isActive" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -87,33 +89,34 @@
               </p>
 
               <v-divider class="my-3"></v-divider>
+
               <v-btn depressed rounded text>
                 작품
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                작가 정보 문의
+                작가 제안 현황
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                찜한 작가
+                찜한 작가 보기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                찜한 목록
+                찜한 작품 목록보기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                작가 신청
+                작가 신청 하기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
-                기업 회원 신청
+                기업 신청 하기
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
@@ -160,6 +163,7 @@ export default {
   name: "이용약관",
   data() {
     return {
+      isActive: false,
       testingText: "작품등록하기",
       userStatus: false,
       user: {
