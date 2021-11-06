@@ -15,10 +15,10 @@
     lazy-validation
   >
     <v-text-field
-      v-model="name"
+      v-model="nickname"
       :counter="10"
-      :rules="nameRules"
-      label="이름"
+      :rules="nicknameRules"
+      label="닉네임"
       required
     ></v-text-field>
 
@@ -38,28 +38,19 @@
     ></v-text-field>
 
     <v-text-field
-      v-model="phonenumber"
-      :rules="phonenumberRules"
-      label="휴대전화번호"
-      placeholder="01022223333"
-       required
-    ></v-text-field>
-
-    <v-text-field
-      v-model="bday"
-      :rules="bdayRules"
-      label="생년월일"
-      placeholder="19901010"
-       required
-    ></v-text-field>
-
-    <v-select
-      v-model="select"
-      :items="items"
-      :rules="[v => !!v || '성별을 선택해주세요.']"
-      label="성별"
+      v-model="password_check"
+      type="password"
+      :rules="password_checkRules"
+      label="비밀번호 확인"
       required
-    ></v-select>
+    ></v-text-field>
+
+      <v-checkbox
+        v-model="checkbox"
+        :rules="[v => !!v || '동의는 필수항목입니다.']"
+        label="이용약관에 동의하십니까?"
+        required
+      ></v-checkbox>
 
     <v-row justify="center" class="ma-0">
         <v-spacer></v-spacer>
@@ -91,10 +82,10 @@
   export default {
     data: () => ({
       valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || '이름은 필수항목입니다.',
-        v => (v && v.length <= 10) || '이름은 10자 이하로 적어주세요.',
+      nickname: '',
+      nicknameRules: [
+        v => !!v || '닉네임은 필수항목입니다.',
+        v => (v && v.length <= 10) || '닉네임은 10자 이하로 적어주세요.',
       ],
       email: '',
       emailRules: [
@@ -116,11 +107,10 @@
         v => !!v || '생년월일은 필수항목입니다.',
         v => (v && v.length == 8) || '8자리를 적어주세요.(ex.19901010)',
       ],
-
-      select: null,
-      items: [
-        '남',
-        '여',
+      password_checkRules: [
+        v => !!v || '비밀번호는 필수항목입니다.',
+        v => /^.*(?=^.{6,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/.test(v) || '6~12자의 영문 대소문자, 숫자 및 특수기호를 최소 1개 이상 포함해야합니다.',
+        v => v === this.password || '비밀번호가 일치하지 않습니다.'
       ],
       checkbox: false,
     }),
