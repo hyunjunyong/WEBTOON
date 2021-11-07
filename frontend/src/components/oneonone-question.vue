@@ -7,6 +7,7 @@
             >{{ index.title }} | {{ index.date }} |
             {{ index.name }}</v-list-item-title
           >
+          <v-divider />
         </v-list-item-content>
       </v-list-item>
     </v-card>

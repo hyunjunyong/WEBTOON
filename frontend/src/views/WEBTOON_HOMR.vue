@@ -7,7 +7,7 @@
 -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="11">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
         <WriterWebtoonIntro />
