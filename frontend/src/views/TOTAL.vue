@@ -15,7 +15,7 @@
 
 <script>
 import Thumbnail from "../components/Thumbnail";
-import Genre from "../components/genre";
+import Genre from "../components/Genre";
 
 export default {
   name: "TOTAL",
