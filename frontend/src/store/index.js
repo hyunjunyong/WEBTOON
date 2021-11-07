@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     count: 0,
+    isLogin: false,
   },
   mutations: {
     increment(state) {
@@ -13,6 +14,15 @@ export default new Vuex.Store({
     },
   },
   getters: {},
-  actions: {},
+  actions: {
+    signin() {
+      this.state.isLogin = true;
+      console.log(this.state.isLogin);
+    },
+    signout() {
+      this.state.isLogin = false;
+      console.log(this.state.isLogin);
+    },
+  },
   modules: {},
 });

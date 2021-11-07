@@ -44,19 +44,21 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import axios from "axios";
 
 export default {
   name: "Login",
   data() {
     return {
-      email: null,
-      password: null,
+      email: "test2000@test.co.kr",
+      password: "qqqqq",
       NotSuccess: false,
       Success: false,
     };
   },
   methods: {
+    ...mapActions(["signin"]),
     login() {
       // let selectedUser = null;
       // this.allUsers.forEach((user) => {
@@ -69,12 +71,17 @@ export default {
       //   : (this.Success = true);
 
       axios
-        .post("http://localhost:5000/auth/session", {
-          email: this.email,
-          password: this.password,
-        })
+        .post(
+          "http://localhost:5000/auth/session",
+          {
+            email: this.email,
+            password: this.password,
+          },
+          { withCredentials: true }
+        )
         .then((respon) => {
-          console.log("로그인 결과 : " + respon);
+          this.signin();
+          console.log(respon);
         })
         .catch((err) => {
           console.err(err);

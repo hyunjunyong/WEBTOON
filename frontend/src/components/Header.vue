@@ -44,6 +44,7 @@
       </p>
 
       <v-spacer></v-spacer>
+
       <v-spacer></v-spacer>
       <!-- 검색창 -->
       <v-text-field
@@ -54,21 +55,20 @@
 
       <v-spacer></v-spacer>
 
-      <!-- 로그인 버튼
-      <router-link to="/login">
-        <v-btn class="black--text" rounded color="indigo">
+      <!-- 로그인 버튼 -->
+      <v-btn class="black--text" rounded color="indigo" v-if="!isLogin">
+        <router-link to="/login">
           <v-img
             src="../img/login.png"
             max-width="30px"
             max-height="30px"
           ></v-img>
           로그인
-        </v-btn>
-      </router-link> -->
+        </router-link>
+      </v-btn>
 
-      <!-- 사용사 아바타 -->
-
-      <v-menu v-if="isActive" min-width="350px" rounded offset-y>
+      <!-- 사용자 아바타 -->
+      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -159,13 +159,13 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 import axios from "axios";
 
 export default {
-  name: "이용약관",
+  name: "Header",
   data() {
     return {
-      isActive: true,
       testingText: "작품등록하기",
       userStatus: false,
       user: {
@@ -176,15 +176,24 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["signout"]),
     test() {
       this.userStatus = !this.userStatus;
     },
     logout() {
       axios
-        .delete("http://localhost:5000/auth/session")
-        .then()
-        .catch();
+        .delete("http://localhost:5000/auth/session", { withCredentials: true })
+        .then((res) => {
+          this.signout();
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
+  },
+  computed: {
+    ...mapState(["isLogin"]),
   },
 };
 </script>
