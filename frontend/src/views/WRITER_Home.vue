@@ -12,6 +12,9 @@
     <!-- 최상단 이미지 -->
     <v-row justify="center">
       <v-col cols="3">
+        <!-- 작가 프로필 -->
+        <Writerprofile />
+
         <!-- 회사사용자만 볼 수 있음 -->
         <v-row>
           <router-link to="/propose">
@@ -26,9 +29,6 @@
             </v-col>
           </router-link>
         </v-row>
-
-        <Writerprofile />
-        <!-- 작가 프로필 -->
       </v-col>
 
       <v-col cols="9">
