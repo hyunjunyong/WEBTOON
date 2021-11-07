@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-app-bar app color="primary" dark>
-      <router-link to="/home">
+      <router-link to="/">
         <div class="d-flex align-center">
           <v-img
             alt="Vuetify Logo"
@@ -18,7 +18,7 @@
 
       <!-- 화면 이동용 라우터 -->
       <p class="ma-4">
-        <router-link to="/home"
+        <router-link to="/"
           ><strong class="router-text">홈</strong></router-link
         >
         <span class="router-text"> | </span>
@@ -120,7 +120,7 @@
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text @click='logout'>
+              <v-btn depressed rounded text @click="logout">
                 로그아웃
               </v-btn>
             </div>
@@ -159,7 +159,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 
 export default {
   name: "이용약관",
@@ -179,9 +179,12 @@ export default {
     test() {
       this.userStatus = !this.userStatus;
     },
-    logout(){
-      axios.delete('http://localhost:5000/auth/session').then().catch();
-    }
+    logout() {
+      axios
+        .delete("http://localhost:5000/auth/session")
+        .then()
+        .catch();
+    },
   },
 };
 </script>

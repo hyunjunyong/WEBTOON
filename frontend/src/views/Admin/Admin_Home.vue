@@ -5,7 +5,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="10">
-        <router-link to="/apply_webtoon" class="ma-2">
+        <router-link to="/apply/webtoon" class="ma-2">
           <v-card>
             <v-card-title>
               작품 승인 신규 요청
@@ -21,7 +21,7 @@
       </v-col>
     </v-row>
 
-    <v-row  justify="center">
+    <v-row justify="center">
       <v-col cols="10">
         <v-card>
           <v-card-title>
@@ -34,7 +34,7 @@
       </v-col>
     </v-row>
 
-    <v-row  justify="center">
+    <v-row justify="center">
       <v-col cols="10">
         <v-card>
           <v-card-title>

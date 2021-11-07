@@ -210,46 +210,60 @@
       class="overflow-y-auto"
       max-height="800"
     >
-      <v-row v-for="(toon, index) in webtoon" :key="index">
-        <v-col cols="3">
-          <router-link to="/apply_webtoon_detail">
-            <v-img :src="toon.url" width="150" height="150"
-          /></router-link>
-        </v-col>
-        <v-col cols="7">
-          <v-card>{{ toon.title }} | {{ toon.round }} | {{ toon.date }}</v-card>
-          <v-divider />
-        </v-col>
-        <v-col cols="1">
-          <v-flex xs1>
-            <v-dialog v-model="dialog" width="500">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  cols="1"
-                  dark
-                  small
-                  color="green"
-                  height="150"
-                  v-bind="attrs"
-                  v-on="on"
-                  >{{ toon.apply }}</v-btn
-                >
-              </template>
+      <v-simple-table>
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left">
+                이미지
+              </th>
+              <th class="text-left">
+                정보
+              </th>
+              <th class="text-left">
+                승인
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(toon, index) in webtoon" :key="index">
+              <td>
+                <router-link to="/apply_webtoon_detail">
+                  <v-img :src="toon.url" width="100" height="100"
+                /></router-link>
+              </td>
+              <td>{{ toon.title }} | {{ toon.round }} | {{ toon.date }}</td>
+              <td>
+                <v-flex xs1>
+                  <v-dialog v-model="dialog" width="500">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        cols="1"
+                        dark
+                        color="green"
+                        v-bind="attrs"
+                        v-on="on"
+                        >{{ toon.apply }}</v-btn
+                      >
+                    </template>
 
-              <v-card>
-                <v-card-title class="text-h6 grey lighten-2">
-                  작품을 승인 하시겠습니까?
-                </v-card-title>
-                <v-divider />
-                <v-spacer></v-spacer>
-                <v-btn block color="primary" text @click="dialog = false">
-                  승인
-                </v-btn>
-              </v-card>
-            </v-dialog>
-          </v-flex>
-        </v-col>
-      </v-row>
+                    <v-card>
+                      <v-card-title class="text-h6 grey lighten-2">
+                        작품을 승인 하시겠습니까?
+                      </v-card-title>
+                      <v-divider />
+                      <v-spacer></v-spacer>
+                      <v-btn block color="primary" text @click="dialog = false">
+                        승인
+                      </v-btn>
+                    </v-card>
+                  </v-dialog>
+                </v-flex>
+              </td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
     </v-card>
   </v-container>
 </template>

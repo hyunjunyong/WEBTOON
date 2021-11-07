@@ -18,9 +18,8 @@
           </v-col>
           <v-col cols="2">
             <v-btn icon color="deep-orange" @click="increment">
-              <v-icon>mdi-thumb-up</v-icon>
+              <v-icon>mdi-thumb-up</v-icon>{{ count }}
             </v-btn>
-            <h4>{{ count }}</h4>
           </v-col>
           <v-col cols="2">
             <router-link to="/edit_Webtoon">
