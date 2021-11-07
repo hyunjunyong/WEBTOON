@@ -37,7 +37,7 @@ import APPLY_WEBTOON_DETAIL from "../views/Apply/Episode.vue";
 import ProposeStatus from "../views/ProposeStatus.vue";
 import Propose from "../views/Propose.vue";
 import Boardlist from "../views/UserPage/Boardlist.vue";
-import BoardWriter from "../views/UserPage/Boardwriter.vue";
+import BoardWriter from "../views/UserPage/BoardWriter.vue";
 
 //공지
 import Notice from "../views/notice.vue";
