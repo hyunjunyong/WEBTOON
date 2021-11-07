@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   name: "Login",
@@ -68,12 +68,17 @@ export default {
       //   ? (this.NotSuccess = true)
       //   : (this.Success = true);
 
-      axios.post('http://localhost:5000/auth/session', {email:this.email, password:this.password}
-        ).then(respon => {
-          console.log(respon);
-        }).catch((err)=> {
-          console.err(err);
+      axios
+        .post("http://localhost:5000/auth/session", {
+          email: this.email,
+          password: this.password,
         })
+        .then((respon) => {
+          console.log("로그인 결과 : " + respon);
+        })
+        .catch((err) => {
+          console.err(err);
+        });
     },
   },
 };

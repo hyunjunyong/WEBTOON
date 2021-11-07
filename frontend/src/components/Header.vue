@@ -54,7 +54,7 @@
 
       <v-spacer></v-spacer>
 
-      <!-- 로그인 버튼 -->
+      <!-- 로그인 버튼
       <router-link to="/login">
         <v-btn class="black--text" rounded color="indigo">
           <v-img
@@ -64,7 +64,7 @@
           ></v-img>
           로그인
         </v-btn>
-      </router-link>
+      </router-link> -->
 
       <!-- 사용사 아바타 -->
 
@@ -165,7 +165,7 @@ export default {
   name: "이용약관",
   data() {
     return {
-      isActive: false,
+      isActive: true,
       testingText: "작품등록하기",
       userStatus: false,
       user: {
