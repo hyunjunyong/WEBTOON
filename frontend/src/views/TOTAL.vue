@@ -1,12 +1,12 @@
 <template>
   <v-container class="TOTAL">
     <v-row no-gutters justify="center">
-    <v-col cols="10">
-      <Genre />
-    </v-col>
+      <v-col cols="10">
+        <Genre />
+      </v-col>
     </v-row>
-    <v-row v-for="m in 4" :key="m" no-gutters justify="center"> 
-      <v-col v-for="n in webtoon" :key="n" cols="2">
+    <v-row v-for="m in 4" :key="m" no-gutters justify="center">
+      <v-col v-for="n in webtoon" :key="n.id" cols="2">
         <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
