@@ -15,7 +15,7 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n" cols="2">
+      <v-col v-for="n in webtoon" :key="n.id" cols="2">
         <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
@@ -39,7 +39,7 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n" cols="2">
+      <v-col v-for="n in webtoon" :key="n.id" cols="2">
         <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
@@ -55,7 +55,7 @@
     </v-row>
 
     <v-row no-gutters v-for="m in 3" :key="m" justify="center">
-      <v-col v-for="n in webtoon" :key="n" cols="2">
+      <v-col v-for="n in webtoon" :key="n.id" cols="2">
         <Thumbnail :webtoon="n" />
       </v-col>
     </v-row>
