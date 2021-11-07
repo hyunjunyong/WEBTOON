@@ -5,13 +5,19 @@
       <v-card>
         <v-row>
           <v-col align="center">
-            <router-link to="/writer">
-              <v-img
-                :aspect-ratio="1"
-                src="../img/writer_profile.png"
-                max-width="110px"
-                max-height="110px"
-              /> </router-link
+            <v-badge bordered color="error" icon="mdi-lock" overlap>
+              <template v-slot:badge>
+                <router-link to="/writer">
+                  <v-avatar>
+                    <v-img
+                      :aspect-ratio="1"
+                      src="../img/writer_profile.png"
+                      max-width="110px"
+                      max-height="110px"
+                    />
+                  </v-avatar>
+                </router-link>
+              </template> </v-badge
           ></v-col>
         </v-row>
         <v-row>

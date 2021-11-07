@@ -3,7 +3,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-card class="text-center text-h3" height="60">작가 신청</v-card>
+        <v-card class="text-center text-h3" height="50">작가 신청</v-card>
       </v-col>
     </v-row>
     <v-row>
@@ -44,7 +44,7 @@
       <v-col cols="3" class="d-flex align-center text-center text-h5">
         <v-card class="ma-auto">
           작가 프로필 사진 <br />
-          (250px * 250px)
+          (200px * 200px)
         </v-card>
       </v-col>
 
@@ -53,8 +53,8 @@
         <v-img
           src="../../img/writer_profile.png"
           alt=""
-          height="250px"
-          width="250px"
+          height="200px"
+          width="200px"
         />
       </v-col>
       <v-col cols="3" class="d-flex align-center">
