@@ -12,7 +12,14 @@
       </v-col>
       <v-spacer></v-spacer>
       <v-col cols="5">
-        <v-text-field label="필명 작성" single-line solo> </v-text-field>
+        <v-text-field
+          v-model="penName"
+          id="penName"
+          label="필명 작성"
+          single-line
+          solo
+        >
+        </v-text-field>
       </v-col>
       <v-col cols="3">
         <v-btn class="text-center text-h7">중복 확인</v-btn>
@@ -30,7 +37,14 @@
       </v-col>
       <v-spacer></v-spacer>
       <v-col cols="7">
-        <v-text-field label="작가 소개 작성" single-line solo height="200">
+        <v-text-field
+          v-model="intro"
+          id="intro"
+          label="작가 소개 작성"
+          single-line
+          solo
+          height="200"
+        >
         </v-text-field>
       </v-col>
       <v-spacer></v-spacer>
@@ -58,7 +72,7 @@
         />
       </v-col>
       <v-col cols="3" class="d-flex align-center">
-        <v-btn class="text-center text-h7">사진 업로드</v-btn>
+        <input type="file" name="photo" id="photo" />
       </v-col>
     </v-row>
     <v-row>
@@ -70,7 +84,7 @@
       </v-col>
       <v-spacer></v-spacer>
       <v-col class="text-center">
-        <v-btn block>신청</v-btn>
+        <v-btn block @click="ap_Writer()">신청</v-btn>
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
@@ -86,17 +100,42 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "",
   components: {},
   data() {
-    return {};
+    return {
+      writerinfo: { penName: "asdf", intro: "asdf" },
+    };
   },
   setup() {},
   create() {},
   mounted() {},
   unmounted() {},
-  methods: {},
+  methods: {
+    ap_Writer() {
+      let form = new FormData();
+      var photoFile = document.getElementById("photo");
+      console.log(photoFile);
+      const writer_info = {
+        penName: this.penName,
+        intro: this.intro,
+      };
+      form.append("avatar", photoFile.files[0]);
+      form.append("datas", JSON.stringify(writer_info));
+      axios
+        .post("http://localhost:5000/user/apply-writer", form, {
+          withCredentials: true,
+        })
+        .then((respon) => {
+          console.log(respon);
+        })
+        .catch((err) => {
+          console.err(err);
+        });
+    },
+  },
 };
 </script>
 <style scoped></style>

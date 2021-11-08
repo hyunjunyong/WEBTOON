@@ -29,7 +29,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(toon, n) in webtoons" :key="{ n }">
+              <tr v-for="(toon, index) in webtoons" :key="index">
                 <td>
                   <router-link to="/episode"
                     ><v-img :src="toon.url" width="50" height="50"
