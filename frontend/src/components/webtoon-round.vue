@@ -1,6 +1,13 @@
 <template>
-  <!-- 특정 웹툰의 화수를 보여주는 컴포넌트 입니다.
+  <!--
+    특정 웹툰(작품)의 에피소드 리스트를 보여주는 컴포넌트 입니다.
     상태 관리를 통해 수정 가능합니다.
+
+    webtoon_round_State == 0 기본
+    webtoon_round_State == 1 작가용
+    webtoon_round_State == 2 관리자용
+    webtoon_round_State == 3 찜목록
+
  -->
   <v-container class="webtoon_round">
     <!-- 가장 기본적인 웹툰 화수를 표현하는 컴포넌트 -->
@@ -29,7 +36,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(toon, n) in webtoons" :key="{ n }">
+              <tr v-for="(toon, index) in webtoons" :key="index">
                 <td>
                   <router-link to="/episode"
                     ><v-img :src="toon.url" width="50" height="50"
@@ -276,56 +283,56 @@ export default {
   data() {
     return {
       webtoon: [
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/05.jpg"),
-          round: "5화",
-          date: "2021-10-27",
-          state: "승인대기중",
-          comment: "2순위",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04.jpg"),
-          round: "4화",
-          date: "2021-10-20",
-          state: "승인완료",
-          comment: "성장 중",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03.jpg"),
-          round: "3화",
-          date: "2021-10-13",
-          state: "승인완료",
-          comment: "1순위",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02.jpg"),
-          round: "2화",
-          date: "2021-10-6",
-          state: "반려중",
-          comment: "성장 가능성 있음",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"),
-          round: "1화",
-          date: "2021-10-1",
-          state: "승인대기중",
-          comment: "제안 완료",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
+        // {
+        //   url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/05.jpg"),
+        //   round: "5화",
+        //   date: "2021-10-27",
+        //   state: "승인대기중",
+        //   comment: "2순위",
+        //   delete: "삭제",
+        //   title: "작품 명",
+        //   apply: "승인",
+        // },
+        // {
+        //   url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04.jpg"),
+        //   round: "4화",
+        //   date: "2021-10-20",
+        //   state: "승인완료",
+        //   comment: "성장 중",
+        //   delete: "삭제",
+        //   title: "작품 명",
+        //   apply: "승인",
+        // },
+        // {
+        //   url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03.jpg"),
+        //   round: "3화",
+        //   date: "2021-10-13",
+        //   state: "승인완료",
+        //   comment: "1순위",
+        //   delete: "삭제",
+        //   title: "작품 명",
+        //   apply: "승인",
+        // },
+        // {
+        //   url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02.jpg"),
+        //   round: "2화",
+        //   date: "2021-10-6",
+        //   state: "반려중",
+        //   comment: "성장 가능성 있음",
+        //   delete: "삭제",
+        //   title: "작품 명",
+        //   apply: "승인",
+        // },
+        // {
+        //   url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"),
+        //   round: "1화",
+        //   date: "2021-10-1",
+        //   state: "승인대기중",
+        //   comment: "제안 완료",
+        //   delete: "삭제",
+        //   title: "작품 명",
+        //   apply: "승인",
+        // },
       ],
     };
   },

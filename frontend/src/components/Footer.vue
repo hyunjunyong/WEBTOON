@@ -15,7 +15,7 @@
       </v-col>
 
       <v-col class="primary lighten py-4 text-center white--text" cols="10">
-        <router-link to="/이용약관" class="ma-2">
+        <router-link to="/Tos" class="ma-2">
           <span class="footer-font"> <strong>이용약관</strong> </span>
         </router-link>
 

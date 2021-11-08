@@ -56,16 +56,16 @@
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
-      <v-btn class="black--text" rounded color="indigo" v-if="!isLogin">
-        <router-link to="/login">
+      <router-link to="/login">
+        <v-btn class="black--text" rounded color="indigo" v-if="!isLogin">
           <v-img
             src="../img/login.png"
             max-width="30px"
             max-height="30px"
           ></v-img>
           로그인
-        </router-link>
-      </v-btn>
+        </v-btn>
+      </router-link>
 
       <!-- 사용자 아바타 -->
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>

@@ -9,7 +9,7 @@ import WEBTOON_Home_WRITER from "../views/WriterPage/WEBTOON_Home_WRITER.vue";
 import WRITER_Home from "../views/WRITER_Home.vue";
 
 import 개인정보처리방침 from "../views/개인정보처리방침.vue";
-import 이용약관 from "../views/이용약관.vue";
+import Tos from "../views/Tos.vue";
 import 회사정보 from "../views/회사정보.vue";
 
 import ADD_EPISODE from "../views/WriterPage/ADD_Episode";
@@ -79,9 +79,9 @@ const routes = [
     component: 개인정보처리방침,
   },
   {
-    path: "/이용약관",
-    name: "이용약관",
-    component: 이용약관,
+    path: "/Tos",
+    name: "Tos",
+    component: Tos,
   },
   {
     path: "/회사정보",

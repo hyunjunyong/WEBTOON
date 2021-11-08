@@ -36,14 +36,10 @@ import Webtoonimage from "../components/Webtoon-image";
 import viewerend from "../components/viewer-end.vue";
 export default {
   name: "VIEWER",
-  data: () => ({
-    //
-  }),
   components: {
     Webtoonimage,
     viewerend,
   },
-  method: {},
 };
 </script>
 

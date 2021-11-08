@@ -1,5 +1,5 @@
 <template>
-  <v-container class="이용약관">
+  <v-container class="Tos">
     <v-card>
       <v-card-text>
         이용약관임 페이지 입니다
@@ -10,7 +10,6 @@
 
 <script>
 export default {
-  name: "이용약관",
-  components: {},
+  name: "Tos",
 };
 </script>
