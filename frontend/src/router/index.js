@@ -17,7 +17,7 @@ import register_Webtoon from "../views/WriterPage/register_Webtoon";
 
 import ADD_Webtoon from "../views/WriterPage/ADD_Webtoon";
 import register_state from "../views/WriterPage/register_state";
-import ono_writer from "../views/ono-writer";
+// import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/UserPage/Like_list.vue";
 
 import LIKE_LIST_COMPANY from "../views/UserPage/Like_list_company.vue";
@@ -88,11 +88,12 @@ const routes = [
     name: "회사정보",
     component: 회사정보,
   },
-  {
-    path: "/ono_writer",
-    name: "ono_writer",
-    component: ono_writer,
-  },
+  // boardlist,boardwriter와 겹쳐서 회의전까지는 일단 주석
+  // {
+  //   path: "/ono_writer",
+  //   name: "ono_writer",
+  //   component: ono_writer,
+  // },
 
   {
     path: "/Notice",

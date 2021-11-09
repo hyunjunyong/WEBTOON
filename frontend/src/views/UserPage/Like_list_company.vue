@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-card class="text-center text-h4">찜한 작가</v-card>
+        <v-card class="text-center text-h4">관심 작가</v-card>
       </v-col>
     </v-row>
 

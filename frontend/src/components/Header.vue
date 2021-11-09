@@ -100,25 +100,32 @@
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text>
-                찜한 작가 보기
-              </v-btn>
-
+              <router-link
+                style="text-decoration:none"
+                to="./like_list_company"
+              >
+                <v-btn depressed rounded text>
+                  찜한 작가 보기
+                </v-btn>
+              </router-link>
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text>
-                찜한 작품 목록보기
-              </v-btn>
-
+              <router-link style="text-decoration:none" to="./like_list">
+                <v-btn depressed rounded text>
+                  찜한 작품 목록보기
+                </v-btn>
+              </router-link>
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text>
-                작가 신청 하기
-              </v-btn>
-
+              <router-link style="text-decoration:none" to="./apply/writer">
+                <v-btn depressed rounded text>
+                  작가 신청 하기
+                </v-btn>
+              </router-link>
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text>
-                기업 신청 하기
-              </v-btn>
-
+              <router-link style="text-decoration:none" to="./apply/Company">
+                <v-btn depressed rounded text>
+                  기업 신청 하기
+                </v-btn>
+              </router-link>
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text @click="logout">
                 로그아웃

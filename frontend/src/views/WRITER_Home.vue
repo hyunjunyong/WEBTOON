@@ -23,7 +23,7 @@
             </v-col>
           </router-link>
 
-          <router-link to="/ono_writer">
+          <router-link to="/Boardlist">
             <v-col align="center">
               <v-btn>1:1 문의</v-btn>
             </v-col>
