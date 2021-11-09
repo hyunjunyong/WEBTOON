@@ -68,7 +68,7 @@
       </router-link>
 
       <!-- 사용자 아바타 -->
-      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -102,26 +102,26 @@
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
-                to="./like_list_company"
+                to="/like_list_company"
               >
                 <v-btn depressed rounded text>
                   찜한 작가 보기
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-              <router-link style="text-decoration:none" to="./like_list">
+              <router-link style="text-decoration:none" to="/like_list">
                 <v-btn depressed rounded text>
                   찜한 작품 목록보기
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-              <router-link style="text-decoration:none" to="./apply/writer">
+              <router-link style="text-decoration:none" to="/apply/writer">
                 <v-btn depressed rounded text>
                   작가 신청 하기
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-              <router-link style="text-decoration:none" to="./apply/Company">
+              <router-link style="text-decoration:none" to="/apply/Company">
                 <v-btn depressed rounded text>
                   기업 신청 하기
                 </v-btn>
@@ -133,34 +133,249 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu>
+      </v-menu> -->
+      <!--유저 사용자 아바타 -->
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn icon x-large v-on="on" right absolute>
+            <v-avatar color="red" size="40">
+              {{ user.initials }}
+            </v-avatar>
+          </v-btn>
+        </template>
 
-      <!-- 
-      <v-card id="userStatusCard" v-if="userStatus">
-        <v-card-text class="user-state-text">
-          <router-link to="/webtoon_home">
-            작품
-          </router-link>
-        </v-card-text>
-        <v-card-text>
-          <router-link to="/작가정보문의"> </router-link>
-        </v-card-text>
-        <v-card-text>
-          <router-link to="/like_list_company"> </router-link>
-        </v-card-text>
-        <v-card-text>
-          <router-link to="/like_list"> </router-link>
-        </v-card-text>
-        <v-card-text>
-          <router-link to="/apply_writer"> </router-link>
-        </v-card-text>
-        <v-card-text>
-          <router-link to="/apply_company">
-            기업 회원 신청
-          </router-link>
-        </v-card-text>
-      </v-card>
-      -->
+        <v-card>
+          <v-list-item-content class="justify-center">
+            <div class="mx-auto text-center">
+              <v-avatar color="red">
+                {{ user.initials }}
+              </v-avatar>
+              <h3>Team 1</h3>
+              <p class="text-caption mt-1">
+                {{ user.email }}
+              </p>
+
+              <v-divider class="my-3"></v-divider>
+
+              <v-btn depressed rounded text>
+                회원 정보 변경
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/like_list">
+                <v-btn depressed rounded text>
+                  찜한 작품 목록보기
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/apply/writer">
+                <v-btn depressed rounded text>
+                  작가 신청 하기
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/apply/Company">
+                <v-btn depressed rounded text>
+                  기업 신청 하기
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text @click="logout">
+                로그아웃
+              </v-btn>
+            </div>
+          </v-list-item-content>
+        </v-card>
+      </v-menu> -->
+      <!-- 작가 사용자 아바타 -->
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn icon x-large v-on="on" right absolute>
+            <v-avatar color="red" size="40">
+              {{ user.initials }}
+            </v-avatar>
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-list-item-content class="justify-center">
+            <div class="mx-auto text-center">
+              <v-avatar color="red">
+                {{ user.initials }}
+              </v-avatar>
+              <h3>Team 1</h3>
+              <p class="text-caption mt-1">
+                {{ user.email }}
+              </p>
+
+              <v-divider class="my-3"></v-divider>
+
+              <v-btn depressed rounded text>
+                회원 정보 변경
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/writer_home_writer">
+                <v-btn depressed rounded text>
+                  작가 홈
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link
+                style="text-decoration:none"
+                to="/webtoon/add"
+              >
+                <v-btn depressed rounded text>
+                  작품 등록
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/register_state">
+                <v-btn depressed rounded text>
+                  등록 작품 상태
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              
+                <v-btn depressed rounded text>
+                  기업 제안
+                </v-btn>
+              
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/Boardlist">
+                <v-btn depressed rounded text>
+                  1:1 문의
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text @click="logout">
+                로그아웃
+              </v-btn>
+            </div>
+          </v-list-item-content>
+        </v-card>
+      </v-menu> -->
+      <!-- 회사 사용자 아바타 -->
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn icon x-large v-on="on" right absolute>
+            <v-avatar color="red" size="40">
+              {{ user.initials }}
+            </v-avatar>
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-list-item-content class="justify-center">
+            <div class="mx-auto text-center">
+              <v-avatar color="red">
+                {{ user.initials }}
+              </v-avatar>
+              <h3>Team 1</h3>
+              <p class="text-caption mt-1">
+                {{ user.email }}
+              </p>
+
+              <v-divider class="my-3"></v-divider>
+
+              <v-btn depressed rounded text>
+                회원 정보 변경
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text>
+                작가 제안 현황
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <router-link
+                style="text-decoration:none"
+                to="/like_list_company"
+              >
+                <v-btn depressed rounded text>
+                  관심 작가
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/ProposeStatus">
+                <v-btn depressed rounded text>
+                  작가 정보 문의
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text @click="logout">
+                로그아웃
+              </v-btn>
+            </div>
+          </v-list-item-content>
+        </v-card>
+      </v-menu> -->
+
+      <!-- 관리자 사용자 아바타 -->
+      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn icon x-large v-on="on" right absolute>
+            <v-avatar color="red" size="40">
+              {{ user.initials }}
+            </v-avatar>
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-list-item-content class="justify-center">
+            <div class="mx-auto text-center">
+              <v-avatar color="red">
+                {{ user.initials }}
+              </v-avatar>
+              <h3>Team 1</h3>
+              <p class="text-caption mt-1">
+                {{ user.email }}
+              </p>
+
+              <v-divider class="my-3"></v-divider>
+              <router-link to="/admin" style="text-decoration:none">
+                <v-btn depressed rounded text>
+                  관리자 홈
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+
+              <v-btn depressed rounded text>
+                작품 승인 요청
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+
+              <v-btn depressed rounded text>
+                신규 문의
+              </v-btn>
+
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/Notice_list">
+                <v-btn depressed rounded text>
+                  공지
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/">
+                <v-btn depressed rounded text>
+                  작가 승인
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <router-link style="text-decoration:none" to="/">
+                <v-btn depressed rounded text>
+                  기업 승인
+                </v-btn>
+              </router-link>
+              <v-divider class="my-3"></v-divider>
+              <v-btn depressed rounded text @click="logout">
+                로그아웃
+              </v-btn>
+            </div>
+          </v-list-item-content>
+        </v-card>
+      </v-menu>
     </v-app-bar>
   </v-container>
 </template>
