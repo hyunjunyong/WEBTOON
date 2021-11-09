@@ -2,7 +2,7 @@
   <v-container class="TOTAL">
     <v-row no-gutters justify="center">
       <v-col cols="10">
-        <Genre />
+        <genre />
       </v-col>
     </v-row>
     <v-row v-for="m in 4" :key="m" no-gutters justify="center">
@@ -15,13 +15,13 @@
 
 <script>
 import Thumbnail from "../components/Thumbnail";
-import Genre from "../components/Genre";
+import genre from "../components/genre";
 
 export default {
   name: "TOTAL",
   components: {
     Thumbnail,
-    Genre,
+    genre,
   },
   data() {
     return {

@@ -106,7 +106,7 @@ export default {
   components: {},
   data() {
     return {
-      writerinfo: { penName: "asdf", intro: "asdf" },
+      writerinfo: { authorName: "asdf", description: "asdf" },
     };
   },
   setup() {},
@@ -119,13 +119,13 @@ export default {
       var photoFile = document.getElementById("photo");
       console.log(photoFile);
       const writer_info = {
-        penName: this.penName,
-        intro: this.intro,
+        authorName: this.authorName,
+        description: this.description,
       };
       form.append("avatar", photoFile.files[0]);
       form.append("datas", JSON.stringify(writer_info));
       axios
-        .post("http://localhost:5000/user/apply-writer", form, {
+        .post("http://localhost:5000/user/apply-author", form, {
           withCredentials: true,
         })
         .then((respon) => {
