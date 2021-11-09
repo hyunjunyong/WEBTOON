@@ -44,30 +44,48 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import axios from "axios";
+
 export default {
   name: "Login",
   data() {
     return {
-      email: null,
-      password: null,
-      allUsers: [
-        { id: 1, name: "희정", email: "heejung@gmail.com", password: "123456" },
-      ],
+      email: "test2000@test.co.kr",
+      password: "qqqqq",
       NotSuccess: false,
       Success: false,
     };
   },
   methods: {
+    ...mapActions(["signin"]),
     login() {
-      let selectedUser = null;
-      this.allUsers.forEach((user) => {
-        if (user.email === this.email) selectedUser = user;
-      });
-      selectedUser === null
-        ? (this.NotSuccess = true)
-        : selectedUser.password !== this.password
-        ? (this.NotSuccess = true)
-        : (this.Success = true);
+      // let selectedUser = null;
+      // this.allUsers.forEach((user) => {
+      //   if (user.email === this.email) selectedUser = user;
+      // });
+      // selectedUser === null
+      //   ? (this.NotSuccess = true)
+      //   : selectedUser.password !== this.password
+      //   ? (this.NotSuccess = true)
+      //   : (this.Success = true);
+
+      axios
+        .post(
+          "http://localhost:5000/auth/session",
+          {
+            email: this.email,
+            password: this.password,
+          },
+          { withCredentials: true }
+        )
+        .then((respon) => {
+          this.signin();
+          console.log(respon);
+        })
+        .catch((err) => {
+          console.err(err);
+        });
     },
   },
 };

@@ -5,7 +5,11 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="10">
-        <router-link to="/apply_webtoon" class="ma-2">
+        <router-link
+          style="text-decoration: none; color: inherit;"
+          to="/apply/webtoon"
+          class="ma-2"
+        >
           <v-card>
             <v-card-title>
               작품 승인 신규 요청
@@ -21,20 +25,24 @@
       </v-col>
     </v-row>
 
-    <v-row  justify="center">
+    <v-row justify="center">
       <v-col cols="10">
         <v-card>
           <v-card-title>
             공지
           </v-card-title>
         </v-card>
-        <router-link to="/Notice_list" class="ma-2">
+        <router-link
+          style="text-decoration: none; color: inherit;"
+          to="/Notice_list"
+          class="ma-2"
+        >
           <oneonone_question />
         </router-link>
       </v-col>
     </v-row>
 
-    <v-row  justify="center">
+    <v-row justify="center">
       <v-col cols="10">
         <v-card>
           <v-card-title>

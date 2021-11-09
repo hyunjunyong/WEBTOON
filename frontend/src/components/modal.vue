@@ -7,6 +7,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
 2 : 수정
 3 : 이미지선택
 4 : 반려사유
+
  -->
 
   <div class="modal">
@@ -114,20 +115,12 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
           {{ modalTitle[modalState] }}
         </v-card-title>
 
-                <v-row>
-            <v-col
-            cols="12"
-            sm="12"
-            >
-                <v-text-field
-                    label="txst"
-                    single-line
-                    solo
-                    height="100"
-                >
-                    반려사유작성
-                </v-text-field>
-            </v-col>
+        <v-row>
+          <v-col cols="12" sm="12">
+            <v-text-field label="txst" single-line solo height="100">
+              반려사유작성
+            </v-text-field>
+          </v-col>
         </v-row>
         <v-divider></v-divider>
 

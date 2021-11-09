@@ -9,7 +9,7 @@ import WEBTOON_Home_WRITER from "../views/WriterPage/WEBTOON_Home_WRITER.vue";
 import WRITER_Home from "../views/WRITER_Home.vue";
 
 import 개인정보처리방침 from "../views/개인정보처리방침.vue";
-import 이용약관 from "../views/이용약관.vue";
+import Tos from "../views/Tos.vue";
 import 회사정보 from "../views/회사정보.vue";
 
 import ADD_EPISODE from "../views/WriterPage/ADD_Episode";
@@ -17,7 +17,7 @@ import register_Webtoon from "../views/WriterPage/register_Webtoon";
 
 import ADD_Webtoon from "../views/WriterPage/ADD_Webtoon";
 import register_state from "../views/WriterPage/register_state";
-import ono_writer from "../views/ono-writer";
+// import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/UserPage/Like_list.vue";
 
 import LIKE_LIST_COMPANY from "../views/UserPage/Like_list_company.vue";
@@ -36,8 +36,8 @@ import APPLY_WEBTOON_DETAIL from "../views/Apply/Episode.vue";
 //회사의 작가제안사항 확인
 import ProposeStatus from "../views/ProposeStatus.vue";
 import Propose from "../views/Propose.vue";
-import Boardlist from "../views/UserPage/BOARDLIST.vue";
-import BoardWriter from "../views/UserPage/BOARDWRITER.vue";
+import Boardlist from "../views/UserPage/Boardlist.vue";
+import BoardWriter from "../views/UserPage/Boardwriter.vue";
 
 //공지
 import Notice from "../views/notice.vue";
@@ -79,25 +79,21 @@ const routes = [
     component: 개인정보처리방침,
   },
   {
-    path: "/이용약관",
-    name: "이용약관",
-    component: 이용약관,
+    path: "/Tos",
+    name: "Tos",
+    component: Tos,
   },
   {
     path: "/회사정보",
     name: "회사정보",
     component: 회사정보,
   },
-  {
-    path: "/ono_writer",
-    name: "ono_writer",
-    component: ono_writer,
-  },
-  {
-    path: "/register_webtoon",
-    name: "register_Webtoon",
-    component: register_Webtoon,
-  },
+  // boardlist,boardwriter와 겹쳐서 회의전까지는 일단 주석
+  // {
+  //   path: "/ono_writer",
+  //   name: "ono_writer",
+  //   component: ono_writer,
+  // },
 
   {
     path: "/Notice",

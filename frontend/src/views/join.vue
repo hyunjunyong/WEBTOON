@@ -117,7 +117,8 @@ import axios from 'axios'
     }),
     methods: {
       validate () {
-        axios.post('http://localhost:5000/auth/signup', {name:this.name, email:this.email, password:this.password}
+        //회원가입
+        axios.post('http://localhost:5000/auth/signup', {name:this.nickname, email:this.email, password:this.password}
         ).then(respon => {
           console.log(respon);
         }).catch((err)=> {

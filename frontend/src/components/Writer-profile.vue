@@ -5,13 +5,19 @@
       <v-card>
         <v-row>
           <v-col align="center">
-            <router-link to="/writer">
-              <v-img
-                :aspect-ratio="1"
-                src="../img/writer_profile.png"
-                max-width="110px"
-                max-height="110px"
-              /> </router-link
+            <v-badge bordered color="error" icon="mdi-lock" overlap>
+              <template v-slot:badge>
+                <router-link to="/writer">
+                  <v-avatar>
+                    <v-img
+                      :aspect-ratio="1"
+                      src="../img/writer_profile.png"
+                      max-width="110px"
+                      max-height="110px"
+                    />
+                  </v-avatar>
+                </router-link>
+              </template> </v-badge
           ></v-col>
         </v-row>
         <v-row>
@@ -22,12 +28,10 @@
               width="30px"
             /> </v-col
           ><v-col align="center">
-            <v-img
-              class="align-self-end"
-              src="../img/like.png"
-              height="30px"
-              width="30px"
-          /></v-col>
+            <v-btn icon color="deep-orange" @click="increment">
+              <v-icon>mdi-thumb-up</v-icon>{{ count }}
+            </v-btn>
+          </v-col>
         </v-row>
         <v-card-title class="cyan darken-1">
           <router-link
@@ -61,45 +65,6 @@
       </v-card>
     </v-col>
   </v-row>
-  <!-- <v-container fluid>
-    <v-row>
-      <v-col>
-        <v-img src="../img/setting.png" height="40px" width="40px" />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <div class="justify-space-between align-center">
-          <router-link to="/writer">
-            <v-img :aspect-ratio="1" src="../img/writer_profile.png" />
-          </router-link>
-        </div>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-img
-          class="align-self-end"
-          src="../img/like.png"
-          alt=""
-          height="40px"
-          width="40px"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <router-link
-        to="/writer_home"
-        style="text-decoration: none; color: inherit;"
-        ><p>작가A</p></router-link
-      >
-      
-      <p>획득뱃지</p>
-      <v-col class="pt-0">
-        <v-img src="../img/badge.png" alt="" height="65px" width="65px" />
-      </v-col>
-    </v-row>
-  </v-container> -->
 </template>
 
 <script>
@@ -108,7 +73,16 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  computed: {
+    count() {
+      return this.$store.state.count;
+    },
+  },
+  methods: {
+    increment() {
+      this.$store.commit("increment");
+    },
+  },
 };
 </script>
 
