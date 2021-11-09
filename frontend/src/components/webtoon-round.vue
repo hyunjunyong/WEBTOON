@@ -68,7 +68,7 @@
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
-      <router-link to="../EDIT_EPISODE" class="ma-2">
+      <router-link to="/episode/add" class="ma-2">
         <v-btn block height="100">
           <v-icon>
             mdi-pencil
