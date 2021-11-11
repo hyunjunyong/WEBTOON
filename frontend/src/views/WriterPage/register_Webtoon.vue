@@ -8,7 +8,15 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card class="text-center text-h3" height="60">작품명</v-card>
+        <v-text-field
+          v-model="title"
+          label="Solo"
+          single-line
+          solo
+          height="200"
+        >
+          작품 명
+        </v-text-field>
       </v-col>
     </v-row>
     <v-row>
@@ -33,7 +41,13 @@
     </v-row>
     <v-row>
       <v-col cols="12" sm="12">
-        <v-text-field label="Solo" single-line solo height="200">
+        <v-text-field
+          v-model="workDescription"
+          label="Solo"
+          single-line
+          solo
+          height="200"
+        >
           작품소개 글
         </v-text-field>
       </v-col>
@@ -45,7 +59,7 @@
     </v-row>
     <v-row>
       <v-col cols="7">
-        <v-file-input truncate-length="15" class="align-center"></v-file-input>
+        <input type="file" name="Thumbnail" id="Thumbnail" />
       </v-col>
       <v-spacer></v-spacer>
       <v-col class="text-center" cols="3">
@@ -58,17 +72,19 @@
       </v-col>
       <v-spacer></v-spacer>
       <v-col class="text-center">
-        <v-btn block>등록</v-btn>
+        <v-btn @click="register_Webtoon()" block>등록</v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "",
   components: {},
   data() {
     return {
+      Webtoon_Info: [{ userId: "2", workDescription: "asdf", title: "asdf" }],
       genre: [
         { index: "1", name: "일상" },
         { index: "2", name: "개그" },
@@ -84,7 +100,31 @@ export default {
   create() {},
   mounted() {},
   unmounted() {},
-  methods: {},
+  methods: {
+    register_Webtoon() {
+      let form = new FormData();
+      var workThumbnail = document.getElementById("Thumbnail");
+      console.log(workThumbnail);
+      const writer_info = {
+        userId: "2",
+        workDescription: this.workDescription,
+        title: this.title,
+      };
+      form.append("workThumbnail", workThumbnail.files[0]);
+      form.append("workInfo", JSON.stringify(writer_info));
+      axios
+        .post("http://localhost:5000/user/upload-work", form, {
+          withCredentials: true,
+        })
+        .then((respon) => {
+          console.log(respon);
+        })
+        .catch((err) => {
+          console.err(err);
+        });
+      console.log(writer_info);
+    },
+  },
 };
 </script>
 <style scoped></style>

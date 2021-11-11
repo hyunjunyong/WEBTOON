@@ -8,7 +8,6 @@
       <v-col> </v-col>
       <v-col><Webtoonimage /></v-col>
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
-      <v-col> </v-col>
       <Reject_reason />
     </v-row>
   </v-container>

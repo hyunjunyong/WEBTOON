@@ -13,8 +13,8 @@
       <v-spacer></v-spacer>
       <v-col cols="5">
         <v-text-field
-          v-model="penName"
-          id="penName"
+          v-model="authorName"
+          id="authorName"
           label="필명 작성"
           single-line
           solo
@@ -38,8 +38,8 @@
       <v-spacer></v-spacer>
       <v-col cols="7">
         <v-text-field
-          v-model="intro"
-          id="intro"
+          v-model="description"
+          id="description"
           label="작가 소개 작성"
           single-line
           solo
@@ -134,6 +134,7 @@ export default {
         .catch((err) => {
           console.err(err);
         });
+      console.log(writer_info);
     },
   },
 };

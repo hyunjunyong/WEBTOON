@@ -135,7 +135,7 @@
         </v-card>
       </v-menu> -->
       <!--유저 사용자 아바타 -->
-      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -186,7 +186,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu> -->
+      </v-menu>
       <!-- 작가 사용자 아바타 -->
       <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
@@ -215,16 +215,16 @@
               </v-btn>
 
               <v-divider class="my-3"></v-divider>
-              <router-link style="text-decoration:none" to="/writer_home_writer">
+              <router-link
+                style="text-decoration:none"
+                to="/writer_home_writer"
+              >
                 <v-btn depressed rounded text>
                   작가 홈
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-              <router-link
-                style="text-decoration:none"
-                to="/webtoon/add"
-              >
+              <router-link style="text-decoration:none" to="/webtoon/add">
                 <v-btn depressed rounded text>
                   작품 등록
                 </v-btn>
@@ -236,11 +236,11 @@
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-              
-                <v-btn depressed rounded text>
-                  기업 제안
-                </v-btn>
-              
+
+              <v-btn depressed rounded text>
+                기업 제안
+              </v-btn>
+
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/Boardlist">
                 <v-btn depressed rounded text>
@@ -312,7 +312,7 @@
       </v-menu> -->
 
       <!-- 관리자 사용자 아바타 -->
-      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -375,7 +375,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu>
+      </v-menu> -->
     </v-app-bar>
   </v-container>
 </template>
