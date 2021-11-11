@@ -11,8 +11,7 @@
 
 <script>
 export default {
-  name: "",
-  components: {},
+  name: "Genre",
   data() {
     return {
       genre: [

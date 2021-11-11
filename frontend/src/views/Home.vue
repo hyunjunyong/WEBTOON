@@ -15,9 +15,7 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
 
     <v-row justify="center">
@@ -39,9 +37,7 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
 
     <v-row justify="center">
@@ -55,9 +51,7 @@
     </v-row>
 
     <v-row no-gutters v-for="m in 3" :key="m" justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
   </v-container>
 </template>
@@ -76,27 +70,27 @@ export default {
         {
           id: "0",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
         },
         {
           id: "1",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
         },
         {
           id: "2",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
         },
         {
           id: "3",
           title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          workThumbnail: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
         },
         {
           id: "4",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_04_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_04_썸네일.png"),
         },
       ],
     };

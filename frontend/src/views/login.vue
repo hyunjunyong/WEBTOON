@@ -49,16 +49,22 @@ import axios from "axios";
 
 export default {
   name: "Login",
+  created() {
+    this.checkSession();
+  },
   data() {
     return {
-      email: "test2000@test.co.kr",
-      password: "qqqqq",
+      email: "testmail@test.com",
+      password: "123456",
       NotSuccess: false,
       Success: false,
     };
   },
   methods: {
     ...mapActions(["signin"]),
+    checkSession() {
+      console.log("changePage");
+    },
     login() {
       // let selectedUser = null;
       // this.allUsers.forEach((user) => {
@@ -79,9 +85,8 @@ export default {
           },
           { withCredentials: true }
         )
-        .then((respon) => {
+        .then(() => {
           this.signin();
-          console.log(respon);
         })
         .catch((err) => {
           console.err(err);
