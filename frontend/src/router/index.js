@@ -19,6 +19,7 @@ import ADD_Webtoon from "../views/WriterPage/ADD_Webtoon";
 import register_state from "../views/WriterPage/register_state";
 // import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/UserPage/Like_list.vue";
+import PERSONAL_INFORMATION from "../views/UserPage/Personal_information.vue";
 
 import LIKE_LIST_COMPANY from "../views/UserPage/Like_list_company.vue";
 import Admin_Home from "../views/Admin/Admin_Home.vue";
@@ -42,6 +43,7 @@ import BoardWriter from "../views/UserPage/Boardwriter.vue";
 //공지
 import Notice from "../views/notice.vue";
 import Notice_List from "../views/notice_list.vue";
+
 
 Vue.use(VueRouter);
 
@@ -167,6 +169,11 @@ const routes = [
     path: "/like_list_company",
     name: "LIKE_LIST_COMPANY",
     component: LIKE_LIST_COMPANY,
+  },
+  {
+    path: "/personal_information",
+    name: "PERSONAL_INFORMATION",
+    component: PERSONAL_INFORMATION,
   },
 
   // 로그인 연결

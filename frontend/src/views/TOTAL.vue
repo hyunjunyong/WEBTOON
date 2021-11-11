@@ -17,26 +17,12 @@
 <script>
 import Thumbnail from "../components/Thumbnail";
 import Genre from "../components/Genre";
-import axios from "axios";
 
 export default {
   name: "TOTAL",
   components: {
     Thumbnail,
     Genre,
-  },
-  created() {
-    this.getThumbnails();
-  },
-  methods: {
-    getThumbnails() {
-      axios
-        .get("http://localhost:5000/user/works")
-        .then((req) => {
-          this.webtoon = req.data;
-        })
-        .catch();
-    },
   },
   data() {
     return {

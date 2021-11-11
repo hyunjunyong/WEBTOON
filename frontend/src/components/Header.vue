@@ -36,11 +36,6 @@
         <router-link to="/admin"
           ><strong class="router-text">관리자홈</strong></router-link
         >
-        <span class="router-text"> | </span>
-
-        <router-link to="/login"
-          ><strong class="router-text">로그인</strong></router-link
-        >
       </p>
 
       <v-spacer></v-spacer>
@@ -135,7 +130,7 @@
         </v-card>
       </v-menu> -->
       <!--유저 사용자 아바타 -->
-      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -156,11 +151,11 @@
               </p>
 
               <v-divider class="my-3"></v-divider>
-
+              <router-link style="text-decoration:none" to="/personal_information">
               <v-btn depressed rounded text>
                 회원 정보 변경
               </v-btn>
-
+              </router-link>
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/like_list">
                 <v-btn depressed rounded text>
@@ -186,7 +181,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu> -->
+      </v-menu> 
       <!-- 작가 사용자 아바타 -->
       <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
@@ -209,7 +204,7 @@
               </p>
 
               <v-divider class="my-3"></v-divider>
-
+              <router-link style="text-decoration:none" to="/personal_information">
               <v-btn depressed rounded text>
                 회원 정보 변경
               </v-btn>
@@ -312,7 +307,7 @@
       </v-menu> -->
 
       <!-- 관리자 사용자 아바타 -->
-      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -375,7 +370,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu>
+      </v-menu> -->
     </v-app-bar>
   </v-container>
 </template>
