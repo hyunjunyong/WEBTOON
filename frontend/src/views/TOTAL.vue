@@ -1,13 +1,15 @@
 <template>
   <v-container class="TOTAL">
-    <v-row no-gutters justify="center">
-      <v-col cols="10">
-        <genre />
+    <v-row justify="center" no-gutters>
+      <v-col cols="8">
+        <Genre />
+
       </v-col>
     </v-row>
-    <v-row v-for="m in 4" :key="m" no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
+
+    <v-row no-gutters justify="center">
+      <v-col v-for="i in webtoon" :key="i.idx" cols="3">
+        <Thumbnail :webtoon="i" />
       </v-col>
     </v-row>
   </v-container>
@@ -27,29 +29,84 @@ export default {
     return {
       webtoon: [
         {
-          id: "0",
-          title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01_썸네일.jpg"),
+          idx: 1,
+          title: 1,
+          url: require("../img/nums/1.png"),
+        },
+        { idx: 2, title: 2, url: require("../img/nums/2.png") },
+        { idx: 3, title: 3, url: require("../img/nums/3.png") },
+        { idx: 4, title: 4, url: require("../img/nums/4.png") },
+        { idx: 5, title: 5, url: require("../img/nums/5.png") },
+        { idx: 6, title: 6, url: require("../img/nums/6.png") },
+        {
+          idx: 7,
+          title: 7,
+          url: require("../img/nums/7.png"),
         },
         {
-          id: "1",
-          title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02_썸네일.jpg"),
+          idx: 8,
+          title: 8,
+          url: require("../img/nums/8.png"),
         },
         {
-          id: "2",
-          title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
+          idx: 9,
+          title: 9,
+          url: require("../img/nums/9.png"),
         },
         {
-          id: "3",
-          title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          idx: 10,
+          title: 10,
+          url: require("../img/nums/10.png"),
         },
         {
-          id: "4",
-          title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04_썸네일.jpg"),
+          idx: 11,
+          title: 11,
+          url: require("../img/nums/11.png"),
+        },
+        {
+          idx: 12,
+          title: 12,
+          url: require("../img/nums/12.png"),
+        },
+        {
+          idx: 13,
+          title: 13,
+          url: require("../img/nums/13.png"),
+        },
+        {
+          idx: 14,
+          title: 14,
+          url: require("../img/nums/14.png"),
+        },
+        {
+          idx: 15,
+          title: 15,
+          url: require("../img/nums/15.png"),
+        },
+        {
+          idx: 16,
+          title: 16,
+          url: require("../img/nums/16.png"),
+        },
+        {
+          idx: 17,
+          title: 17,
+          url: require("../img/nums/17.png"),
+        },
+        {
+          idx: 18,
+          title: 18,
+          url: require("../img/nums/18.png"),
+        },
+        {
+          idx: 19,
+          title: 19,
+          url: require("../img/nums/19.png"),
+        },
+        {
+          idx: 20,
+          title: 20,
+          url: require("../img/nums/20.png"),
         },
       ],
     };

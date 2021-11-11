@@ -1,6 +1,6 @@
 <template>
   <!--  장르 선택 컴포넌트 -->
-  <v-row>
+  <v-row justify="center">
     <v-col v-for="item in genre" :key="item.index" cols="auto">
       <v-btn rounded class="text-caption">
         {{ item.name }}
