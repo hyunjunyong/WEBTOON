@@ -3,35 +3,7 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="12">
-        <v-col>
-          <v-text-field
-            :counter="50"
-            label="에피소드명"
-            required
-            v-model="episodeName"
-            id="episodeName"
-            maxlength="50"
-          >
-          </v-text-field
-          ><v-text-field
-            :counter="50"
-            label="에피소드내용"
-            required
-            v-model="episodeDescription"
-            id="episodeName"
-            maxlength="50"
-          >
-          </v-text-field
-          ><v-text-field
-            :counter="50"
-            label="에피소드명"
-            required
-            v-model="episodeName"
-            id="episodeName"
-            maxlength="50"
-          >
-          </v-text-field>
-        </v-col>
+        <v-col> </v-col>
         <v-text-field label="Solo" single-line solo height="300">
           반려사유작성
         </v-text-field>
