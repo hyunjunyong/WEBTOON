@@ -135,7 +135,7 @@
         </v-card>
       </v-menu> -->
       <!--유저 사용자 아바타 -->
-      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -186,7 +186,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu>
+      </v-menu> -->
       <!-- 작가 사용자 아바타 -->
       <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
@@ -312,7 +312,7 @@
       </v-menu> -->
 
       <!-- 관리자 사용자 아바타 -->
-      <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -375,7 +375,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu> -->
+      </v-menu>
     </v-app-bar>
   </v-container>
 </template>
