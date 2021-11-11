@@ -3,7 +3,6 @@
     <v-row justify="center" no-gutters>
       <v-col cols="8">
         <Genre />
-
       </v-col>
     </v-row>
 
@@ -17,13 +16,13 @@
 
 <script>
 import Thumbnail from "../components/Thumbnail";
-import genre from "../components/genre";
+import Genre from "../components/Genre";
 
 export default {
   name: "TOTAL",
   components: {
     Thumbnail,
-    genre,
+    Genre,
   },
   data() {
     return {
