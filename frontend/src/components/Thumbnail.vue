@@ -4,10 +4,10 @@
     props를 통해서 웹툰 정보를 받아오는 형식으로 수정
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
-  <v-col cols="2" class="ma-1">
+  <v-col cols="2" class="ma-3">
     <router-link style="text-decoration: none; color: inherit;" to="/webtoon">
-      <v-card>
-        <v-img max-height="200" :src="webtoon.workThumbnail" />
+      <v-card elevation="0">
+        <v-img max-height="300" :src="webtoon.workThumbnail" />
 
         <v-card-title class="ma-1">
           {{ webtoon.title }}

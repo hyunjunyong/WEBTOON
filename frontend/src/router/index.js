@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueCookies from "vue-cookies";
+
 import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
 import Episode from "../views/Episode.vue";
@@ -43,7 +45,6 @@ import BoardWriter from "../views/UserPage/Boardwriter.vue";
 //공지
 import Notice from "../views/notice.vue";
 import Notice_List from "../views/notice_list.vue";
-
 
 Vue.use(VueRouter);
 
@@ -222,6 +223,29 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+});
+
+router.beforeEach(async (to, from, next) => {
+  console.log(VueCookies.get("accessToken"));
+  if (
+    VueCookies.get("accessToken") === null &&
+    VueCookies.get("refreshToken") !== null
+  ) {
+    console.log("토큰가져오기");
+  }
+
+  if (VueCookies.get("accessToken")) {
+    console.log("진행");
+    return next();
+  }
+
+  if (
+    VueCookies.get("accessToken") === null &&
+    VueCookies.get("refreshToken") !== null
+  ) {
+    return next({ name: "login" });
+  }
+  return next();
 });
 
 export default router;

@@ -4,8 +4,10 @@
   썸네일을 누르면 해당 작품페이지로 바로 이동한다.
  -->
   <v-container>
+    <v-btn @click="del"> a </v-btn>
+    <v-btn @click="set"> b </v-btn>
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="10" class="mb-3">
         <v-card>
           <v-card-title>
             인기 웹툰
@@ -19,7 +21,7 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="4">
+      <v-col cols="4" class="mb-3">
         <v-card>
           <v-card-title>
             신작 웹툰
@@ -27,7 +29,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="6">
+      <v-col cols="6" class="mb-3">
         <v-card>
           <v-card-title>
             추천 웹툰
@@ -41,7 +43,7 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="10" class="mb-3">
         <v-card>
           <v-card-title>
             내가 본 웹툰
@@ -58,6 +60,7 @@
 
 <script>
 import Thumbnail from "../components/Thumbnail";
+import VueCookies from "vue-cookies";
 
 export default {
   name: "Home",
@@ -94,6 +97,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    del() {
+      VueCookies.keys().forEach((cookie) => VueCookies.remove(cookie));
+    },
+    set() {
+      VueCookies.set("testToken", "testData", 60);
+    },
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="white" dark elevation="0">
       <router-link to="/">
         <div class="d-flex align-center">
           <v-img
@@ -130,7 +130,7 @@
         </v-card>
       </v-menu> -->
       <!--유저 사용자 아바타 -->
-       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40">
@@ -151,10 +151,13 @@
               </p>
 
               <v-divider class="my-3"></v-divider>
-              <router-link style="text-decoration:none" to="/personal_information">
-              <v-btn depressed rounded text>
-                회원 정보 변경
-              </v-btn>
+              <router-link
+                style="text-decoration:none"
+                to="/personal_information"
+              >
+                <v-btn depressed rounded text>
+                  회원 정보 변경
+                </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/like_list">
@@ -181,7 +184,7 @@
             </div>
           </v-list-item-content>
         </v-card>
-      </v-menu> 
+      </v-menu>
       <!-- 작가 사용자 아바타 -->
       <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
