@@ -13,8 +13,8 @@
       <v-spacer></v-spacer>
       <v-col cols="5">
         <v-text-field
-          v-model="penName"
-          id="penName"
+          v-model="authorName"
+          id="authorName"
           label="필명 작성"
           single-line
           solo
@@ -38,8 +38,8 @@
       <v-spacer></v-spacer>
       <v-col cols="7">
         <v-text-field
-          v-model="intro"
-          id="intro"
+          v-model="description"
+          id="description"
           label="작가 소개 작성"
           single-line
           solo
@@ -106,7 +106,7 @@ export default {
   components: {},
   data() {
     return {
-      writerinfo: { penName: "asdf", intro: "asdf" },
+      writerinfo: { authorName: "asdf", description: "asdf" },
     };
   },
   setup() {},
@@ -119,13 +119,13 @@ export default {
       var photoFile = document.getElementById("photo");
       console.log(photoFile);
       const writer_info = {
-        penName: this.penName,
-        intro: this.intro,
+        authorName: this.authorName,
+        description: this.description,
       };
       form.append("avatar", photoFile.files[0]);
       form.append("datas", JSON.stringify(writer_info));
       axios
-        .post("http://localhost:5000/user/apply-writer", form, {
+        .post("http://localhost:5000/user/apply-author", form, {
           withCredentials: true,
         })
         .then((respon) => {
@@ -134,6 +134,7 @@ export default {
         .catch((err) => {
           console.err(err);
         });
+      console.log(writer_info);
     },
   },
 };
