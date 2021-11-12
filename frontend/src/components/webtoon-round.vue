@@ -24,7 +24,10 @@
                   이미지
                 </th>
                 <th class="text-left">
-                  화 | 등록일
+                  에피소드
+                </th>
+                <th class="text-left">
+                  등록일
                 </th>
               </tr>
             </thead>
@@ -39,8 +42,17 @@
                   <router-link
                     to="/episode"
                     style="text-decoration: none; color: inherit;"
-                    >{{ toon.round }} | {{ toon.date }}</router-link
-                  >
+                    >
+                    {{ toon.round }}
+                    </router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/episode"
+                    style="text-decoration: none; color: inherit;"
+                    >
+                    {{ toon.date }}
+                    </router-link>
                 </td>
               </tr>
             </tbody>
@@ -264,6 +276,63 @@
           </tbody>
         </template>
       </v-simple-table>
+    </v-card>
+
+    <v-card
+      v-if="webtoon_round_State == 5"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-banner class="justify-center white text-end" sticky>
+        <v-btn color="black" text> 최신화부터 </v-btn> /
+        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
+        <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
+      </v-banner>
+
+      <v-card-text>
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  이미지
+                </th>
+                <th class="text-left">
+                  작품명
+                </th>
+                <th class="text-left">
+                  등록일
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(toon, index) in webtoons" :key="index">
+                <td>
+                  <router-link to="/episode"
+                    ><v-img :src="toon.url" width="50" height="50"
+                  /></router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/episode"
+                    style="text-decoration: none; color: inherit;"
+                    >
+                    {{ toon.round }}
+                    </router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/episode"
+                    style="text-decoration: none; color: inherit;"
+                    >
+                    {{ toon.date }}
+                    </router-link>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-card-text>
     </v-card>
   </v-container>
 </template>

@@ -1,4 +1,7 @@
 <template>
+<!-- 
+  url : /writer
+ -->
   <v-container>
     <v-row justify="center">
       <v-col cols="auto" class="black">
@@ -32,8 +35,12 @@
       </v-col>
 
       <v-col cols="9">
-        <!-- 작품으로 이동하는 컴포넌트를 사용해야합니다. -->
-        <Webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
+        <!--
+          작가의 작품 리스트 출력
+          webtoon_round_State=5 작품 리스트 출력
+        -->
+
+        <Webtoonround :webtoon_round_State="5" :webtoons="webtoons" />
       </v-col>
     </v-row>
   </v-container>
