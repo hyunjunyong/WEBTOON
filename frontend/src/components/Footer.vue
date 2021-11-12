@@ -1,20 +1,11 @@
 <template>
-  <v-footer color="primary lighten" padless>
+  <v-footer color="white" padless>
     <v-row justify="center" no-gutters>
-      <v-col class="primary lighten py-4 text-center white--text pa-1" cols="1">
-        <div class="d-flex align-center">
-          <v-img
-            alt="Vuetify Logo"
-            class="shrink"
-            contain
-            src="../img/개발자의품격로고.png"
-            transition="scale-transition"
-            width="40"
-          />
-        </div>
+      <v-col class="white lighten py-4 text-center white--text pa-1" cols="1">
+        <div class="d-flex align-center"></div>
       </v-col>
 
-      <v-col class="primary lighten py-4 text-center white--text" cols="10">
+      <v-col class="white lighten py-4 text-center white--text" cols="10">
         <router-link to="/Tos" class="ma-2">
           <span class="footer-font"> <strong>이용약관</strong> </span>
         </router-link>
@@ -32,7 +23,7 @@
         </router-link>
       </v-col>
 
-      <v-col class="primary lighten py-4 text-center white--text" cols="1">
+      <v-col class="white lighten py-4 text-center white--text" cols="1">
       </v-col>
     </v-row>
   </v-footer>
@@ -49,6 +40,6 @@ export default {
 
 <style>
 .footer-font {
-  color: white;
+  color: black;
 }
 </style>

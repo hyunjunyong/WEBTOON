@@ -4,8 +4,10 @@
   썸네일을 누르면 해당 작품페이지로 바로 이동한다.
  -->
   <v-container>
+    <v-btn @click="del"> a </v-btn>
+    <v-btn @click="set"> b </v-btn>
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="10" class="mb-3">
         <v-card>
           <v-card-title>
             인기 웹툰
@@ -15,13 +17,11 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="4">
+      <v-col cols="4" class="mb-3">
         <v-card>
           <v-card-title>
             신작 웹툰
@@ -29,7 +29,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="6">
+      <v-col cols="6" class="mb-3">
         <v-card>
           <v-card-title>
             추천 웹툰
@@ -39,13 +39,11 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="10" class="mb-3">
         <v-card>
           <v-card-title>
             내가 본 웹툰
@@ -55,15 +53,14 @@
     </v-row>
 
     <v-row no-gutters v-for="m in 3" :key="m" justify="center">
-      <v-col v-for="n in webtoon" :key="n.id" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
   </v-container>
 </template>
 
 <script>
 import Thumbnail from "../components/Thumbnail";
+import VueCookies from "vue-cookies";
 
 export default {
   name: "Home",
@@ -76,30 +73,38 @@ export default {
         {
           id: "0",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
         },
         {
           id: "1",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
         },
         {
           id: "2",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
         },
         {
           id: "3",
           title: "눈내리는소리",
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          workThumbnail: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
         },
         {
           id: "4",
           title: "물고기인간",
-          url: require("../img/webtoon/04. 물고기인간(출판형)/01_04_썸네일.png"),
+          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_04_썸네일.png"),
         },
       ],
     };
+  },
+  methods: {
+    del() {
+      VueCookies.keys().forEach((cookie) => VueCookies.remove(cookie));
+    },
+    set() {
+      VueCookies.set("testToken", "testData", 60);
+    },
   },
 };
 </script>

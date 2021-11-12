@@ -45,6 +45,9 @@ import Webtoonround from "../components/webtoon-round.vue";
 
 export default {
   name: "WRITER_Home",
+  created() {
+    this.checkSession();
+  },
   data() {
     return {
       webtoons: [

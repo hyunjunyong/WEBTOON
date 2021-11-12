@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueCookies from "vue-cookies";
+
 import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
 import Episode from "../views/Episode.vue";
@@ -19,6 +21,7 @@ import ADD_Webtoon from "../views/WriterPage/ADD_Webtoon";
 import register_state from "../views/WriterPage/register_state";
 // import ono_writer from "../views/ono-writer";
 import LIKE_LIST from "../views/UserPage/Like_list.vue";
+import PERSONAL_INFORMATION from "../views/UserPage/Personal_information.vue";
 
 import LIKE_LIST_COMPANY from "../views/UserPage/Like_list_company.vue";
 import Admin_Home from "../views/Admin/Admin_Home.vue";
@@ -168,6 +171,11 @@ const routes = [
     name: "LIKE_LIST_COMPANY",
     component: LIKE_LIST_COMPANY,
   },
+  {
+    path: "/personal_information",
+    name: "PERSONAL_INFORMATION",
+    component: PERSONAL_INFORMATION,
+  },
 
   // 로그인 연결
   {
@@ -215,6 +223,29 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+});
+
+router.beforeEach(async (to, from, next) => {
+  console.log(VueCookies.get("accessToken"));
+  if (
+    VueCookies.get("accessToken") === null &&
+    VueCookies.get("refreshToken") !== null
+  ) {
+    console.log("토큰가져오기");
+  }
+
+  if (VueCookies.get("accessToken")) {
+    console.log("진행");
+    return next();
+  }
+
+  if (
+    VueCookies.get("accessToken") === null &&
+    VueCookies.get("refreshToken") !== null
+  ) {
+    return next({ name: "login" });
+  }
+  return next();
 });
 
 export default router;
