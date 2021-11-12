@@ -11,8 +11,18 @@
       max-height="600"
     >
       <v-banner class="justify-center white text-end" sticky>
-        <v-btn color="black" text> 최신화부터 </v-btn> /
-        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
+        <v-btn @click="webtoons.sort(round_Order)" color="black" text>
+          최신화부터
+        </v-btn>
+        /
+        <v-btn
+          @click="webtoons.sort(date_Order)"
+          color="black"
+          text
+          class="ml-4"
+        >
+          1화부터
+        </v-btn>
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
@@ -64,8 +74,18 @@
       max-height="600"
     >
       <v-banner class="justify-center white text-end" sticky>
-        <v-btn color="black" text> 최신화부터 </v-btn> /
-        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
+        <v-btn @click="webtoons.sort(date_Order)" color="black" text>
+          최신화부터
+        </v-btn>
+        /
+        <v-btn
+          @click="webtoons.sort(round_Order)"
+          color="black"
+          text
+          class="ml-4"
+        >
+          1화부터
+        </v-btn>
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
@@ -399,6 +419,11 @@ export default {
       var dateA = new Date(a["date"]).getTime();
       var dateB = new Date(b["date"]).getTime();
       return dateA < dateB ? 1 : -1;
+    },
+    round_Order(a, b) {
+      return (
+        Number(a.round.match(/(\d+)/g)[0]) - Number(b.round.match(/(\d+)/g)[0])
+      );
     },
   },
 };
