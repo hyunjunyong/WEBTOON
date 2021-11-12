@@ -5,20 +5,17 @@
       <v-card>
         <v-row>
           <v-col align="center">
-            <v-badge bordered color="error" icon="mdi-lock" overlap>
-              <template v-slot:badge>
-                <router-link to="/writer">
-                  <v-avatar>
-                    <v-img
-                      :aspect-ratio="1"
-                      src="../img/writer_profile.png"
-                      max-width="110px"
-                      max-height="110px"
-                    />
-                  </v-avatar>
-                </router-link>
-              </template> </v-badge
-          ></v-col>
+            <router-link to="/writer">
+              <v-avatar>
+                <v-img
+                  :aspect-ratio="1"
+                  src="../img/writer_profile.png"
+                  max-width="110px"
+                  max-height="110px"
+                />
+              </v-avatar>
+            </router-link>
+          </v-col>
         </v-row>
         <v-row>
           <v-col align="center">
@@ -35,7 +32,7 @@
         </v-row>
         <v-card-title class="cyan darken-1">
           <router-link
-            to="/writer_home"
+            to="/writer"
             style="text-decoration: none; color: inherit;"
             ><span>작가 A</span></router-link
           >
