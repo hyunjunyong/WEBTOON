@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     count: 0,
     isLogin: false,
+    loginStatus: "",
     accessToken: null,
     refreshToken: null,
   },
@@ -16,13 +17,28 @@ export default new Vuex.Store({
       state.count = state.count + 1;
     },
   },
-  getters: {},
   actions: {
-    signin() {
-      this.state.isLogin = true;
-      this.accessToken = this.$cookies.get("accessToken");
-      this.refreshToken = this.$cookies.get("refreshToken");
-      console.log(this.state.isLogin);
+    signin(commit, loginObj) {
+      
+      
+      axios
+        .post(
+          "http://localhost:5000/auth/session",
+          {
+            email:loginObj.email,
+            password:loginObj.password
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          console.log("login SUSSECE");
+          this.state.isLogin = true;
+          this.state.loginStatus =  res.status;
+        })
+        .catch(() => {
+          console.log("login FAILE");
+        });
+      
     },
     signout() {
       this.state.isLogin = false;

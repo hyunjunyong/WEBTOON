@@ -22,7 +22,7 @@
               label="비밀번호를 입력하세요"
             >
             </v-text-field>
-            <v-btn color="green" depressed block large @click="login()">
+            <v-btn color="green" depressed block large @click="signin({email, password})">
               로그인
             </v-btn>
           </div>
@@ -45,12 +45,11 @@
 
 <script>
 import { mapActions } from "vuex";
-import axios from "axios";
 
 export default {
   name: "Login",
   created() {
-    this.checkSession();
+    
   },
   data() {
     return {
@@ -62,10 +61,7 @@ export default {
   },
   methods: {
     ...mapActions(["signin"]),
-    checkSession() {
-      console.log("changePage");
-    },
-    login() {
+    
       // let selectedUser = null;
       // this.allUsers.forEach((user) => {
       //   if (user.email === this.email) selectedUser = user;
@@ -76,22 +72,24 @@ export default {
       //   ? (this.NotSuccess = true)
       //   : (this.Success = true);
 
-      axios
-        .post(
-          "http://localhost:5000/auth/session",
-          {
-            email: this.email,
-            password: this.password,
-          },
-          { withCredentials: true }
-        )
-        .then(() => {
-          this.signin();
-        })
-        .catch((err) => {
-          console.err(err);
-        });
-    },
+      // axios
+      //   .post(
+      //     "http://localhost:5000/auth/session",
+      //     {
+      //       email: this.email,
+      //       password: this.password,
+      //     },
+      //     { withCredentials: true }
+      //   )
+      //   .then((req) => {
+      //     console.log("req.status is " + req.status);
+      //     this.signin('asdasdasda');
+      //     this.$router.push('/');
+      //   })
+      //   .catch((err) => {
+      //     console.err(err);
+
+      //   });
   },
 };
 </script>
