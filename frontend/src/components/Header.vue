@@ -13,7 +13,7 @@
             max-width="100px"
           />
 
-          <div class="text-h4 font-weight-bold orange--text">개발자의 품격</div>
+          <div class="text-h4 font-weight-bold primary--text">개발자의 품격</div>
         </div>
       </router-link>
 
@@ -42,7 +42,7 @@
       <p class="ma-4">
       <v-text-field 
         prepend-inner-icon="mdi-magnify"
-        color="red lighten-3"
+        color="primary"
         outlined
         rounded
         clearable
@@ -53,7 +53,7 @@
       <!-- 로그인 버튼 -->
       <p class="ma-4">
       <router-link to="/login" style="text-decoration:none">
-        <v-btn elevation="0" outlined color="red lighten-3" large rounded v-if="!isLogin">
+        <v-btn elevation="0" outlined color="primary" large rounded v-if="!isLogin">
           <v-img
             src="../img/login.png"
             max-width="30px"

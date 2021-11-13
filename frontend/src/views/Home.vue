@@ -5,9 +5,9 @@
  -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="10" class="mb-3">
-        <v-card>
-          <v-card-title>
+      <v-col cols="12" class="mb-3">
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             인기 웹툰
           </v-card-title>
         </v-card>
@@ -19,17 +19,17 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="4" class="mb-3">
-        <v-card>
-          <v-card-title>
+      <v-col cols="6" class="mb-3">
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             신작 웹툰
           </v-card-title>
         </v-card>
       </v-col>
 
       <v-col cols="6" class="mb-3">
-        <v-card>
-          <v-card-title>
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             추천 웹툰
           </v-card-title>
         </v-card>
@@ -41,9 +41,9 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="10" class="mb-3">
-        <v-card>
-          <v-card-title>
+      <v-col cols="12" class="mb-3">
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             내가 본 웹툰
           </v-card-title>
         </v-card>
