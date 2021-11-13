@@ -1,7 +1,8 @@
 <template>
   <v-container>
-    <v-app-bar app color="white" dark elevation="0">
-      <router-link to="/">
+    <v-app-bar height="120px" app color="white" elevation="0">
+      
+      <router-link to="/" style="text-decoration:none">
         <div class="d-flex align-center">
           <v-img
             alt="Vuetify Logo"
@@ -9,31 +10,27 @@
             contain
             src="../img/개발자의품격로고.png"
             transition="scale-transition"
-            width="40"
+            max-width="100px"
           />
 
-          <div>개발자의 품격</div>
+          <div class="text-h4 font-weight-bold orange--text">개발자의 품격</div>
         </div>
       </router-link>
 
       <!-- 화면 이동용 라우터 -->
       <p class="ma-4">
-        <router-link to="/"
-          ><strong class="router-text">홈</strong></router-link
-        >
-        <span class="router-text"> | </span>
-        <router-link to="/total"
+        <router-link to="/total" style="text-decoration:none"
           ><strong class="router-text">전체만화</strong></router-link
         >
         <span class="router-text"> | </span>
 
-        <router-link to="/writer"
+        <router-link to="/writer" style="text-decoration:none"
           ><strong class="router-text">작가홈</strong></router-link
         >
 
         <span class="router-text"> | </span>
 
-        <router-link to="/admin"
+        <router-link to="/admin" style="text-decoration:none"
           ><strong class="router-text">관리자홈</strong></router-link
         >
       </p>
@@ -42,25 +39,30 @@
 
       <v-spacer></v-spacer>
       <!-- 검색창 -->
-      <v-text-field
-        hide-details
-        prepend-icon="mdi-magnify"
-        single-line
+      <p class="ma-4">
+      <v-text-field 
+        prepend-inner-icon="mdi-magnify"
+        color="red lighten-3"
+        outlined
+        rounded
+        clearable
       ></v-text-field>
-
+      </p>
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
-      <router-link to="/login">
-        <v-btn class="black--text" rounded color="indigo" v-if="!isLogin">
+      <p class="ma-4">
+      <router-link to="/login" style="text-decoration:none">
+        <v-btn elevation="0" outlined color="red lighten-3" large rounded v-if="!isLogin">
           <v-img
             src="../img/login.png"
             max-width="30px"
             max-height="30px"
           ></v-img>
-          로그인
+          <span class="black--text font-weight-bold">로그인</span>
         </v-btn>
       </router-link>
+      </p>
 
       <!-- 사용자 아바타 -->
       <!-- <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
@@ -133,7 +135,7 @@
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
-            <v-avatar color="red" size="40">
+            <v-avatar color="red" size="40" >
               {{ user.initials }}
             </v-avatar>
           </v-btn>
@@ -421,6 +423,7 @@ export default {
 <style>
 .router-text {
   color: black;
+  font-size: 20px;
 }
 .user-state-text {
   color: gray;
@@ -436,3 +439,5 @@ export default {
   margin: 0;
 }
 </style>
+
+
