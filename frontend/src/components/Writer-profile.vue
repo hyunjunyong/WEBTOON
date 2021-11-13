@@ -8,8 +8,6 @@
         max-width="160px"
         max-height="160px"
       />
-      
-
     </v-col>
     <v-col cols="8">
       <v-card class="mb-3">
@@ -24,7 +22,7 @@
             mdi-plus
           </v-icon>
         </v-btn>
-      
+
         <router-link style="text-decoration:none" to="/propose">
           <v-col align="center">
             <v-btn outlined color="indigo">작가에게 제안하기</v-btn>
@@ -38,8 +36,8 @@
         </router-link>
       </v-row>
     </v-col>
-    
-    <v-col cols="2">좋아요 : {{ count }}</v-col>
+
+    <v-col cols="2"> 좋아요 : {{ count }}</v-col>
   </v-row>
 </template>
 
@@ -62,8 +60,4 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
-
-=======
 <style lang="scss" scoped></style>
->>>>>>> 08a70998be76aa249122b5f3d123fa57868796ce
