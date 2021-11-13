@@ -295,7 +295,7 @@
       max-height="600"
     >
       <v-banner class="justify-center white" sticky>
-        작가의 작품
+        <h3>작가의 작품</h3>
         <v-btn @click="webtoons.sort(title_Order)" color="black" text>
           제목순
         </v-btn>
@@ -315,7 +315,10 @@
                   이미지
                 </th>
                 <th class="text-left">
-                  화 | 등록일
+                  작품명 
+                </th>
+                <th class="text-left">
+                   등록일
                 </th>
               </tr>
             </thead>
@@ -330,7 +333,14 @@
                   <router-link
                     to="/episode"
                     style="text-decoration: none; color: inherit;"
-                    >{{ toon.round }} | {{ toon.date }}</router-link
+                    >{{ toon.round }} </router-link
+                  >
+                </td>
+                <td>
+                  <router-link
+                    to="/episode"
+                    style="text-decoration: none; color: inherit;"
+                    > {{ toon.date }}</router-link
                   >
                 </td>
               </tr>
