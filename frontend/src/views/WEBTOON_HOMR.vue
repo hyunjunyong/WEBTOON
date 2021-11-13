@@ -33,7 +33,7 @@
 <script>
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
 import Writerprofile from "../components/Writer-profile.vue";
-import webtoonround from "../components/webtoon-round2.vue";
+import webtoonround from "../components/webtoon-round.vue";
 
 export default {
   name: "WEBTOON_Home",

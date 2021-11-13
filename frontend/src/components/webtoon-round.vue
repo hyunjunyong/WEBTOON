@@ -1,4 +1,5 @@
 <template>
+  <!-- 새로만드는 라운드 컴포넌트지만 일단 연습용도로 기존파일에 새로 옮길예정 -->
   <!-- 특정 웹툰의 화수를 보여주는 컴포넌트 입니다.
     상태 관리를 통해 수정 가능합니다.
  -->
@@ -10,8 +11,18 @@
       max-height="600"
     >
       <v-banner class="justify-center white text-end" sticky>
-        <v-btn color="black" text> 최신화부터 </v-btn> /
-        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
+        <v-btn @click="webtoons.sort(round_Order)" color="black" text>
+          최신화부터
+        </v-btn>
+        /
+        <v-btn
+          @click="webtoons.sort(date_Order)"
+          color="black"
+          text
+          class="ml-4"
+        >
+          1화부터
+        </v-btn>
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
@@ -63,8 +74,18 @@
       max-height="600"
     >
       <v-banner class="justify-center white text-end" sticky>
-        <v-btn color="black" text> 최신화부터 </v-btn> /
-        <v-btn color="black" text class="ml-4"> 1화부터 </v-btn>
+        <v-btn @click="webtoons.sort(date_Order)" color="black" text>
+          최신화부터
+        </v-btn>
+        /
+        <v-btn
+          @click="webtoons.sort(round_Order)"
+          color="black"
+          text
+          class="ml-4"
+        >
+          1화부터
+        </v-btn>
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
@@ -265,6 +286,59 @@
         </template>
       </v-simple-table>
     </v-card>
+    <!-- Writer_home에 연결하는 컴포넌트 기본적이 만화를 클릭하게되면
+        webtoon_HOMR 작품에 에피소드 화면을 출력해줌
+     -->
+    <v-card
+      v-if="webtoon_round_State == 5"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-banner class="justify-center white" sticky>
+        작가의 작품
+        <v-btn @click="webtoons.sort(title_Order)" color="black" text>
+          제목순
+        </v-btn>
+        /
+        <v-btn @click="webtoons.sort(date_Order)" color="black" text>
+          날짜 순
+        </v-btn>
+        <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
+      </v-banner>
+
+      <v-card-text>
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  이미지
+                </th>
+                <th class="text-left">
+                  화 | 등록일
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(toon, index) in webtoons" :key="index">
+                <td>
+                  <router-link to="/webtoon"
+                    ><v-img :src="toon.url" width="50" height="50"
+                  /></router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/episode"
+                    style="text-decoration: none; color: inherit;"
+                    >{{ toon.round }} | {{ toon.date }}</router-link
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 
@@ -333,7 +407,21 @@ export default {
   create() {},
   mounted() {},
   unmounted() {},
-  methods: {},
+  methods: {
+    title_Order(a, b) {
+      return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
+    },
+    date_Order(a, b) {
+      var dateA = new Date(a["date"]).getTime();
+      var dateB = new Date(b["date"]).getTime();
+      return dateA < dateB ? 1 : -1;
+    },
+    round_Order(a, b) {
+      return (
+        Number(a.round.match(/(\d+)/g)[0]) - Number(b.round.match(/(\d+)/g)[0])
+      );
+    },
+  },
 };
 </script>
 <style scoped></style>

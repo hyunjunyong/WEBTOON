@@ -5,34 +5,20 @@
         <v-img
           src="../img/webtoon/04. 물고기인간(출판형)/01_01_writer_썸네일.png"
           height="200"
-          contain
         />
       </v-col>
     </v-row>
     <!-- 최상단 이미지 -->
     <v-row justify="center">
-      <v-col class="mt-7" cols="3">
+      <v-col cols="12">
         <!-- 작가 프로필 -->
         <Writerprofile />
 
         <!-- 회사사용자만 볼 수 있음 -->
-        <v-row>
-          <router-link to="/propose">
-            <v-col align="center">
-              <v-btn>작가에게 제안하기</v-btn>
-            </v-col>
-          </router-link>
-
-          <router-link to="/Boardlist">
-            <v-col align="center">
-              <v-btn>1:1 문의</v-btn>
-            </v-col>
-          </router-link>
-        </v-row>
-      </v-col>
-
-      <v-col cols="9">
-        <!-- 작품으로 이동하는 컴포넌트를 사용해야합니다. -->
+      </v-col> </v-row
+    ><v-row>
+      <v-col cols="12">
+        <!-- 작품으로 이동하는 컴포넌트 -->
         <Webtoonround :webtoon_round_State="5" :webtoons="webtoons" />
       </v-col>
     </v-row>
@@ -41,7 +27,7 @@
 
 <script>
 import Writerprofile from "../components/Writer-profile.vue";
-import Webtoonround from "../components/webtoon-round2.vue";
+import Webtoonround from "../components/webtoon-round.vue";
 
 export default {
   name: "WRITER_Home",
