@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-col cols="12">
+      <v-col cols="10">
         <!-- 작가 프로필 -->
         <Writerprofile />
 
