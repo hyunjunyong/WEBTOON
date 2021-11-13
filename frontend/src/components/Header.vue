@@ -39,8 +39,8 @@
 
       <v-spacer></v-spacer>
       <!-- 검색창 -->
-      <p class="ma-4">
-      <v-text-field 
+      <p class="mt-12">
+        <v-text-field 
         prepend-inner-icon="mdi-magnify"
         color="primary"
         outlined
@@ -48,6 +48,7 @@
         clearable
       ></v-text-field>
       </p>
+
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
@@ -136,7 +137,7 @@
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
             <v-avatar color="red" size="40" >
-              {{ user.initials }}
+              {{ userName }}
             </v-avatar>
           </v-btn>
         </template>
@@ -145,12 +146,12 @@
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
               <v-avatar color="red">
-                {{ user.initials }}
+                {{ userName }}
               </v-avatar>
-              <h3>Team 1</h3>
-              <p class="text-caption mt-1">
+              <h3>{{ userType }} </h3>
+              <!-- <p class="text-caption mt-1">
                 {{ user.email }}
-              </p>
+              </p> -->
 
               <v-divider class="my-3"></v-divider>
               <router-link
@@ -415,7 +416,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["isLogin"]),
+    ...mapState(["isLogin", "userName", "userType"]),
   },
 };
 </script>
