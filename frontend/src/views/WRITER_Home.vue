@@ -72,4 +72,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.profile_Img {
+  position: absolute;
+  top: 10em;
+  left: 7em;
+}
+</style>

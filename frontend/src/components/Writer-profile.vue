@@ -57,10 +57,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.profile_Img {
-  position: absolute;
-  top: 10em;
-  left: 7em;
-}
-</style>
+<style lang="scss" scoped></style>
