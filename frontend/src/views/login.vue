@@ -2,11 +2,8 @@
   <!-- 로그인 페이지 -->
   <v-app>
   <v-container>
-    <!-- 공백생성 위해 작성 -->
-    <v-row><v-card height="50"></v-card></v-row>
-
     <!-- 로그인 작성 폼 -->
-    <v-row justify="center">
+    <v-row justify="center" class="mt-10">
       <v-col cols="4">
         <!-- 로그인 실패시 알람창 -->
         <v-alert ma="3" shaped prominent type="error" :value="NotSuccess">
@@ -82,6 +79,7 @@ export default {
   },
   methods: {
     ...mapActions(["signin"]),
+    
     
       // let selectedUser = null;
       // this.allUsers.forEach((user) => {

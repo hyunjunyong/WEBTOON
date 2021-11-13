@@ -36,7 +36,9 @@ export default {
         .then((req) => {
           this.webtoon = req.data;
         })
-        .catch();
+        .catch((err)=>{
+          console.log(err);
+        });
     },
   },
   data() {

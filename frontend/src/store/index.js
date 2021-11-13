@@ -1,16 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import router from "../router/index";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    count: 0,
+    //사용자 정보
     isLogin: false,
-    loginStatus: "",
-    accessToken: null,
-    refreshToken: null,
+    userType : null,
+    userName : null,
+
+    count: 0,
   },
   mutations: {
     increment(state) {
@@ -19,8 +21,6 @@ export default new Vuex.Store({
   },
   actions: {
     signin(commit, loginObj) {
-      
-      
       axios
         .post(
           "http://localhost:5000/auth/session",
@@ -30,29 +30,19 @@ export default new Vuex.Store({
           },
           { withCredentials: true }
         )
-        .then((res) => {
-          console.log("login SUSSECE");
+        .then(() => {
           this.state.isLogin = true;
-          this.state.loginStatus =  res.status;
+          this.state.userType = "개품3기";
+          this.state.userName = "생존자";
+          router.push("/");
         })
-        .catch(() => {
+        .catch((err) => {
           console.log("login FAILE");
+          console.log(err);
         });
-      
     },
     signout() {
       this.state.isLogin = false;
-      console.log(this.state.isLogin);
-    },
-    checkToken() {
-      if (this.accessToken == "") {
-        if (this.refreshToken != "") {
-          axios.get("http://localhost:5000/auth/session");
-        }
-      } else {
-        this.signout();
-        alert("로그인하세요");
-      }
     },
   },
   modules: {},
