@@ -1,69 +1,90 @@
 <template>
   <!-- 작가 신청 페이지 -->
+<v-app>
   <v-container>
-    <v-row>
-      <v-col>
-        <v-card class="text-center text-h3" height="50">작가 신청</v-card>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="3">
-        <v-card class="text-center text-h5">작가 필명</v-card>
+    <!-- 공백생성 위해 작성 -->
+    <v-row><v-card height="50"></v-card></v-row>
+
+
+    <v-row justify="center" >
+      <v-col cols="10" >
+        <v-toolbar flat height="100">
+            <v-spacer></v-spacer>
+         <v-toolbar-title class="text-h3 font-weight">작가 신청</v-toolbar-title>
+            <v-spacer></v-spacer>
+        </v-toolbar>
+
+
+    <v-card elevation="0" >
+      <!-- 작가 필명 작성 -->
+    <v-row justify="center"> 
+      <v-col cols="2" class="d-flex align-center  text-center text-h6">
+        <v-card elevation="0" class="ma-auto">작가 필명</v-card>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col cols="5">
+      <v-col cols="4" >
         <v-text-field
           v-model="authorName"
           id="authorName"
-          label="필명 작성"
-          single-line
-          solo
-        >
+          outlined
+          filled
+          required>
         </v-text-field>
       </v-col>
-      <v-col cols="3">
-        <v-btn class="text-center text-h7">중복 확인</v-btn>
+      <v-col cols="4" class="ma-auto">
+        <v-btn
+            depressed
+            outlined
+            color="gray">
+            <strong>중복 확인</strong>
+        </v-btn>
       </v-col>
     </v-row>
-    <v-row>
-      <v-divider></v-divider>
+
+    <v-row justify="center" >
+       <v-col cols="4">
+        <v-divider color="black"></v-divider>
+       </v-col>
     </v-row>
+      <!-- 소개글 작성 -->      
     <v-row>
-      <v-col cols="3" class="d-flex align-center text-center text-h5">
-        <v-card class="ma-auto">
-          작가 소개글 <br />
-          (300자 이상)
+      <v-col cols="2" class="d-flex align-center text-center text-h6">
+        <v-card elevation="0" class="ma-auto">
+          소개글 <br />
+          (100자 이상)
         </v-card>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col cols="7">
+      <v-col cols="8">
         <v-text-field
           v-model="description"
           id="description"
-          label="작가 소개 작성"
-          single-line
-          solo
+          outlined
+          required
+          filled
           height="200"
         >
         </v-text-field>
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
-    <v-row>
-      <v-col>
-        <v-divider></v-divider>
-      </v-col>
+
+    <v-row justify="center" >
+       <v-col cols="4">
+        <v-divider color="black"></v-divider>
+       </v-col>
     </v-row>
+      <!-- 작가 프로필 사진 올리기 --> 
     <v-row>
-      <v-col cols="3" class="d-flex align-center text-center text-h5">
-        <v-card class="ma-auto">
-          작가 프로필 사진 <br />
+      <v-col cols="2" class="d-flex align-center text-center text-h6">
+        <v-card elevation="0" class="ma-auto">
+          프로필 사진 <br />
           (200px * 200px)
         </v-card>
       </v-col>
 
       <v-spacer></v-spacer>
-      <v-col cols="5">
+      <v-col cols="4">
         <v-img
           src="../../img/writer_profile.png"
           alt=""
@@ -71,32 +92,47 @@
           width="200px"
         />
       </v-col>
-      <v-col cols="3" class="d-flex align-center">
-        <input type="file" name="photo" id="photo" />
+      <v-col cols="4" class="d-flex align-center">
+        <input  type="file" name="photo" id="photo" />
       </v-col>
     </v-row>
+      <!-- 신청/ 취소 버튼 --> 
     <v-row>
       <v-spacer></v-spacer>
-      <v-col class="text-center">
+      <v-col>
+        <v-btn 
+            depressed
+            x-large
+            block
+            color="primary"
+            @click="ap_Writer()">
+            신청</v-btn>
+      </v-col>
+      <v-spacer></v-spacer>
+      <v-col >
         <router-link to="/">
-          <v-btn block>취소</v-btn>
+          <v-btn
+            depressed
+            x-large
+            block
+            color="gray">
+            취소</v-btn>
         </router-link>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col class="text-center">
-        <v-btn block @click="ap_Writer()">신청</v-btn>
-      </v-col>
-      <v-spacer></v-spacer>
     </v-row>
-    <v-row>
-      <v-col>
-        <v-card class="text-center text-h8" color="black" dark
-          >작가 신청 후 에피소드를 1개 이상 승인 받아야 작가 승인이 완료
-          됩니다.</v-card
-        >
+    </v-card>
+          </v-col>
+    </v-row>
+          
+    <v-row justify="center">
+      <v-col cols="auto">
+        <v-card class="ma-5 text-center text-h5" color="red" dark>
+          작가 신청 후 에피소드를 1개 이상 승인 받아야 작가 승인이 완료 됩니다.</v-card>
       </v-col>
     </v-row>
   </v-container>
+</v-app>
 </template>
 
 <script>
@@ -139,4 +175,9 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+
+<style scoped>
+.v-application {
+  background-color: #EEEEEE;
+}
+</style>
