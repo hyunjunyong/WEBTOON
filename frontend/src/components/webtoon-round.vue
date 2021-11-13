@@ -295,7 +295,7 @@
       max-height="600"
     >
       <v-banner class="justify-center white" sticky>
-        작가의 작품
+        <h3>작가의 작품</h3>
         <v-btn @click="webtoons.sort(title_Order)" color="black" text>
           제목순
         </v-btn>

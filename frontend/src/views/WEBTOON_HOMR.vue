@@ -30,10 +30,6 @@
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <webtoonround :webtoon_round_State="0" :webtoons="webtoons" />
       </v-col>
-
-      <v-col cols="2">
-        <!-- 작가 프로필 컴포넌트-->
-      </v-col>
     </v-row>
   </v-container>
 </template>

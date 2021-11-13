@@ -62,4 +62,8 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 
+=======
+<style lang="scss" scoped></style>
+>>>>>>> 08a70998be76aa249122b5f3d123fa57868796ce
