@@ -53,7 +53,7 @@
       <!-- 로그인 버튼 -->
       <p class="ma-4">
       <router-link to="/login" style="text-decoration:none">
-        <v-btn elevation="0" outlined color="primary" large rounded v-if="!isLogin">
+        <v-btn depressed outlined color="primary" large rounded v-if="!isLogin">
           <v-img
             src="../img/login.png"
             max-width="30px"

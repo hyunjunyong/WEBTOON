@@ -1,7 +1,7 @@
 <template>
   <v-container class="TOTAL">
     <v-row justify="center" no-gutters class="mb-5">
-      <v-col cols="8">
+      <v-col cols="12">
         <Genre />
       </v-col>
     </v-row>
