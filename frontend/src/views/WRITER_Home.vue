@@ -1,45 +1,24 @@
 <template>
-<!-- 
-  url : /writer
- -->
   <v-container>
     <v-row justify="center">
       <v-col cols="auto" class="black">
         <v-img
           src="../img/webtoon/04. 물고기인간(출판형)/01_01_writer_썸네일.png"
           height="200"
-          contain
         />
       </v-col>
     </v-row>
     <!-- 최상단 이미지 -->
     <v-row justify="center">
-      <v-col cols="3">
+      <v-col cols="12">
         <!-- 작가 프로필 -->
         <Writerprofile />
 
         <!-- 회사사용자만 볼 수 있음 -->
-        <v-row>
-          <router-link to="/propose">
-            <v-col align="center">
-              <v-btn>작가에게 제안하기</v-btn>
-            </v-col>
-          </router-link>
-
-          <router-link to="/Boardlist">
-            <v-col align="center">
-              <v-btn>1:1 문의</v-btn>
-            </v-col>
-          </router-link>
-        </v-row>
-      </v-col>
-
-      <v-col cols="9">
-        <!--
-          작가의 작품 리스트 출력
-          webtoon_round_State=5 작품 리스트 출력
-        -->
-
+      </v-col> </v-row
+    ><v-row>
+      <v-col cols="12">
+        <!-- 작품으로 이동하는 컴포넌트 -->
         <Webtoonround :webtoon_round_State="5" :webtoons="webtoons" />
       </v-col>
     </v-row>
