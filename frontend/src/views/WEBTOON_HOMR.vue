@@ -24,7 +24,7 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-col cols="8">
+      <v-col cols="10">
         <!-- 특정 웹툰의 에피소드를 리스트로 나타내는 컴포넌트 -->
         <!-- url : 썸네일 이미지, round : 에피소드 이름, date : 날짜 -->
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
