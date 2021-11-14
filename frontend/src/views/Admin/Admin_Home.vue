@@ -20,9 +20,8 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <v-col v-for="n in webtoon" :key="n" cols="2">
-        <Thumbnail :webtoon="n" />
-      </v-col>
+      
+        <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n" cols="2"/>
     </v-row>
 
     <v-row justify="center">

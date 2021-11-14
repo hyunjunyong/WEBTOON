@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import VueCookies from "vue-cookies";
 
 import Home from "../views/Home.vue";
 import TOTAL from "../views/TOTAL.vue";
@@ -225,27 +224,6 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach(async (to, from, next) => {
-  console.log(VueCookies.get("accessToken"));
-  if (
-    VueCookies.get("accessToken") === null &&
-    VueCookies.get("refreshToken") !== null
-  ) {
-    console.log("토큰가져오기");
-  }
 
-  if (VueCookies.get("accessToken")) {
-    console.log("진행");
-    return next();
-  }
-
-  if (
-    VueCookies.get("accessToken") === null &&
-    VueCookies.get("refreshToken") !== null
-  ) {
-    return next({ name: "login" });
-  }
-  return next();
-});
 
 export default router;

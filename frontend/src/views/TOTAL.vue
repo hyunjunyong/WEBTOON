@@ -1,7 +1,8 @@
 <template>
   <v-container class="TOTAL">
+    <!-- 장르선택  -->
     <v-row justify="center" no-gutters class="mb-5">
-      <v-col cols="8">
+      <v-col cols="12">
         <Genre />
       </v-col>
     </v-row>
@@ -35,7 +36,9 @@ export default {
         .then((req) => {
           this.webtoon = req.data;
         })
-        .catch();
+        .catch((err)=>{
+          console.log(err);
+        });
     },
   },
   data() {

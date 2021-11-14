@@ -12,7 +12,7 @@
             max-width="80px"
           />
 
-          <div class="text-h4 font-weight-bold orange--text">개발자의 품격</div>
+          <div class="text-h4 font-weight-bold primary--text">개발자의 품격</div>
         </div>
       </router-link>
 
@@ -38,36 +38,34 @@
 
       <v-spacer></v-spacer>
       <!-- 검색창 -->
-      <p class="ma-4">
-        <v-text-field
-          prepend-inner-icon="mdi-magnify"
-          color="red lighten-3"
-          outlined
-          rounded
-          clearable
-        ></v-text-field>
+
+      <p class="mt-12">
+        <v-text-field 
+        prepend-inner-icon="mdi-magnify"
+        color="primary"
+        outlined
+        rounded
+        clearable
+      ></v-text-field>
+
       </p>
+
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
       <p class="ma-4">
-        <router-link to="/login" style="text-decoration:none">
-          <v-btn
-            elevation="0"
-            outlined
-            color="red lighten-3"
-            large
-            rounded
-            v-if="!isLogin"
-          >
-            <v-img
-              src="../img/login.png"
-              max-width="30px"
-              max-height="30px"
-            ></v-img>
-            <span class="black--text font-weight-bold">로그인</span>
-          </v-btn>
-        </router-link>
+
+      <router-link to="/login" style="text-decoration:none">
+        <v-btn depressed outlined color="primary" large rounded v-if="!isLogin">
+          <v-img
+            src="../img/login.png"
+            max-width="30px"
+            max-height="30px"
+          ></v-img>
+          <span class="black--text font-weight-bold">로그인</span>
+        </v-btn>
+      </router-link>
+
       </p>
 
       <!-- 사용자 아바타 -->
@@ -141,8 +139,10 @@
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
-            <v-avatar color="red" size="40">
-              {{ user.initials }}
+
+            <v-avatar color="red" size="40" >
+              {{ userName }}
+
             </v-avatar>
           </v-btn>
         </template>
@@ -151,12 +151,12 @@
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
               <v-avatar color="red">
-                {{ user.initials }}
+                {{ userName }}
               </v-avatar>
-              <h3>Team 1</h3>
-              <p class="text-caption mt-1">
+              <h3>{{ userType }} </h3>
+              <!-- <p class="text-caption mt-1">
                 {{ user.email }}
-              </p>
+              </p> -->
 
               <v-divider class="my-3"></v-divider>
               <router-link
@@ -421,7 +421,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["isLogin"]),
+    ...mapState(["isLogin", "userName", "userType"]),
   },
 };
 </script>

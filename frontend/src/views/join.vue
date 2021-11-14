@@ -1,13 +1,21 @@
-<template>
-  <v-container>
+<template >
+<v-app>
+  <v-container >
+    <!-- 공백생성 위해 작성 -->
+    <v-row><v-card height="50"></v-card></v-row>
+
+    <!-- 회원가입 작성 폼 -->
     <v-row justify="center">
-      <v-col
-        cols="8"
+      <v-col 
+        cols="6"
         >
-            <v-card>
+            <v-card         elevation="0">
           <v-toolbar flat>
-            <v-toolbar-title>회원가입</v-toolbar-title>
+                    <v-spacer></v-spacer>
+            <v-toolbar-title class="text-h4 font-weight-bold">회원가입</v-toolbar-title>
+                  <v-spacer></v-spacer>
           </v-toolbar>
+
           <div class="pa-3">
   <v-form
     ref="form"
@@ -16,7 +24,6 @@
   >
     <v-text-field
       v-model="nickname"
-      :counter="10"
       :rules="nicknameRules"
       label="닉네임"
       required
@@ -52,18 +59,31 @@
         required
       ></v-checkbox>
 
+      <router-link to="/Tos" style="text-decoration:none">
+      <v-btn
+      depressed
+      x-small
+      color="gray">
+      이용약관
+      </v-btn>
+      </router-link>
+
     <v-row justify="center" class="ma-0">
         <v-spacer></v-spacer>
     <v-btn
+      depressed
+      x-large
       :disabled="!valid"
-      color="success"
+      color="primary"
       @click="validate"
     >
       회원가입
     </v-btn>
         <v-spacer></v-spacer>
     <v-btn
-      color="error"
+      depressed
+      x-large
+      color="gray"
       @click="reset"
     >
       취소
@@ -76,6 +96,7 @@
         </v-col>
     </v-row>
   </v-container>
+</v-app>
 </template>
 
 <script>
@@ -132,3 +153,9 @@ import axios from 'axios'
     },
   }
 </script>
+
+<style scoped>
+.v-application {
+  background-color: #EEEEEE;
+}
+</style>
