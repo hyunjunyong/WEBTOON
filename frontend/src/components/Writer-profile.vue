@@ -3,8 +3,9 @@
   <v-row class="justify-end">
     <v-col align="center" cols="2">
       <v-img
-        src="../img/writer_profile.png"
+        src="../img/webtoon/04. 물고기인간(출판형)/01_01.png"
         alt=""
+        style="border-radius:70%"
         max-width="160px"
         max-height="160px"
       />
@@ -36,8 +37,9 @@
         </router-link>
       </v-row>
     </v-col>
-
-    <v-col cols="2"> 좋아요 : {{ count }}</v-col>
+    <v-col cols="2"
+      ><v-chip outlined color="primary">좋아요 : {{ count }}</v-chip></v-col
+    >
   </v-row>
 </template>
 

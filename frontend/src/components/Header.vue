@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <v-app-bar height="120px" app color="white" elevation="0">
-      
       <router-link to="/" style="text-decoration:none">
         <div class="d-flex align-center">
           <v-img
@@ -10,7 +9,7 @@
             contain
             src="../img/개발자의품격로고.png"
             transition="scale-transition"
-            max-width="100px"
+            max-width="80px"
           />
 
           <div class="text-h4 font-weight-bold primary--text">개발자의 품격</div>
@@ -39,6 +38,7 @@
 
       <v-spacer></v-spacer>
       <!-- 검색창 -->
+
       <p class="mt-12">
         <v-text-field 
         prepend-inner-icon="mdi-magnify"
@@ -47,12 +47,14 @@
         rounded
         clearable
       ></v-text-field>
+
       </p>
 
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
       <p class="ma-4">
+
       <router-link to="/login" style="text-decoration:none">
         <v-btn depressed outlined color="primary" large rounded v-if="!isLogin">
           <v-img
@@ -63,6 +65,7 @@
           <span class="black--text font-weight-bold">로그인</span>
         </v-btn>
       </router-link>
+
       </p>
 
       <!-- 사용자 아바타 -->
@@ -136,8 +139,10 @@
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
+
             <v-avatar color="red" size="40" >
               {{ userName }}
+
             </v-avatar>
           </v-btn>
         </template>
@@ -440,5 +445,3 @@ export default {
   margin: 0;
 }
 </style>
-
-

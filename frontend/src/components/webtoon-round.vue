@@ -1,10 +1,9 @@
 <template>
-  <!-- 새로만드는 라운드 컴포넌트지만 일단 연습용도로 기존파일에 새로 옮길예정 -->
   <!-- 특정 웹툰의 화수를 보여주는 컴포넌트 입니다.
     상태 관리를 통해 수정 가능합니다.
  -->
   <v-container class="webtoon_round">
-    <!-- 가장 기본적인 웹툰 화수를 표현하는 컴포넌트 -->
+    <!-- 작가홈의 에피소드 화수를 표현하는 컴포넌트 -->
     <v-card
       v-if="webtoon_round_State == 0"
       class="overflow-y-auto"
@@ -67,50 +66,63 @@
             에피소드 옆 연필 버튼 클릭시 에피소드 수정 페이지 모달 생성
             
             -->
+
     <v-card
       v-if="webtoon_round_State == 1"
-      v-scroll.self="onScroll"
       class="overflow-y-auto"
       max-height="600"
     >
       <v-banner class="justify-center white text-end" sticky>
-        <v-btn @click="webtoons.sort(date_Order)" color="black" text>
-          최신화부터
-        </v-btn>
-        /
-        <v-btn
-          @click="webtoons.sort(round_Order)"
-          color="black"
-          text
-          class="ml-4"
-        >
-          1화부터
-        </v-btn>
+        <router-link style="text-decoration:none" to="/webtoon/add">
+          <v-btn class="ma-2" color="#388E3C" dark>
+            웹툰추가하기
+            <v-icon dark>
+              mdi-plus
+            </v-icon>
+          </v-btn>
+        </router-link>
         <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       </v-banner>
 
-      <router-link to="/episode/add" class="ma-2">
-        <v-btn block height="100">
-          <v-icon>
-            mdi-pencil
-          </v-icon>
-          Edit
-        </v-btn>
-      </router-link>
       <v-card-text>
-        <div :key="n" class="mb-4">
-          <v-row v-for="(toon, index) in webtoon" :key="index">
-            <v-btn class="col-1" dark small color="green" height="150">
-              <v-icon dark>mdi-pencil</v-icon></v-btn
-            >
-            <v-col class="col-3"
-              ><v-img :src="toon.url" width="150" height="150"
-            /></v-col>
-            <v-col class="col-7">
-              <v-card>{{ toon.round }} | {{ toon.date }}</v-card>
-            </v-col>
-          </v-row>
-        </div>
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  수정 버튼
+                </th>
+                <th class="text-left">
+                  이미지
+                </th>
+                <th class="text-left">
+                  화 | 등록일
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(toon, index) in webtoons" :key="index">
+                <td>
+                  <v-btn dark small color="green" width="50" height="50">
+                    <v-icon dark>mdi-pencil</v-icon></v-btn
+                  >
+                </td>
+                <td>
+                  <router-link to="/webtoon_home_writer"
+                    ><v-img :src="toon.url" width="50" height="50"
+                  /></router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/webtoon_home_writer"
+                    style="text-decoration: none; color: inherit;"
+                    >{{ toon.round }} | {{ toon.date }}</router-link
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
       </v-card-text>
     </v-card>
     <!--  
@@ -315,10 +327,10 @@
                   이미지
                 </th>
                 <th class="text-left">
-                  작품명 
+                  작품명
                 </th>
                 <th class="text-left">
-                   등록일
+                  등록일
                 </th>
               </tr>
             </thead>
@@ -333,14 +345,78 @@
                   <router-link
                     to="/episode"
                     style="text-decoration: none; color: inherit;"
-                    >{{ toon.round }} </router-link
-                  >
+                    >{{ toon.round }}
+                  </router-link>
                 </td>
                 <td>
                   <router-link
                     to="/episode"
                     style="text-decoration: none; color: inherit;"
-                    > {{ toon.date }}</router-link
+                  >
+                    {{ toon.date }}</router-link
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-card-text>
+    </v-card>
+    <!-- 작가입장에서 보는 에피소드 작가홈 -->
+    <v-card
+      v-if="webtoon_round_State == 6"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-banner class="justify-center white text-end" sticky>
+        <v-btn @click="webtoons.sort(round_Order)" color="black" text>
+          최신화부터
+        </v-btn>
+        /
+        <v-btn
+          @click="webtoons.sort(date_Order)"
+          color="black"
+          text
+          class="ml-4"
+        >
+          1화부터
+        </v-btn>
+        <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
+      </v-banner>
+
+      <v-card-text>
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  수정 버튼
+                </th>
+                <th class="text-left">
+                  이미지
+                </th>
+                <th class="text-left">
+                  화 | 등록일
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(toon, index) in webtoons" :key="index">
+                <td>
+                  <v-btn dark small color="green" width="50" height="50">
+                    <v-icon dark>mdi-pencil</v-icon></v-btn
+                  >
+                </td>
+                <td>
+                  <router-link to="/webtoon_home_writer"
+                    ><v-img :src="toon.url" width="50" height="50"
+                  /></router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/webtoon_home_writer"
+                    style="text-decoration: none; color: inherit;"
+                    >{{ toon.round }} | {{ toon.date }}</router-link
                   >
                 </td>
               </tr>
