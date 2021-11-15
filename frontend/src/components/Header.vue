@@ -32,6 +32,12 @@
         <router-link to="/admin" style="text-decoration:none"
           ><strong class="router-text">관리자홈</strong></router-link
         >
+
+        <span class="router-text"> | </span>
+
+        <router-link to="/genre/add" style="text-decoration:none"
+          ><strong class="router-text">장르추가</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
