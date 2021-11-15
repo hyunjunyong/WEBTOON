@@ -2,19 +2,14 @@
 
  <div id="background">
   <v-container >
-    <!-- 공백생성 위해 작성 -->
-    <v-row><v-card height="50"></v-card></v-row>
-
     <!-- 회원가입 작성 폼 -->
-    <v-row justify="center">
-      <v-col 
-        cols="6"
-        >
-            <v-card         elevation="0">
+    <v-row justify="center" class="mt-10">
+      <v-col cols="6">
+        <v-card elevation="0">
           <v-toolbar flat>
-                    <v-spacer></v-spacer>
+             <v-spacer></v-spacer>
             <v-toolbar-title class="text-h4 font-weight-bold">회원가입</v-toolbar-title>
-                  <v-spacer></v-spacer>
+             <v-spacer></v-spacer>
           </v-toolbar>
 
           <div class="pa-3">

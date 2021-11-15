@@ -1,28 +1,23 @@
 <template>
   <!-- 작가 신청 페이지 -->
-<v-app>
+ <div id="background">
+
   <v-container>
-    <!-- 공백생성 위해 작성 -->
-    <v-row><v-card height="50"></v-card></v-row>
-
-
-    <v-row justify="center" >
-      <v-col cols="10" >
-        <v-toolbar flat height="100">
-            <v-spacer></v-spacer>
-         <v-toolbar-title class="text-h3 font-weight">작가 신청</v-toolbar-title>
-            <v-spacer></v-spacer>
-        </v-toolbar>
-
-
+    <v-row justify="center" class="mt-10">
+      <v-col cols="8" >
+          <v-toolbar flat>
+             <v-spacer></v-spacer>
+            <v-toolbar-title class="text-h4 font-weight-bold">작가 신청</v-toolbar-title>
+             <v-spacer></v-spacer>
+          </v-toolbar>
     <v-card elevation="0" >
       <!-- 작가 필명 작성 -->
     <v-row justify="center"> 
-      <v-col cols="2" class="d-flex align-center  text-center text-h6">
+      <v-col cols="3" class="d-flex align-center  text-center text-h6">
         <v-card elevation="0" class="ma-auto">작가 필명</v-card>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col cols="4" >
+      <v-col cols="4" class="mt-8">
         <v-text-field
           v-model="authorName"
           id="authorName"
@@ -40,7 +35,6 @@
         </v-btn>
       </v-col>
     </v-row>
-
     <v-row justify="center" >
        <v-col cols="4">
         <v-divider color="black"></v-divider>
@@ -48,14 +42,14 @@
     </v-row>
       <!-- 소개글 작성 -->      
     <v-row>
-      <v-col cols="2" class="d-flex align-center text-center text-h6">
+      <v-col cols="3" class="d-flex align-center text-center text-h6">
         <v-card elevation="0" class="ma-auto">
           소개글 <br />
           (100자 이상)
         </v-card>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col cols="8">
+      <v-col cols="8" class="mt-8">
         <v-text-field
           v-model="description"
           id="description"
@@ -68,7 +62,6 @@
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
-
     <v-row justify="center" >
        <v-col cols="4">
         <v-divider color="black"></v-divider>
@@ -76,13 +69,12 @@
     </v-row>
       <!-- 작가 프로필 사진 올리기 --> 
     <v-row>
-      <v-col cols="2" class="d-flex align-center text-center text-h6">
+      <v-col cols="3" class="d-flex align-center text-center text-h6">
         <v-card elevation="0" class="ma-auto">
           프로필 사진 <br />
           (200px * 200px)
         </v-card>
       </v-col>
-
       <v-spacer></v-spacer>
       <v-col cols="4">
         <v-img
@@ -90,6 +82,7 @@
           alt=""
           height="200px"
           width="200px"
+          style="border-radius:100%"
         />
       </v-col>
       <v-col cols="4" class="d-flex align-center">
@@ -109,14 +102,15 @@
             신청</v-btn>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col >
-        <router-link to="/">
+      <v-col>
+        <router-link to="/" style="text-decoration:none">
           <v-btn
             depressed
             x-large
             block
             color="gray">
-            취소</v-btn>
+            취소
+          </v-btn>
         </router-link>
       </v-col>
       <v-spacer></v-spacer>
@@ -127,12 +121,12 @@
           
     <v-row justify="center">
       <v-col cols="auto">
-        <v-card class="ma-5 text-center text-h5" color="red" dark>
+        <v-card elevation="0" class="ma-5 text-center text-h5" color="red" dark>
           작가 신청 후 에피소드를 1개 이상 승인 받아야 작가 승인이 완료 됩니다.</v-card>
       </v-col>
     </v-row>
   </v-container>
-</v-app>
+</div>
 </template>
 
 <script>
@@ -176,8 +170,10 @@ export default {
 };
 </script>
 
-<style scoped>
-.v-application {
+<style>
+#background {
   background-color: #EEEEEE;
+  height: 100%;
 }
+ html { overflow-y: auto }
 </style>
