@@ -343,14 +343,14 @@
                 </td>
                 <td>
                   <router-link
-                    to="/episode"
+                    to="/webtoon"
                     style="text-decoration: none; color: inherit;"
                     >{{ toon.round }}
                   </router-link>
                 </td>
                 <td>
                   <router-link
-                    to="/episode"
+                    to="/webtoon"
                     style="text-decoration: none; color: inherit;"
                   >
                     {{ toon.date }}</router-link

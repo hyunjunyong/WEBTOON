@@ -9,8 +9,8 @@ export default new Vuex.Store({
   state: {
     //사용자 정보
     isLogin: false,
-    userType : null,
-    userName : null,
+    userType: null,
+    userName: null,
 
     count: 0,
   },
@@ -25,8 +25,8 @@ export default new Vuex.Store({
         .post(
           "http://localhost:5000/auth/session",
           {
-            email:loginObj.email,
-            password:loginObj.password
+            email: loginObj.email,
+            password: loginObj.password,
           },
           { withCredentials: true }
         )
