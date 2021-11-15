@@ -8,10 +8,6 @@
     </v-row>
     <v-container>
       <v-row>
-        <v-col cols="4">
-          <v-text-field :counter="30" label="작품명" required maxlength="30">
-          </v-text-field>
-        </v-col>
         <v-spacer></v-spacer>
         <v-col cols="6">
           <v-text-field

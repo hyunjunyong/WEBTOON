@@ -1,6 +1,6 @@
 <template>
   <!-- 로그인 페이지 -->
-  <v-app>
+  <div id="background">
   <v-container>
     <!-- 로그인 작성 폼 -->
     <v-row justify="center" class="mt-10">
@@ -58,7 +58,7 @@
       </v-col>
     </v-row>
   </v-container>
-  </v-app>
+  </div>
 </template>
 
 <script>
@@ -113,8 +113,10 @@ export default {
 };
 </script>
 
-<style scoped>
-.v-application {
+<style>
+#background {
   background-color: #EEEEEE;
+  height: 100%;
 }
+ html { overflow-y: auto }
 </style>
