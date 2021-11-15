@@ -9,31 +9,39 @@ export default new Vuex.Store({
   state: {
     //사용자 정보
     isLogin: false,
-    userType : null,
-    userName : null,
-
+    userInfo: null,
     count: 0,
   },
   mutations: {
     increment(state) {
       state.count = state.count + 1;
     },
+    setUserInfo(state, payload) {
+      state.userInfo = payload;
+      state.isLogin = true;
+    },
   },
   actions: {
-    signin(commit, loginObj) {
+    signin({ commit }, loginObj) {
       axios
         .post(
           "http://localhost:5000/auth/session",
           {
-            email:loginObj.email,
-            password:loginObj.password
+            email: loginObj.email,
+            password: loginObj.password,
           },
           { withCredentials: true }
         )
-        .then(() => {
-          this.state.isLogin = true;
-          this.state.userType = "개품3기";
-          this.state.userName = "생존자";
+        .then((res) => {
+          const userInfo = {
+            name: res.data.userInfo.name,
+            userType: res.data.userInfo.userType,
+          };
+
+          console.log(res);
+
+          commit("setUserInfo", userInfo);
+
           router.push("/");
         })
         .catch((err) => {
@@ -45,5 +53,4 @@ export default new Vuex.Store({
       this.state.isLogin = false;
     },
   },
-  modules: {},
 });
