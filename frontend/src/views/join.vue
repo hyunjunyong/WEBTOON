@@ -1,5 +1,6 @@
-<template >
-<v-app>
+<template>
+
+ <div id="background">
   <v-container >
     <!-- 공백생성 위해 작성 -->
     <v-row><v-card height="50"></v-card></v-row>
@@ -96,7 +97,7 @@
         </v-col>
     </v-row>
   </v-container>
-</v-app>
+ </div>
 </template>
 
 <script>
@@ -154,8 +155,10 @@ import axios from 'axios'
   }
 </script>
 
-<style scoped>
-.v-application {
+<style>
+#background {
   background-color: #EEEEEE;
+  height: 100%;
 }
+ html { overflow-y: auto }
 </style>
