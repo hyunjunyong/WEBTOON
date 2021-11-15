@@ -53,7 +53,10 @@
         :rules="[v => !!v || '동의는 필수항목입니다.']"
         label="이용약관에 동의하십니까?"
         required
-      ></v-checkbox>
+      ></v-checkbox> 
+                <v-card-title class="text-h5 font-weight-bold gray--color">
+             <v-spacer></v-spacer>계정이 없으신가요? <v-spacer></v-spacer><router-link to="join" style="text-decoration:none">회원가입</router-link><v-spacer></v-spacer>
+          </v-card-title>
 
       <router-link to="/Tos" style="text-decoration:none">
       <v-btn

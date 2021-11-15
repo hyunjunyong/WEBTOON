@@ -3,7 +3,7 @@
   <div id="background">
   <v-container>
     <!-- 로그인 작성 폼 -->
-    <v-row justify="center" class="mt-10">
+    <v-row justify="center" class="ma-10">
       <v-col cols="4">
         <!-- 로그인 실패시 알람창 -->
         <v-alert ma="3" shaped prominent type="error" :value="NotSuccess">
@@ -23,15 +23,11 @@
           <div class="pa-5">
             <v-text-field
               color="primary"
-              outlined
-              rounded
               v-model="email"
               label="이메일을 입력하세요">
             </v-text-field>
             <v-text-field
               color="primary"
-              outlined
-              rounded
               v-model="password"
               type="password"
               label="비밀번호를 입력하세요"
@@ -41,22 +37,17 @@
               로그인
             </v-btn>
           </div>
+
+          <!-- 회원가입 창으로 넘어가는 텍스트 -->
+          <v-card-title class="text-h6 font-weight-bold gray--color">
+            <v-spacer></v-spacer>
+             계정이 없으신가요? <v-spacer></v-spacer><router-link to="join" style="text-decoration:none">회원가입</router-link>
+            <v-spacer></v-spacer>
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>
 
-    <!-- 회원가입 창으로 넘어가는 버튼 -->
-    <v-row justify="center">
-      <v-col cols="4">
-        <v-card>
-          <router-link to="join">
-            <v-btn color="primary" depressed block x-large>
-              회원가입
-            </v-btn>
-          </router-link>
-        </v-card>
-      </v-col>
-    </v-row>
   </v-container>
   </div>
 </template>

@@ -1,10 +1,8 @@
 <template>
   <v-container class="TOTAL">
     <!-- 장르선택  -->
-    <v-row justify="center" no-gutters class="mb-5">
-      <v-col cols="12">
-        <Genre />
-      </v-col>
+    <v-row no-gutters justify="center">
+        <Genre :item="n" v-for="n in genre" :key="n.id" />
     </v-row>
 
     <v-row no-gutters justify="center">
@@ -44,6 +42,15 @@ export default {
   data() {
     return {
       webtoon: {},
+      genre: [
+        { index: "1", name: "일상" },
+        { index: "2", name: "개그" },
+        { index: "3", name: "판타지" },
+        { index: "4", name: "액션" },
+        { index: "5", name: "드라마" },
+        { index: "6", name: "로맨스" },
+        { index: "7", name: "공포/스릴러" },
+      ],
     };
   },
 };
