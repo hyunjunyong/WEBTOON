@@ -9,9 +9,9 @@ export default new Vuex.Store({
   state: {
     //사용자 정보
     isLogin: false,
-    userType : null,
-    userName : null,
-
+    userType: null,
+    userName: null,
+    userId: null,
     count: 0,
   },
   mutations: {
@@ -25,15 +25,17 @@ export default new Vuex.Store({
         .post(
           "http://localhost:5000/auth/session",
           {
-            email:loginObj.email,
-            password:loginObj.password
+            email: loginObj.email,
+            password: loginObj.password,
           },
           { withCredentials: true }
         )
-        .then(() => {
+        .then((response) => {
+          console.log(response);
           this.state.isLogin = true;
-          this.state.userType = "개품3기";
-          this.state.userName = "생존자";
+          this.state.userType = response.data.userInfo.userType;
+          this.state.userName = response.data.userInfo.name;
+          this.state.userId = response.data.userInfo.userId;
           router.push("/");
         })
         .catch((err) => {

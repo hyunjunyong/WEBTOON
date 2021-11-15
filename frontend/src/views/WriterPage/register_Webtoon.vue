@@ -72,13 +72,14 @@
       </v-col>
       <v-spacer></v-spacer>
       <v-col class="text-center">
-        <v-btn @click="register_Webtoon()" block>등록</v-btn>
+        <v-btn @click="register_Webtoon()" block>다음</v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
 import axios from "axios";
+import router from "../../router/index.js";
 export default {
   name: "",
   components: {},
@@ -106,7 +107,7 @@ export default {
       var workThumbnail = document.getElementById("Thumbnail");
       console.log(workThumbnail);
       const writer_info = {
-        userId: "2",
+        userId: this.$store.state.register_webtoon_userId,
         workDescription: this.workDescription,
         title: this.title,
       };
@@ -118,9 +119,11 @@ export default {
         })
         .then((respon) => {
           console.log(respon);
+          router.push("/episode/add");
         })
         .catch((err) => {
           console.err(err);
+          alert("에러!");
         });
       console.log(writer_info);
     },
