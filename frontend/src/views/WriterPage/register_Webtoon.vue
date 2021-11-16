@@ -114,6 +114,7 @@
 import Genre from "../../components/genre";
 import axios from "axios";
 import router from "../../router/index.js";
+import { mapActions } from "vuex";
 export default {
   name: "",
   components: {
@@ -121,7 +122,9 @@ export default {
   },
   data() {
     return {
-      Webtoon_Info: [{ userId: "2", workDescription: "asdf", title: "asdf" }],
+      userId: "2",
+      workDescription: "asdf",
+      title: "asdf",
       genre: [
         { index: "1", name: "일  상" },
         { index: "2", name: "개  그" },
@@ -141,12 +144,14 @@ export default {
     register_Webtoon() {
       let form = new FormData();
       var workThumbnail = document.getElementById("Thumbnail");
-      console.log(workThumbnail);
+
       const writer_info = {
-        userId: this.$store.state.register_webtoon_userId,
+        genreId: "3",
+        userId: "72",
         workDescription: this.workDescription,
         title: this.title,
       };
+      console.log(this.registerInfo);
       form.append("workThumbnail", workThumbnail.files[0]);
       form.append("workInfo", JSON.stringify(writer_info));
       axios
@@ -154,15 +159,16 @@ export default {
           withCredentials: true,
         })
         .then((respon) => {
+          console.log("1234");
           console.log(respon);
           router.push("/episode/add");
         })
         .catch((err) => {
-          console.err(err);
+          console.error(err);
           alert("에러!");
         });
-      console.log(writer_info);
     },
+    ...mapActions(["setRegisterInfoActions"]),
   },
 };
 </script>

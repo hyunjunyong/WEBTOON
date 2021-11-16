@@ -120,19 +120,17 @@
 <script>
 import axios from "axios";
 import router from "../../router/index";
+import { mapActions } from "vuex";
 export default {
-  name: "",
-  components: {},
+  name: "Writer",
   data() {
     return {
-      writerinfo: { authorName: "asdf", description: "asdf" },
+      authorName: "asdf",
+      description: "asdf",
     };
   },
-  setup() {},
-  create() {},
-  mounted() {},
-  unmounted() {},
   methods: {
+    ...mapActions(["setRegisterInfo"]),
     ap_Writer() {
       let form = new FormData();
       var photoFile = document.getElementById("photo");
@@ -148,12 +146,13 @@ export default {
           withCredentials: true,
         })
         .then((respon) => {
+          this.setRegisterInfo(respon);
           console.log(respon);
           router.push("/register_Webtoon");
         })
         .catch((err) => {
           alert("에러");
-          console.err(err);
+          console.log(err);
         });
 
       console.log(writer_info);
