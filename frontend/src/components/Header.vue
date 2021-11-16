@@ -48,28 +48,28 @@
       <!-- 검색창 -->
 
       <p class="mt-12">
-        <v-text-field 
-        prepend-inner-icon="mdi-magnify"
-        color="primary"
-        rounded
-        clearable
-      ></v-text-field>
+        <v-text-field
+          prepend-inner-icon="mdi-magnify"
+          color="primary"
+          rounded
+          clearable
+        ></v-text-field>
       </p>
 
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
       <p class="ma-4">
-      <router-link to="/login" style="text-decoration:none">
-        <v-btn depressed color="white" large rounded dark v-if="!isLogin">
-          <v-img
-            src="../img/login.png"
-            max-width="30px"
-            max-height="30px"
-          ></v-img>
-          <span class="black--text font-weight-bold">로그인</span>
-        </v-btn>
-      </router-link>
+        <router-link to="/login" style="text-decoration:none">
+          <v-btn depressed color="white" large rounded dark v-if="!isLogin">
+            <v-img
+              src="../img/login.png"
+              max-width="30px"
+              max-height="30px"
+            ></v-img>
+            <span class="black--text font-weight-bold">로그인</span>
+          </v-btn>
+        </router-link>
       </p>
 
       <!-- 사용자 아바타 -->
