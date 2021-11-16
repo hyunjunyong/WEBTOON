@@ -4,14 +4,10 @@
  -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="10">
-        <router-link
-          style="text-decoration: none; color: inherit;"
-          to="/apply/webtoon"
-          class="ma-2"
-        >
-          <v-card>
-            <v-card-title>
+      <v-col cols="10" class="ma-2">
+        <router-link to="/apply/webtoon" style="text-decoration:none">
+          <v-card  elevation="0">
+            <v-card-title class="text-h5 font-weight-bold">
               작품 승인 신규 요청
             </v-card-title>
           </v-card>
@@ -25,16 +21,12 @@
 
     <v-row justify="center">
       <v-col cols="10">
-        <v-card>
-          <v-card-title>
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             공지
           </v-card-title>
         </v-card>
-        <router-link
-          style="text-decoration: none; color: inherit;"
-          to="/Notice_list"
-          class="ma-2"
-        >
+        <router-link to="/Notice_list" style="text-decoration: none;">
           <oneonone_question />
         </router-link>
       </v-col>
@@ -42,8 +34,8 @@
 
     <v-row justify="center">
       <v-col cols="10">
-        <v-card>
-          <v-card-title>
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             작가/회사 승인 신규 요청
           </v-card-title>
         </v-card>
@@ -62,9 +54,9 @@
                   </v-list-item-title>
 
                   <!-- // avatarUrl 작가 프로필사진
-  //   status 현재 승인상태
-  //   createdAt 날짜
-  //   authorName 작가명 -->
+                       //   status 현재 승인상태
+                       //   createdAt 날짜
+                       //   authorName 작가명 -->
                   <v-divider />
                 </v-list-item-content>
               </v-list-item>
