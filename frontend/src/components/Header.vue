@@ -81,7 +81,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -92,18 +91,14 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 작품
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
                 작가 제안 현황
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
@@ -204,7 +199,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -215,13 +209,11 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/personal_information">
               <v-btn depressed rounded text>
                 회원 정보 변경
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
@@ -244,11 +236,9 @@
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 기업 제안
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/Boardlist">
                 <v-btn depressed rounded text>
@@ -272,7 +262,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -283,18 +272,14 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 회원 정보 변경
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
                 작가 제안 현황
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
@@ -328,7 +313,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -339,7 +323,6 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
               <router-link to="/admin" style="text-decoration:none">
                 <v-btn depressed rounded text>
@@ -347,17 +330,13 @@
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 작품 승인 요청
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 신규 문의
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/Notice_list">
                 <v-btn depressed rounded text>
@@ -391,7 +370,6 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import axios from "axios";
-
 export default {
   name: "Header",
   data() {

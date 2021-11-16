@@ -3,12 +3,12 @@
  <div id="background">
   <v-container>
     <!-- 회원 정보 수정 작성 폼 -->
-    <v-row justify="center" class="mt-10"> 
+    <v-row justify="center" class="my-10"> 
       <v-col cols="6">
             <v-card elevation="0">
           <v-toolbar flat>
              <v-spacer></v-spacer>
-            <v-toolbar-title class="text-h4 font-weight-bold">회원 정보 변경</v-toolbar-title>
+            <v-toolbar-title class="text-h5 font-weight-bold pt-3">회원 정보 변경</v-toolbar-title>
              <v-spacer></v-spacer>
           </v-toolbar>
           <div class="pa-3">

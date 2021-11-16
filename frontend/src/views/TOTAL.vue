@@ -43,10 +43,10 @@ export default {
     return {
       webtoon: {},
       genre: [
-        { index: "1", name: "일상" },
-        { index: "2", name: "개그" },
-        { index: "3", name: "판타지" },
-        { index: "4", name: "액션" },
+        { index: "1", name: "일  상" },
+        { index: "2", name: "개  그" },
+        { index: "3", name: "액  션" },
+        { index: "4", name: "판타지" },
         { index: "5", name: "드라마" },
         { index: "6", name: "로맨스" },
         { index: "7", name: "공포/스릴러" },

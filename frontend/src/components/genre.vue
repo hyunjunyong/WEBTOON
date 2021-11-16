@@ -2,7 +2,7 @@
   <!--  장르 선택 컴포넌트 -->
    <v-col>
     <v-card elevation="0">
-      <v-btn outlined color="secondary" x-large rounded >
+      <v-btn outlined color="secondary" rounded >
         {{ item.name }}
       </v-btn>
     </v-card>

@@ -8,7 +8,7 @@
         <v-card elevation="0">
           <v-toolbar flat>
              <v-spacer></v-spacer>
-            <v-toolbar-title class="text-h4 font-weight-bold">회원가입</v-toolbar-title>
+            <v-toolbar-title class="text-h5 font-weight-bold pt-3">회원가입</v-toolbar-title>
              <v-spacer></v-spacer>
           </v-toolbar>
 

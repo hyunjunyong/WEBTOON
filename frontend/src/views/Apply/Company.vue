@@ -5,87 +5,68 @@
   <v-container>
     <v-row justify="center" class="mt-10">
       <v-col cols="8" >
+        <v-card elevation="0" class="pa-md-4 mx-lg-auto">
           <v-toolbar flat>
              <v-spacer></v-spacer>
-            <v-toolbar-title class="text-h4 font-weight-bold">기업 회원 신청</v-toolbar-title>
+            <v-toolbar-title  class="text-h5 font-weight-bold pt-3">기업 회원 신청</v-toolbar-title>
              <v-spacer></v-spacer>
           </v-toolbar>
-        <v-card elevation="0" >
+
       <!-- 회사명 작성 -->
-    <v-row justify="center"> 
-      <v-col cols="3" class="d-flex align-center  text-center text-h6">
+    <v-row> 
+      <v-col cols="4" class="d-flex text-center text-h6">
         <v-card elevation="0" class="ma-auto">회사명</v-card>
       </v-col>
-      <v-spacer></v-spacer>
-      <v-col cols="4" class="mt-8">
+      <v-col cols="5">
         <v-text-field
           v-model="companyName"
-          outlined
-          filled
           required>
         </v-text-field>
       </v-col>
-      <v-col cols="4" class="ma-auto">
+      <v-col cols="3" class="ma-auto">
         <v-btn
             depressed
-            outlined
             color="gray">
-            <strong>중복 확인</strong>
+            중복<br />확인
         </v-btn>
       </v-col>
     </v-row>
-    <v-row justify="center" >
-       <v-col cols="4">
-        <v-divider color="black"></v-divider>
-       </v-col>
-    </v-row>
+
       <!-- 사업자 등록번호 작성 -->    
-    <v-row>
-      <v-col cols="3" class="d-flex align-center text-center text-h6">
-        <v-card elevation="0" class="ma-auto">
-          사업자 <br />
-          등록번호
-        </v-card>
+    <v-row mb="3">
+      <v-col cols="4" class="d-flex text-center text-h6">
+        <v-card elevation="0" class="ma-auto">사업자<br />등록번호</v-card>
       </v-col>
-      <v-spacer></v-spacer>
-      <v-col cols="7" class="mt-8">
+
+      <v-col cols="5">
         <v-text-field
           v-model="businesslicenseNum"
           placeholder="111-11-11111"
-          outlined
           required
-          filled
         >
         </v-text-field>
       </v-col>
-      <v-spacer></v-spacer>
     </v-row>
-    <v-row justify="center" >
-       <v-col cols="4">
-        <v-divider color="black"></v-divider>
-       </v-col>
-    </v-row>
+
       <!-- 사업자 등록증 올리기 --> 
     <v-row>
-      <v-col cols="3" class="d-flex align-center text-center text-h6">
+      <v-col cols="4" class="d-flex text-center text-h6">
         <v-card elevation="0" class="ma-auto">
-          사업자 등록증 <br />
+          사업자등록증<br />
           업로드
         </v-card>
       </v-col>
-      <v-spacer></v-spacer>
-      <v-col cols="7">
+      <v-col cols="5">
         <v-file-input
           id="photo"
           show-size
           counter
           truncate-length="50"
-          outlined
-          filled
         ></v-file-input>
       </v-col>
-      <v-spacer></v-spacer>
     </v-row>
+
+    <!-- 버튼 --> 
     <v-row>
       <v-spacer></v-spacer>
       <v-col>
@@ -118,8 +99,8 @@
 
     <v-row justify="center">
       <v-col cols="auto">
-        <v-card elevation="0" class="ma-5 text-center text-h5" color="red" dark>
-          기업 회원 승인은 신청 후 영업일 기준 2일 정도 소요 됩니다.</v-card>
+        <v-card elevation="0" class="ma-10 text-center text-h6" color="red" dark>
+          기업 회원 승인은 신청 후 영업일 기준 2일 정도 소요 됩니다</v-card>
       </v-col>
     </v-row>
   </v-container>

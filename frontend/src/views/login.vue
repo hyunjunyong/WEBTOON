@@ -17,7 +17,7 @@
         <v-card elevation="0">
           <v-toolbar flat>
             <v-spacer></v-spacer>
-            <v-toolbar-title class="text-h4 font-weight-bold">로그인</v-toolbar-title>
+            <v-toolbar-title class="text-h5 font-weight-bold pt-3">로그인</v-toolbar-title>
             <v-spacer></v-spacer>
           </v-toolbar>
           <div class="pa-5">
@@ -39,11 +39,11 @@
           </div>
 
           <!-- 회원가입 창으로 넘어가는 텍스트 -->
-          <v-card-title class="text-h6 font-weight-bold gray--color">
+          <v-card-text class="text-h6 text-center font-weight-bold gray--color">
             <v-spacer></v-spacer>
              계정이 없으신가요? <v-spacer></v-spacer><router-link to="join" style="text-decoration:none">회원가입</router-link>
             <v-spacer></v-spacer>
-          </v-card-title>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
