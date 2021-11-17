@@ -10,6 +10,9 @@ export default new Vuex.Store({
     // 로그인 상태 정보
     isLogin: false,
 
+    userType: null,
+    userName: null,
+
     //사용자 정보
     // 사용자 이름, 사용자 타입 등
     userInfo: null,
