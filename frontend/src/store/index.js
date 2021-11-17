@@ -7,20 +7,43 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    //사용자 정보
+    // 로그인 상태 정보
     isLogin: false,
+
     userType: null,
     userName: null,
 
+    //사용자 정보
+    // 사용자 이름, 사용자 타입 등
+    userInfo: null,
+
+    testTmp: null,
     count: 0,
+    registerInfo: null,
+    //작품등록으로 넘어가기 위한 신청 page Id
+    //에피소드에 필요한 로그인한 유저의 ID
   },
   mutations: {
     increment(state) {
       state.count = state.count + 1;
     },
+    setUserInfo(state, payload) {
+      state.userInfo = payload;
+      state.isLogin = true;
+    },
+    setRegisterInfo(state, payload) {
+      state.registerInfo = payload;
+    },
   },
   actions: {
-    signin(commit, loginObj) {
+    refresh5({ commit }) {
+      let payload = {
+        name: localStorage.getItem("name"),
+        userType: localStorage.getItem("userType"),
+      };
+      commit("setUserInfo", payload);
+    },
+    signin({ commit, state }, loginObj) {
       axios
         .post(
           "http://localhost:5000/auth/session",
@@ -30,10 +53,24 @@ export default new Vuex.Store({
           },
           { withCredentials: true }
         )
-        .then(() => {
-          this.state.isLogin = true;
-          this.state.userType = "개품3기";
-          this.state.userName = "생존자";
+        .then((res) => {
+          console.log(res);
+          let userInfo = {
+            name: res.data.userInfo.name,
+            userType: res.data.userInfo.userType,
+          };
+
+          //사용자 정보 수정
+          commit("setUserInfo", userInfo);
+
+          // 사용자정보 local에 저장...
+          // 이것들은 쿠키에 토큰의 형식으로 변경해야한다.
+          localStorage.setItem("name", userInfo.name);
+          localStorage.setItem("userType", userInfo.userType);
+          localStorage.setItem("isLogin", state.isLogin);
+          //commit("setUserInfoLocalStorage", userInfo);
+
+          //로그인 성공시 홈 화면으로 이동
           router.push("/");
         })
         .catch((err) => {
@@ -44,6 +81,10 @@ export default new Vuex.Store({
     signout() {
       this.state.isLogin = false;
     },
+    setRegisterInfoActions({ commit }, payload) {
+      commit("setRegisterInfo", payload);
+    },
+    // register_webtoon_userId: respon.data.userId,
+    //         episode_Id: respon.data.id,
   },
-  modules: {},
 });

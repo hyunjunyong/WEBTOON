@@ -1,12 +1,15 @@
 <template>
+
+ <div id="background">
   <v-container>
-    <v-row justify="center">
-      <v-col
-        cols="8"
-        >
-            <v-card>
+    <!-- 회원 정보 수정 작성 폼 -->
+    <v-row justify="center" class="my-10"> 
+      <v-col cols="6">
+            <v-card elevation="0">
           <v-toolbar flat>
-            <v-toolbar-title>회원 정보 변경</v-toolbar-title>
+             <v-spacer></v-spacer>
+            <v-toolbar-title class="text-h5 font-weight-bold pt-3">회원 정보 변경</v-toolbar-title>
+             <v-spacer></v-spacer>
           </v-toolbar>
           <div class="pa-3">
   <v-form
@@ -70,14 +73,18 @@
     <v-row justify="center" class="ma-0">
         <v-spacer></v-spacer>
     <v-btn
-      color="success"
+      depressed
+      x-large
+      color="primary"
       @click="apiRequest"
     >
       수정
     </v-btn>
         <v-spacer></v-spacer>
     <v-btn
-      color="error"
+      depressed
+      x-large
+      color="gray"
       @click="reset"
     >
       취소
@@ -90,6 +97,7 @@
         </v-col>
     </v-row>
   </v-container>
+ </div>
 </template>
 
 <script>
@@ -195,3 +203,11 @@ import axios from 'axios'
 
   }
 </script>
+
+<style>
+#background {
+  background-color: #EEEEEE;
+  height: 100%;
+}
+ html { overflow-y: auto }
+</style>

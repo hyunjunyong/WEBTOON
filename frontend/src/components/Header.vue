@@ -12,7 +12,9 @@
             max-width="80px"
           />
 
-          <div class="text-h4 font-weight-bold primary--text">개발자의 품격</div>
+          <div class="text-h4 font-weight-bold primary--text">
+            개발자의 품격
+          </div>
         </div>
       </router-link>
 
@@ -32,6 +34,12 @@
         <router-link to="/admin" style="text-decoration:none"
           ><strong class="router-text">관리자홈</strong></router-link
         >
+
+        <span class="router-text"> | </span>
+
+        <router-link to="/genre/add" style="text-decoration:none"
+          ><strong class="router-text">장르추가</strong></router-link
+        >
       </p>
 
       <v-spacer></v-spacer>
@@ -40,32 +48,28 @@
       <!-- 검색창 -->
 
       <p class="mt-12">
-        <v-text-field 
-        prepend-inner-icon="mdi-magnify"
-        color="primary"
-        outlined
-        rounded
-        clearable
-      ></v-text-field>
-
+        <v-text-field
+          prepend-inner-icon="mdi-magnify"
+          color="primary"
+          rounded
+          clearable
+        ></v-text-field>
       </p>
 
       <v-spacer></v-spacer>
 
       <!-- 로그인 버튼 -->
       <p class="ma-4">
-
-      <router-link to="/login" style="text-decoration:none">
-        <v-btn depressed outlined color="primary" large rounded v-if="!isLogin">
-          <v-img
-            src="../img/login.png"
-            max-width="30px"
-            max-height="30px"
-          ></v-img>
-          <span class="black--text font-weight-bold">로그인</span>
-        </v-btn>
-      </router-link>
-
+        <router-link to="/login" style="text-decoration:none">
+          <v-btn depressed color="white" large rounded dark v-if="!isLogin">
+            <v-img
+              src="../img/login.png"
+              max-width="30px"
+              max-height="30px"
+            ></v-img>
+            <span class="black--text font-weight-bold">로그인</span>
+          </v-btn>
+        </router-link>
       </p>
 
       <!-- 사용자 아바타 -->
@@ -77,7 +81,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -88,18 +91,14 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 작품
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
                 작가 제안 현황
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
@@ -139,10 +138,8 @@
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" right absolute>
-
-            <v-avatar color="red" size="40" >
-              {{ userName }}
-
+            <v-avatar color="red" size="40">
+              {{ userInfo.name }}
             </v-avatar>
           </v-btn>
         </template>
@@ -151,9 +148,9 @@
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
               <v-avatar color="red">
-                {{ userName }}
+                {{ userInfo.name }}
               </v-avatar>
-              <h3>{{ userType }} </h3>
+              <h3>{{ userInfo.userType }}</h3>
               <!-- <p class="text-caption mt-1">
                 {{ user.email }}
               </p> -->
@@ -202,7 +199,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -213,13 +209,11 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/personal_information">
               <v-btn depressed rounded text>
                 회원 정보 변경
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
@@ -242,11 +236,9 @@
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 기업 제안
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/Boardlist">
                 <v-btn depressed rounded text>
@@ -270,7 +262,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -281,18 +272,14 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 회원 정보 변경
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <v-btn depressed rounded text>
                 작가 제안 현황
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link
                 style="text-decoration:none"
@@ -326,7 +313,6 @@
             </v-avatar>
           </v-btn>
         </template>
-
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
@@ -337,7 +323,6 @@
               <p class="text-caption mt-1">
                 {{ user.email }}
               </p>
-
               <v-divider class="my-3"></v-divider>
               <router-link to="/admin" style="text-decoration:none">
                 <v-btn depressed rounded text>
@@ -345,17 +330,13 @@
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 작품 승인 요청
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
-
               <v-btn depressed rounded text>
                 신규 문의
               </v-btn>
-
               <v-divider class="my-3"></v-divider>
               <router-link style="text-decoration:none" to="/Notice_list">
                 <v-btn depressed rounded text>
@@ -389,7 +370,6 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import axios from "axios";
-
 export default {
   name: "Header",
   data() {
@@ -421,7 +401,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["isLogin", "userName", "userType"]),
+    ...mapState(["isLogin", "userInfo"]),
   },
 };
 </script>

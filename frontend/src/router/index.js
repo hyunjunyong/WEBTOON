@@ -45,6 +45,9 @@ import BoardWriter from "../views/UserPage/Boardwriter.vue";
 import Notice from "../views/notice.vue";
 import Notice_List from "../views/notice_list.vue";
 
+//장르추가 *임시
+import ADD_GENRE from "../views/ADD_Genre.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -218,6 +221,13 @@ const routes = [
     name: "ADD_Webtoon",
     component: ADD_Webtoon,
   },
+  //장르추가 *임시
+  {
+    path: "/genre/add",
+    name: "ADD_Genre",
+    component: ADD_GENRE,
+  },
+
 ];
 
 const router = new VueRouter({

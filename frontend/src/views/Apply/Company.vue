@@ -1,92 +1,112 @@
 <template>
   <!-- 기업 인증 페이지 -->
+ <div id="background">
+
   <v-container>
-    <v-row>
-      <v-col>
-        <v-card class="text-center text-h3" height="60">기업 회원 신청</v-card>
+    <v-row justify="center" class="mt-10">
+      <v-col cols="8" >
+        <v-card elevation="0" class="pa-md-4 mx-lg-auto">
+          <v-toolbar flat>
+             <v-spacer></v-spacer>
+            <v-toolbar-title  class="text-h5 font-weight-bold pt-3">기업 회원 신청</v-toolbar-title>
+             <v-spacer></v-spacer>
+          </v-toolbar>
+
+      <!-- 회사명 작성 -->
+    <v-row> 
+      <v-col cols="4" class="d-flex text-center text-h6">
+        <v-card elevation="0" class="ma-auto">회사명</v-card>
       </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="3">
-        <v-card class="text-center text-h5">회사 명</v-card>
-      </v-col>
-      <v-spacer></v-spacer>
       <v-col cols="5">
         <v-text-field
           v-model="companyName"
-          label="회사 이름 작성"
-          single-line
-          solo
-        >
+          required>
         </v-text-field>
       </v-col>
-      <v-col cols="3">
-        <v-btn class="text-center text-h7">중복 확인</v-btn>
+      <v-col cols="3" class="ma-auto">
+        <v-btn
+            depressed
+            color="gray">
+            중복<br />확인
+        </v-btn>
       </v-col>
     </v-row>
-    <v-row>
-      <v-divider></v-divider>
-    </v-row>
-    <v-row>
-      <v-col cols="3">
-        <v-card class="text-center text-h5">사업자 등록번호</v-card>
+
+      <!-- 사업자 등록번호 작성 -->    
+    <v-row mb="3">
+      <v-col cols="4" class="d-flex text-center text-h6">
+        <v-card elevation="0" class="ma-auto">사업자<br />등록번호</v-card>
       </v-col>
-      <v-spacer></v-spacer>
-      <v-col cols="7">
+
+      <v-col cols="5">
         <v-text-field
           v-model="businesslicenseNum"
-          label="111-11-11111"
-          single-line
-          solo
+          placeholder="111-11-11111"
+          required
         >
         </v-text-field>
       </v-col>
-      <v-spacer></v-spacer>
     </v-row>
+
+      <!-- 사업자 등록증 올리기 --> 
     <v-row>
-      <v-col>
-        <v-divider></v-divider>
+      <v-col cols="4" class="d-flex text-center text-h6">
+        <v-card elevation="0" class="ma-auto">
+          사업자등록증<br />
+          업로드
+        </v-card>
       </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="3">
-        <v-card class="text-center text-h5"
-          >사업자 등록증 <br />
-          업로드</v-card
-        >
-      </v-col>
-      <v-spacer></v-spacer>
-      <v-col cols="7">
+      <v-col cols="5">
         <v-file-input
           id="photo"
-          truncate-length="15"
-          class="align-center"
+          show-size
+          counter
+          truncate-length="50"
         ></v-file-input>
       </v-col>
-      <v-spacer></v-spacer>
     </v-row>
+
+    <!-- 버튼 --> 
     <v-row>
       <v-spacer></v-spacer>
-      <v-col class="text-center">
-        <router-link to="/">
-          <v-btn block>취소</v-btn>
+      <v-col>
+        <v-btn 
+          depressed
+          x-large
+          block
+          color="primary"        
+          @click="ap_Company()">
+          신청
+        </v-btn>
+      </v-col>
+      <v-spacer></v-spacer>
+      <v-col>
+        <router-link to="/" style="text-decoration:none">
+          <v-btn
+            depressed
+            x-large
+            block
+            color="gray">
+            취소
+          </v-btn>
         </router-link>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col class="text-center">
-        <v-btn @click="ap_Company()" block>신청</v-btn>
-      </v-col>
-      <v-spacer></v-spacer>
     </v-row>
-    <v-row>
-      <v-col>
-        <v-card class="text-center text-h8" color="black" dark
-          >기업 회원 신청 후 승인은 2일 정도 소요 됩니다.</v-card
-        >
+        </v-card>
+          </v-col>
+    </v-row>
+
+    <v-row justify="center">
+      <v-col cols="auto">
+        <v-card elevation="0" class="ma-10 text-center text-h6" color="red" dark>
+          기업 회원 승인은 신청 후 영업일 기준 2일 정도 소요 됩니다</v-card>
       </v-col>
     </v-row>
   </v-container>
+</div>
 </template>
+
 
 <script>
 import axios from "axios";
@@ -129,4 +149,11 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+
+<style>
+#background {
+  background-color: #EEEEEE;
+  height: 100%;
+}
+ html { overflow-y: auto }
+</style>
