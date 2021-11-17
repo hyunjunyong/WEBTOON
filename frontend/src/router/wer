@@ -1,0 +1,8 @@
+import ADD_Webtoon from "../views/WriterPage/ADD_Webtoon";
+import register_state from "../views/WriterPage/register_state";
+// import ono_writer from "../views/ono-writer";
+
+import LIKE_LIST_COMPANY from "../views/UserPage/Like_list_company.vue";
+
+//장르추가 *임시
+import ADD_GENRE from "../views/ADD_Genre.vue";
