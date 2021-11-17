@@ -20,8 +20,7 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      
-        <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n" cols="2"/>
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" cols="2" />
     </v-row>
 
     <v-row justify="center">
@@ -53,11 +52,13 @@
             <v-card>
               <v-list-item class="text-center">
                 <v-list-item-content>
-                  <v-list-item-title
+                  <!-- <v-list-item-title
                     v-for="index in writer_Status"
-                    :key="index.id"
-                  >
-                    {{ index }} |
+                    :key="index"
+                  > -->
+
+                  <v-list-item-title>
+                    출근
                   </v-list-item-title>
 
                   <!-- // avatarUrl 작가 프로필사진
@@ -131,14 +132,20 @@ export default {
       .get("http://localhost:5000/admin/applications", {
         withCredentials: true,
       })
-      .then((response) => {
-        for (let index of response.data) {
-          this.writer_Status.avatarUrl = index.avatarUrl;
-          this.writer_Status.status = index.status;
-          this.writer_Status.createdAt = index.createdAt;
-          this.writer_Status.authorName = index.authorName;
-        }
-        console.log(response.data);
+      .then((res) => {
+        //관리자 계정만 받을 수 있음
+        console.log(res);
+
+        // for (let index of response.data) {
+        //   this.writer_Status.avatarUrl = index.avatarUrl;
+        //   this.writer_Status.status = index.status;
+        //   this.writer_Status.createdAt = index.createdAt;
+        //   this.writer_Status.authorName = index.authorName;
+        // }
+        // console.log(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
       });
   },
 };
