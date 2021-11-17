@@ -2,7 +2,7 @@
   <v-container class="TOTAL">
     <!-- 장르선택  -->
     <v-row no-gutters justify="center">
-        <Genre :item="n" v-for="n in genre" :key="n.id" />
+      <Genre :item="n" v-for="n in genre" :key="n.id" />
     </v-row>
 
     <v-row no-gutters justify="center">
@@ -34,7 +34,7 @@ export default {
         .then((req) => {
           this.webtoon = req.data;
         })
-        .catch((err)=>{
+        .catch((err) => {
           console.log(err);
         });
     },
