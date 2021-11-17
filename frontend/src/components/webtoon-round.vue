@@ -5,6 +5,7 @@
   <v-container class="webtoon_round">
     <!-- 작가홈의 에피소드 화수를 표현하는 컴포넌트 -->
     <v-card
+      elevation="0"
       v-if="webtoon_round_State == 0"
       class="overflow-y-auto"
       max-height="600"

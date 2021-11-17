@@ -11,7 +11,7 @@
       />
     </v-col>
     <v-col cols="8">
-      <v-card class="mb-3">
+      <v-card elevation="0" class="mb-3">
         <v-card-title>작가 A</v-card-title>
         <v-card-text>작가 한줄 소개</v-card-text>
       </v-card>

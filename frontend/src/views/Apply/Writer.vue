@@ -84,7 +84,7 @@
                   x-large
                   block
                   color="primary"
-                  @click="ap_Writer()"
+                  @click="assign_Writer()"
                 >
                   다음</v-btn
                 >
@@ -123,7 +123,7 @@
 <script>
 import axios from "axios";
 import router from "../../router/index";
-import { mapActions } from "vuex";
+// import { mapActions } from "vuex";
 
 export default {
   name: "Writer",
@@ -134,8 +134,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["setRegisterInfoActions"]),
-    ap_Writer() {
+    assign_Writer() {
       let form = new FormData();
       var photoFile = document.getElementById("photo");
       const writer_info = {
@@ -144,14 +143,16 @@ export default {
       };
       form.append("avatar", photoFile.files[0]);
       form.append("datas", JSON.stringify(writer_info));
+      console.log(writer_info);
       axios
         .post("http://localhost:5000/user/apply-author", form, {
           withCredentials: true,
         })
         .then((respon) => {
-          this.setRegisterInfoActions(respon);
           console.log(respon);
           router.push("/register_Webtoon");
+          this.$store.state.id = respon.data.id;
+          this.$store.state.userId = respon.data.userId;
         })
         .catch((err) => {
           alert("에러");
