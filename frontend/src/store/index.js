@@ -19,7 +19,6 @@ export default new Vuex.Store({
     //작품등록으로 넘어가기 위한 신청 page Id
     //에피소드에 필요한 로그인한 유저의 ID
     // 사용자 이름, 사용자 타입 등
-    userInfo: null,
 
     accessToken: null,
     refreshToken: null,
