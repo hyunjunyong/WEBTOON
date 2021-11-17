@@ -41,14 +41,6 @@ import webtoonround from "../components/webtoon-round.vue";
 
 export default {
   name: "WEBTOON_Home",
-  created() {
-    this.checkSession();
-  },
-  methods: {
-    checkSession() {
-      console.log("changePage");
-    },
-  },
   data() {
     return {
       webtoons: [
