@@ -33,7 +33,13 @@
               </v-col>
               <v-col cols="6">
                 <v-row justify="center" class="pa-1">
-                  <Genre :item="n" v-for="n in genre" :key="n.id" />
+                  <Genre
+                    v-model="n.id"
+                    :item="n"
+                    v-for="n in genre"
+                    :key="n.id"
+                    @change="genreGetId(n)"
+                  />
                 </v-row>
               </v-col>
             </v-row>
@@ -130,33 +136,33 @@ export default {
       userId: "2",
       workDescription: "asdf",
       title: "asdf",
-      genre: [
-        { index: "1", name: "일  상" },
-        { index: "2", name: "개  그" },
-        { index: "3", name: "액  션" },
-        { index: "4", name: "판타지" },
-        { index: "5", name: "드라마" },
-        { index: "6", name: "로맨스" },
-        { index: "7", name: "공포/스릴러" },
-      ],
+      genre: [],
+      genreId: null,
     };
   },
   setup() {},
   create() {},
-  mounted() {},
+  mounted() {
+    axios.get("http://localhost:5000/user/genre").then((response) => {
+      this.genre = response.data;
+    });
+  },
   unmounted() {},
   methods: {
+    genreGetId(n) {
+      console.log(n.id);
+      this.genreId = n.id;
+    },
     register_Webtoon() {
       let form = new FormData();
       var workThumbnail = document.getElementById("Thumbnail");
-
       const writer_info = {
-        genreId: "3",
+        genreId: this.genreId,
         userId: "72",
         workDescription: this.workDescription,
         title: this.title,
       };
-      console.log(this.registerInfo);
+
       form.append("workThumbnail", workThumbnail.files[0]);
       form.append("workInfo", JSON.stringify(writer_info));
       axios

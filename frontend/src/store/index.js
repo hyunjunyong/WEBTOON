@@ -16,6 +16,9 @@ export default new Vuex.Store({
 
     testTmp: null,
     count: 0,
+    registerInfo: null,
+    //작품등록으로 넘어가기 위한 신청 page Id
+    //에피소드에 필요한 로그인한 유저의 ID
   },
   mutations: {
     increment(state) {
@@ -24,6 +27,9 @@ export default new Vuex.Store({
     setUserInfo(state, payload) {
       state.userInfo = payload;
       state.isLogin = true;
+    },
+    setRegisterInfo(state, payload) {
+      state.registerInfo = payload;
     },
   },
   actions: {
@@ -72,5 +78,10 @@ export default new Vuex.Store({
     signout() {
       this.state.isLogin = false;
     },
+    setRegisterInfoActions({ commit }, payload) {
+      commit("setRegisterInfo", payload);
+    },
+    // register_webtoon_userId: respon.data.userId,
+    //         episode_Id: respon.data.id,
   },
 });

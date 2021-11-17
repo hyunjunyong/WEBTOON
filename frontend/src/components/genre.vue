@@ -1,12 +1,12 @@
 <template>
   <!--  장르 선택 컴포넌트 -->
-   <v-col>
+  <v-col>
     <v-card elevation="0">
-      <v-btn outlined color="secondary" rounded >
+      <v-btn @click="$emit('change')" outlined color="secondary" rounded>
         {{ item.name }}
       </v-btn>
     </v-card>
-   </v-col>
+  </v-col>
 </template>
 
 <script>
@@ -16,8 +16,8 @@ export default {
     item: Object,
   },
   data() {
-    return {
-    };
+    return {};
   },
+  methods: {},
 };
 </script>

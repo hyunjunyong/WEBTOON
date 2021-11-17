@@ -138,7 +138,6 @@ export default {
     ap_Writer() {
       let form = new FormData();
       var photoFile = document.getElementById("photo");
-      console.log(photoFile);
       const writer_info = {
         authorName: this.authorName,
         description: this.description,
@@ -158,8 +157,6 @@ export default {
           alert("에러");
           console.log(err);
         });
-
-      console.log(writer_info);
     },
   },
 };
