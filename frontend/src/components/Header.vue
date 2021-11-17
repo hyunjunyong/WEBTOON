@@ -183,7 +183,7 @@
                 </v-btn>
               </router-link>
               <v-divider class="my-3"></v-divider>
-              <v-btn depressed rounded text @click="logout">
+              <v-btn depressed rounded text @click="signout">
                 로그아웃
               </v-btn>
             </div>
@@ -369,7 +369,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import axios from "axios";
+
 export default {
   name: "Header",
   data() {
@@ -384,21 +384,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["signout"]),
-    test() {
-      this.userStatus = !this.userStatus;
-    },
-    logout() {
-      axios
-        .delete("http://localhost:5000/auth/session", { withCredentials: true })
-        .then((res) => {
-          this.signout();
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+    ...mapActions(["signout", "signout"]),
   },
   computed: {
     ...mapState(["isLogin", "userInfo"]),

@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 import router from "../router/index";
+import VueCookies from "vue-cookies";
 
 Vue.use(Vuex);
 
@@ -9,6 +10,7 @@ export default new Vuex.Store({
   state: {
     // 로그인 상태 정보
     isLogin: false,
+
 
     // 사용자 이름, 사용자 타입 등
     userInfo: null,
@@ -27,13 +29,27 @@ export default new Vuex.Store({
     wordId: null, // 에피소드를 넘기기 위한 디비에 생선된 작품의 ID
   },
   mutations: {
-    increment(state) {
-      state.count = state.count + 1;
-    },
     setUserInfo(state, payload) {
       state.userInfo = payload;
       state.isLogin = true;
     },
+
+    setRegisterInfo(state, payload) {
+      state.registerInfo = payload;
+    },
+    setCookies(state, payload) {
+      state.accessToken = payload.accessToken;
+      state.refreshToken = payload.refreshToken;
+    },
+    delUserInfo(state) {
+      state.userInfo = null;
+      state.isLogin = false;
+
+      localStorage.removeItem("name");
+      localStorage.removeItem("userType");
+      localStorage.removeItem("isLogin");
+    },
+
   },
   actions: {
     refresh5({ commit }) {
@@ -55,20 +71,24 @@ export default new Vuex.Store({
         )
         .then((res) => {
           console.log(res);
-          let userInfo = {
+
+          const userInfo = {
             name: res.data.userInfo.name,
             userType: res.data.userInfo.userType,
           };
 
-          //사용자 정보 수정
-          commit("setUserInfo", userInfo);
-
-          // 사용자정보 local에 저장...
-          // 이것들은 쿠키에 토큰의 형식으로 변경해야한다.
           localStorage.setItem("name", userInfo.name);
           localStorage.setItem("userType", userInfo.userType);
           localStorage.setItem("isLogin", state.isLogin);
-          //commit("setUserInfoLocalStorage", userInfo);
+
+          let cookies = {
+            accessToken: VueCookies.get("accessToken"),
+            refreshToken: VueCookies.get("refreshToken"),
+          };
+
+          //사용자 정보 수정
+          commit("setUserInfo", userInfo);
+          commit("setCookies", cookies);
 
           //로그인 성공시 홈 화면으로 이동
           router.push("/");
@@ -78,8 +98,15 @@ export default new Vuex.Store({
           console.log(err);
         });
     },
-    signout() {
-      this.state.isLogin = false;
+    signout({ commit }) {
+      axios
+        .delete("http://localhost:5000/auth/session", { withCredentials: true })
+        .then(() => {
+          commit("delUserInfo");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
 
     // register_webtoon_userId: respon.data.userId,
