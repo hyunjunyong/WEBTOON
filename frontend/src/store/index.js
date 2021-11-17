@@ -11,23 +11,29 @@ export default new Vuex.Store({
     // 로그인 상태 정보
     isLogin: false,
 
-    //사용자 정보
+
     // 사용자 이름, 사용자 타입 등
     userInfo: null,
 
-    registerInfo: null,
-    //작품등록으로 넘어가기 위한 신청 page Id
-    //에피소드에 필요한 로그인한 유저의 ID
-    // 사용자 이름, 사용자 타입 등
-
     accessToken: null,
     refreshToken: null,
+    //사용자 정보
+
+    count: 0,
+
+    id: null, //에피소드로 넘어가기 위한 신청 page Id
+    userId: null, //작품등록에 필요한 로그인한 유저의 ID
+
+    genre: [],
+
+    wordId: null, // 에피소드를 넘기기 위한 디비에 생선된 작품의 ID
   },
   mutations: {
     setUserInfo(state, payload) {
       state.userInfo = payload;
       state.isLogin = true;
     },
+
     setRegisterInfo(state, payload) {
       state.registerInfo = payload;
     },
@@ -43,6 +49,7 @@ export default new Vuex.Store({
       localStorage.removeItem("userType");
       localStorage.removeItem("isLogin");
     },
+
   },
   actions: {
     refresh5({ commit }) {
@@ -101,9 +108,7 @@ export default new Vuex.Store({
           console.log(err);
         });
     },
-    setRegisterInfoActions({ commit }, payload) {
-      commit("setRegisterInfo", payload);
-    },
+
     // register_webtoon_userId: respon.data.userId,
     //         episode_Id: respon.data.id,
   },

@@ -36,7 +36,7 @@
                   <Genre
                     v-model="n.id"
                     :item="n"
-                    v-for="n in genre"
+                    v-for="n in $store.state.genre"
                     :key="n.id"
                     @change="genreGetId(n)"
                   />
@@ -76,7 +76,7 @@
 
               <v-col cols="5">
                 <v-file-input
-                  id="photo"
+                  id="Thumbnail"
                   show-size
                   counter
                   truncate-length="50"
@@ -131,12 +131,11 @@ export default {
   components: {
     Genre,
   },
+  props: [],
   data() {
     return {
-      userId: "2",
       workDescription: "asdf",
       title: "asdf",
-      genre: [],
       genreId: null,
     };
   },
@@ -144,7 +143,8 @@ export default {
   create() {},
   mounted() {
     axios.get("http://localhost:5000/user/genre").then((response) => {
-      this.genre = response.data;
+      // this.genre = response.data;
+      this.$store.state.genre = response.data;
     });
   },
   unmounted() {},
@@ -158,21 +158,24 @@ export default {
       var workThumbnail = document.getElementById("Thumbnail");
       const writer_info = {
         genreId: this.genreId,
-        userId: "72",
+        userId: this.$store.state.userId,
         workDescription: this.workDescription,
         title: this.title,
       };
+      console.log(this.$store.state.id);
+      console.log(writer_info);
 
       form.append("workThumbnail", workThumbnail.files[0]);
       form.append("workInfo", JSON.stringify(writer_info));
+
       axios
         .post("http://localhost:5000/user/upload-work", form, {
           withCredentials: true,
         })
         .then((respon) => {
-          console.log("1234");
           console.log(respon);
           router.push("/episode/add");
+          this.$store.state.workId = respon.data.work.id;
         })
         .catch((err) => {
           console.error(err);

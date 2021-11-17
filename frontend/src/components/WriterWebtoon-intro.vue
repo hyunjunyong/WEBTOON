@@ -12,7 +12,7 @@
       <v-col cols="7">
         <v-row>
           <v-col cols="8">
-            <v-card class="pl-5" width="auto">
+            <v-card elevation="0" class="pl-5" width="auto">
               <h2>눈내리는 소리</h2>
             </v-card>
           </v-col>
@@ -32,7 +32,7 @@
             </router-link>
           </v-col>
         </v-row>
-        <v-card class="pl-5" height="90px">
+        <v-card elevation="0" class="pl-5" height="90px">
           작품 소개 <br />
           겨울을 빼았긴 마을에<br />눈을 찾아오려는 소년의 모험
         </v-card>
