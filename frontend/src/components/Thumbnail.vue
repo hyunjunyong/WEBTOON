@@ -4,21 +4,23 @@
     props를 통해서 웹툰 정보를 받아오는 형식으로 수정
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
-  <v-col cols="2" class="ma-3">
+
+  <v-card elevation="0" hover>
     <router-link
       style="text-decoration: none; color: inherit;"
       v-bind:to="path"
     >
-      <v-card elevation="0">
-        <v-img max-height="260" contain :src="webtoon.workThumbnail" />
-        <v-card-subtitle>
-          <v-row align="center" class="ma-1">
-            <div>{{ testData }}</div>
-          </v-row>
-        </v-card-subtitle>
-      </v-card>
+      <v-img max-height="260" :src="webtoon.workThumbnail" />
+
+      <v-card-title>
+        {{ webtoon.title }}
+      </v-card-title>
+
+      <v-card-subtitle>
+        {{ webtoon.writer }}
+      </v-card-subtitle>
     </router-link>
-  </v-col>
+  </v-card>
 </template>
 
 <script>
@@ -29,7 +31,6 @@ export default {
   },
   data() {
     return {
-      testData: "작가A",
       path: "webtoon/" + this.webtoon.id,
     };
   },

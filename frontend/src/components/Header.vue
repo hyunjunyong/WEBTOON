@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-app-bar height="120px" app color="white" elevation="0">
+    <v-app-bar height="80px" app color="white" elevation="0">
       <router-link to="/" style="text-decoration:none">
         <div class="d-flex align-center">
           <v-img
