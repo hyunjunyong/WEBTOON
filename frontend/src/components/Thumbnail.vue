@@ -11,11 +11,6 @@
     >
       <v-card elevation="0">
         <v-img max-height="260" contain :src="webtoon.workThumbnail" />
-
-        <v-card-title class="ma-1">
-          {{ webtoon.title }}
-        </v-card-title>
-
         <v-card-subtitle>
           <v-row align="center" class="ma-1">
             <div>{{ testData }}</div>
