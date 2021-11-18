@@ -11,6 +11,9 @@ export default new Vuex.Store({
     // 로그인 상태 정보
     isLogin: false,
 
+    //작품등록으로 넘어가기 위한 신청 page Id
+    //에피소드에 필요한 로그인한 유저의 ID
+    registerInfo: null,
 
     // 사용자 이름, 사용자 타입 등
     userInfo: null,
@@ -49,7 +52,6 @@ export default new Vuex.Store({
       localStorage.removeItem("userType");
       localStorage.removeItem("isLogin");
     },
-
   },
   actions: {
     refresh5({ commit }) {
