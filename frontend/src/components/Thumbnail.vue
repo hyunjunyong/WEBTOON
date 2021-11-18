@@ -5,7 +5,10 @@
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
   <v-col cols="2" class="ma-3">
-    <router-link style="text-decoration: none; color: inherit;" to="/webtoon">
+    <router-link
+      style="text-decoration: none; color: inherit;"
+      v-bind:to="path"
+    >
       <v-card elevation="0">
         <v-img max-height="260" contain :src="webtoon.workThumbnail" />
 
@@ -32,6 +35,7 @@ export default {
   data() {
     return {
       testData: "작가A",
+      path: "webtoon/" + this.webtoon.id,
     };
   },
   mount() {},
