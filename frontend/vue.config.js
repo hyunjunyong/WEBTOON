@@ -9,6 +9,7 @@ module.exports = {
         },
       },
     },
+    public: "localhost",
   },
   transpileDependencies: ["vuetify"],
 };
