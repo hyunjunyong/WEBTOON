@@ -37,9 +37,9 @@
 export default {
   name: "TestThumbnail",
   props: {
-    webtoon: Object,
-    webtoonState: String,
-    h: String,
+    webtoon: [],
+    webtoonState: Number,
+    h: Number,
   },
 };
 </script>

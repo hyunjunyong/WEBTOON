@@ -4,7 +4,7 @@
   썸네일을 누르면 해당 작품페이지로 바로 이동한다.
  -->
   <v-container>
-    <v-carousel hide-delimiters interval="6000" cycle="true" height="330">
+    <v-carousel hide-delimiters interval="6000" height="330">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"

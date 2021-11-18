@@ -57,13 +57,14 @@ export default new Vuex.Store({
   },
   actions: {
     refresh5({ commit }) {
+      console.log("hello");
       let payload = {
         name: localStorage.getItem("name"),
         userType: localStorage.getItem("userType"),
       };
       commit("setUserInfo", payload);
     },
-    signin({ commit, state }, loginObj) {
+    signin({ commit }, loginObj) {
       axios
         .post(
           "http://localhost:5000/auth/session",
@@ -74,8 +75,6 @@ export default new Vuex.Store({
           { withCredentials: true }
         )
         .then((res) => {
-          console.log(res);
-
           const userInfo = {
             name: res.data.userInfo.name,
             userType: res.data.userInfo.userType,
@@ -83,7 +82,7 @@ export default new Vuex.Store({
 
           localStorage.setItem("name", userInfo.name);
           localStorage.setItem("userType", userInfo.userType);
-          localStorage.setItem("isLogin", state.isLogin);
+          localStorage.setItem("isLogin", true);
 
           let cookies = {
             accessToken: VueCookies.get("accessToken"),
