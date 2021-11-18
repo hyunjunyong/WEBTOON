@@ -16,7 +16,7 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" cols="2" />
+        <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n" cols="2"/>
     </v-row>
 
     <v-row justify="center">
