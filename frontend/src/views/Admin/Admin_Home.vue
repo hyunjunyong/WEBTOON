@@ -4,14 +4,10 @@
  -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="10">
-        <router-link
-          style="text-decoration: none; color: inherit;"
-          to="/apply/webtoon"
-          class="ma-2"
-        >
-          <v-card>
-            <v-card-title>
+      <v-col cols="10" class="ma-2">
+        <router-link to="/apply/webtoon" style="text-decoration:none">
+          <v-card  elevation="0">
+            <v-card-title class="text-h5 font-weight-bold">
               작품 승인 신규 요청
             </v-card-title>
           </v-card>
@@ -20,33 +16,29 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" cols="2" />
+      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
     </v-row>
 
     <v-row justify="center">
       <v-col cols="10">
-        <v-card>
-          <v-card-title>
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             공지
           </v-card-title>
-        </v-card>
-        <router-link
-          style="text-decoration: none; color: inherit;"
-          to="/Notice_list"
-          class="ma-2"
-        >
-          <oneonone_question />
-        </router-link>
+          <list />
+          </v-card>
       </v-col>
     </v-row>
 
     <v-row justify="center">
       <v-col cols="10">
-        <v-card>
-          <v-card-title>
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
             작가/회사 승인 신규 요청
           </v-card-title>
+          <list />
         </v-card>
+
         <v-container>
           <!-- <v-card>
             <v-list-item class="text-center">
@@ -91,6 +83,31 @@
             </tbody>
           </v-simple-table>
         </v-container>
+
+        <!-- <v-container>
+          <router-link style="text-decoration:none" to="/apply/episode">
+            <v-card>
+              <v-list-item class="text-center">
+                <v-list-item-content>
+                  // <v-list-item-title
+                  //   v-for="index in writer_Status"
+                  //   :key="index">
+
+                  <v-list-item-title>
+                    출근
+                  </v-list-item-title>
+
+                   // avatarUrl 작가 프로필사진
+                       //   status 현재 승인상태
+                       //   createdAt 날짜
+                       //   authorName 작가명
+                  <v-divider />
+                </v-list-item-content>
+              </v-list-item>
+            </v-card>
+          </router-link>
+        </v-container> -->
+
       </v-col>
     </v-row>
   </v-container>
@@ -98,13 +115,13 @@
 
 <script>
 import Thumbnail from "../../components/Thumbnail";
-import oneonone_question from "../../components/oneonone-question.vue";
+import list from "../../components/list"
 import axios from "axios";
 export default {
   name: "Home",
   components: {
     Thumbnail,
-    oneonone_question,
+    list,
   },
   data() {
     return {
@@ -113,11 +130,13 @@ export default {
           id: "0",
           title: "물고기인간",
           url: null,
+
         },
         {
           id: "1",
           title: "물고기인간",
           url: null,
+
         },
         {
           id: "2",

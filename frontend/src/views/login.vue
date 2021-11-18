@@ -41,7 +41,7 @@
                 depressed
                 block
                 large
-                @click="signin({ email, password })"
+                @click.once="signin({ email, password })"
               >
                 로그인
               </v-btn>

@@ -4,8 +4,8 @@
 -->
     <v-container>
         <v-row justify="center"> 
-        <v-col cols="10">
-        <v-card>
+        <v-col>
+        <v-card elevation="0"> 
         <v-text-field
           v-model="search"
           append-icon="mdi-magnify"
@@ -18,6 +18,8 @@
             :headers="headers"
             :items="desserts"
             :search="search"
+            :items-per-page="5"
+            @click:row="rowClick"
         ></v-data-table>
         </v-card>
         </v-col>
@@ -29,7 +31,12 @@
 <script>
 export default { 
     name: 'Boardlist',
-        methods: {},
+        methods: {
+          rowClick() {
+            // this.$router.push('/Boardview/' + item.seq)
+            this.$router.push('/Boardview')
+            }
+        },
         data () {
             return {
             search: '',

@@ -7,7 +7,7 @@
   <v-col cols="2" class="ma-3">
     <router-link style="text-decoration: none; color: inherit;" to="/webtoon">
       <v-card elevation="0">
-        <v-img max-height="300" :src="webtoon.workThumbnail" />
+        <v-img max-height="260" contain :src="webtoon.workThumbnail" />
 
         <v-card-title class="ma-1">
           {{ webtoon.title }}

@@ -1,14 +1,8 @@
 <template>
   <v-container>
-    <v-card>
+    <v-card  elevation="0">
       <v-list-item v-for="index in one" :key="index.idx" class="text-center">
-        <v-list-item-content>
-          <v-list-item-title
-            >{{ index.title }} | {{ index.date }} |
-            {{ index.name }}</v-list-item-title
-          >
-          <v-divider />
-        </v-list-item-content>
+          <v-list-item-title >{{ index.title }}  {{ index.date }}</v-list-item-title>
       </v-list-item>
     </v-card>
   </v-container>
@@ -20,11 +14,11 @@ export default {
   data() {
     return {
       one: [
-        { idx: 1, title: "글제목", date: "2016/01/12", name: "현준용" },
-        { idx: 2, title: "글제목", date: "2016/01/12", name: "현준용" },
-        { idx: 3, title: "글제목", date: "2016/01/12", name: "현준용" },
-        { idx: 4, title: "글제목", date: "2016/01/12", name: "현준용" },
-        { idx: 5, title: "글제목", date: "2016/01/12", name: "현준용" },
+        { idx: 1, title: "얼리윈터 이벤트", date: "2021-11-01"},
+        { idx: 2, title: "11월 변경사항", date: "2021-11-01"},
+        { idx: 3, title: "할로윈 이벤트", date: "2021-10-20"},
+        { idx: 4, title: "이용약관 변경 공지", date: "2021-10-11"},
+        { idx: 5, title: "긴급점검 공지", date: "2021-10-10"},
       ],
     };
   },
