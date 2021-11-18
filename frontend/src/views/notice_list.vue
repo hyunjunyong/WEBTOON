@@ -9,10 +9,11 @@
           <v-card-title class="text-h5 font-weight-bold">
               공지 사항
           </v-card-title>
+          <list />
         </v-card>
       </v-col>
-        <list />
     </v-row>
+
         <v-row justify="center" ma="5">
             <router-link to="/Notice" class="ma-2">
               <v-btn

@@ -72,8 +72,8 @@ export default {
   name: "Login",
   data() {
     return {
-      email: "testmail@test.com",
-      password: "123456",
+      email: "user@test.com",
+      password: "password123",
       NotSuccess: false,
       Success: false,
     };

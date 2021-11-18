@@ -25,10 +25,9 @@
           <v-card-title class="text-h5 font-weight-bold">
             공지
           </v-card-title>
-        </v-card>
-        <router-link to="/Notice_list" style="text-decoration: none;">
-          <oneonone_question />
-        </router-link>
+        
+          <list />
+          </v-card>
       </v-col>
     </v-row>
 
@@ -70,13 +69,13 @@
 
 <script>
 import Thumbnail from "../../components/Thumbnail";
-import oneonone_question from "../../components/oneonone-question.vue";
+import list from "../../components/list"
 import axios from "axios";
 export default {
   name: "Home",
   components: {
     Thumbnail,
-    oneonone_question,
+    list,
   },
   data() {
     return {

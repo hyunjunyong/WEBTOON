@@ -179,11 +179,16 @@ const routes = [
     name: "ADD_Webtoon",
     component: () => import("../views/WriterPage/ADD_Webtoon.vue"),
   },
-  //장르추가 *임시
+  //장르추가, Boardview *임시
   {
     path: "/genre/add",
     name: "ADD_Genre",
     component: () => import("../views/ADD_Genre.vue"),
+  },
+  {
+    path: "/Boardview",
+    name: "boardview",
+    component: () => import("../views/Boardview.vue"),
   },
 ];
 
