@@ -6,7 +6,7 @@
     <v-row justify="center">
       <v-col cols="10" class="ma-2">
         <router-link to="/apply/webtoon" style="text-decoration:none">
-          <v-card  elevation="0">
+          <v-card elevation="0">
             <v-card-title class="text-h5 font-weight-bold">
               작품 승인 신규 요청
             </v-card-title>
@@ -16,7 +16,9 @@
     </v-row>
 
     <v-row no-gutters justify="center">
-      <Thumbnail :webtoon="n" v-for="n in webtoon" :key="n.id" />
+      <v-col cols="8">
+        <TestThumbnail :webtoon="webtoon" :h="250" :webtoonState="5" />
+      </v-col>
     </v-row>
 
     <v-row justify="center">
@@ -26,7 +28,7 @@
             공지
           </v-card-title>
           <list />
-          </v-card>
+        </v-card>
       </v-col>
     </v-row>
 
@@ -107,20 +109,19 @@
             </v-card>
           </router-link>
         </v-container> -->
-
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Thumbnail from "../../components/Thumbnail";
-import list from "../../components/list"
+import TestThumbnail from "../../components/TestThumbnail";
+import list from "../../components/list";
 import axios from "axios";
 export default {
   name: "Home",
   components: {
-    Thumbnail,
+    TestThumbnail,
     list,
   },
   data() {
@@ -130,13 +131,11 @@ export default {
           id: "0",
           title: "물고기인간",
           url: null,
-
         },
         {
           id: "1",
           title: "물고기인간",
           url: null,
-
         },
         {
           id: "2",
