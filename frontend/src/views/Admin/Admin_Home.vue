@@ -38,6 +38,52 @@
           </v-card-title>
           <list />
         </v-card>
+
+        <v-container>
+          <!-- <v-card>
+            <v-list-item class="text-center">
+              <v-list-item-content>
+               
+                <v-list-item-title
+                  v-model="index.id"
+                  v-for="index in $store.state.writer_Status"
+                  :key="index"
+                >
+                  <router-link style="text-decoration:none" to="/apply/episode">
+                    {{ index.authorName }} |
+                    {{ index.createdAt.slice(0, 10) }} | {{ index.status }} |
+                  </router-link>
+                  <v-divider />
+                </v-list-item-title>
+
+                <v-divider />
+              </v-list-item-content>
+            </v-list-item>
+          </v-card> -->
+          <v-simple-table>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>작가명</th>
+                <th>날짜</th>
+                <th>상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="index in $store.state.writer_Status"
+                :key="index.id"
+                @click="detailPosting(index.id)"
+              >
+                <td>{{ index.id }}</td>
+                <td>{{ index.authorName }}</td>
+                <td>{{ index.createdAt.slice(0, 10) }}</td>
+                <td>{{ index.status }}</td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+        </v-container>
+
         <!-- <v-container>
           <router-link style="text-decoration:none" to="/apply/episode">
             <v-card>
@@ -61,6 +107,7 @@
             </v-card>
           </router-link>
         </v-container> -->
+
       </v-col>
     </v-row>
   </v-container>
@@ -82,35 +129,31 @@ export default {
         {
           id: "0",
           title: "물고기인간",
-          workThumbnail: require("../../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
+          url: null,
+
         },
         {
           id: "1",
           title: "물고기인간",
-          workThumbnail: require("../../img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
+          url: null,
+
         },
         {
           id: "2",
           title: "물고기인간",
-          workThumbnail: require("../../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
+          url: null,
         },
         {
           id: "3",
           title: "눈내리는소리",
-          workThumbnail: require("../../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          url: null,
         },
         {
           id: "4",
           title: "물고기인간",
-          workThumbnail: require("../../img/webtoon/04. 물고기인간(출판형)/01_04_썸네일.png"),
+          url: null,
         },
       ],
-      writer_Status: {
-        avatarUrl: "1",
-        status: "1",
-        createdAt: "1",
-        authorName: "1",
-      },
     };
   },
   // avatarUrl 작가 프로필사진
@@ -124,19 +167,26 @@ export default {
       })
       .then((res) => {
         //관리자 계정만 받을 수 있음
-        console.log(res);
-
-        // for (let index of response.data) {
+        this.$store.state.writer_Status = res.data;
+        console.log(this.$store.state.writer_Status);
+        // for (let index of res.data) {
         //   this.writer_Status.avatarUrl = index.avatarUrl;
         //   this.writer_Status.status = index.status;
         //   this.writer_Status.createdAt = index.createdAt;
         //   this.writer_Status.authorName = index.authorName;
         // }
-        // console.log(response.data);
       })
       .catch((err) => {
         console.error(err);
       });
+  },
+  methods: {
+    detailPosting(data) {
+      this.$router.push({
+        name: "Detail",
+        params: { data: data },
+      });
+    },
   },
 };
 </script>
