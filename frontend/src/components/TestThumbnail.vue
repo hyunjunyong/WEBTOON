@@ -11,7 +11,7 @@
         <v-card
           :elevation="hover ? 10 : 0"
           router-link
-          to="/total"
+          :to="{ name: 'WEBTOON_HOMR', params: { id: webtoon[i - 1].id } }"
           class="radius"
         >
           <v-img
