@@ -80,12 +80,13 @@
                   show-size
                   counter
                   truncate-length="50"
+                  @change="onFileChange"
                 ></v-file-input>
-                <img
-                  src="../../img/nft.png"
-                  alt=""
-                  width="260px"
-                  height="260px"
+                <v-img
+                  v-if="url"
+                  :src="url"
+                  max-height="260px"
+                  max-width="260px"
                 />
               </v-col>
             </v-row>
@@ -134,6 +135,7 @@ export default {
   props: [],
   data() {
     return {
+      url: null,
       workDescription: "asdf",
       title: "asdf",
       genreId: null,
@@ -149,6 +151,10 @@ export default {
   },
   unmounted() {},
   methods: {
+    onFileChange(e) {
+      const file = e;
+      this.url = URL.createObjectURL(file);
+    },
     genreGetId(n) {
       console.log(n.id);
       this.genreId = n.id;
