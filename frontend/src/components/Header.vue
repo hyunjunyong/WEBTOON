@@ -1,6 +1,10 @@
 <template>
   <v-container>
-    <v-app-bar height="80px" app color="white" elevation="0">
+    <v-card class="flex text-center">
+      <v-col cols="auto">
+    <v-app-bar height="80px" app color="white" elevation="0" >
+    <template>
+      <v-spacer></v-spacer>
       <router-link to="/" style="text-decoration:none">
         <div class="d-flex align-center">
           <v-img
@@ -12,63 +16,44 @@
             max-width="80px"
           />
 
-          <div class="text-h4 font-weight-bold primary--text">
-            개발자의 품격
-          </div>
         </div>
       </router-link>
 
       <!-- 화면 이동용 라우터 -->
-      <p class="ma-4">
         <router-link to="/total" style="text-decoration:none" class="ma-1">
-          <strong class="router-text">전체만화</strong></router-link
+          <strong class="router-text d-none d-sm-flex">전체만화</strong></router-link
         >
 
         <router-link to="/writer" style="text-decoration:none" class="ma-1"
-          ><strong class="router-text">작가홈</strong></router-link
-        >
-
-        <router-link to="/admin" style="text-decoration:none" class="ma-1"
-          ><strong class="router-text">관리자홈</strong></router-link
+          ><strong class="router-text d-none d-sm-flex">작가홈</strong></router-link
         >
 
         <router-link to="/genre/add" style="text-decoration:none" class="ma-1"
-          ><strong class="router-text">장르추가</strong></router-link
+          ><strong class="router-text d-none d-sm-flex">장르추가</strong></router-link
         >
-      </p>
-
-      <v-spacer></v-spacer>
 
       <v-spacer></v-spacer>
       <!-- 검색창 -->
 
-      <p class="mt-12">
-        <v-text-field
-          prepend-inner-icon="mdi-magnify"
-          color="primary"
-          rounded
-          clearable
-        ></v-text-field>
-      </p>
-
-      <v-spacer></v-spacer>
+          <v-btn
+            class="primary--text"
+            icon
+            @click="dialog = !dialog"
+          >
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
 
       <!-- 로그인 버튼 -->
       <p class="ma-4" v-if="!isLogin">
         <router-link to="/login" style="text-decoration:none">
-          <v-btn depressed color="white" large rounded dark>
-            <v-img
-              src="../img/login.png"
-              max-width="30px"
-              max-height="30px"
-            ></v-img>
-            <span class="black--text font-weight-bold">로그인</span>
+          <v-btn depressed color="primary" outlined small rounded>
+            <span class="primary--text font-weight-bold">로그인</span>
           </v-btn>
         </router-link>
       </p>
       <v-menu v-else min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
-          <v-btn icon x-large v-on="on" right absolute>
+          <v-btn icon x-large v-on="on" >
             <v-avatar color="red" size="40">
               H
             </v-avatar>
@@ -249,7 +234,48 @@
           </v-list-item-content>
         </v-card>
       </v-menu>
+
+    </template>
+
+        <template v-slot:extension>
+          <v-tabs align-with-title centered>
+                   <v-tabs-slider></v-tabs-slider>
+            <router-link to="/total" style="text-decoration:none">
+              <v-tab class="d-flex d-sm-none mt-5">전체만화</v-tab>
+            </router-link>
+            <router-link to="/writer" style="text-decoration:none">
+              <v-tab class="d-flex d-sm-none mt-5">작가 홈</v-tab>
+            </router-link>
+            <router-link to="/genre/add" style="text-decoration:none">
+              <v-tab class="d-flex d-sm-none mt-5">장르추가</v-tab>
+            </router-link>
+          </v-tabs>
+        </template>
+      <v-spacer></v-spacer>
+
+              <v-dialog
+            v-model="dialog"
+            max-width="500px"
+          >
+            <v-card>
+              <v-card-text>
+                <v-text-field label="작품/작가 검색"></v-text-field>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  text
+                  color="primary"
+                  @click="dialog = false"
+                >
+                  취소
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
     </v-app-bar>
+        </v-col>
+    </v-card>
   </v-container>
 </template>
 
@@ -260,6 +286,7 @@ export default {
   name: "Header",
   data() {
     return {
+            dialog: false,
       testingText: "작품등록하기",
       userStatus: false,
       user: {
