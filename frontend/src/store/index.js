@@ -30,6 +30,8 @@ export default new Vuex.Store({
     genre: [],
 
     wordId: null, // 에피소드를 넘기기 위한 디비에 생선된 작품의 ID
+
+    writer_Status: [], // 관리자 홈에서 작가신청 반려,승인페이지로 넘어가기 위한 ID
   },
   mutations: {
     setUserInfo(state, payload) {

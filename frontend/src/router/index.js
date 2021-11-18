@@ -15,7 +15,7 @@ const routes = [
     path: "/total",
     name: "TOTAL",
     component: () => import("../views/TOTAL.vue"),
-    meta: { userType: "user" },
+    // meta: { userType: "user" },
     // meta 내부의 userType이 접근할 수 있는 권한을 부여하는 부분입니다.
   },
   {
@@ -107,7 +107,12 @@ const routes = [
     name: "APPLY_WEBTOON_DETAIL",
     component: () => import("../views/Apply/Episode.vue"),
   },
-
+  //관리자가 확인하는 에피소드란에서 디테일(Id)을 확인할수 있는 링크
+  {
+    path: "/Apply/episode/:data",
+    name: "Detail",
+    component: () => import("../views/Apply/Episode.vue"),
+  },
   //CompanyPage ????
 
   // UserPage
@@ -209,6 +214,7 @@ router.beforeEach(async (to, from, next) => {
 
   //해당 페이지에 접근 제한이 없거나, 접근 제한과 사용자 타입이 같으면 이동
   if (to.meta.userType == undefined || to.meta.userType == userType) {
+    console.log(to.meta.userType);
     return next();
   } else {
     alert("해당 페이지로 이동할 수 있는 권한이 없는 사용자입니다.");

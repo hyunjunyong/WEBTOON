@@ -3,18 +3,26 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="12">
-        <v-col> </v-col>
-        <v-text-field label="Solo" single-line solo height="300">
-          반려사유작성
-        </v-text-field>
+        <v-textarea
+          v-model="reason"
+          class="mx-2"
+          label="반려사유작성"
+          rows="1"
+        ></v-textarea>
       </v-col>
     </v-row>
     <v-row :justify="4">
       <v-col class="text-center">
-        <v-btn block>반려</v-btn>
+        <v-btn color="error" block @click="rejectEpisode()">반려</v-btn>
       </v-col>
       <v-col class="text-center">
-        <v-btn block>승인</v-btn>
+        <v-btn
+          class="white--text"
+          color="indigo"
+          block
+          @click="approveEpisode()"
+          >승인</v-btn
+        >
       </v-col>
     </v-row>
   </v-container>
@@ -23,11 +31,12 @@
 export default {
   name: "",
   components: {},
+
   data() {
     return {};
   },
   setup() {},
-  create() {},
+  created() {},
   mounted() {},
   unmounted() {},
   methods: {},
