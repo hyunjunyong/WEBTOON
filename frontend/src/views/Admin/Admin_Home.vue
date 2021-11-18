@@ -4,7 +4,7 @@
  -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="10" class="ma-2">
+      <v-col cols="8" class="ma-2">
         <router-link to="/apply/webtoon" style="text-decoration:none">
           <v-card elevation="0">
             <v-card-title class="text-h5 font-weight-bold">
@@ -17,12 +17,12 @@
 
     <v-row no-gutters justify="center">
       <v-col cols="8">
-        <TestThumbnail :webtoon="webtoon" :h="250" :webtoonState="5" />
+        <TestThumbnail :webtoon="webtoon" :h="250" :webtoonState="4" />
       </v-col>
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="8">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
             공지
@@ -33,7 +33,7 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="10">
+      <v-col cols="8">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
             작가/회사 승인 신규 요청
@@ -130,27 +130,44 @@ export default {
         {
           id: "0",
           title: "물고기인간",
-          url: null,
+          workThumbnail: require("@/img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
+          writer: "1번 작가",
+          genre: "액션",
         },
         {
           id: "1",
           title: "물고기인간",
-          url: null,
+          workThumbnail: require("@/img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
+          writer: "2번 작가",
+          genre: "로맨스",
         },
         {
           id: "2",
           title: "물고기인간",
-          url: null,
+          workThumbnail: require("@/img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
+          writer: "3번 작가",
+          genre: "판타지",
         },
         {
           id: "3",
           title: "눈내리는소리",
-          url: null,
+          workThumbnail: require("@/img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          writer: "4번 작가",
+          genre: "일상",
         },
         {
           id: "4",
-          title: "물고기인간",
-          url: null,
+          title: "눈내리는소리",
+          workThumbnail: require("@/img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          writer: "4번 작가",
+          genre: "일상",
+        },
+        {
+          id: "5",
+          title: "눈내리는소리",
+          workThumbnail: require("@/img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
+          writer: "4번 작가",
+          genre: "일상",
         },
       ],
     };
