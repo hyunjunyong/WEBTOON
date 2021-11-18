@@ -25,7 +25,7 @@ const routes = [
   },
 
   {
-    path: "/webtoon",
+    path: "/webtoon/:id",
     name: "WEBTOON_HOMR",
     component: () => import("../views/WEBTOON_HOMR.vue"),
   },
