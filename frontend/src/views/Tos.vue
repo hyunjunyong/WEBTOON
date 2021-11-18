@@ -1,8 +1,8 @@
 <template>
   <v-container class="Tos">
-      <v-row justify="center" class="mt-10">
-        <v-col cols="12" sm="8" md="8">
-          <v-card elevation="0">
+      <v-row justify="center" class="my-10">
+        <v-col cols="auto">
+          <v-card elevation="0" width="900">
             <v-toolbar flat>
               <v-spacer></v-spacer>
               <v-toolbar-title class="font-weight-bold pt-3"
@@ -11,14 +11,14 @@
               <v-spacer></v-spacer>
             </v-toolbar>
     <h3>
-    <span class="titile">제1조</span>
+    <span class="titile">제1조 </span>
     <span class="title">목적</span>
   </h3>
   <p>이 약관은 주식회사 웹툰플랫폼(이하 <dfn>회사</dfn>)이 제공하는 웹툰플랫폼 및 관련 서비스를 이용함에 있어 회사와 회원 간의 권리, 의무 및 책임사항과 절차 등을 정하기 위해 만들어졌습니다.</p>
 
 
   <h3>
-    <span class="titile">제2조</span>
+    <span class="titile">제2조 </span>
     <span class="title">정의</span>
   </h3>
   <p>이 약관에서는 용어를 다음과 같이 정의하여 사용합니다.</p>
@@ -36,7 +36,7 @@
 
 
   <h3>
-    <span class="titile">제3조</span>
+    <span class="titile">제3조 </span>
     <span class="title">약관의 게시와 개정</span>
   </h3>
   <ol>
@@ -49,7 +49,7 @@
 
 
   <h3>
-    <span class="titile">제4조</span>
+    <span class="titile">제4조 </span>
     <span class="title">약관의 해석</span>
   </h3>
   <ol>
@@ -59,7 +59,7 @@
 
 
   <h3>
-    <span class="titile">제5조</span>
+    <span class="titile">제5조 </span>
     <span class="title">이용계약의 체결</span>
   </h3>
   <ol>
@@ -73,7 +73,7 @@
 
 
   <h3>
-    <span class="titile">제6조</span>
+    <span class="titile">제6조 </span>
     <span class="title">회원정보의 변경</span>
   </h3>
   <ol>
@@ -84,7 +84,7 @@
 
 
   <h3>
-    <span class="titile">제7조</span>
+    <span class="titile">제7조 </span>
     <span class="title">서비스의 변경</span>
   </h3>
   <ol>
@@ -94,7 +94,7 @@
 
 
   <h3>
-    <span class="titile">제8조</span>
+    <span class="titile">제8조 </span>
     <span class="title">서비스 중단</span>
   </h3>
   <ol>
@@ -115,7 +115,7 @@
 
 
   <h3>
-    <span class="titile">제9조</span>
+    <span class="titile">제9조 </span>
     <span class="title">업데이트</span>
   </h3>
   <ol>
@@ -125,7 +125,7 @@
 
 
   <h3>
-    <span class="titile">제10조</span>
+    <span class="titile">제10조 </span>
     <span class="title">회원의 계약해지, 이용 중지요청 등</span>
   </h3>
   <ol>
@@ -137,7 +137,7 @@
 
 
   <h3>
-    <span class="titile">제11조</span>
+    <span class="titile">제11조 </span>
     <span class="title">회사의 계약해지, 이용제한 등</span>
   </h3>
   <ol>
@@ -176,7 +176,7 @@
 
 
   <h3>
-    <span class="titile">제12조</span>
+    <span class="titile">제12조 </span>
     <span class="title">회원 닉네임 및 비밀번호</span>
   </h3>
   <ol>
@@ -187,7 +187,7 @@
 
 
   <h3>
-    <span class="titile">제13조</span>
+    <span class="titile">제13조 </span>
     <span class="title">회사의 의무</span>
   </h3>
   <ol>
@@ -200,7 +200,7 @@
 
 
   <h3>
-    <span class="titile">제14조</span>
+    <span class="titile">제14조 </span>
     <span class="title">저작권의 귀속 및 이용제한</span>
   </h3>
   <ol>
@@ -211,14 +211,14 @@
 
 
   <h3>
-    <span class="titile">제15조</span>
+    <span class="titile">제15조 </span>
     <span class="title">광고 ID와 IMEI 값의 수집 및 연동</span>
   </h3>
   <p><strong>웹툰플랫폼 내 광고를 제공하는 업체가 광고를 통한 포인트 제공 및 부정이용방지를 위해 광고 ID와 회원의 IMEI값을 연동할 수 있습니다. 해당 정보는 당사 및 웹툰플랫폼과는 무관하며, 회사는 해당 정보에 대한 접근이 불가능합니다.</strong></p>
 
 
   <h3>
-    <span class="titile">제16조</span>
+    <span class="titile">제16조 </span>
     <span class="title">콘텐츠 이용 및 권한</span>
   </h3>
   <ol>
@@ -234,7 +234,7 @@
 
 
   <h3>
-    <span class="titile">제17조</span>
+    <span class="titile">제17조 </span>
     <span class="title">게시물의 저작권</span>
   </h3>
   <ol>
@@ -245,7 +245,7 @@
 
 
   <h3>
-    <span class="titile">제18조</span>
+    <span class="titile">제18조 </span>
     <span class="title">게시물의 관리</span>
   </h3>
   <ol>
@@ -255,7 +255,7 @@
 
 
   <h3>
-    <span class="titile">제19조</span>
+    <span class="titile">제19조 </span>
     <span class="title">주문 및 결제</span>
   </h3>
   <ol>
@@ -267,7 +267,7 @@
 
 
   <h3>
-    <span class="titile">제20조</span>
+    <span class="titile">제20조 </span>
     <span class="title">청약의 철회</span>
   </h3>
   <ol>
@@ -289,7 +289,7 @@
 
 
   <h3>
-    <span class="titile">제21조</span>
+    <span class="titile">제21조 </span>
     <span class="title">청약 철회 등의 효과</span>
   </h3>
   <ol>
@@ -299,7 +299,7 @@
 
 
   <h3>
-    <span class="titile">제22조</span>
+    <span class="titile">제22조 </span>
     <span class="title">결제 취소 및 환불 등</span>
   </h3>
   <ol>
@@ -315,7 +315,7 @@
 
 
   <h3>
-    <span class="titile">제23조</span>
+    <span class="titile">제23조 </span>
     <span class="title">코인과 포인트</span>
   </h3>
   <ol>
@@ -335,7 +335,7 @@
 
 
   <h3>
-    <span class="titile">제24조</span>
+    <span class="titile">제24조 </span>
     <span class="title">포인트의 사용</span>
   </h3>
   <ol>
@@ -347,7 +347,7 @@
 
 
   <h3>
-    <span class="titile">제25조</span>
+    <span class="titile">제25조 </span>
     <span class="title">포인트의 정정, 취소 및 소멸</span>
   </h3>
   <ol>
@@ -360,7 +360,7 @@
 
 
   <h3>
-    <span class="titile">제26조</span>
+    <span class="titile">제26조 </span>
     <span class="title">손해 배상</span>
   </h3>
   <ol>
@@ -372,7 +372,7 @@
 
 
   <h3>
-    <span class="titile">제27조</span>
+    <span class="titile">제27조 </span>
     <span class="title">면책 사항</span>
   </h3>
   <ol>
@@ -388,7 +388,7 @@
 
 
   <h3>
-    <span class="titile">제28조</span>
+    <span class="titile">제28조 </span>
     <span class="title">서비스관련 분쟁해결</span>
   </h3>
   <ol>
@@ -398,7 +398,7 @@
 
 
   <h3>
-    <span class="titile">제29조</span>
+    <span class="titile">제29조 </span>
     <span class="title">서비스의 종료</span>
   </h3>
   <ol>
@@ -409,7 +409,7 @@
 
 
   <h3>
-    <span class="titile">제30조</span>
+    <span class="titile">제30조 </span>
     <span class="title">준거법 및 합의관할</span>
   </h3>
   <ol>
@@ -419,7 +419,7 @@
 
 
   <h3>
-    <span class="titile">제31조</span>
+    <span class="titile">제31조 </span>
     <span class="title">개인정보보호의무</span>
   </h3>
   <p>회사는 관련 법령이 정하는 바에 따라서 회원 등록정보를 포함한 개인정보를 보호하기 위하여 노력합니다. 이에 관해서는 관련 법령 및 회사의 &quot;개인정보처리방침&quot;에 의하며, 회원이 늘 확인할 수 있도록 서비스를 통해 공시하고 있습니다.</p>

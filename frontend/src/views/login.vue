@@ -4,10 +4,10 @@
     <v-container>
       <!-- 로그인 작성 폼 -->
       <v-row justify="center" class="ma-5">
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="auto">
 
           <!-- 이메일, 비밀번호 작성 폼 -->
-          <v-card elevation="0">
+          <v-card elevation="0" width="300">
             <v-toolbar flat>
               <v-spacer></v-spacer>
               <v-toolbar-title class="font-weight-bold pt-3"

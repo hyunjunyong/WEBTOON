@@ -3,8 +3,8 @@
     <v-container>
       <!-- 회원가입 작성 폼 -->
       <v-row justify="center" class="ma-5">
-        <v-col cols="12" sm="6" md="3">
-          <v-card elevation="0">
+        <v-col cols="auto">
+          <v-card elevation="0" width="400">
             <v-toolbar flat>
               <v-spacer></v-spacer>
               <v-toolbar-title class="font-weight-bold pt-3"
