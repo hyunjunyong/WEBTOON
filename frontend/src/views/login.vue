@@ -41,7 +41,7 @@
                 depressed
                 block
                 large
-                @click="signin({ email, password })"
+                @click.once="signin({ email, password })"
               >
                 로그인
               </v-btn>
@@ -72,8 +72,8 @@ export default {
   name: "Login",
   data() {
     return {
-      email: "user@test.com",
-      password: "password123",
+      email: "testmail@test.com",
+      password: "123456",
       NotSuccess: false,
       Success: false,
     };
