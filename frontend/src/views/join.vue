@@ -2,12 +2,12 @@
   <div id="background">
     <v-container>
       <!-- 회원가입 작성 폼 -->
-      <v-row justify="center" class="mt-10">
-        <v-col cols="6">
+      <v-row justify="center" class="ma-5">
+        <v-col cols="12" sm="6" md="3">
           <v-card elevation="0">
             <v-toolbar flat>
               <v-spacer></v-spacer>
-              <v-toolbar-title class="text-h5 font-weight-bold pt-3"
+              <v-toolbar-title class="font-weight-bold pt-3"
                 >회원가입</v-toolbar-title
               >
               <v-spacer></v-spacer>
@@ -15,33 +15,41 @@
 
             <div class="pa-3">
               <v-form ref="form" v-model="valid" lazy-validation>
+              <v-text> 닉네임 </v-text>
                 <v-text-field
+                  dense
+                  outlined
                   v-model="nickname"
                   :rules="nicknameRules"
-                  label="닉네임"
                   required
                 ></v-text-field>
 
+              <v-text> 이메일 </v-text>
                 <v-text-field
+                  dense
+                  outlined
                   v-model="email"
                   :rules="emailRules"
-                  label="이메일"
                   required
                 ></v-text-field>
 
+              <v-text> 비밀번호 </v-text>
                 <v-text-field
+                  dense
+                  outlined
                   v-model="password"
                   type="password"
                   :rules="passwordRules"
-                  label="비밀번호"
                   required
                 ></v-text-field>
 
+              <v-text> 비밀번호 확인 </v-text>
                 <v-text-field
+                  dense
+                  outlined
                   v-model="password_check"
                   type="password"
-                  :rules="password_checkRules"
-                  label="비밀번호 확인"
+                  :rules="[(password === password_check) || '비밀번호가 동일하지 않습니다.']"
                   required
                 ></v-text-field>
 
@@ -62,7 +70,7 @@
                   <v-spacer></v-spacer>
                   <v-btn
                     depressed
-                    x-large
+                    rounded
                     :disabled="!valid"
                     color="primary"
                     @click="validate"
@@ -70,7 +78,7 @@
                     회원가입
                   </v-btn>
                   <v-spacer></v-spacer>
-                  <v-btn depressed x-large color="gray" @click="reset">
+                  <v-btn depressed rounded color="gray" @click="reset">
                     취소
                   </v-btn>
                   <v-spacer></v-spacer>
@@ -105,24 +113,7 @@ export default {
       (v) => !!v || "비밀번호는 필수항목입니다.",
       (v) => (v && v.length >= 5) || "비밀번호는 5자 이상으로 적어주세요.",
     ],
-    phonenumber: "",
-    phonenumberRules: [
-      (v) => !!v || "휴대전화번호는 필수항목입니다.",
-      (v) =>
-        (v && v.length == 11) || "-를 생략하고 적어주세요.(ex.01022223333)",
-    ],
-    bday: "",
-    bdayRules: [
-      (v) => !!v || "생년월일은 필수항목입니다.",
-      (v) => (v && v.length == 8) || "8자리를 적어주세요.(ex.19901010)",
-    ],
-    password_checkRules: [
-      (v) => !!v || "비밀번호는 필수항목입니다.",
-      (v) =>
-        /^.*(?=^.{6,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/.test(v) ||
-        "6~12자의 영문 대소문자, 숫자 및 특수기호를 최소 1개 이상 포함해야합니다.",
-      (v) => v === this.password || "비밀번호가 일치하지 않습니다.",
-    ],
+    password_check: "",
     checkbox: false,
   }),
   methods: {
