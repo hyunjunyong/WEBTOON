@@ -59,18 +59,18 @@
       </v-col>
     </v-row>
 
-    <v-row no-gutters justify="center">
+    <v-row justify="center">
       <v-col cols="8" class="mb-3">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
-            추천 웹툰
+            신작 웹툰
           </v-card-title>
         </v-card>
       </v-col>
     </v-row>
 
-    <v-row no-gutters justify="center">
-      <v-col cols="8">
+    <v-row justify="center" class="mb-10">
+      <v-col cols="8" class="mb-5">
         <!-- 
           webtoon 배열의 값을 보냄
           한줄에 2개의 썸네일을 만듬
