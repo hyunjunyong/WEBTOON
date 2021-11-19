@@ -1,96 +1,110 @@
 <template>
-
  <div id="background">
   <v-container>
     <!-- 회원 정보 수정 작성 폼 -->
-    <v-row justify="center" class="my-10"> 
-      <v-col cols="6">
-            <v-card elevation="0">
+    <v-row justify="center" class="ma-5"> 
+      <v-col cols="auto">
+            <v-card elevation="0" width="400">
           <v-toolbar flat>
              <v-spacer></v-spacer>
-            <v-toolbar-title class="text-h5 font-weight-bold pt-3">회원 정보 변경</v-toolbar-title>
+            <v-toolbar-title class="font-weight-bold pt-3">회원 정보 변경</v-toolbar-title>
              <v-spacer></v-spacer>
           </v-toolbar>
-          <div class="pa-3">
-  <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-  >
-    <v-text-field
-      v-model="name"
-      :rules="nameRules"
-      label="이름"
-      required
-    ></v-text-field>
 
-    <v-text-field
-      v-model="email"
-      :rules="emailRules"
-      label="이메일"
-      disabled
-    ></v-text-field>
+        <div class="pa-3">
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-text> 닉네임 </v-text>    
+          <v-text-field
+            dense
+            outlined
+            v-model="name"
+            :rules="nameRules"
+            required
+          ></v-text-field>
 
-    <v-text-field
-      v-model="password"
-      type="password"
-      :rules="passwordRules"
-      label="비밀번호"
-      required
-    ></v-text-field>
+          <v-text> 이메일 </v-text>    
+          <v-text-field
+            dense
+            outlined
+            v-model="email"
+            :rules="emailRules"
+            disabled
+          ></v-text-field>
 
-    <v-text-field
-      v-model="password_check"
-      type="password"
-      :rules="password_checkRules"
-      label="비밀번호 확인"
-      required
-    ></v-text-field>
+          <v-text> 비밀번호 </v-text>    
+          <v-text-field
+            dense
+            outlined
+            v-model="password"
+            type="password"
+            :rules="passwordRules"
+            required
+          ></v-text-field>
 
-    <v-text-field
-      v-model="phoneNumber"
-      :rules="phonenumberRules"
-      label="휴대전화번호"
-      placeholder="01022223333"
-    ></v-text-field>
+          <v-text> 비밀번호 확인 </v-text>    
+          <v-text-field
+            dense
+            outlined
+            v-model="password_check"
+            type="password"
+            :rules="[(password === password_check) || '비밀번호가 동일하지 않습니다.']"
+            required
+          ></v-text-field>
 
-    <v-text-field
-      v-model="birthDate"
-      @change="setDate"
-      :rules="birthDateRules"
-      label="생년월일"
-      placeholder="1990-10-10"
-    ></v-text-field>
+          <v-text> 휴대전화 번호 </v-text>    
+          <v-text-field
+            dense
+            outlined
+            v-model="phoneNumber"
+            :rules="phonenumberRules"
+            placeholder="01022223333"
+          ></v-text-field>
 
-    <v-select
-      v-model="gender"
-      :items="genderList"
-      item-text="type"
-      item-value="value"
-      label="성별"
-    ></v-select>
+          <v-text> 생년월일 </v-text>    
+          <v-text-field
+            dense
+            outlined
+            v-model="birthDate"
+            @change="setDate"
+            :rules="birthDateRules"
+            placeholder="1990-10-10"
+          ></v-text-field>
 
-    <v-row justify="center" class="ma-0">
-        <v-spacer></v-spacer>
-    <v-btn
-      depressed
-      x-large
-      color="primary"
-      @click="apiRequest"
-    >
-      수정
-    </v-btn>
-        <v-spacer></v-spacer>
-    <v-btn
-      depressed
-      x-large
-      color="gray"
-      @click="reset"
-    >
-      취소
-    </v-btn>
-        <v-spacer></v-spacer>
-    </v-row>
+          <v-text> 성별 </v-text>  
+          <v-select
+            dense
+            outlined
+            v-model="gender"
+            :items="genderList"
+            item-text="type"
+            item-value="value"
+          ></v-select>
+
+          <v-row justify="center" class="ma-0">
+              <v-spacer></v-spacer>
+          <v-btn
+            depressed
+            x-large
+            color="primary"
+            @click="apiRequest"
+          >
+            수정
+          </v-btn>
+              <v-spacer></v-spacer>
+          <v-btn
+            depressed
+            x-large
+            color="gray"
+            @click="reset"
+          >
+            취소
+          </v-btn>
+              <v-spacer></v-spacer>
+          </v-row>
           </v-form>
     </div>
             </v-card>
@@ -115,15 +129,10 @@ import axios from 'axios'
         v => (v && v.length >= 5) || '비밀번호는 5자 이상으로 적어주세요.',
       ],
       password_check: '',
-      password_checkRules: [
-        v => !!v || '비밀번호 확인은 필수항목입니다.',
-        v => (v && v.length >= 5) || '비밀번호는 5자 이상으로 적어주세요.',
-        v => v === this.password || '비밀번호가 일치하지 않습니다.'
-      ],
       phoneNumber: '',
       phoneNumberRules: [
       ],
-        birthDate: '',
+      birthDate: '',
       birthDateRules: [
 
       ],

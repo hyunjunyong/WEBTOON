@@ -2,20 +2,20 @@
   <!-- 에피소드 등록 페이지 -->
   <div id="background">
     <v-container>
-      <v-row justify="center" class="my-10">
-        <v-col cols="8">
-          <v-card elevation="0">
+      <v-row justify="center" class="mt-10">
+        <v-col cols="auto">
+          <v-card elevation="0" width="600">
             <v-toolbar flat>
               <v-spacer></v-spacer>
-              <v-toolbar-title class="text-h5 font-weight-bold pt-3"
+              <v-toolbar-title class="font-weight-bold pt-3"
                 >에피소드 등록</v-toolbar-title
               >
               <v-spacer></v-spacer>
             </v-toolbar>
 
-            <!-- 에피소드 명 등록 -->
+            <!-- 에피소드 명 작성 -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto">에피소드명</v-card>
               </v-col>
               <v-col cols="6">
@@ -32,10 +32,9 @@
 
             <!-- 에피소드 소개 작성 -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >에피소드 소개<br />(50자 이상)</v-card
-                >
+                  >에피소드 소개<br />(50자 이상)</v-card>
               </v-col>
 
               <v-col cols="6">
@@ -48,6 +47,7 @@
                   single-line
                   full-width
                   dense
+                  filled
                 >
                 </v-textarea>
               </v-col>
@@ -55,35 +55,41 @@
 
             <!-- 에피소드 썸내일과 에피소드 웹툰 올리기 -->
             <v-row class="mb-5" justify="center">
-              <v-col cols="6" class="d-flex text-center text-h6">
+              <v-spacer></v-spacer>
+              <v-col cols="auto" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >에피소드 썸내일<br />(260px * 260px)
                   <v-file-input
                     id="thumbnail"
+                    show-size
+                    counter
                     truncate-length="15"
                   ></v-file-input>
                 </v-card>
               </v-col>
-
-              <v-col cols="6" class="d-flex text-center text-h6">
+              <v-spacer></v-spacer>
+              <v-col cols="auto" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >에피소드 이미지<br />(1280px * (max)5120px)
                   <v-file-input
                     id="episodeI"
+                    show-size
+                    counter
                     truncate-length="15"
                     multiple
                   ></v-file-input>
                 </v-card>
               </v-col>
+              <v-spacer></v-spacer>
             </v-row>
 
-            <!-- 등록/ 취소 버튼 -->
+            <!-- 등록 / 이전 버튼 -->
             <v-row>
               <v-spacer></v-spacer>
               <v-col>
                 <v-btn
                   depressed
-                  x-large
+                  rounded
                   block
                   color="primary"
                   @click.once="add_Episode()"
@@ -93,12 +99,9 @@
               </v-col>
               <v-spacer></v-spacer>
               <v-col>
-                <router-link
-                  to="/webtoon_home_writer"
-                  style="text-decoration:none"
-                >
-                  <v-btn depressed x-large block color="gray">
-                    취소
+                <router-link to="/register_Webtoon" style="text-decoration:none">
+                  <v-btn depressed rounded block>
+                    이전
                   </v-btn>
                 </router-link>
               </v-col>

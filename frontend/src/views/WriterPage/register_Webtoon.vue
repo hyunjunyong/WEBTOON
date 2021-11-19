@@ -3,11 +3,11 @@
   <div id="background">
     <v-container>
       <v-row justify="center" class="my-10">
-        <v-col cols="8">
-          <v-card elevation="0">
+        <v-col cols="auto">
+          <v-card elevation="0" width="600">
             <v-toolbar flat>
               <v-spacer></v-spacer>
-              <v-toolbar-title class="text-h5 font-weight-bold pt-3"
+              <v-toolbar-title class="font-weight-bold pt-3"
                 >작품 등록</v-toolbar-title
               >
               <v-spacer></v-spacer>
@@ -15,7 +15,7 @@
 
             <!-- 작품명 작성  -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >작품명<br />(20자 이내)</v-card
                 >
@@ -28,7 +28,7 @@
 
             <!-- 장르 선택 -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto">장르 선택</v-card>
               </v-col>
               <v-col cols="6">
@@ -46,13 +46,12 @@
 
             <!-- 작품 소개 작성 -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >작품 소개글<br />(100자 이상)</v-card
-                >
+                  >작품 소개글<br />(100자 이상)</v-card>
               </v-col>
 
-              <v-col cols="5">
+              <v-col cols="6">
                 <v-textarea
                   v-model="workDescription"
                   required
@@ -61,6 +60,7 @@
                   single-line
                   full-width
                   dense
+                  filled
                 >
                 </v-textarea>
               </v-col>
@@ -68,13 +68,13 @@
 
             <!-- 작품 썸내일 올리기 -->
             <v-row class="mb-5">
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >작품 썸내일<br />(260px * 260px)</v-card
                 >
               </v-col>
 
-              <v-col cols="5">
+              <v-col cols="6">
                 <v-file-input
                   id="Thumbnail"
                   show-size
@@ -91,16 +91,16 @@
               </v-col>
             </v-row>
 
-            <!-- 신청/ 취소 버튼 -->
+            <!-- 다음 / 이전 버튼 -->
             <v-row>
               <v-spacer></v-spacer>
               <v-col>
                 <v-btn
                   depressed
-                  x-large
+                  rounded
                   block
                   color="primary"
-                  @click="register_Webtoon()"
+                  @click.once="register_Webtoon()"
                 >
                   다음</v-btn
                 >
@@ -108,8 +108,8 @@
               <v-spacer></v-spacer>
               <v-col>
                 <router-link to="/Apply/writer" style="text-decoration:none">
-                  <v-btn depressed x-large block color="gray">
-                    취소
+                  <v-btn depressed rounded block >
+                    이전
                   </v-btn>
                 </router-link>
               </v-col>
@@ -136,8 +136,8 @@ export default {
   data() {
     return {
       url: null,
-      workDescription: "asdf",
-      title: "asdf",
+      workDescription: "작품을 소개합니다.",
+      title: "작품 이름",
       genreId: null,
     };
   },

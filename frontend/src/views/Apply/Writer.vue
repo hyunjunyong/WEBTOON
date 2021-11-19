@@ -3,11 +3,11 @@
   <div id="background">
     <v-container>
       <v-row justify="center" class="mt-10">
-        <v-col cols="8">
-          <v-card elevation="0">
+        <v-col cols="auto">
+          <v-card elevation="0" width="500">
             <v-toolbar flat>
               <v-spacer></v-spacer>
-              <v-toolbar-title class="text-h5 font-weight-bold pt-3"
+              <v-toolbar-title class="font-weight-bold pt-3"
                 >작가 신청</v-toolbar-title
               >
               <v-spacer></v-spacer>
@@ -15,21 +15,21 @@
 
             <!-- 작가 필명 작성 -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto">작가 필명</v-card>
               </v-col>
               <v-col cols="5">
                 <v-text-field v-model="authorName" id="authorName" required>
                 </v-text-field>
               </v-col>
-              <v-col cols="3" class="ma-auto">
-                <v-btn depressed color="gray"> 중복<br />확인 </v-btn>
+              <v-col cols="3" class="ma-auto ">
+                <v-btn depressed color="grey lighten-3"> 중복<br />확인 </v-btn>
               </v-col>
             </v-row>
 
             <!-- 소개글 작성 -->
             <v-row>
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >소개글<br />(100자 이상)</v-card
                 >
@@ -45,6 +45,7 @@
                   single-line
                   full-width
                   dense
+                  filled
                 >
                 </v-textarea>
               </v-col>
@@ -52,7 +53,7 @@
 
             <!-- 작가 프로필 사진 올리기 -->
             <v-row class="mb-5">
-              <v-col cols="4" class="d-flex text-center text-h6">
+              <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >프로필 사진<br />(200px * 200px)</v-card
                 >
@@ -75,13 +76,14 @@
                 ></v-file-input>
               </v-col>
             </v-row>
+
             <!-- 신청/ 취소 버튼 -->
             <v-row>
               <v-spacer></v-spacer>
               <v-col>
                 <v-btn
                   depressed
-                  x-large
+                  rounded
                   block
                   color="primary"
                   @click="assign_Writer()"
@@ -92,7 +94,7 @@
               <v-spacer></v-spacer>
               <v-col>
                 <router-link to="/" style="text-decoration:none">
-                  <v-btn depressed x-large block color="gray">
+                  <v-btn depressed rounded block>
                     취소
                   </v-btn>
                 </router-link>
@@ -107,12 +109,10 @@
         <v-col cols="auto">
           <v-card
             elevation="0"
-            class="ma-10 text-center text-h6"
-            color="red"
-            dark
+            class="ma-10 red--text grey lighten-3"
           >
-            작가 신청 후 에피소드를 1개 이상 승인 받아야 작가 승인이 완료
-            됩니다</v-card
+            - 작가 신청 후 에피소드를 1개 이상 승인 받아야 작가 승인이 완료
+            됩니다 -</v-card
           >
         </v-col>
       </v-row>

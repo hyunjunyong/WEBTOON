@@ -308,7 +308,7 @@ export default {
 <style>
 .router-text {
   color: black;
-  font-size: 20px;
+  font-size: 17px;
 }
 .user-state-text {
   color: gray;
