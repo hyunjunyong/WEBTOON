@@ -76,8 +76,8 @@
           한줄에 2개의 썸네일을 만듬
           h는 높이
          -->
-        <TestThumbnail :webtoonState="4" :webtoon="webtoon" :h="380"
-      /></v-col>
+        <TestThumbnail :webtoonState="4" :webtoon="webtoon" :h="380" />
+      </v-col>
     </v-row>
   </v-card>
 </template>
