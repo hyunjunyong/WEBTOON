@@ -31,7 +31,7 @@
             <v-row>
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >소개글<br />(100자 이상)</v-card
+                  >소개글<br />(30자 이상)</v-card
                 >
               </v-col>
 
@@ -86,7 +86,7 @@
                   rounded
                   block
                   color="primary"
-                  @click="assign_Writer()"
+                  @click.once="assign_Writer()"
                 >
                   다음</v-btn
                 >

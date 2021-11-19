@@ -1,6 +1,6 @@
 <template>
 <!--
-1:1 문의 나 공지 등 일반 게시판 화면
+공지 리스트
 -->
     <v-container>
     <v-row justify="center">
