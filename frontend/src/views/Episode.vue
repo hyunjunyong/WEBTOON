@@ -1,7 +1,6 @@
 <template>
   <!-- 
-    웹툰에서 특정 화수를 클릭시 보이는 화면
-
+    작품의 에피소드가 보여지는 화면
    -->
   <v-container fluid>
     <v-row justify="center">
@@ -26,19 +25,20 @@
     </v-row>
 
     <v-row>
-      <viewerend />
+      <Viewerend />
     </v-row>
   </v-container>
 </template>
 
 <script>
 import Webtoonimage from "../components/Webtoon-image";
-import viewerend from "../components/viewer-end.vue";
+import Viewerend from "../components/viewer-end.vue";
+
 export default {
   name: "VIEWER",
   components: {
     Webtoonimage,
-    viewerend,
+    Viewerend,
   },
 };
 </script>

@@ -35,6 +35,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUserInfo(state, payload) {
+      //사용자 정보를 중앙에 저장
       state.userInfo = payload;
       state.isLogin = true;
     },
@@ -43,13 +44,12 @@ export default new Vuex.Store({
       state.registerInfo = payload;
     },
     setCookies(state, payload) {
+      //쿠키에 있는 토큰을 중앙으로 가져옴
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
     },
-    delUserInfo(state) {
-      state.userInfo = null;
-      state.isLogin = false;
-
+    delUserInfo() {
+      //로그아웃시 localStorage에 저장한 사용자 정보를 삭제함
       localStorage.removeItem("name");
       localStorage.removeItem("userType");
       localStorage.removeItem("isLogin");

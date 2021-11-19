@@ -12,6 +12,7 @@ const routes = [
     component: () => import("../views/Home.vue"),
   },
   {
+    //전체만화
     path: "/total",
     name: "TOTAL",
     component: () => import("../views/TOTAL.vue"),
@@ -19,7 +20,7 @@ const routes = [
     // meta 내부의 userType이 접근할 수 있는 권한을 부여하는 부분입니다.
   },
   {
-    path: "/episode",
+    path: "/episode/:id",
     name: "Episode",
     component: () => import("../views/Episode.vue"),
   },
@@ -31,7 +32,7 @@ const routes = [
   },
 
   {
-    path: "/writer",
+    path: "/writer/:id",
     name: "WRITER_Home",
     component: () => import("../views/WRITER_Home.vue"),
   },

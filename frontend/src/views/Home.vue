@@ -3,8 +3,8 @@
   맨 처음 화면으로 인기, 신작, 추천, 내가 본 웹툰을 보여준다.
   썸네일을 누르면 해당 작품페이지로 바로 이동한다.
  -->
-  <v-container>
-    <v-carousel hide-delimiters interval="6000" height="330">
+  <v-card>
+    <v-carousel hide-delimiters interval="6000" height="400">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
@@ -79,7 +79,7 @@
         <TestThumbnail :webtoonState="4" :webtoon="webtoon" :h="380"
       /></v-col>
     </v-row>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
