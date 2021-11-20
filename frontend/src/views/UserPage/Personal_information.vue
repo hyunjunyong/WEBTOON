@@ -17,7 +17,7 @@
           v-model="valid"
           lazy-validation
         >
-          <v-text> 닉네임 </v-text>    
+            닉네임 
           <v-text-field
             dense
             outlined
@@ -26,7 +26,7 @@
             required
           ></v-text-field>
 
-          <v-text> 이메일 </v-text>    
+           이메일    
           <v-text-field
             dense
             outlined
@@ -35,7 +35,7 @@
             disabled
           ></v-text-field>
 
-          <v-text> 비밀번호 </v-text>    
+            비밀번호   
           <v-text-field
             dense
             outlined
@@ -45,7 +45,7 @@
             required
           ></v-text-field>
 
-          <v-text> 비밀번호 확인 </v-text>    
+            비밀번호 확인    
           <v-text-field
             dense
             outlined
@@ -55,7 +55,7 @@
             required
           ></v-text-field>
 
-          <v-text> 휴대전화 번호 </v-text>    
+            휴대전화 번호    
           <v-text-field
             dense
             outlined
@@ -64,7 +64,7 @@
             placeholder="01022223333"
           ></v-text-field>
 
-          <v-text> 생년월일 </v-text>    
+            생년월일   
           <v-text-field
             dense
             outlined
@@ -74,7 +74,7 @@
             placeholder="1990-10-10"
           ></v-text-field>
 
-          <v-text> 성별 </v-text>  
+            성별
           <v-select
             dense
             outlined

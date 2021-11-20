@@ -15,7 +15,7 @@
 
             <div class="pa-3">
               <v-form ref="form" v-model="valid" lazy-validation>
-              <v-text> 닉네임 </v-text>
+                닉네임
                 <v-text-field
                   dense
                   outlined
@@ -24,7 +24,7 @@
                   required
                 ></v-text-field>
 
-              <v-text> 이메일 </v-text>
+                이메일
                 <v-text-field
                   dense
                   outlined
@@ -33,7 +33,7 @@
                   required
                 ></v-text-field>
 
-              <v-text> 비밀번호 </v-text>
+                비밀번호
                 <v-text-field
                   dense
                   outlined
@@ -43,7 +43,7 @@
                   required
                 ></v-text-field>
 
-              <v-text> 비밀번호 확인 </v-text>
+                비밀번호 확인
                 <v-text-field
                   dense
                   outlined

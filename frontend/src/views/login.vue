@@ -16,7 +16,7 @@
             </v-toolbar>
 
             <div class="pa-5">
-              <v-text> 이메일 </v-text>
+                이메일
               <v-text-field
                 dense
                 outlined
@@ -24,7 +24,7 @@
                 v-model="email"
               >
               </v-text-field>
-              <v-text> 비밀번호 </v-text>
+                비밀번호
               <v-text-field
                 dense
                 outlined
@@ -66,7 +66,7 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "Login",
+  name: "Lzzogin",
   data() {
     return {
       email: "user@test.com",

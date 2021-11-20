@@ -38,7 +38,6 @@
           <v-card-title class="text-h5 font-weight-bold">
             작가/회사 승인 신규 요청
           </v-card-title>
-          <list />
         </v-card>
 
         <v-container>
