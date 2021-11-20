@@ -27,7 +27,6 @@
           src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
           max-height="200px"
           max-width="600px"
-          contain
         />
       </v-col>
     </v-row>
