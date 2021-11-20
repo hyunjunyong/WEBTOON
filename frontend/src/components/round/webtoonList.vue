@@ -1,7 +1,7 @@
 <template>
   <!-- 
   작가의 작품리스트를 출력함.
-  /webtoon에서 사용됨
+  /writer에서 사용됨
   해당 작품홈으로 이동해야함
 -->
   <v-card class="overflow-y-auto" max-height="600">
