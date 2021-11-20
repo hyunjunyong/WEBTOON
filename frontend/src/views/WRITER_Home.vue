@@ -32,35 +32,7 @@ import Webtoonround from "../components/webtoon-round.vue";
 export default {
   name: "WRITER_Home",
   data() {
-    return {
-      webtoons: [
-        {
-          url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_005.jpg"),
-          round: "반지의 제왕",
-          date: "2021-10-27",
-        },
-        {
-          url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_004.jpg"),
-          round: "슬램덩크",
-          date: "2021-10-20",
-        },
-        {
-          url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_003.jpg"),
-          round: "호빗",
-          date: "2021-10-13",
-        },
-        {
-          url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_002.jpg"),
-          round: "왕좌의 게임",
-          date: "2021-10-06",
-        },
-        {
-          url: require("../img/webtoon/황녀악녀001화_JPG/사본 -황녀악녀 1화_001.jpg"),
-          round: "오징어게임",
-          date: "2021-09-30",
-        },
-      ],
-    };
+    return {};
   },
   components: {
     Writerprofile,

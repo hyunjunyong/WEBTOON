@@ -1,5 +1,7 @@
 <template>
-  <!-- 작가홈의 에피소드 화수를 표현하는 컴포넌트 -->
+  <!-- 작가홈의 에피소드 화수를 표현하는 컴포넌트 
+    /webtoon에 들어감
+  -->
   <v-card elevation="0" class="overflow-y-auto" max-height="600" elvation="0">
     <v-banner class="justify-center white text-end" sticky>
       <v-btn @click="webtoon.sort(round_Order)" color="black" text>
@@ -11,7 +13,24 @@
       </v-btn>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
+    <v-list>
+      <template v-for="episode in webtoon" @click="useRouter(episode.id)">
+        <v-subheader :key="episode.id"></v-subheader>
 
+        <v-divider :key="episode.id" />
+
+        <v-list-item :key="episode.id">
+          <v-list-item-avatar>
+            <v-img :src="episode.thumbnail" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ episode.name }}</v-list-item-title>
+            <v-list-item-subtitle>{{ episode.date }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+    </v-list>
     <v-simple-table>
       <template v-slot:default>
         <thead>

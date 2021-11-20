@@ -15,20 +15,16 @@
     </v-row>
     <v-row justify="center">
       <v-col cols="10">
-        <!-- 작가 프로필 -->
-        <Writerprofile />
-
-        <!-- 회사사용자만 볼 수 있음 -->
-      </v-col>
-    </v-row>
-    <v-row justify="center">
-      <v-col cols="10">
         <!-- 특정 웹툰의 에피소드를 리스트로 나타내는 컴포넌트 -->
         <!-- url : 썸네일 이미지, round : 에피소드 이름, date : 날짜 -->
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <!-- <webtoonround :webtoon_round_State="0" :webtoons="webtoons" /> -->
         <EpisodeList />
       </v-col>
+      <v-col cols="2">
+        <!-- 작가 프로필 -->
+        <Writerprofile
+      /></v-col>
     </v-row>
   </v-container>
 </template>

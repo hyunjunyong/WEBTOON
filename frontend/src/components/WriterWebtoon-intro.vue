@@ -2,40 +2,33 @@
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
     <v-row justify="center">
-      <v-col cols="3">
-        <v-img
-          src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
-          height="200px"
-          contain
-        />
-      </v-col>
-      <v-col cols="7">
+      <v-col cols="5">
         <v-row>
           <v-col cols="8">
             <v-card elevation="0" class="pl-5" width="auto">
-              <h2>눈내리는 소리</h2>
+              <h1>눈내리는 소리</h1>
             </v-card>
-          </v-col>
-          <v-col cols="2">
-            <v-btn icon color="deep-orange" @click="increment">
-              <v-icon>mdi-thumb-up</v-icon>{{ count }}
-            </v-btn>
-          </v-col>
-          <v-col cols="2">
-            <router-link to="/edit_Webtoon">
-              <v-img
-                contain
-                src="../img/setting.png"
-                height="30px"
-                width="30px"
-              />
-            </router-link>
           </v-col>
         </v-row>
         <v-card elevation="0" class="pl-5" height="90px">
-          작품 소개 <br />
-          겨울을 빼았긴 마을에<br />눈을 찾아오려는 소년의 모험
+          <div class="grey--text">장르</div>
+          <div class="grey--text">작가 A</div>
+          <div>
+            <v-btn icon color="purple" @click="increment()">
+              <v-icon>mdi-thumb-up</v-icon>{{ count }}
+            </v-btn>
+          </div>
+          <div>작품 소개</div>
+          겨울을 빼았긴 마을에 눈을 찾아오려는 소년의 모험
         </v-card>
+      </v-col>
+      <v-col cols="7">
+        <v-img
+          src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
+          max-height="200px"
+          max-width="600px"
+          contain
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -60,4 +53,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1 {
+  font-size: 2.5em;
+}
+</style>
