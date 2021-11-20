@@ -4,7 +4,7 @@
   웹툰 화면 
   -->
   <v-row justify="center">
-    <v-col cols="10">
+    <v-col cols="10" sm="12">
       <v-img
         v-for="index in writer_Status.episodeImages"
         :key="index"

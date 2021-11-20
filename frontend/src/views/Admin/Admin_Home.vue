@@ -61,6 +61,28 @@
               </v-list-item-content>
             </v-list-item>
           </v-card> -->
+        <v-row justify="center"> 
+          <v-col>
+            <v-card elevation="0"> 
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+              ></v-text-field>
+
+              <v-data-table
+                  :headers="headers"
+                  :items="$store.state.writer_Status"
+                  :search="search"
+                  :items-per-page="5"
+                  @click="detailPosting($store.state.writer_Status)"
+              ></v-data-table>
+            </v-card>
+          </v-col>
+        </v-row>
+
           <v-simple-table>
             <thead>
               <tr>
@@ -125,6 +147,18 @@ export default {
   },
   data() {
     return {
+      search: '',
+      headers: [
+           {
+              text: 'NO.',
+              align: 'start',
+              sortable: false,
+              value: "id",
+              },
+              { text: '글 제목', value: "authorName", },
+              { text: '작성일', value: "createdAt", },
+              { text: '상태', value: "status", },
+            ],
       webtoon: [
         {
           id: "0",

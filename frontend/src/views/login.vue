@@ -66,7 +66,7 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "Lzzogin",
+  name: "Login",
   data() {
     return {
       email: "user@test.com",
