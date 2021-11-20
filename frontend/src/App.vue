@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <Header />z
+
+      <Header />
 
 
     <v-content>
