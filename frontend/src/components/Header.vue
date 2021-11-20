@@ -2,8 +2,16 @@
   <v-app-bar height="80px" app color="white" elevation="0" hide-on-scroll>
     <!-- <v-app-bar height="80px" app color="white" elevation="0"> -->
     <template>
-      <v-spacer></v-spacer>
+      
       <router-link to="/" style="text-decoration:none">
+      <v-icon
+        x- large
+        color="primary"
+      > star 
+      </v-icon>
+      </router-link>
+      
+      <!-- <router-link to="/" style="text-decoration:none">
         <div class="d-flex align-center">
           <v-img
             alt="Vuetify Logo"
@@ -15,6 +23,7 @@
           />
         </div>
       </router-link>
+
       <!-- 화면 이동용 라우터 -->
       <router-link to="/total" style="text-decoration:none" class="ma-1">
         <strong class="router-text d-none d-sm-flex"
