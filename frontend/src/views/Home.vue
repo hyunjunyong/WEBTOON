@@ -113,7 +113,7 @@ export default {
       ],
       webtoon: [
         {
-          id: "0",
+          id: "13",
           title: "물고기인간",
           workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
           writer: "1번 작가",

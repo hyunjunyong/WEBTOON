@@ -36,6 +36,7 @@ export default new Vuex.Store({
   mutations: {
     setUserInfo(state, payload) {
       //사용자 정보를 중앙에 저장
+      console.log("setUserInfo")
       state.userInfo = payload;
       state.isLogin = true;
     },
@@ -57,7 +58,7 @@ export default new Vuex.Store({
   },
   actions: {
     refresh5({ commit }) {
-      console.log("hello");
+      console.log("refresh5")
       let payload = {
         name: localStorage.getItem("name"),
         userType: localStorage.getItem("userType"),

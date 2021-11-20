@@ -38,7 +38,7 @@
                 depressed
                 block
                 rounded
-                @click.once="signin({ email, password })"
+                @click="signin({ email, password })"
               >
                 로그인
               </v-btn>
@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       email: "user@test.com",
-      password: "password123",
+      password: "password1234",
       NotSuccess: false,
       Success: false,
     };

@@ -15,7 +15,7 @@
           />
         </div>
       </router-link>
-
+ {{isLogin}}
       <!-- 화면 이동용 라우터 -->
       <router-link to="/total" style="text-decoration:none" class="ma-1">
         <strong class="router-text d-none d-sm-flex"
@@ -50,7 +50,8 @@
           </v-btn>
         </router-link>
       </p>
-      <v-menu v-else min-width="350px" rounded offset-y>
+
+      <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on">
             <v-avatar color="red" size="40">
@@ -88,13 +89,13 @@
               -->
               <v-divider
                 class="my-3"
-                v-if="userInfo.userType == 'writer'"
+                v-if="userInfo.userType == 'author'"
               ></v-divider>
 
               <router-link
                 style="text-decoration:none"
                 to="/writer_home_writer"
-                v-if="userInfo.userType == 'writer'"
+                v-if="userInfo.userType == 'author'"
               >
                 <v-btn depressed rounded text>
                   작가 홈
@@ -103,13 +104,13 @@
 
               <v-divider
                 class="my-3"
-                v-if="userInfo.userType == 'writer'"
+                v-if="userInfo.userType == 'author'"
               ></v-divider>
 
               <router-link
                 style="text-decoration:none"
-                to="/webtoon/add"
-                v-if="userInfo.userType == 'writer'"
+                to="/add/webtoon/"
+                v-if="userInfo.userType == 'author'"
               >
                 <v-btn depressed rounded text>
                   작품 등록
@@ -118,13 +119,13 @@
 
               <v-divider
                 class="my-3"
-                v-if="userInfo.userType == 'writer'"
+                v-if="userInfo.userType == 'author'"
               ></v-divider>
 
               <router-link
                 style="text-decoration:none"
                 to="/register_state"
-                v-if="userInfo.userType == 'writer'"
+                v-if="userInfo.userType == 'author'"
               >
                 <v-btn depressed rounded text>
                   등록 작품 상태

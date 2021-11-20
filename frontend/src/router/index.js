@@ -176,12 +176,12 @@ const routes = [
     component: () => import("../views/WriterPage/register_state.vue"),
   },
   {
-    path: "/episode/add",
+    path: "/add/episode",
     name: "ADD_EPISODE",
     component: () => import("../views/WriterPage/ADD_Episode.vue"),
   },
   {
-    path: "/add/webtoon",
+    path: "/add/webtoon/",
     name: "ADD_Webtoon",
     component: () => import("../views/WriterPage/ADD_Webtoon.vue"),
   },

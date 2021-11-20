@@ -4,7 +4,7 @@
   웹툰 화면 
   -->
   <v-row justify="center">
-    <v-col cols="10">
+      {{id}}
       <v-img
         v-for="index in writer_Status.episodeImages"
         :key="index"
@@ -12,18 +12,15 @@
         width="1280px"
         max-height="5120px"
       />
-    </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
   name: "Webtoonimage",
-  props: { writer_Status: Object },
-  data() {
-    return {};
+ props: {
+    id: Number,
   },
-  methods: {},
 };
 </script>
 

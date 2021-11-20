@@ -28,17 +28,17 @@
         <tbody>
           <tr
             v-for="episode in webtoon"
-            :key="episode.id"
-            @click="useRouter(episode.id)"
+            :key="episode.episodeOrder"
+            @click="useRouter(episode.episodeOrder)"
           >
             <td>
-              <v-img :src="episode.thumbnail" width="50" height="50" />
+              <v-img :src="episode.episodeThumbnailUrl" width="50" height="50" />
             </td>
             <td>
-              {{ episode.name }}
+              {{ episode.episodeName }}
             </td>
             <td class="text-right">
-              {{ episode.date }}
+              {{ episode.updatedAt.slice(0,10) }}
             </td>
           </tr>
         </tbody>
@@ -55,14 +55,17 @@ export default {
   data() {
     return {
       webtoon: [
-        {
-          id: 0,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
-        },
+        // {
+        //   id: 0,
+        //   name: "helloWorld",
+        //   date: "2008.1.3",
+        //   thumbnail: require("../../img/nums/1.png"),
+        // },
       ],
     };
+  },
+  created(){
+this.getEpisodeList();
   },
   methods: {
     useRouter(index) {
@@ -77,10 +80,11 @@ export default {
       //해당 작품의 에피소드 리스트를 받아서
       //data의 webtoon에 넣어야함...
       //던져줄 데이터는 작품 id
-      //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜}
+      //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜? 등록날짜}
       axios
-        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .get(`http://localhost:5000/${this.$route.params.id}/episode/`, { withCredentials: true })
         .then((res) => {
+          this.webtoon = res.data;
           console.log(res);
         })
         .catch((err) => {

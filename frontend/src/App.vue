@@ -21,6 +21,8 @@ import { mapActions } from "vuex";
 export default {
   name: "App",
   created() {
+    console.log(VueCookies.isKey("accessToken"));
+
     if (VueCookies.isKey("accessToken")) {
       this.refresh5();
     }
