@@ -15,7 +15,6 @@
           />
         </div>
       </router-link>
- {{isLogin}}
       <!-- 화면 이동용 라우터 -->
       <router-link to="/total" style="text-decoration:none" class="ma-1">
         <strong class="router-text d-none d-sm-flex"
