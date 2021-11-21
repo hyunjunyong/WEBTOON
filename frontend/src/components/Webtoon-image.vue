@@ -15,14 +15,19 @@
       일단 하드코딩으로 스타일 수정이 우선
        max-height="5120px" 지정시 사진이 짤리는 현상
       -->
-    <v-img v-for="index in episode" :key="index" :src="index"></v-img>
+    <v-img
+      v-for="index in episode"
+      :key="index"
+      :src="index"
+      width="1280px"
+    ></v-img>
   </v-container>
 </template>
 
 <script>
 export default {
   name: "Webtoonimage",
-  props: { writer_Status: Object,id: Number, },
+  props: { writer_Status: Object, id: Number },
   data() {
     return {
       episode: [

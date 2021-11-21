@@ -8,33 +8,32 @@
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
     </v-row>
 
-    <!-- <v-row>
+    <v-row>
       <Viewerend />
-    </v-row> -->
+    </v-row>
   </v-container>
 </template>
 
 <script>
-//import Webtoonimage from "../components/Webtoon-image";
-//import Viewerend from "../components/viewer-end.vue";
-import axios from "axios"
+import Webtoonimage from "../components/Webtoon-image";
+import Viewerend from "../components/viewer-end.vue";
+import axios from "axios";
 
 export default {
   name: "VIEWER",
   components: {
-    //Webtoonimage,
-    //Viewerend,
+    Webtoonimage,
+    Viewerend,
   },
-  data(){
+  data() {
     return {
-      episodeImages : []
-    }
+      episodeImages: [],
+    };
   },
-  created(){
-
-this.getEpisodeImages();
+  created() {
+    this.getEpisodeImages();
   },
-  methods:{
+  methods: {
     getEpisodeImages() {
       //해당 에피소드의 에피소드 이미지 리스트를 받아서
       //data의 episodeImages에 넣어야함...
@@ -50,7 +49,7 @@ this.getEpisodeImages();
           console.log(err);
         });
     },
-  }
+  },
 };
 </script>
 

@@ -9,7 +9,7 @@
         ><span fontSize="18px">이전화</span></v-btn
       >
       <v-btn text x-large fontSize="18px"
-        ><v-icon class="mx-3">mdi-arrow-right</v-icon><span>다음화</span></v-btn
+        ><span>다음화</span><v-icon class="mx-3">mdi-arrow-right</v-icon></v-btn
       >
     </div>
   </v-container>

@@ -2,7 +2,7 @@
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
     <v-row justify="center">
-      <v-col cols="5">
+      <v-col cols="3">
         <v-row>
           <v-col cols="8">
             <v-card elevation="0" class="pl-5" width="auto">
@@ -22,11 +22,11 @@
           겨울을 빼았긴 마을에 눈을 찾아오려는 소년의 모험
         </v-card>
       </v-col>
-      <v-col cols="7">
+      <v-col cols="5">
         <v-img
           src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
           max-height="200px"
-          max-width="600px"
+          max-width="auto"
         />
       </v-col>
     </v-row>
