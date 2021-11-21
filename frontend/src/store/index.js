@@ -24,11 +24,15 @@ export default new Vuex.Store({
       userId
     }
 
+    
     */
 
+    //사용자 토큰 값
     accessToken: null,
     refreshToken: null,
-    //사용자 정보
+
+    // 웹툰 썸네일들
+    webtoonThumbnails: [],
 
     count: 0,
 
@@ -44,7 +48,6 @@ export default new Vuex.Store({
   mutations: {
     setUserInfo(state, payload) {
       //사용자 정보를 중앙에 저장
-      console.log("setUserInfo");
       state.userInfo = payload;
       state.isLogin = true;
     },
@@ -65,15 +68,38 @@ export default new Vuex.Store({
       localStorage.removeItem("userType");
       localStorage.removeItem("isLogin");
     },
+    setWebtoonThumbnails(state, payload) {
+      state.webtoonThumbnails = payload;
+      console.log(state.webtoonThumbnails);
+    },
   },
   actions: {
     refresh5({ commit }) {
       console.log("refresh5");
+
       let payload = {
         name: localStorage.getItem("name"),
         userType: localStorage.getItem("userType"),
       };
+
       commit("setUserInfo", payload);
+
+      payload = [];
+
+      //webtoonThumbnails에 모든 썸네일을 저장한다.
+      axios
+        .get("http://localhost:5000/works")
+        .then((req) => {
+          console.log("setWebtoonThumbnails");
+
+          payload = req.data;
+        })
+        .then(() => {
+          commit("setWebtoonThumbnails", payload);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     signin({ commit }, loginObj) {
       axios
@@ -125,8 +151,10 @@ export default new Vuex.Store({
           console.log(err);
         });
     },
-
-    // register_webtoon_userId: respon.data.userId,
-    //         episode_Id: respon.data.id,
+  },
+  getters: {
+    getWebtoonThumbnails: (state) => {
+      return state.webtoonThumbnails;
+    },
   },
 });

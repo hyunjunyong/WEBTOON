@@ -5,7 +5,7 @@
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
   <v-row class="mt-1">
-    <v-col v-for="i in webtoon.length" :key="i" :cols="c">
+    <v-col v-for="i in length" :key="i" :cols="c">
       <v-hover v-slot:default="{ hover }">
         <v-card
           :elevation="hover ? 10 : 0"
@@ -24,7 +24,7 @@
           </v-card-title>
 
           <v-card-subtitle>
-            {{ webtoon[i - 1].user.authorName }}
+            작가 : {{ webtoon[i - 1].user.authorName }}
           </v-card-subtitle>
         </v-card>
       </v-hover>
@@ -37,13 +37,17 @@ export default {
   name: "TestThumbnail",
   data() {
     return {
-      c: 12 / this.webtoonState,
+      // c는 한 줄에 들어갈 썸네일의 갯수가 된다.
+      //
+      c: Math.floor(12 / this.webtoonState),
+      length: this.limited ? this.limited : this.webtoon.length,
     };
   },
   props: {
     webtoon: [],
     webtoonState: Number,
     h: Number,
+    limited: Number,
   },
 };
 </script>

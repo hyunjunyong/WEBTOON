@@ -35,7 +35,12 @@
           한줄에 4개의 썸네일을 만듬
           h는 높이
          -->
-          <TestThumbnail :webtoonState="4" :webtoon="webtoon" :h="380" />
+          <TestThumbnail
+            :webtoonState="3"
+            :webtoon="webtoonThumbnails"
+            :h="350"
+            :limited="3"
+          />
 
           <!-- <Thumbnail :webtoon="n" /> -->
         </v-col>
@@ -58,7 +63,12 @@
           한줄에 3개의 썸네일을 만듬
           h는 높이
          -->
-          <TestThumbnail :webtoonState="3" :webtoon="webtoon" :h="330" />
+          <TestThumbnail
+            :webtoonState="4"
+            :limited="4"
+            :webtoon="webtoonThumbnails"
+            :h="220"
+          />
         </v-col>
       </v-row>
 
@@ -79,7 +89,12 @@
           한줄에 2개의 썸네일을 만듬
           h는 높이
          -->
-          <TestThumbnail :webtoonState="4" :webtoon="webtoon" :h="380" />
+          <TestThumbnail
+            :webtoonState="4"
+            :limited="4"
+            :webtoon="webtoonThumbnails"
+            :h="180"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -88,6 +103,7 @@
 
 <script>
 import TestThumbnail from "../components/TestThumbnail";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -111,51 +127,11 @@ export default {
           src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
         },
       ],
-      webtoon: [
-        {
-          id: "13",
-          title: "물고기인간",
-          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
-          writer: "1번 작가",
-          genre: "액션",
-        },
-        {
-          id: "1",
-          title: "물고기인간",
-          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
-          writer: "2번 작가",
-          genre: "로맨스",
-        },
-        {
-          id: "2",
-          title: "물고기인간",
-          workThumbnail: require("../img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
-          writer: "3번 작가",
-          genre: "판타지",
-        },
-        {
-          id: "3",
-          title: "눈내리는소리",
-          workThumbnail: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
-          writer: "4번 작가",
-          genre: "일상",
-        },
-        {
-          id: "4",
-          title: "눈내리는소리",
-          workThumbnail: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
-          writer: "4번 작가",
-          genre: "일상",
-        },
-        {
-          id: "5",
-          title: "눈내리는소리",
-          workThumbnail: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
-          writer: "4번 작가",
-          genre: "일상",
-        },
-      ],
+      webtoon: [],
     };
+  },
+  computed: {
+    ...mapGetters({ webtoonThumbnails: "getWebtoonThumbnails" }),
   },
 };
 </script>

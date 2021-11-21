@@ -22,18 +22,6 @@
         ></router-link
       >
 
-      <router-link to="/writer" style="text-decoration:none" class="ma-1"
-        ><strong class="router-text d-none d-sm-flex"
-          >작가홈</strong
-        ></router-link
-      >
-
-      <router-link to="/genre/add" style="text-decoration:none" class="ma-1"
-        ><strong class="router-text d-none d-sm-flex"
-          >장르추가</strong
-        ></router-link
-      >
-
       <v-spacer></v-spacer>
       <!-- 검색창 -->
 
