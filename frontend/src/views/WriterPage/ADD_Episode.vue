@@ -2,16 +2,30 @@
   <!-- 에피소드 등록 페이지 -->
   <div id="background">
     <v-container>
-      <v-row justify="center" class="mt-10">
+      <v-row justify="center" class="ma-10">
         <v-col cols="auto">
           <v-card elevation="0" width="600">
             <v-toolbar flat>
               <v-spacer></v-spacer>
-              <v-toolbar-title class="font-weight-bold pt-3"
-                >에피소드 등록</v-toolbar-title
-              >
+
+              <v-toolbar-title class="font-weight-bold pt-3">
+                에피소드 등록
+              </v-toolbar-title>
+
               <v-spacer></v-spacer>
             </v-toolbar>
+
+            <v-row justify="center" v-if="userInfo.userType == 'author'">
+              <v-col cols="10">
+                <v-select
+                  :items="items"
+                  item-value="id"
+                  item-text="title"
+                  label="작품선택"
+                  v-model="selectedWork"
+                ></v-select>
+              </v-col>
+            </v-row>
 
             <!-- 에피소드 명 작성 -->
             <v-row>
@@ -34,7 +48,8 @@
             <v-row>
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >에피소드 소개<br />(50자 이상)</v-card>
+                  >에피소드 소개<br />(50자 이상)</v-card
+                >
               </v-col>
 
               <v-col cols="6">
@@ -99,7 +114,10 @@
               </v-col>
               <v-spacer></v-spacer>
               <v-col>
-                <router-link to="/register_Webtoon" style="text-decoration:none">
+                <router-link
+                  to="/register_Webtoon"
+                  style="text-decoration:none"
+                >
                   <v-btn depressed rounded block>
                     이전
                   </v-btn>
@@ -117,38 +135,68 @@
 <script>
 import axios from "axios";
 import router from "../../router/index.js";
+import { mapState } from "vuex";
+
 export default {
   name: "",
   components: {},
+  created() {
+    axios
+      .get("http://localhost:5000/writer/upload", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.items = res.data;
+        console.log(res);
+      });
+  },
+  computed: {
+    ...mapState(["userInfo"]),
+  },
   data() {
     return {
       episodeName: null,
       episodeDescription: null,
+      items: [],
+      selectedWorkId: "",
     };
   },
   methods: {
+    //created 시에 user id를 보내면 이 작가의
+    //{작품id, 작품제목}
     add_Episode() {
       let form = new FormData();
 
-      var thumbnail = document.getElementById("thumbnail");
-      var episodeI = document.getElementById("episodeI");
+      const thumbnail = document.getElementById("thumbnail");
+      const episodeI = document.getElementById("episodeI");
 
-      const writer_info = {
+      let writer_info = {
         workId: this.$store.state.workId,
-        episodeOrder: "1",
         episodeName: this.episodeName,
         episodeDescription: this.episodeDescription,
       };
+
+      if (this.userInfo.userType == "author") {
+        writer_info.workId = this.selectedWork;
+      }
+
+      // const writer_info = {
+      //   workId: this.$store.state.workId,
+      //   episodeOrder: "1",
+      //   episodeName: this.episodeName,
+      //   episodeDescription: this.episodeDescription,
+      // };
 
       for (let file of episodeI.files) {
         console.log(file);
         form.append("episodeImages", file, file.name);
       }
+
       form.append("episodeThumbnail", thumbnail.files[0]);
       form.append("episodeInfo", JSON.stringify(writer_info));
       console.log(form);
       axios
-        .post("http://localhost:5000/user/upload-episode", form, {
+        .post("http://localhost:5000/writer/upload", form, {
           withCredentials: true,
         })
         .then((respon) => {

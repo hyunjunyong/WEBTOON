@@ -40,8 +40,11 @@
           </v-col>
         </v-row>
         <v-row justify="center">
+          <v-btn @click="test"> good </v-btn>
           <v-col align="center"
-            ><v-chip outlined color="primary">좋아요 : 34</v-chip></v-col
+            ><v-chip outlined color="primary" @click="like"
+              >좋아요 : {{ likes }}</v-chip
+            ></v-col
           >
         </v-row>
         <!-- 작가 프로필 -->
@@ -52,6 +55,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
 // import Writerprofile from "../components/Writer-profile.vue";
 
@@ -63,7 +67,52 @@ export default {
   data() {
     return {
       webtoons: [],
+      likes: 0,
+      likeStatus: false,
     };
+  },
+  methods: {
+    like() {
+      axios
+        .post(
+          "http://localhost:5000/user/like",
+          {
+            workId: 1,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          // this.genre = response.data;
+          console.log("눌렀을 떄");
+          console.log(res);
+          //likes;
+        });
+    },
+    test() {
+      axios
+        .get(`http://localhost:5000/like/${this.$route.params.id}`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          // this.genre = response.data;
+          //console.log("좋아요 수는 : ", res.data.likedCounts);
+          console.log(res);
+          this.likes = res.data.likeCounts;
+        });
+    },
+  },
+  mounted() {
+    //http://localhost:5000/like/:workId
+    axios
+      .get(`http://localhost:5000/like/${this.$route.params.id}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        // this.genre = response.data;
+        //console.log("좋아요 수는 : ", res.data.likedCounts);
+        console.log(res);
+        this.likes = res.data.likeCounts;
+      });
   },
   components: {
     WriterWebtoonIntro,

@@ -20,15 +20,8 @@ axios.interceptors.response.use(async function(response) {
   //AT만 만료 되었을 때
   //AT & RT 만료되었을 때
 
-  if (!RT) {
-    if (!AT) {
-      console.log("ㅗㅜㅑ 로그인상태가 아니군요!!!");
-    }
-    return response;
-  }
-
-  if (!AT) {
-    console.log("ㅗㅜㅑ 세션이 만료가 되었어요 다시 호출할께염!!!!");
+  if (RT && !AT) {
+    console.log("세션이 만료가 되었습니다");
     axios.get("http://localhost:5000/auth/session");
   }
 

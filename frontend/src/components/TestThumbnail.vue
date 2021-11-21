@@ -4,9 +4,8 @@
     props를 통해서 웹툰 정보를 받아오는 형식으로 수정
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
-
   <v-row class="mt-1">
-    <v-col v-for="i in webtoonState" :key="i">
+    <v-col v-for="i in webtoon.length" :key="i" :cols="c">
       <v-hover v-slot:default="{ hover }">
         <v-card
           :elevation="hover ? 10 : 0"
@@ -25,7 +24,7 @@
           </v-card-title>
 
           <v-card-subtitle>
-            {{ webtoon[i - 1].writer }}
+            {{ webtoon[i - 1].user.authorName }}
           </v-card-subtitle>
         </v-card>
       </v-hover>
@@ -36,6 +35,11 @@
 <script>
 export default {
   name: "TestThumbnail",
+  data() {
+    return {
+      c: 12 / this.webtoonState,
+    };
+  },
   props: {
     webtoon: [],
     webtoonState: Number,

@@ -5,26 +5,21 @@
       <!-- 로그인 작성 폼 -->
       <v-row justify="center" class="ma-5">
         <v-col cols="auto">
-
           <!-- 이메일, 비밀번호 작성 폼 -->
           <v-card elevation="0" width="300">
             <v-toolbar flat>
               <v-spacer></v-spacer>
               <v-toolbar-title class="font-weight-bold pt-3"
-                >로그인</v-toolbar-title>
+                >로그인</v-toolbar-title
+              >
               <v-spacer></v-spacer>
             </v-toolbar>
 
             <div class="pa-5">
-                이메일
-              <v-text-field
-                dense
-                outlined
-                color="primary"
-                v-model="email"
-              >
+              이메일
+              <v-text-field dense outlined color="primary" v-model="email">
               </v-text-field>
-                비밀번호
+              비밀번호
               <v-text-field
                 dense
                 outlined
@@ -45,9 +40,7 @@
             </div>
 
             <!-- 회원가입 창으로 넘어가는 텍스트 -->
-            <v-card-text
-              class="text-center font-weight-bold gray--color"
-            >
+            <v-card-text class="text-center font-weight-bold gray--color">
               <v-spacer></v-spacer>
               계정이 없으신가요? <v-spacer></v-spacer
               ><router-link to="join" style="text-decoration:none"

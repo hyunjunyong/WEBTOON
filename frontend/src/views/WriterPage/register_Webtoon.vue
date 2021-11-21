@@ -48,7 +48,8 @@
             <v-row>
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >작품 소개글<br />(100자 이상)</v-card>
+                  >작품 소개글<br />(100자 이상)</v-card
+                >
               </v-col>
 
               <v-col cols="6">
@@ -108,7 +109,7 @@
               <v-spacer></v-spacer>
               <v-col>
                 <router-link to="/Apply/writer" style="text-decoration:none">
-                  <v-btn depressed rounded block >
+                  <v-btn depressed rounded block>
                     이전
                   </v-btn>
                 </router-link>
@@ -144,7 +145,7 @@ export default {
   setup() {},
   create() {},
   mounted() {
-    axios.get("http://localhost:5000/user/genre").then((response) => {
+    axios.get("http://localhost:5000/genre").then((response) => {
       // this.genre = response.data;
       this.$store.state.genre = response.data;
     });

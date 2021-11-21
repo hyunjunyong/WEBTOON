@@ -17,6 +17,14 @@ export default new Vuex.Store({
 
     // 사용자 이름, 사용자 타입 등
     userInfo: null,
+    /*
+    {
+      name,
+      userType,
+      userId
+    }
+
+    */
 
     accessToken: null,
     refreshToken: null,
@@ -36,7 +44,7 @@ export default new Vuex.Store({
   mutations: {
     setUserInfo(state, payload) {
       //사용자 정보를 중앙에 저장
-      console.log("setUserInfo")
+      console.log("setUserInfo");
       state.userInfo = payload;
       state.isLogin = true;
     },
@@ -49,8 +57,10 @@ export default new Vuex.Store({
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
     },
-    delUserInfo() {
+    delUserInfo(state) {
       //로그아웃시 localStorage에 저장한 사용자 정보를 삭제함
+      state.isLogin = false;
+
       localStorage.removeItem("name");
       localStorage.removeItem("userType");
       localStorage.removeItem("isLogin");
@@ -58,7 +68,7 @@ export default new Vuex.Store({
   },
   actions: {
     refresh5({ commit }) {
-      console.log("refresh5")
+      console.log("refresh5");
       let payload = {
         name: localStorage.getItem("name"),
         userType: localStorage.getItem("userType"),
@@ -79,7 +89,10 @@ export default new Vuex.Store({
           const userInfo = {
             name: res.data.userInfo.name,
             userType: res.data.userInfo.userType,
+            id: res.data.userInfo.id,
           };
+
+          console.log(userInfo);
 
           localStorage.setItem("name", userInfo.name);
           localStorage.setItem("userType", userInfo.userType);

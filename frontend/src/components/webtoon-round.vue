@@ -73,7 +73,7 @@
       max-height="600"
     >
       <v-banner class="justify-center white text-end" sticky>
-        <router-link style="text-decoration:none" to="/webtoon/add">
+        <router-link style="text-decoration:none" to="/add/episode">
           <v-btn class="ma-2" color="#388E3C" dark>
             웹툰추가하기
             <v-icon dark>
@@ -89,14 +89,15 @@
           <template v-slot:default>
             <thead>
               <tr>
+                <th class="text-left"></th>
                 <th class="text-left">
-                  수정 버튼
+                  썸네일
                 </th>
                 <th class="text-left">
-                  이미지
+                  작품
                 </th>
-                <th class="text-left">
-                  화 | 등록일
+                <th class="text-right">
+                  등록일
                 </th>
               </tr>
             </thead>
@@ -116,7 +117,14 @@
                   <router-link
                     to="/webtoon_home_writer"
                     style="text-decoration: none; color: inherit;"
-                    >{{ toon.round }} | {{ toon.date }}</router-link
+                    >{{ toon.round }}
+                  </router-link>
+                </td>
+                <td>
+                  <router-link
+                    to="/webtoon_home_writer"
+                    style="text-decoration: none; color: inherit;"
+                    >{{ toon.date }}</router-link
                   >
                 </td>
               </tr>
@@ -437,62 +445,12 @@ export default {
     return {
       webtoon: [
         {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/05.jpg"),
-          round: "5화",
-          date: "2021-10-27",
-          state: "승인대기중",
-          comment: "2순위",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/04.jpg"),
-          round: "4화",
-          date: "2021-10-20",
-          state: "승인완료",
-          comment: "성장 중",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/03.jpg"),
-          round: "3화",
-          date: "2021-10-13",
-          state: "승인완료",
-          comment: "1순위",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/02.jpg"),
-          round: "2화",
-          date: "2021-10-6",
-          state: "반려중",
-          comment: "성장 가능성 있음",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
-        },
-        {
-          url: require("../img/webtoon/눈내리는소리1화(식자간격수정판)/01.jpg"),
-          round: "1화",
-          date: "2021-10-1",
-          state: "승인대기중",
-          comment: "제안 완료",
-          delete: "삭제",
-          title: "작품 명",
-          apply: "승인",
+          id: 0,
+          name: "왕좌의 게임",
         },
       ],
     };
   },
-  setup() {},
-  create() {},
-  mounted() {},
-  unmounted() {},
   methods: {
     title_Order(a, b) {
       return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;

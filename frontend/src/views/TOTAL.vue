@@ -1,37 +1,43 @@
 <template>
   <v-container class="TOTAL">
     <!-- 장르선택  -->
+
     <v-row no-gutters justify="center">
       <Genre :item="n" v-for="n in genre" :key="n.id" />
     </v-row>
 
     <v-row no-gutters justify="center">
-      <!-- <v-col cols="8"> -->
-      <Thumbnail :webtoon="i" v-for="i in webtoon" :key="i.id" />
-      <!-- </v-col> -->
+      <v-col cols="8">
+        <TestThumbnail :webtoonState="5" :webtoon="webtoon" :h="220" />
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Thumbnail from "../components/Thumbnail";
+import TestThumbnail from "../components/TestThumbnail";
 import Genre from "../components/genre";
 import axios from "axios";
 
 export default {
   name: "TOTAL",
   components: {
-    Thumbnail,
+    TestThumbnail,
     Genre,
   },
   created() {
     this.getThumbnails();
+    axios.get("http://localhost:5000/genre").then((response) => {
+      // this.genre = response.data;
+      this.genre = response.data;
+    });
   },
   methods: {
-    async getThumbnails() {
-      await axios
-        .get("http://localhost:5000/user/works")
+    getThumbnails() {
+      axios
+        .get("http://localhost:5000/works")
         .then((req) => {
+          console.log(req);
           this.webtoon = req.data;
         })
         .catch((err) => {
@@ -41,16 +47,8 @@ export default {
   },
   data() {
     return {
-      webtoon: {},
-      genre: [
-        { index: "1", name: "일  상" },
-        { index: "2", name: "개  그" },
-        { index: "3", name: "액  션" },
-        { index: "4", name: "판타지" },
-        { index: "5", name: "드라마" },
-        { index: "6", name: "로맨스" },
-        { index: "7", name: "공포/스릴러" },
-      ],
+      webtoon: [],
+      genre: [],
     };
   },
 };

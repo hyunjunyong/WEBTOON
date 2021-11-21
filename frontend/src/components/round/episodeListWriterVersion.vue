@@ -3,51 +3,71 @@
     작가가 자신이 등록한 에피소드의 승인반려상태를 확인할 수 있는 리스트
     
  -->
-  <v-card fluid>
-    <v-row v-for="episode in webtoons" :key="episode">
-      <v-col class="col-3">
-        <v-img :src="episode.thumbnail" width="150" height="150" />
-      </v-col>
+  <v-card
+    v-if="webtoon_round_State == 1"
+    class="overflow-y-auto"
+    max-height="600"
+  >
+    <v-banner class="justify-center white text-end" sticky>
+      <router-link style="text-decoration:none" to="/add/episode">
+        <v-btn class="ma-2" color="#388E3C" dark>
+          웹툰추가하기
+          <v-icon dark>
+            mdi-plus
+          </v-icon>
+        </v-btn>
+      </router-link>
+      <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
+    </v-banner>
 
-      <v-col class="col-7">
-        <v-card>{{ episode.name }} | {{ episode.date }}</v-card>
-      </v-col>
-
-      <v-col class="col-1">
-        <v-flex xs1>
-          <v-dialog v-model="dialog" width="500">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                class="col-1"
-                dark
-                small
-                color="green"
-                height="150"
-                v-bind="attrs"
-                v-on="on"
-                >{{ toon.state }}</v-btn
-              >
-            </template>
-
-            <v-card>
-              <v-card-title class="text-h5 grey lighten-2">
-                작품 반려 사유
-              </v-card-title>
-
-              <v-card-text height="40"> 사유 <br />작품 중복 </v-card-text>
-
-              <v-divider />
-
-              <v-spacer></v-spacer>
-
-              <v-btn block color="primary" text @click="dialog = false">
-                확인
-              </v-btn>
-            </v-card>
-          </v-dialog>
-        </v-flex>
-      </v-col>
-    </v-row>
+    <v-card-text>
+      <v-simple-table>
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left"></th>
+              <th class="text-left">
+                썸네일
+              </th>
+              <th class="text-left">
+                작품
+              </th>
+              <th class="text-right">
+                등록일
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(toon, index) in webtoons" :key="index">
+              <td>
+                <v-btn dark small color="green" width="50" height="50">
+                  <v-icon dark>mdi-pencil</v-icon></v-btn
+                >
+              </td>
+              <td>
+                <router-link to="/webtoon_home_writer"
+                  ><v-img :src="toon.url" width="50" height="50"
+                /></router-link>
+              </td>
+              <td>
+                <router-link
+                  to="/webtoon_home_writer"
+                  style="text-decoration: none; color: inherit;"
+                  >{{ toon.round }}
+                </router-link>
+              </td>
+              <td>
+                <router-link
+                  to="/webtoon_home_writer"
+                  style="text-decoration: none; color: inherit;"
+                  >{{ toon.date }}</router-link
+                >
+              </td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
+    </v-card-text>
   </v-card>
 </template>
 

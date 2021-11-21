@@ -123,6 +123,21 @@
 
               <router-link
                 style="text-decoration:none"
+                to="/add/episode/"
+                v-if="userInfo.userType == 'author'"
+              >
+                <v-btn depressed rounded text>
+                  에피소드 등록
+                </v-btn>
+              </router-link>
+
+              <v-divider
+                class="my-3"
+                v-if="userInfo.userType == 'author'"
+              ></v-divider>
+
+              <router-link
+                style="text-decoration:none"
                 to="/register_state"
                 v-if="userInfo.userType == 'author'"
               >
@@ -261,13 +276,6 @@ export default {
   data() {
     return {
       dialog: false,
-      testingText: "작품등록하기",
-      userStatus: false,
-      user: {
-        initials: "HJ",
-        fullName: "Yoo HJ",
-        email: "yhj970105@gmail.com",
-      },
     };
   },
   methods: {
