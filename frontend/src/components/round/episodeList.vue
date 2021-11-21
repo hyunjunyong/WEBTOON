@@ -24,38 +24,42 @@
             <v-img :src="episode.thumbnail" />
           </v-list-item-avatar>
 
-<<<<<<< HEAD
-    <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left"></th>
-            <th class="text-left">
-              에피소드
-            </th>
-            <th class="text-right">
-              등록일
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="episode in webtoon"
-            :key="episode.episodeOrder"
-            @click="useRouter(episode.episodeOrder)"
-          >
-            <td>
-              <v-img :src="episode.episodeThumbnailUrl" width="50" height="50" />
-            </td>
-            <td>
-              {{ episode.episodeName }}
-            </td>
-            <td class="text-right">
-              {{ episode.updatedAt.slice(0,10) }}
-            </td>
-          </tr>
-        </tbody>
-=======
+          <v-simple-table>
+            <template v-slot:default>
+              <thead>
+                <tr>
+                  <th class="text-left"></th>
+                  <th class="text-left">
+                    에피소드
+                  </th>
+                  <th class="text-right">
+                    등록일
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="episode in webtoon"
+                  :key="episode.episodeOrder"
+                  @click="useRouter(episode.episodeOrder)"
+                >
+                  <td>
+                    <v-img
+                      :src="episode.episodeThumbnailUrl"
+                      width="50"
+                      height="50"
+                    />
+                  </td>
+                  <td>
+                    {{ episode.episodeName }}
+                  </td>
+                  <td class="text-right">
+                    {{ episode.updatedAt.slice(0, 10) }}
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
           <v-list-item-content>
             <v-list-item-title
               ><h3>
@@ -66,7 +70,6 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider :key="episode.id" :inset="inset"></v-divider>
->>>>>>> 3c441e79e46d30e02d37cfcd04ae4a4f681ad3b2
       </template>
     </v-list>
   </v-card>
@@ -89,8 +92,8 @@ export default {
       ],
     };
   },
-  created(){
-this.getEpisodeList();
+  created() {
+    this.getEpisodeList();
   },
   methods: {
     useRouter(index) {
@@ -107,7 +110,9 @@ this.getEpisodeList();
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜? 등록날짜}
       axios
-        .get(`http://localhost:5000/${this.$route.params.id}/episode/`, { withCredentials: true })
+        .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
+          withCredentials: true,
+        })
         .then((res) => {
           this.webtoon = res.data;
           console.log(res);
