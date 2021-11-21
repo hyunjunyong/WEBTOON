@@ -4,24 +4,34 @@
     <v-row justify="center">
       <v-col cols="3">
         <v-row>
-          <v-col cols="8">
-            <v-card elevation="0" class="pl-5" width="auto">
-              <h1>눈내리는 소리</h1>
-            </v-card>
+          <v-col>
+            <h4>눈 내리는 소리</h4>
           </v-col>
         </v-row>
-        <v-card elevation="0" class="pl-5" height="90px">
-          <div class="grey--text">장르</div>
-          <div class="grey--text">작가 A</div>
-          <div>
-            <v-btn icon color="purple" @click="increment()">
-              <v-icon>mdi-thumb-up</v-icon>{{ count }}
-            </v-btn>
-          </div>
-          <div>작품 소개</div>
-          겨울을 빼았긴 마을에 눈을 찾아오려는 소년의 모험
-        </v-card>
+
+        <v-row>
+          <v-card elevation="0" height="90px">
+            <v-row>
+              <v-col>
+                <div class="grey--text">장르</div>
+                <div class="grey--text">작가 A</div>
+              </v-col>
+              <v-col>
+                <v-chip outlined color="primary" @click="like">
+                  좋아요 : {{ likes }}
+                </v-chip>
+              </v-col>
+            </v-row>
+
+            <v-row class="mt-10">
+              <span>
+                겨울을 빼았긴 마을에 눈을 찾아오려는 소년의 모험
+              </span>
+            </v-row>
+          </v-card>
+        </v-row>
       </v-col>
+
       <v-col cols="5">
         <v-img
           src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
@@ -34,10 +44,18 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "WriterWebtoon_intro",
+  props: {
+    // webtoonId : 부모 컴포넌트에서 받아온 작가 아이디
+    webtoonId: String,
+  },
   data() {
-    return {};
+    return {
+      likes: 0,
+    };
   },
   computed: {
     count() {
@@ -48,6 +66,43 @@ export default {
     increment() {
       this.$store.commit("increment");
     },
+    like() {
+      axios
+        .post(
+          "http://localhost:5000/user/like",
+          {
+            workId: this.webtoonId,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          // this.genre = response.data;
+          console.log(res);
+          //likes;
+        });
+    },
+    getWebtoonBanner() {
+      //현재 페이지에서 작품에 대한
+      //api로 가져와야하는 값
+      //썸네일(썸네일 보다는 Banner를 가져오는게 좋을꺼 같은데 현재에는 banner 라는 것이 없으니 썸네일로 대체)
+      //작품 제목
+      //작품 장르
+      //작가 이름
+    },
+  },
+  mounted() {
+    // 좋아요 갯수받는 api
+    axios
+      .get("http://localhost:5000/like/" + this.webtoonId, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        // this.genre = response.data;
+        this.likes = res.data.likeCounts;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

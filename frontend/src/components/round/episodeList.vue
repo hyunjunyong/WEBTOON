@@ -7,71 +7,48 @@
       <v-btn @click="webtoon.sort(round_Order)" color="black" text>
         최신화부터
       </v-btn>
-      /
-      <v-btn @click="webtoon.sort(date_Order)" color="black" text class="ml-4">
+      <v-btn @click="webtoon.sort(date_Order)" color="black" text>
         1화부터
       </v-btn>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
-    <v-list height="200px">
-      <template v-for="episode in webtoon">
-        <v-list-item
-          @click="useRouter(episode.id)"
-          :key="episode.id"
-          height="100px"
-        >
-          <v-list-item-avatar width="200px" height="100px">
-            <v-img :src="episode.thumbnail" />
-          </v-list-item-avatar>
 
-          <v-simple-table>
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left"></th>
-                  <th class="text-left">
-                    에피소드
-                  </th>
-                  <th class="text-right">
-                    등록일
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="episode in webtoon"
-                  :key="episode.episodeOrder"
-                  @click="useRouter(episode.episodeOrder)"
-                >
-                  <td>
-                    <v-img
-                      :src="episode.episodeThumbnailUrl"
-                      width="50"
-                      height="50"
-                    />
-                  </td>
-                  <td>
-                    {{ episode.episodeName }}
-                  </td>
-                  <td class="text-right">
-                    {{ episode.updatedAt.slice(0, 10) }}
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-          <v-list-item-content>
-            <v-list-item-title
-              ><h3>
-                {{ episode.id + 1 }}화 | {{ episode.name }}
-              </h3></v-list-item-title
-            >
-            <v-list-item-subtitle>{{ episode.date }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider :key="episode.id" :inset="inset"></v-divider>
+    <v-simple-table>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left"></th>
+            <th class="text-left">
+              에피소드
+            </th>
+            <th class="text-right">
+              등록일
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="episode in webtoon"
+            :key="episode.episodeOrder"
+            @click="useRouter(episode.episodeOrder)"
+          >
+            <td>
+              <v-img
+                :src="episode.episodeThumbnailUrl"
+                width="150"
+                height="150"
+              />
+            </td>
+            <td>
+              {{ episode.episodeName }}
+            </td>
+            <td class="text-right">
+              {{ episode.updatedAt.slice(0, 10) }}
+            </td>
+          </tr>
+        </tbody>
       </template>
-    </v-list>
+    </v-simple-table>
   </v-card>
 </template>
 

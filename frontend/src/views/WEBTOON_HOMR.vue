@@ -10,20 +10,21 @@
       <v-col cols="12">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
-        <WriterWebtoonIntro />
+        <WriterWebtoonIntro :webtoonId="$route.params.id" />
       </v-col>
     </v-row>
+
     <v-row justify="center">
-      <v-col cols="8">
+      <v-col cols="6">
         <!-- 특정 웹툰의 에피소드를 리스트로 나타내는 컴포넌트 -->
         <!-- url : 썸네일 이미지, round : 에피소드 이름, date : 날짜 -->
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <!-- <webtoonround :webtoon_round_State="0" :webtoons="webtoons" /> -->
         <EpisodeList />
       </v-col>
-      <v-col cols="4">
+      <v-col cols="2">
         <v-row class="justify-end">
-          <v-col align="center" cols="3">
+          <v-col align="center">
             <v-img
               src="../img/webtoon/04. 물고기인간(출판형)/01_01.png"
               alt=""
@@ -32,21 +33,17 @@
               max-height="160px"
             />
           </v-col>
-          <v-col cols="8">
+        </v-row>
+
+        <v-row>
+          <v-col class="pa-0">
             <v-card elevation="0" class="mb-3">
               <v-card-title>작가 A</v-card-title>
               <v-card-text>작가 한줄 소개</v-card-text>
             </v-card>
           </v-col>
         </v-row>
-        <v-row justify="center">
-          <v-btn @click="test"> good </v-btn>
-          <v-col align="center"
-            ><v-chip outlined color="primary" @click="like"
-              >좋아요 : {{ likes }}</v-chip
-            ></v-col
-          >
-        </v-row>
+
         <!-- 작가 프로필 -->
         <!-- <Writerprofile/> -->
       </v-col>
@@ -55,7 +52,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
 // import Writerprofile from "../components/Writer-profile.vue";
 
@@ -67,52 +63,17 @@ export default {
   data() {
     return {
       webtoons: [],
-      likes: 0,
+
       likeStatus: false,
     };
   },
   methods: {
-    like() {
-      axios
-        .post(
-          "http://localhost:5000/user/like",
-          {
-            workId: 1,
-          },
-          { withCredentials: true }
-        )
-        .then((res) => {
-          // this.genre = response.data;
-          console.log("눌렀을 떄");
-          console.log(res);
-          //likes;
-        });
+    getWriterInfo() {
+      //api로 가져와야하는 값
+      //작가의 썸네일
+      //작가의 이름
+      //작가의 한줄 소개
     },
-    test() {
-      axios
-        .get(`http://localhost:5000/like/${this.$route.params.id}`, {
-          withCredentials: true,
-        })
-        .then((res) => {
-          // this.genre = response.data;
-          //console.log("좋아요 수는 : ", res.data.likedCounts);
-          console.log(res);
-          this.likes = res.data.likeCounts;
-        });
-    },
-  },
-  mounted() {
-    //http://localhost:5000/like/:workId
-    axios
-      .get(`http://localhost:5000/like/${this.$route.params.id}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        // this.genre = response.data;
-        //console.log("좋아요 수는 : ", res.data.likedCounts);
-        console.log(res);
-        this.likes = res.data.likeCounts;
-      });
   },
   components: {
     WriterWebtoonIntro,
