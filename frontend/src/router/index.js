@@ -104,7 +104,7 @@ const routes = [
     component: () => import("../views/Apply/Webtoon.vue"),
   },
   {
-    path: "/Apply/episode",
+    path: "/Apply/episode/:id",
     name: "APPLY_WEBTOON_DETAIL",
     component: () => import("../views/Apply/Episode.vue"),
   },

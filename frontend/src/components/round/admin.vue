@@ -4,22 +4,21 @@
     v-scroll.self="onScroll"
     class="overflow-y-auto"
     max-height="800"
+    elevation="0"
   >
     <v-simple-table>
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-left">
-              썸네일
-            </th>
+            <th class="text-left"></th>
             <th class="text-left">
               이름
             </th>
             <th class="text-right">
-              승인
+              요청날짜
             </th>
-            <th class="text-right">
-              승인
+            <th class="text-center">
+              상태
             </th>
           </tr>
         </thead>
@@ -30,39 +29,12 @@
             @click="useRouter(episode.id)"
           >
             <td>
-              <router-link to="/apply/episode">
-                <v-img :src="episode.url" width="100" height="100"
-              /></router-link>
+              <v-img :src="episode.url" width="100" height="50" />
             </td>
             <td>{{ episode.name }}</td>
             <td class="text-right">{{ episode.date }}</td>
-            <td class="text-right">{{ episode.date }}</td>
-            <td>
-              <v-flex xs1>
-                <v-dialog v-model="dialog" width="500">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
-                      cols="1"
-                      dark
-                      color="green"
-                      v-bind="attrs"
-                      v-on="on"
-                      >{{ episode.apply }}</v-btn
-                    >
-                  </template>
-
-                  <v-card>
-                    <v-card-title class="text-h6 grey lighten-2">
-                      작품을 승인 하시겠습니까?
-                    </v-card-title>
-                    <v-divider />
-                    <v-spacer></v-spacer>
-                    <v-btn block color="primary" text @click="dialog = false">
-                      승인
-                    </v-btn>
-                  </v-card>
-                </v-dialog>
-              </v-flex>
+            <td class="text-center">
+              {{ episode.apply }}
             </td>
           </tr>
         </tbody>
@@ -83,13 +55,15 @@ export default {
           id: 0,
           name: "helloWorld",
           date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
+          thumbnail: "../../img/nums/1.png",
+          apply: "hello",
         },
       ],
     };
   },
   methods: {
     useRouter(index) {
+      console.log(index);
       this.$router.push({
         name: "Episode",
         params: {
