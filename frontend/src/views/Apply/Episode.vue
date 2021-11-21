@@ -3,73 +3,128 @@
     승인할 웹툰 미리보기 및 사유 작성 페이지
 
    -->
-  <v-container fluid>
-    <v-row class="justify-space-between">
-      <v-col>
-        <v-text-field
-          v-model="writer_Status.userAppliedWork.title"
-          id="webtoonTitle"
-          required
-          maxlength="30"
-        >
-        </v-text-field>
-        <v-text-field
-          v-model="writer_Status.userAppliedWork.workDescription"
-          id="webtoonDescription"
-          required
-          maxlength="30"
-        >
-        </v-text-field>
-        <v-text-field
-          v-model="writer_Status.userAppliedWork.episode[0].episodeName"
-          id="episodeTitle"
-          required
-          maxlength="30"
-        >
-        </v-text-field>
-        <v-text-field
-          v-model="writer_Status.userAppliedWork.episode[0].episodeDescription"
-          id="episodeDescrition"
-          required
-          maxlength="30"
-        >
-        </v-text-field>
+  <v-container>
 
+      <v-row justify="center">
+        <v-col cols="auto">
+          <v-card elevation="0">
+            <v-card-title class="text-h5 font-weight-bold">
+              에피소드 승인
+            </v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row justify="center" class="ma-5">
+          <!-- 에피소드 설명 -->
+        <v-col cols="auto">
+        <v-card elevation="0" width="300" >
+            에피소드 승인
+          <v-text-field
+            v-model="writer_Status.userAppliedWork.title"
+            id="webtoonTitle"
+            dense
+            single-line
+            color="primary"
+          >
+          </v-text-field>
+            작품 소개
+          <v-textarea
+            v-model="writer_Status.userAppliedWork.workDescription"
+            id="webtoonDescription"
+            required
+            height="100"
+            dense
+            filled
+            full-width
+            single-line
+            counter
+            color="primary"
+          >
+          </v-textarea>
+            에피소드명
+          <v-text-field
+            v-model="writer_Status.userAppliedWork.episode[0].episodeName"
+            id="episodeTitle"
+            dense
+            single-line
+            color="primary"
+          >
+          </v-text-field>
+            에피소드 소개
+          <v-text-field
+            v-model="writer_Status.userAppliedWork.episode[0].episodeDescription"
+            id="episodeDescrition"
+            required
+            height="100"
+            dense
+            filled
+            full-width
+            single-line
+            counter
+            color="primary"
+          >
+          </v-text-field>
+        
+        </v-card>
+        </v-col>
         <!-- 썸네일 -->
-        <v-img
-          :src="writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl"
-          max-height="260px"
-          max-width="260px"
-        >
-        </v-img
-      ></v-col>
-      <v-col><Webtoonimage :writer_Status="writer_Status"/></v-col>
+        <v-col cols="auto" >
+          작품 썸네일
+          <v-hover v-slot:default="{ hover }">
+            <v-card :elevation="hover ? 10 : 0" class="radius">
+              <v-img
+                :src="writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl"
+                max-height="380px"
+                max-width="380px"
+              ></v-img>
+            </v-card>
+          </v-hover>
+        </v-col>
+      </v-row>
+      <v-row justify="center" class="ma-5">
+      <v-col cols="auto"><Webtoonimage :writer_Status="writer_Status"/></v-col>
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
       <!-- <Reject_reason /> -->
+
       <v-container>
-        <v-row>
-          <v-col cols="12" sm="12">
-            <v-textarea
-              v-model="reason"
-              class="mx-2"
-              label="반려사유작성"
-              rows="1"
-            ></v-textarea>
-          </v-col>
-        </v-row>
-        <v-row :justify="4">
-          <v-col class="text-center">
-            <v-btn color="error" block @click="rejectEpisode()">반려</v-btn>
-          </v-col>
-          <v-col class="text-center">
-            <v-btn
-              class="white--text"
-              color="indigo"
-              block
-              @click="approveEpisode()"
-              >승인</v-btn
-            >
-          </v-col>
+        <v-row justify="center">
+         <v-col cols="8">
+            <v-card elevation="0">
+              <v-card-title class="font-weight-bold text-center">
+                반려사유 (반려시 사유작성 필수)
+              </v-card-title>
+
+              <v-textarea
+                v-model="reason"
+                required
+                wight="400"
+                counter
+                single-line
+                full-width
+                dense
+                filled
+              ></v-textarea>
+            </v-card>           
+            
+            <v-row>
+               <v-spacer></v-spacer>
+              <v-col>
+                <v-btn
+                  depressed
+                  rounded
+                  block
+                  color="primary"
+                  @click="approveEpisode()">
+                  승인</v-btn>
+              </v-col>
+               <v-spacer></v-spacer>
+              <v-col>
+                <v-btn depressed rounded block @click="rejectEpisode()">반려</v-btn>
+              </v-col>
+               <v-spacer></v-spacer>
+            </v-row>
+         </v-col>
         </v-row>
       </v-container>
     </v-row>

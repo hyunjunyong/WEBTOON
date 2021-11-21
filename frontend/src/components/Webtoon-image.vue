@@ -4,7 +4,11 @@
   웹툰 화면 
   -->
   <v-row justify="center">
+<<<<<<< HEAD
       {{id}}
+=======
+    <v-col cols="10" sm="12">
+>>>>>>> 3c441e79e46d30e02d37cfcd04ae4a4f681ad3b2
       <v-img
         v-for="index in writer_Status.episodeImages"
         :key="index"
