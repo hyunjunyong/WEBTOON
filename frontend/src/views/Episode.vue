@@ -4,14 +4,6 @@
    -->
   <v-container fluid>
     <v-row justify="center">
-      <v-col>
-        <v-btn class="mx-2" fab>
-          <!-- header show btn -->
-          <v-icon dark>
-            mdi-format-list-bulleted-square
-          </v-icon>
-        </v-btn>
-      </v-col>
       <v-col cols="auto"><Webtoonimage /> </v-col>
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
       <v-col>
