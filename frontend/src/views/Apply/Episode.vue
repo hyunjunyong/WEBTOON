@@ -71,21 +71,17 @@
       <!-- 썸네일 -->
       <v-col cols="auto">
         작품 썸네일
-        <v-hover v-slot:default="{ hover }">
-          <v-card :elevation="hover ? 10 : 0" class="radius">
-            <v-img
-              :src="
-                writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl
-              "
-              max-height="380px"
-              max-width="380px"
-            ></v-img>
-          </v-card>
-        </v-hover>
+        <v-card elevation="0">
+          <v-img
+            :src="writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl"
+            max-height="380px"
+            max-width="380px"
+          ></v-img>
+        </v-card>
       </v-col>
     </v-row>
     <v-row justify="center" class="ma-5">
-      <v-col cols="auto"><Webtoonimage :writer_Status="writer_Status"/></v-col>
+      <v-col cols="8"><Webtoonimage :writer_Status="writer_Status"/></v-col>
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
       <!-- <Reject_reason /> -->
 
@@ -151,12 +147,13 @@ export default {
     data: null,
   }),
   created() {
-    let data = this.$route.params.data;
-    this.data = data;
     axios
-      .get(`http://localhost:5000/admin/applications/${data}`, {
-        withCredentials: true,
-      })
+      .get(
+        `http://localhost:5000/admin/applications/${this.$route.params.id}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         this.writer_Status = response.data;
         console.log(response.data);
