@@ -5,23 +5,15 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="8" class="ma-2">
-        <router-link to="/apply/webtoon" style="text-decoration:none">
-          <v-card elevation="0">
-            <v-card-title class="text-h5 font-weight-bold">
-              작품 승인 신규 요청
-            </v-card-title>
-          </v-card>
-        </router-link>
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
+            작가 승인 요청
+          </v-card-title>
+        </v-card>
       </v-col>
     </v-row>
 
-    <v-row no-gutters justify="center">
-      <v-col cols="8">
-        <TestThumbnail :webtoon="webtoon" :h="250" :webtoonState="4" />
-      </v-col>
-    </v-row>
-
-    <v-row justify="center">
+    <!-- <v-row justify="center">
       <v-col cols="8">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
@@ -30,13 +22,13 @@
           <list />
         </v-card>
       </v-col>
-    </v-row>
+    </v-row> -->
 
     <v-row justify="center">
       <v-col cols="8">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
-            작가/회사 승인 신규 요청
+            에피소드 승인 요청
           </v-card-title>
         </v-card>
 
@@ -61,27 +53,27 @@
               </v-list-item-content>
             </v-list-item>
           </v-card> -->
-        <v-row justify="center"> 
-          <v-col>
-            <v-card elevation="0"> 
-              <v-text-field
-                v-model="search"
-                append-icon="mdi-magnify"
-                label="Search"
-                single-line
-                hide-details
-              ></v-text-field>
+          <!-- <v-row justify="center">
+            <v-col>
+              <v-card elevation="0">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+                ></v-text-field>
 
-              <v-data-table
+                <v-data-table
                   :headers="headers"
                   :items="$store.state.writer_Status"
                   :search="search"
                   :items-per-page="5"
-                  @click="detailPosting($store.state.writer_Status)"
-              ></v-data-table>
-            </v-card>
-          </v-col>
-        </v-row>
+                >
+                </v-data-table>
+              </v-card>
+            </v-col>
+          </v-row> -->
 
           <v-simple-table>
             <thead>
@@ -94,7 +86,7 @@
             </thead>
             <tbody>
               <tr
-                v-for="index in $store.state.writer_Status"
+                v-for="index in list"
                 :key="index.id"
                 @click="detailPosting(index.id)"
               >
@@ -136,72 +128,32 @@
 </template>
 
 <script>
-import TestThumbnail from "../../components/TestThumbnail";
-import list from "../../components/list";
 import axios from "axios";
+//import list from "../../components/list";
+//import AdminList from "../../components/round/admin.vue";
+
 export default {
   name: "Home",
   components: {
-    TestThumbnail,
-    list,
+    //list,
+    //AdminList,
   },
   data() {
     return {
-      search: '',
+      search: "",
+      list: this.$store.state.writer_Status.filter(
+        (e) => e.status == "pending"
+      ),
       headers: [
-           {
-              text: 'NO.',
-              align: 'start',
-              sortable: false,
-              value: "id",
-              },
-              { text: '글 제목', value: "authorName", },
-              { text: '작성일', value: "createdAt", },
-              { text: '상태', value: "status", },
-            ],
-      webtoon: [
         {
-          id: "0",
-          title: "물고기인간",
-          workThumbnail: require("@/img/webtoon/04. 물고기인간(출판형)/01_01_썸네일.png"),
-          writer: "1번 작가",
-          genre: "액션",
+          text: "NO.",
+          align: "start",
+          sortable: false,
+          value: "id",
         },
-        {
-          id: "1",
-          title: "물고기인간",
-          workThumbnail: require("@/img/webtoon/04. 물고기인간(출판형)/01_02_썸네일.png"),
-          writer: "2번 작가",
-          genre: "로맨스",
-        },
-        {
-          id: "2",
-          title: "물고기인간",
-          workThumbnail: require("@/img/webtoon/04. 물고기인간(출판형)/01_03_썸네일.png"),
-          writer: "3번 작가",
-          genre: "판타지",
-        },
-        {
-          id: "3",
-          title: "눈내리는소리",
-          workThumbnail: require("@/img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
-          writer: "4번 작가",
-          genre: "일상",
-        },
-        {
-          id: "4",
-          title: "눈내리는소리",
-          workThumbnail: require("@/img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
-          writer: "4번 작가",
-          genre: "일상",
-        },
-        {
-          id: "5",
-          title: "눈내리는소리",
-          workThumbnail: require("@/img/webtoon/눈내리는소리1화(식자간격수정판)/03_썸네일.jpg"),
-          writer: "4번 작가",
-          genre: "일상",
-        },
+        { text: "글 제목", value: "authorName" },
+        { text: "작성일", value: "createdAt" },
+        { text: "상태", value: "status" },
       ],
     };
   },
@@ -230,10 +182,10 @@ export default {
       });
   },
   methods: {
-    detailPosting(data) {
+    detailPosting(index) {
       this.$router.push({
-        name: "Detail",
-        params: { data: data },
+        name: "APPLY_WEBTOON_DETAIL",
+        params: { id: index },
       });
     },
   },
