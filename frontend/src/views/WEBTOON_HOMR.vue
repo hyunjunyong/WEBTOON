@@ -61,11 +61,7 @@ import EpisodeList from "../components/round/episodeList.vue";
 export default {
   name: "WEBTOON_Home",
   data() {
-    return {
-      webtoons: [],
-
-      likeStatus: false,
-    };
+    return {};
   },
   methods: {
     getWriterInfo() {
