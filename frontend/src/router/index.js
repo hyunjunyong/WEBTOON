@@ -64,16 +64,6 @@ const routes = [
     name: "NOTICE_LIST",
     component: () => import("../views/notice_list.vue"),
   },
-  {
-    path: "/ProposeStatus",
-    name: "ProposeStatus",
-    component: () => import("../views/ProposeStatus.vue"),
-  },
-  {
-    path: "/Propose",
-    name: "Propose",
-    component: () => import("../views/Propose.vue"),
-  },
 
   //admin
   {
