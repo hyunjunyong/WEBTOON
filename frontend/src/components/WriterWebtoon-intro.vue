@@ -5,7 +5,7 @@
       <v-col cols="3">
         <v-row>
           <v-col>
-            <h4>눈 내리는 소리</h4>
+            <h4>{{ webtoon.title }}</h4>
           </v-col>
         </v-row>
 
@@ -13,8 +13,10 @@
           <v-card elevation="0" height="90px">
             <v-row>
               <v-col>
-                <div class="grey--text">장르</div>
-                <div class="grey--text">작가 A</div>
+                <div class="grey--text">
+                  {{ webtoon.genreType[0].genre.name }}
+                </div>
+                <div class="grey--text">{{ webtoon.user.authorName }}</div>
               </v-col>
               <v-col>
                 <v-chip outlined color="primary" @click="like">
@@ -25,7 +27,7 @@
 
             <v-row class="mt-10">
               <span>
-                겨울을 빼았긴 마을에 눈을 찾아오려는 소년의 모험
+                {{ webtoon.workDescription }}
               </span>
             </v-row>
           </v-card>
@@ -34,7 +36,7 @@
 
       <v-col cols="5">
         <v-img
-          src="../img/webtoon/눈내리는소리1화(식자간격수정판)/02_작품홈.jpg"
+          :src="webtoon.workThumbnail"
           max-height="200px"
           max-width="auto"
         />
@@ -55,6 +57,7 @@ export default {
   data() {
     return {
       likes: 0,
+      webtoon: [],
     };
   },
   computed: {
@@ -79,6 +82,7 @@ export default {
           // this.genre = response.data;
           console.log(res);
           //likes;
+          this.likes++;
         });
     },
     getWebtoonBanner() {
@@ -99,6 +103,17 @@ export default {
       .then((res) => {
         // this.genre = response.data;
         this.likes = res.data.likeCounts;
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.webtoon = res.data;
       })
       .catch((err) => {
         console.log(err);

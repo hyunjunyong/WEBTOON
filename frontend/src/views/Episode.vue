@@ -4,7 +4,8 @@
    -->
   <v-container>
     <v-row justify="center" class="ma-0">
-      <v-col cols="8"><Webtoonimage /> </v-col>
+      <v-col cols="8"><Webtoonimage :writer_Status="episodeImages" /> </v-col>
+
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
     </v-row>
 
@@ -27,7 +28,7 @@ export default {
   },
   data() {
     return {
-      episodeImages: [],
+      episodeImages: null,
     };
   },
   created() {
@@ -43,7 +44,7 @@ export default {
         .get(`http://localhost:5000/episode/${this.$route.params.id}`)
         .then((res) => {
           this.episodeImages = res.data;
-          console.log(res);
+          console.log(this.episodeImages);
         })
         .catch((err) => {
           console.log(err);

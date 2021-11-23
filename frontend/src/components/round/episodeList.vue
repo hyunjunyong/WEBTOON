@@ -28,9 +28,9 @@
         </thead>
         <tbody>
           <tr
-            v-for="episode in webtoon"
-            :key="episode.episodeOrder"
-            @click="useRouter(episode.episodeOrder)"
+            v-for="episode in webtoon.episode"
+            :key="episode.id"
+            @click="useRouter(episode.id)"
           >
             <td>
               <v-img

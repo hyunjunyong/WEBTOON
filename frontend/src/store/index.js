@@ -90,17 +90,28 @@ export default new Vuex.Store({
       axios
         .get("http://localhost:5000/works")
         .then((res) => {
-          console.log("setWebtoonThumbnails");
-
           payload = res.data;
-        })
-        .then(() => {
           commit("setWebtoonThumbnails", payload);
+          console.log("setWebtoonThumbnails");
         })
+        // .then(() => {
+        //   commit("setWebtoonThumbnails", payload);
+        // })
         .catch((err) => {
           console.log(err);
         });
     },
+    // totalThumbnails({ commit }, total) {
+    //   axios
+    //     .get("http://localhost:5000/works")
+    //     .then((res) => {
+    //       console.log(res);
+    //       commit("setWebtoonThumbnails", payload);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
     signin({ commit }, loginObj) {
       axios
         .post(

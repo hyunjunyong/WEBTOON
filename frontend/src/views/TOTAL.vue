@@ -37,20 +37,7 @@ export default {
       this.genre = response.data;
     });
   },
-  mounted: {
-    // getThumbnails() {
-    //   axios
-    //     .get("http://localhost:5000/works")
-    //     .then((response) => {
-    //       console.log("12312123123123");
-    //       console.log(response);
-    //       this.webtoon = response.data;
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // },
-  },
+
   methods: {},
   data() {
     return {
