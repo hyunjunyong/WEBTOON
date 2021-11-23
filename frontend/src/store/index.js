@@ -89,10 +89,10 @@ export default new Vuex.Store({
       //webtoonThumbnails에 모든 썸네일을 저장한다.
       axios
         .get("http://localhost:5000/works")
-        .then((req) => {
+        .then((res) => {
           console.log("setWebtoonThumbnails");
 
-          payload = req.data;
+          payload = res.data;
         })
         .then(() => {
           commit("setWebtoonThumbnails", payload);
