@@ -2,68 +2,58 @@
   <v-app-bar height="80px" app color="white" elevation="0" hide-on-scroll>
     <!-- <v-app-bar height="80px" app color="white" elevation="0"> -->
     <template>
-      <v-row justify="space-around" ma="5">
-      <!-- 홈 로고 -->
-      <v-col cols="1">
-      <router-link to="/" style="text-decoration:none" class="mx-10">
-      <v-icon
-        x-large
-        color="primary"
-        ma="10"
-      > mdi-heart
-      </v-icon>
-      </router-link>
-      </v-col>
-      <!-- <router-link to="/" style="text-decoration:none">
-        <div class="d-flex align-center">
-          <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2"
-            contain
-            src="../img/개발자의품격로고.png"
-            transition="scale-transition"
-            max-width="80px"
-          />
-        </div>
-      </router-link>  -->
+      <v-row justify=center no-gutters>
+        <v-col cols="1" class="mt-3">
+          <router-link to="/" style="text-decoration:none" center>
+              <v-icon
+                x-large
+                color="primary"
+                ma="10"
+              > mdi-heart
+              </v-icon>
+          </router-link>
+        </v-col>
 
-      <v-col cols="3">
-      <!-- 화면 이동용 라우터 -->
-      <router-link to="/total" style="text-decoration:none" class="ma-2">
-        <strong class="router-text d-none d-sm-flex"
-          >전체만화</strong
-        ></router-link
-      >
+        <!-- 화면 이동용 라우터 -->
+        <v-col cols="3"  class="mt-5">
+        <router-link to="/total" style="text-decoration:none">
+          <strong class="router-text d-none d-sm-flex"
+            >전체만화</strong
+          ></router-link>
+        </v-col>
 
-      <router-link to="/writer" style="text-decoration:none" class="ma-2"
-        ><strong class="router-text d-none d-sm-flex"
-          >작가홈</strong
-        ></router-link
-      >
 
-      <router-link to="/genre/add" style="text-decoration:none" class="ma-2"
-        ><strong class="router-text d-none d-sm-flex"
-          >장르추가</strong
-        ></router-link
-      >
-      </v-col>
 
-      <v-col cols="3">
 
-      <!-- 검색창 -->
-
-      <v-btn class="primary--text" icon @click="dialog = !dialog">
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <!-- 로그인 버튼 -->
-      <p class="ma-4" v-if="!isLogin">
-        <router-link to="/login" style="text-decoration:none">
-          <v-btn depressed color="primary" outlined small rounded>
-            <span class="primary--text font-weight-bold">로그인</span>
+        <!-- 검색창 -->
+        <v-col cols="2">
+          <v-btn class="primary--text mt-3 d-flex d-sm-none" icon @click="dialog = !dialog">
+            <v-icon right>mdi-magnify</v-icon>
           </v-btn>
-        </router-link>
-      </p>
+
+            <v-text-field
+              clearable
+              dense
+              outlined
+              rounded
+              depressed
+              label="작품/작가 검색"
+              prepend-inner-icon="mdi-magnify"
+              color="primary"
+              class="mt-4 d-none d-sm-flex"
+            ></v-text-field>
+
+        </v-col>
+
+        <!-- 로그인 버튼 -->
+        <v-col cols="1">    
+          <p class="ma-4" v-if="!isLogin">
+            <router-link to="/login" style="text-decoration:none">
+              <v-btn depressed color="primary" outlined rounded>
+                <span class="primary--text font-weight-bold">로그인</span>
+              </v-btn>
+            </router-link>
+          </p>
 
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
@@ -263,11 +253,12 @@
           </v-list-item-content>
         </v-card>
       </v-menu>
+
       </v-col>
       </v-row>
     </template>
 
-          <v-spacer></v-spacer>
+
     <v-dialog v-model="dialog" max-width="500px">
       <v-card>
         <v-card-text>
@@ -281,6 +272,8 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+
   </v-app-bar>
 </template>
 
@@ -307,12 +300,5 @@ export default {
 .router-text {
   color: black;
   font-size: 17px;
-}
-.user-state-text {
-  color: gray;
-  font-size: 10px;
-}
-.serchInput {
-  border-radius: 5px;
 }
 </style>
