@@ -4,82 +4,35 @@
 
    -->
   <v-container>
+    <!-- 썸네일 -->
     <v-row justify="center">
-      <v-col cols="auto">
+      <v-col cols="8">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
-            에피소드 승인
+            작품 썸네일
+          </v-card-title>
+        </v-card>
+
+        <v-row justify="center">
+          <v-img
+            :src="writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl"
+            max-height="250px"
+            max-width="250px"
+          ></v-img>
+        </v-row>
+      </v-col>
+    </v-row>
+
+    <v-row justify="center">
+      <v-col cols="8">
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
+            에피소드 이미지
           </v-card-title>
         </v-card>
       </v-col>
     </v-row>
 
-    <v-row justify="center" class="ma-5">
-      <!-- 에피소드 설명 -->
-      <v-col cols="auto">
-        <v-card elevation="0" width="300">
-          에피소드 승인
-          <v-text-field
-            v-model="writer_Status.userAppliedWork.title"
-            id="webtoonTitle"
-            dense
-            single-line
-            color="primary"
-          >
-          </v-text-field>
-          작품 소개
-          <v-textarea
-            v-model="writer_Status.userAppliedWork.workDescription"
-            id="webtoonDescription"
-            required
-            height="100"
-            dense
-            filled
-            full-width
-            single-line
-            counter
-            color="primary"
-          >
-          </v-textarea>
-          에피소드명
-          <v-text-field
-            v-model="writer_Status.userAppliedWork.episode[0].episodeName"
-            id="episodeTitle"
-            dense
-            single-line
-            color="primary"
-          >
-          </v-text-field>
-          에피소드 소개
-          <v-text-field
-            v-model="
-              writer_Status.userAppliedWork.episode[0].episodeDescription
-            "
-            id="episodeDescrition"
-            required
-            height="100"
-            dense
-            filled
-            full-width
-            single-line
-            counter
-            color="primary"
-          >
-          </v-text-field>
-        </v-card>
-      </v-col>
-      <!-- 썸네일 -->
-      <v-col cols="auto">
-        작품 썸네일
-        <v-card elevation="0">
-          <v-img
-            :src="writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl"
-            max-height="380px"
-            max-width="380px"
-          ></v-img>
-        </v-card>
-      </v-col>
-    </v-row>
     <v-row justify="center" class="ma-5">
       <v-col cols="8"><Webtoonimage :writer_Status="writer_Status"/></v-col>
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
@@ -105,8 +58,60 @@
               ></v-textarea>
             </v-card>
 
+            <!-- 에피소드 설명 -->
+            <v-card elevation="0">
+              에피소드 승인
+              <v-text-field
+                v-model="writer_Status.userAppliedWork.title"
+                id="webtoonTitle"
+                dense
+                single-line
+                color="primary"
+              >
+              </v-text-field>
+              작품 소개
+              <v-textarea
+                v-model="writer_Status.userAppliedWork.workDescription"
+                id="webtoonDescription"
+                required
+                height="100"
+                dense
+                filled
+                full-width
+                single-line
+                counter
+                color="primary"
+              >
+              </v-textarea>
+              에피소드명
+              <v-text-field
+                v-model="writer_Status.userAppliedWork.episode[0].episodeName"
+                id="episodeTitle"
+                dense
+                single-line
+                color="primary"
+              >
+              </v-text-field>
+              에피소드 소개
+              <v-text-field
+                v-model="
+                  writer_Status.userAppliedWork.episode[0].episodeDescription
+                "
+                id="episodeDescrition"
+                required
+                height="100"
+                dense
+                filled
+                full-width
+                single-line
+                counter
+                color="primary"
+              >
+              </v-text-field>
+            </v-card>
+
+            <!-- 맨밑 -->
             <v-row>
-              <v-spacer></v-spacer>
               <v-col>
                 <v-btn
                   depressed
