@@ -37,9 +37,9 @@ const routes = [
     component: () => import("../views/WRITER_Home.vue"),
   },
   {
-    path: "/개인정보처리방침",
-    name: "개인정보처리방침",
-    component: () => import("../views/개인정보처리방침.vue"),
+    path: "/Privacy_policy",
+    name: "Privacy_policy",
+    component: () => import("../views/Privacy_policy.vue"),
   },
   {
     path: "/Tos",
