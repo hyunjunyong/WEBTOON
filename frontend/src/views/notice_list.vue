@@ -1,19 +1,20 @@
 <template>
-<!--
-공지 리스트
--->
-    <v-container>
-    <v-row justify="center">
-      <v-col cols="10" class="mb-3">
-        <v-card elevation="0">
-          <v-card-title class="text-h5 font-weight-bold">
-              공지 사항
-          </v-card-title>
-          <list />
+<!-- 공지 리스트 -->
+  <v-container>
+    <v-row justify="center" class="mt-10">
+        <v-col cols="8">
+          <v-card elevation="0">
+            <v-toolbar flat>
+              <v-spacer></v-spacer>
+              <v-toolbar-title class="text-h5 font-weight-bold pt-3">
+                  공  지</v-toolbar-title>
+              <v-spacer></v-spacer>
+            </v-toolbar>
+           <list />
         </v-card>
       </v-col>
     </v-row>
-
+ 
         <v-row justify="center" ma="5">
             <router-link to="/Notice" class="ma-2">
               <v-btn
@@ -33,7 +34,7 @@
 import list from "../components/list"
 
 export default { 
-    name: 'Boardlist', 
+    name: '', 
     components: {
         list,
     },

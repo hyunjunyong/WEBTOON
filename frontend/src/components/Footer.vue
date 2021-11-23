@@ -15,7 +15,7 @@
         </router-link>
 
         <router-link
-          to="/개인정보처리방침"
+          to="/Privacy_policy"
           class="ma-2"
           style="text-decoration:none"
         >

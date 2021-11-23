@@ -4,7 +4,7 @@
 -->
     <v-container>
         <v-row justify="center"> 
-        <v-col>
+        <v-col cols="10">
         <v-card elevation="0"> 
         <v-text-field
           v-model="search"
