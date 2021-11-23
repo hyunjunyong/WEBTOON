@@ -132,10 +132,12 @@ export default {
     Genre,
   },
   mounted() {
-    axios.get("http://localhost:5000/user/genre").then((response) => {
-      // this.genre = response.data;
-      this.$store.state.genre = response.data;
-    });
+    axios
+      .get("http://localhost:5000/genre", { withCredentials: true })
+      .then((response) => {
+        // this.genre = response.data;
+        this.$store.state.genre = response.data;
+      });
   },
   methods: {
     onFileChange(e) {
