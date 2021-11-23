@@ -179,7 +179,11 @@ export default {
   },
   mounted() {
     //작가승인 데이터를 받는 곳을 넣어야합니다.
-
+    //
+    //
+    //
+    //
+    //
     //현재 this.$store.state.writer_Status = res.data 이것으로
     //중앙에 값을 받는데...
     //174번째 줄이 동적으로 받는 부분이 아닙니다.
