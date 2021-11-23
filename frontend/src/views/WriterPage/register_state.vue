@@ -1,16 +1,26 @@
 <template>
-  <v-container>
-    <v-card class="mb-5 text-h4 pa-2" height="60">작품 등록 상태</v-card>
-    <webtoonround :webtoon_round_State="2" />
-  </v-container>
+  <v-card elevation="0">
+    <v-row justify="center">
+      <v-col cols="8">
+        <v-card class="mb-5 pa-2" height="60" elevation="0">
+          <v-card-title>
+            작품 등록 상태
+          </v-card-title>
+        </v-card>
+
+        <Admin />
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
+
 <script>
-import webtoonround from "../../components/webtoon-round.vue";
+import Admin from "../../components/round/admin.vue";
 
 export default {
   name: "",
   components: {
-    webtoonround,
+    Admin,
   },
   data() {
     return {};

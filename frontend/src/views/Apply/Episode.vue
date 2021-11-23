@@ -118,8 +118,6 @@
             <v-btn depressed rounded block @click="rejectEpisode()">반려</v-btn>
           </v-col>
 
-          <v-col cols="1"></v-col>
-
           <v-col cols="3">
             <v-btn
               depressed
