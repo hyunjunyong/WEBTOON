@@ -109,28 +109,27 @@
               >
               </v-text-field>
             </v-card>
+          </v-col>
+        </v-row>
 
-            <!-- 맨밑 -->
-            <v-row>
-              <v-col>
-                <v-btn
-                  depressed
-                  rounded
-                  block
-                  color="primary"
-                  @click="approveEpisode()"
-                >
-                  승인</v-btn
-                >
-              </v-col>
-              <v-spacer></v-spacer>
-              <v-col>
-                <v-btn depressed rounded block @click="rejectEpisode()"
-                  >반려</v-btn
-                >
-              </v-col>
-              <v-spacer></v-spacer>
-            </v-row>
+        <!-- 맨밑 -->
+        <v-row justify="center">
+          <v-col cols="3">
+            <v-btn depressed rounded block @click="rejectEpisode()">반려</v-btn>
+          </v-col>
+
+          <v-col cols="1"></v-col>
+
+          <v-col cols="3">
+            <v-btn
+              depressed
+              rounded
+              block
+              color="primary"
+              @click="approveEpisode()"
+            >
+              승인</v-btn
+            >
           </v-col>
         </v-row>
       </v-container>
