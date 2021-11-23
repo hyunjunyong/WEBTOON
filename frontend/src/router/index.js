@@ -46,11 +46,7 @@ const routes = [
     name: "Tos",
     component: () => import("../views/Tos.vue"),
   },
-  {
-    path: "/회사정보",
-    name: "회사정보",
-    component: () => import("../views/회사정보.vue"),
-  },
+
   // boardlist,boardwriter와 겹쳐서 회의전까지는 일단 주석
   // {
   //   path: "/ono_writer",
@@ -117,16 +113,6 @@ const routes = [
   //CompanyPage ????
 
   // UserPage
-  {
-    path: "/Boardlist",
-    name: "Boardlist",
-    component: () => import("../views/UserPage/Boardlist.vue"),
-  },
-  {
-    path: "/Boardwriter",
-    name: "BoardWriter",
-    component: () => import("../views/UserPage/Boardwriter.vue"),
-  },
   {
     path: "/like_list",
     name: "LIKE_LIST",
