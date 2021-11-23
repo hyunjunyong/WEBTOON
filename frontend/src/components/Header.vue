@@ -57,9 +57,11 @@
 
       <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
         <template v-slot:activator="{ on }">
-          <v-btn icon x-large v-on="on">
-            <v-avatar color="red" size="40">
-              H
+          <v-btn icon x-large v-on="on" class="ma-2" >
+            <v-avatar color="primary" size="40">
+              <v-icon dark>
+                mdi-account-circle
+              </v-icon>
             </v-avatar>
           </v-btn>
         </template>
@@ -67,7 +69,7 @@
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
-              <v-avatar color="red" size="65">
+              <v-avatar color="primary" size="70">
                 {{ userInfo.name }}
               </v-avatar>
 
