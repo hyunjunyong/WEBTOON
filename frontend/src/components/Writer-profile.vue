@@ -26,7 +26,7 @@
       </v-row>
     </v-col>
     <v-col cols="2"
-      ><v-chip outlined color="primary" @click="hidden = !hidden">좋아요 : {{ count }}</v-chip></v-col
+      ><v-chip outlined color="primary" >좋아요 : {{ count }}</v-chip></v-col
     >
   </v-row>
 </template>
@@ -34,9 +34,9 @@
 <script>
 export default {
   name: "Writer_profile",
-  data:() => ({
-    hidden: false,
-  }),
+  data() {
+    return {};
+  },
   computed: {
     count() {
       return this.$store.state.count;
