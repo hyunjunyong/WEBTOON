@@ -2,15 +2,18 @@
   <v-app-bar height="80px" app color="white" elevation="0" hide-on-scroll>
     <!-- <v-app-bar height="80px" app color="white" elevation="0"> -->
     <template>
-      
-      <router-link to="/" style="text-decoration:none">
+      <v-row justify="space-around" ma="5">
+      <!-- 홈 로고 -->
+      <v-col cols="1">
+      <router-link to="/" style="text-decoration:none" class="mx-10">
       <v-icon
-        x- large
+        x-large
         color="primary"
-      > star 
+        ma="10"
+      > mdi-heart
       </v-icon>
       </router-link>
-      
+      </v-col>
       <!-- <router-link to="/" style="text-decoration:none">
         <div class="d-flex align-center">
           <v-img
@@ -24,14 +27,29 @@
         </div>
       </router-link>  -->
 
+      <v-col cols="3">
       <!-- 화면 이동용 라우터 -->
-      <router-link to="/total" style="text-decoration:none" class="ma-1">
+      <router-link to="/total" style="text-decoration:none" class="ma-2">
         <strong class="router-text d-none d-sm-flex"
           >전체만화</strong
         ></router-link
       >
 
-      <v-spacer></v-spacer>
+      <router-link to="/writer" style="text-decoration:none" class="ma-2"
+        ><strong class="router-text d-none d-sm-flex"
+          >작가홈</strong
+        ></router-link
+      >
+
+      <router-link to="/genre/add" style="text-decoration:none" class="ma-2"
+        ><strong class="router-text d-none d-sm-flex"
+          >장르추가</strong
+        ></router-link
+      >
+      </v-col>
+
+      <v-col cols="3">
+
       <!-- 검색창 -->
 
       <v-btn class="primary--text" icon @click="dialog = !dialog">
@@ -245,10 +263,11 @@
           </v-list-item-content>
         </v-card>
       </v-menu>
+      </v-col>
+      </v-row>
     </template>
 
-    <v-spacer></v-spacer>
-
+          <v-spacer></v-spacer>
     <v-dialog v-model="dialog" max-width="500px">
       <v-card>
         <v-card-text>
