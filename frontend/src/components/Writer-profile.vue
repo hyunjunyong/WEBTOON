@@ -23,18 +23,6 @@
             mdi-plus
           </v-icon>
         </v-btn>
-
-        <router-link style="text-decoration:none" to="/propose">
-          <v-col align="center">
-            <v-btn outlined color="indigo">작가에게 제안하기</v-btn>
-          </v-col>
-        </router-link>
-
-        <router-link style="text-decoration:none" to="/Boardlist">
-          <v-col align="center">
-            <v-btn outlined color="indigo">1:1 문의</v-btn>
-          </v-col>
-        </router-link>
       </v-row>
     </v-col>
     <v-col cols="2"
