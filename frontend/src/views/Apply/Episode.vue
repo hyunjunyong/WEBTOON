@@ -158,7 +158,7 @@ export default {
       )
       .then((response) => {
         this.writer_Status = response.data;
-        console.log(response.data);
+        console.log(this.writer_Status);
       });
   },
   components: {
@@ -172,7 +172,7 @@ export default {
           'http://localhost:5000/admin/applications',
           {
             status: 'approved',
-            applicationId: this.data,
+            applicationId: this.writer_Status.applicationId,
             userId: this.writer_Status.userAppliedWork.userId,
           },
           {
@@ -180,12 +180,12 @@ export default {
           }
         )
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
           alert('승인되었습니다.');
           router.push('/');
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.message);
         });
     },
     rejectEpisode() {
@@ -194,7 +194,7 @@ export default {
           'http://localhost:5000/admin/applications',
           {
             status: 'declined',
-            applicationId: this.data,
+            applicationId: this.writer_Status.userAppliedWork.id,
             userId: this.writer_Status.userAppliedWork.userId,
             reason: this.reason,
           },
@@ -208,19 +208,6 @@ export default {
           console.log(res);
         });
     },
-  },
-  mounted() {
-    // axios
-    //   .get(
-    //     `http://localhost:5000/admin/applications/${data}`,
-    //     {
-    //       withCredentials: true,
-    //     }
-    //   )
-    //   .then((response) => {
-    //     this.writer_Status = response.data[0]
-    //     console.log(response.data);
-    //   });
   },
 };
 </script>

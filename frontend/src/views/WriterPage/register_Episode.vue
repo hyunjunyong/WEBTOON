@@ -140,16 +140,7 @@ import { mapState } from 'vuex';
 export default {
   name: '',
   components: {},
-  created() {
-    axios
-      .get('http://localhost:5000/writer/upload', {
-        withCredentials: true,
-      })
-      .then((res) => {
-        this.items = res.data;
-        console.log(res);
-      });
-  },
+
   computed: {
     ...mapState(['userInfo']),
   },
@@ -196,7 +187,7 @@ export default {
       form.append('episodeInfo', JSON.stringify(writer_info));
       console.log(form);
       axios
-        .post('http://localhost:5000/writer/upload', form, {
+        .post('http://localhost:5000/user/upload-episode', form, {
           withCredentials: true,
         })
         .then((respon) => {
