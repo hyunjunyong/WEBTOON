@@ -79,7 +79,7 @@
                   :items="appliedEpisodeList"
                   :search="search"
                   :items-per-page="5"
-                  @click:row="detailPosting"
+                  @click:row="addDetailPosting"
                 >
                 </v-data-table>
               </v-card>
@@ -93,13 +93,9 @@
 
 <script>
 import axios from 'axios';
-//import AdminList from "../../components/round/admin.vue";
 
 export default {
   name: 'Home',
-  components: {
-    //AdminList,
-  },
   data() {
     return {
       search: '',
@@ -141,6 +137,7 @@ export default {
       .then((res) => {
         //관리자 계정만 받을 수 있음
         this.applicationList = res.data;
+        console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -163,6 +160,13 @@ export default {
       console.log(application);
       this.$router.push({
         name: 'APPLY_WEBTOON_DETAIL',
+        params: { id: application.id },
+      });
+    },
+    addDetailPosting(application) {
+      console.log(application);
+      this.$router.push({
+        name: 'APPLY_ADD_WEBTOON_DETAIL',
         params: { id: application.id },
       });
     },

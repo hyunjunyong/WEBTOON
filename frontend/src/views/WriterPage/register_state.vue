@@ -1,4 +1,5 @@
 <template>
+  <!-- 작가가 자신의 작품 등록 상태를 보는 화면 -->
   <v-card elevation="0">
     <v-row justify="center">
       <v-col cols="8">
@@ -15,10 +16,10 @@
 </template>
 
 <script>
-import Admin from "../../components/round/admin.vue";
+import Admin from '../../components/round/admin.vue';
 
 export default {
-  name: "",
+  name: '',
   components: {
     Admin,
   },

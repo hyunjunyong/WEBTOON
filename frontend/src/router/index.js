@@ -94,6 +94,11 @@ const routes = [
     name: 'APPLY_WEBTOON_DETAIL',
     component: () => import('../views/Apply/Episode.vue'),
   },
+  {
+    path: '/Apply/add_episode/:id',
+    name: 'APPLY_ADD_WEBTOON_DETAIL',
+    component: () => import('../views/Apply/add_episode.vue'),
+  },
   //관리자가 확인하는 에피소드란에서 디테일(Id)을 확인할수 있는 링크
   {
     path: '/Apply/episode/:data',
