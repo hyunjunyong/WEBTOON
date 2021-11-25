@@ -1,5 +1,5 @@
 <template>
-  <!-- 작품 등록 페이지 -->
+  <!-- 작가 등록 시 작품 등록 페이지 -->
   <div id="background">
     <v-container>
       <v-row justify="center" class="my-10">
@@ -48,7 +48,7 @@
             <v-row>
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >작품 소개글<br />(100자 이상)</v-card
+                  >작품 소개글<br />(30자 이상)</v-card
                 >
               </v-col>
 
@@ -101,7 +101,7 @@
                   rounded
                   block
                   color="primary"
-                  @click.once="register_Webtoon()"
+                  @click="register_Webtoon()"
                 >
                   다음</v-btn
                 >
@@ -124,12 +124,12 @@
 </template>
 
 <script>
-import Genre from "../../components/genre";
-import axios from "axios";
-import router from "../../router/index.js";
+import Genre from '../../components/genre';
+import axios from 'axios';
+import router from '../../router/index.js';
 
 export default {
-  name: "",
+  name: '',
   components: {
     Genre,
   },
@@ -137,15 +137,15 @@ export default {
   data() {
     return {
       url: null,
-      workDescription: "작품을 소개합니다.",
-      title: "작품 이름",
+      workDescription: '작품을 소개합니다.',
+      title: '작품 이름',
       genreId: null,
     };
   },
   setup() {},
   create() {},
   mounted() {
-    axios.get("http://localhost:5000/genre").then((response) => {
+    axios.get('http://localhost:5000/genre').then((response) => {
       // this.genre = response.data;
       this.$store.state.genre = response.data;
     });
@@ -162,7 +162,7 @@ export default {
     },
     register_Webtoon() {
       let form = new FormData();
-      var workThumbnail = document.getElementById("Thumbnail");
+      var workThumbnail = document.getElementById('Thumbnail');
       const writer_info = {
         genreId: this.genreId,
         userId: this.$store.state.userId,
@@ -172,21 +172,21 @@ export default {
       console.log(this.$store.state.id);
       console.log(writer_info);
 
-      form.append("workThumbnail", workThumbnail.files[0]);
-      form.append("workInfo", JSON.stringify(writer_info));
+      form.append('workThumbnail', workThumbnail.files[0]);
+      form.append('workInfo', JSON.stringify(writer_info));
 
       axios
-        .post("http://localhost:5000/user/upload-work", form, {
+        .post('http://localhost:5000/user/upload-work', form, {
           withCredentials: true,
         })
         .then((respon) => {
           console.log(respon);
-          router.push("/register_Episode");
+          router.push('/register_Episode');
           this.$store.state.workId = respon.data.work.id;
         })
         .catch((err) => {
           console.error(err);
-          alert("에러!");
+          alert('에러!');
         });
     },
   },
