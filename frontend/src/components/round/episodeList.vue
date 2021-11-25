@@ -13,7 +13,30 @@
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
 
-    <v-simple-table>
+    <v-list height="200px">
+      <template v-for="episode in webtoon">
+        <v-list-item
+          @click="useRouter(episode.id)"
+          :key="episode.id"
+          height="100px"
+        >
+          <v-list-item-avatar width="200px" height="100px">
+            <v-img :src="episode.thumbnail" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title
+              ><h3>
+                {{ episode.id + 1 }}화 | {{ episode.name }}
+              </h3></v-list-item-title
+            >
+            <v-list-item-subtitle>{{ episode.date }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider :key="episode.id" :inset="inset"></v-divider>
+      </template>
+    </v-list>
+    <!-- <v-simple-table>
       <template v-slot:default>
         <thead>
           <tr>
@@ -48,7 +71,7 @@
           </tr>
         </tbody>
       </template>
-    </v-simple-table>
+    </v-simple-table> -->
   </v-card>
 </template>
 
