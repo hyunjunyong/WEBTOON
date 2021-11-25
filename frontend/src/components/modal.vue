@@ -7,7 +7,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
 2 : 수정
 3 : 이미지선택
 4 : 반려사유
-
+5 : 작가홈 상단 배너 썸네일
  -->
 
   <div class="modal">
@@ -135,6 +135,39 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
           </v-btn>
         </v-card-actions>
       </v-card>
+      <!-- 상단배너 업로드  -->
+      <v-card v-if="modalState == 5">
+        <v-card-title class="text-h5 grey lighten-2">
+          {{ modalTitle[modalState] }}
+        </v-card-title>
+
+        <v-row class="align-center">
+          <v-col cols="6" sm="6">
+            <v-file-input
+              id="Thumbnail"
+              show-size
+              counter
+              truncate-length="50"
+              @change="onFileChange"
+            ></v-file-input>
+          </v-col>
+          <v-col>
+            <v-img v-if="url" :src="url" max-height="150px" max-width="150px" />
+          </v-col>
+        </v-row>
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn color="red" text @click="dialog = false">
+            확인
+          </v-btn>
+          <v-btn color="primary" text @click="dialog = false">
+            취소
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-dialog>
   </div>
 </template>
@@ -144,14 +177,23 @@ export default {
   props: ["modalState"],
   data() {
     return {
+      url: null,
       dialog: false,
-      btnName: ["btn_TMP", "삭제하기", "수정하기", "이미지선택", "반려사유"],
+      btnName: [
+        "btn_TMP",
+        "삭제하기",
+        "수정하기",
+        "이미지선택",
+        "반려사유",
+        "상단 배너 썸네일 추가하기",
+      ],
       modalTitle: [
         "modalTitle",
         "작품삭제",
         "수정하기",
         "이미지선택",
         "반려사유작성",
+        "상단 배너 썸네일 추가",
       ],
       modalText: [
         "modalText",
@@ -159,8 +201,15 @@ export default {
         "확인을 누르면 즉시 수정됩니다",
         "이미지선택 모달창 화면입니다.",
         "반려사유 모달창 화면입니다.",
+        "ㅁㄴㅇㄹ",
       ],
     };
+  },
+  methods: {
+    onFileChange(e) {
+      const file = e;
+      this.url = URL.createObjectURL(file);
+    },
   },
 };
 </script>

@@ -16,21 +16,23 @@
         <v-card-text>작가 한줄 소개</v-card-text>
       </v-card>
 
-      <v-file-input
-        show-size
-        label="상단 썸네일 넣기"
-        prepend-icon="mdi-camera"
-        dense
-      ></v-file-input>
+      <Modal :modalState="5" />
     </v-col>
   </v-row>
+  <!-- 상단배너 썸네일 업로드 하는 배너 -->
 </template>
 
 <script>
+import Modal from "../components/modal.vue";
 export default {
   name: "Writer_profile",
+  components: {
+    Modal,
+  },
   data() {
-    return {};
+    return {
+      showModal: false,
+    };
   },
   computed: {
     count() {
