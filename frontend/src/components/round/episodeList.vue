@@ -2,7 +2,7 @@
   <!-- 작가홈의 에피소드 화수를 표현하는 컴포넌트 
     /webtoon에 들어감
   -->
-  <v-card elevation="0" class="overflow-y-auto" max-height="600" elvation="0">
+  <v-card elevation="0" max-height="1200" elvation="0">
     <v-banner class="justify-center white text-end" sticky>
       <v-btn @click="webtoon.sort(round_Order)" color="black" text>
         최신화부터
@@ -13,27 +13,29 @@
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
 
-    <v-list height="200px">
-      <template v-for="episode in webtoon">
-        <v-list-item
-          @click="useRouter(episode.id)"
-          :key="episode.id"
-          height="100px"
-        >
-          <v-list-item-avatar width="200px" height="100px">
-            <v-img :src="episode.thumbnail" />
+    <v-list>
+      <template v-for="episode in webtoon.episode">
+        <v-list-item @click="useRouter(episode.id)" :key="episode.id">
+          <v-list-item-avatar
+            style="border-radius:10px"
+            width="200px"
+            height="150px"
+          >
+            <v-img :src="episode.episodeThumbnailUrl" />
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title
               ><h3>
-                {{ episode.id + 1 }}화 | {{ episode.name }}
+                {{ episode.episodeName }} | {{ episode.episodeDescription }}
               </h3></v-list-item-title
             >
-            <v-list-item-subtitle>{{ episode.date }}</v-list-item-subtitle>
+            <v-list-item-subtitle>{{
+              episode.updatedAt.slice(0, 10)
+            }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-divider :key="episode.id" :inset="inset"></v-divider>
+        <v-divider :key="episode.id"></v-divider>
       </template>
     </v-list>
     <!-- <v-simple-table>
@@ -96,6 +98,16 @@ export default {
     this.getEpisodeList();
   },
   methods: {
+    date_Order(a, b) {
+      var dateA = new Date(a["date"]).getTime();
+      var dateB = new Date(b["date"]).getTime();
+      return dateA < dateB ? 1 : -1;
+    },
+    round_Order(a, b) {
+      return (
+        Number(a.round.match(/(\d+)/g)[0]) - Number(b.round.match(/(\d+)/g)[0])
+      );
+    },
     useRouter(index) {
       this.$router.push({
         name: "Episode",

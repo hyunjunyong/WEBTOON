@@ -39,6 +39,7 @@
           :src="webtoon.workThumbnail"
           max-height="200px"
           max-width="auto"
+          style="border-radius:10px"
         />
       </v-col>
     </v-row>

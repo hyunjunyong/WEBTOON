@@ -26,11 +26,11 @@
         <v-row class="justify-end">
           <v-col align="center">
             <v-img
-              src="../img/webtoon/04. 물고기인간(출판형)/01_01.png"
+              :src="webtoon.user.authorAvatar"
               alt=""
               style="border-radius:10%"
-              max-width="160px"
-              max-height="160px"
+              max-width="200px"
+              max-height="200px"
             />
           </v-col>
         </v-row>
@@ -38,8 +38,8 @@
         <v-row>
           <v-col class="pa-0">
             <v-card elevation="0" class="mb-3">
-              <v-card-title>작가 A</v-card-title>
-              <v-card-text>작가 한줄 소개</v-card-text>
+              <v-card-title>{{ webtoon.user.authorName }}</v-card-title>
+              <v-card-text>{{ webtoon.user.authorDescription }}</v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -54,14 +54,29 @@
 <script>
 import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
 // import Writerprofile from "../components/Writer-profile.vue";
-
+import axios from "axios";
 import EpisodeList from "../components/round/episodeList.vue";
 //import webtoonround from "../components/webtoon-round.vue";
 
 export default {
   name: "WEBTOON_Home",
   data() {
-    return {};
+    return {
+      webtoon: null,
+    };
+  },
+  mounted() {
+    axios
+      .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.webtoon = res.data;
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   methods: {
     getWriterInfo() {
