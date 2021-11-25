@@ -3,11 +3,7 @@
     작가가 자신이 등록한 에피소드의 승인반려상태를 확인할 수 있는 리스트
     
  -->
-  <v-card
-    v-if="webtoon_round_State == 1"
-    class="overflow-y-auto"
-    max-height="600"
-  >
+  <v-card class="overflow-y-auto" max-height="600">
     <v-banner class="justify-center white text-end" sticky>
       <router-link style="text-decoration:none" to="/add/episode">
         <v-btn class="ma-2" color="#388E3C" dark>

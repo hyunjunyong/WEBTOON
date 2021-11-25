@@ -10,24 +10,19 @@
         max-height="160px"
       />
     </v-col>
-    <v-col cols="8">
+    <v-col cols="10">
       <v-card elevation="0" class="mb-3">
         <v-card-title>작가 A</v-card-title>
         <v-card-text>작가 한줄 소개</v-card-text>
       </v-card>
 
-      <v-row justify="center">
-        <v-btn class="mt-3" outlined color="indigo" @click="increment">
-          좋아요
-          <v-icon dark>
-            mdi-plus
-          </v-icon>
-        </v-btn>
-      </v-row>
+      <v-file-input
+        show-size
+        label="상단 썸네일 넣기"
+        prepend-icon="mdi-camera"
+        dense
+      ></v-file-input>
     </v-col>
-    <v-col cols="2"
-      ><v-chip outlined color="primary" >좋아요 : {{ count }}</v-chip></v-col
-    >
   </v-row>
 </template>
 
