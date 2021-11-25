@@ -119,12 +119,12 @@ export default {
           text: '작가명',
           align: 'start',
           sortable: false,
-          value: 'work.user.authorName',
+          value: 'user.authorName',
         },
-        { text: '작품명', value: 'work.title' },
-        { text: '에피소드명', value: 'episodeName' },
+        { text: '작품명', value: 'title' },
+        { text: '에피소드명', value: 'episode[0].episodeName' },
         { text: '날짜', value: 'createdAt' },
-        { text: '상태', value: 'episodeStatus' },
+        { text: '상태', value: 'episode[0].episodeStatus' },
       ],
     };
   },
@@ -137,7 +137,7 @@ export default {
       .then((res) => {
         //관리자 계정만 받을 수 있음
         this.applicationList = res.data;
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -157,17 +157,17 @@ export default {
   },
   methods: {
     detailPosting(application) {
-      console.log(application);
+      //  console.log(application);
       this.$router.push({
         name: 'APPLY_WEBTOON_DETAIL',
         params: { id: application.id },
       });
     },
-    addDetailPosting(application) {
-      console.log(application);
+    addDetailPosting(appliedEpisode) {
+      console.log(appliedEpisode);
       this.$router.push({
         name: 'APPLY_ADD_WEBTOON_DETAIL',
-        params: { id: application.id },
+        params: { id: appliedEpisode.episode[0].id },
       });
     },
   },

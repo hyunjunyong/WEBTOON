@@ -15,7 +15,7 @@
 
         <v-row justify="center">
           <v-img
-            :src="writer_Status.userAppliedWork.episode[0].episodeThumbnailUrl"
+            :src="writer_Status.episodeThumbnailUrl"
             max-height="250px"
             max-width="250px"
           ></v-img>
@@ -62,7 +62,7 @@
             <v-card elevation="0">
               에피소드 승인
               <v-text-field
-                v-model="writer_Status.userAppliedWork.title"
+                v-model="writer_Status.work.title"
                 id="webtoonTitle"
                 dense
                 single-line
@@ -71,7 +71,7 @@
               </v-text-field>
               작품 소개
               <v-textarea
-                v-model="writer_Status.userAppliedWork.workDescription"
+                v-model="writer_Status.work.workDescription"
                 id="webtoonDescription"
                 required
                 height="100"
@@ -85,7 +85,7 @@
               </v-textarea>
               에피소드명
               <v-text-field
-                v-model="writer_Status.userAppliedWork.episode[0].episodeName"
+                v-model="writer_Status.episodeName"
                 id="episodeTitle"
                 dense
                 single-line
@@ -94,9 +94,7 @@
               </v-text-field>
               에피소드 소개
               <v-text-field
-                v-model="
-                  writer_Status.userAppliedWork.episode[0].episodeDescription
-                "
+                v-model="writer_Status.episodeDescription"
                 id="episodeDescrition"
                 required
                 height="100"
@@ -150,12 +148,9 @@ export default {
   }),
   created() {
     axios
-      .get(
-        `http://localhost:5000/admin/applications/${this.$route.params.id}`,
-        {
-          withCredentials: true,
-        }
-      )
+      .get(`http://localhost:5000/admin/episodes/${this.$route.params.id}`, {
+        withCredentials: true,
+      })
       .then((response) => {
         this.writer_Status = response.data;
         console.log(this.writer_Status);
@@ -169,11 +164,10 @@ export default {
     approveEpisode() {
       axios
         .patch(
-          'http://localhost:5000/admin/applications',
+          'http://localhost:5000/admin/episodes',
           {
-            status: 'approved',
-            applicationId: this.writer_Status.applicationId,
-            userId: this.writer_Status.userAppliedWork.userId,
+            episodeStatus: 'approved',
+            episodeId: this.writer_Status.id,
           },
           {
             withCredentials: true,
@@ -191,12 +185,11 @@ export default {
     rejectEpisode() {
       axios
         .patch(
-          'http://localhost:5000/admin/applications',
+          'http://localhost:5000/admin/episodes',
           {
-            status: 'declined',
-            applicationId: this.writer_Status.userAppliedWork.id,
-            userId: this.writer_Status.userAppliedWork.userId,
-            reason: this.reason,
+            episodeStatus: 'declined',
+            episodeId: this.writer_Status.id,
+            // reason: this.reason,
           },
           {
             withCredentials: true,
