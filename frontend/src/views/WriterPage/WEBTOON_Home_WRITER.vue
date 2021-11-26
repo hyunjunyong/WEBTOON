@@ -4,7 +4,7 @@
     <v-row justify="center">
       <v-col cols="8">
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
-        <WriterWebtoonIntro />
+        <WriterWebtoonIntro :webtoonId="$route.params.id" />
       </v-col>
     </v-row>
 

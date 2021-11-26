@@ -5,7 +5,7 @@
       <v-col cols="3">
         <v-row>
           <v-col>
-            <h4>{{ webtoon.title }}</h4>
+            <h2>{{ webtoon.title }}</h2>
           </v-col>
         </v-row>
 

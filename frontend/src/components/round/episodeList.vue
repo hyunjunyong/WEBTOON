@@ -4,10 +4,10 @@
   -->
   <v-card elevation="0" max-height="1200" elvation="0">
     <v-banner class="justify-center white text-end" sticky>
-      <v-btn @click="webtoon.sort(round_Order)" color="black" text>
+      <v-btn @click="webtoon.episode.sort(round_Order)" color="black" text>
         최신화부터
       </v-btn>
-      <v-btn @click="webtoon.sort(date_Order)" color="black" text>
+      <v-btn @click="webtoon.episode.sort(date_Order)" color="black" text>
         1화부터
       </v-btn>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
@@ -98,11 +98,14 @@ export default {
     this.getEpisodeList();
   },
   methods: {
+    // 날짜순 정렬
     date_Order(a, b) {
       var dateA = new Date(a["date"]).getTime();
       var dateB = new Date(b["date"]).getTime();
+
       return dateA < dateB ? 1 : -1;
     },
+    //화수 정렬
     round_Order(a, b) {
       return (
         Number(a.round.match(/(\d+)/g)[0]) - Number(b.round.match(/(\d+)/g)[0])

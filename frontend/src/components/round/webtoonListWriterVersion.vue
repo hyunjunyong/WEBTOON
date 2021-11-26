@@ -98,7 +98,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WEBTOON_HOMR",
+        name: "WEBTOON_Home_WRITER",
         params: {
           id: index,
         },

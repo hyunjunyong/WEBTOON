@@ -16,8 +16,32 @@
       </v-btn>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
+    <v-list>
+      <template v-for="episode in webtoon.episode">
+        <v-list-item @click="useRouter(episode.id)" :key="episode.id">
+          <v-list-item-avatar
+            style="border-radius:10px"
+            width="200px"
+            height="150px"
+          >
+            <v-img :src="episode.episodeThumbnailUrl" />
+          </v-list-item-avatar>
 
-    <v-card-text>
+          <v-list-item-content>
+            <v-list-item-title
+              ><h3>
+                {{ episode.episodeName }} | {{ episode.episodeDescription }}
+              </h3></v-list-item-title
+            >
+            <v-list-item-subtitle>{{
+              episode.updatedAt.slice(0, 10)
+            }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider :key="episode.id"></v-divider>
+      </template>
+    </v-list>
+    <!-- <v-card-text>
       <v-simple-table>
         <template v-slot:default>
           <thead>
@@ -48,7 +72,7 @@
           </tbody>
         </template>
       </v-simple-table>
-    </v-card-text>
+    </v-card-text> -->
   </v-card>
 </template>
 
@@ -70,6 +94,14 @@ export default {
     };
   },
   methods: {
+    title_Order(a, b) {
+      return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
+    },
+    date_Order(a, b) {
+      var dateA = new Date(a["date"]).getTime();
+      var dateB = new Date(b["date"]).getTime();
+      return dateA < dateB ? 1 : -1;
+    },
     useRouter(index) {
       this.$router.push({
         name: "WEBTOON_HOMR",

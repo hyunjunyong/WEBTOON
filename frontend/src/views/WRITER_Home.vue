@@ -19,7 +19,7 @@
     ><v-row>
       <v-col cols="12">
         <!-- 작품으로 이동하는 컴포넌트 -->
-        <Webtoonround :webtoon_round_State="5" :webtoons="webtoons" />
+        <WebtoonList />
       </v-col>
     </v-row>
   </v-container>
@@ -27,7 +27,7 @@
 
 <script>
 import Writerprofile from "../components/Writer-profile.vue";
-import Webtoonround from "../components/webtoon-round.vue";
+import WebtoonList from "../components/round/webtoonList.vue";
 
 export default {
   name: "WRITER_Home",
@@ -36,7 +36,7 @@ export default {
   },
   components: {
     Writerprofile,
-    Webtoonround,
+    WebtoonList,
   },
 };
 </script>

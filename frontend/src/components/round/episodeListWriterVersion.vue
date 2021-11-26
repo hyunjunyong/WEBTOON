@@ -3,7 +3,7 @@
     작가가 자신이 등록한 에피소드의 승인반려상태를 확인할 수 있는 리스트
     
  -->
-  <v-card class="overflow-y-auto" max-height="600">
+  <v-card max-height="600">
     <v-banner class="justify-center white text-end" sticky>
       <router-link style="text-decoration:none" to="/add/episode">
         <v-btn class="ma-2" color="#388E3C" dark>
@@ -16,7 +16,35 @@
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
 
-    <v-card-text>
+    <v-list>
+      <template v-for="episode in webtoon.episode">
+        <v-list-item @click="useRouter(episode.id)" :key="episode.id">
+          <v-btn dark small color="green" width="50" height="50">
+            <v-icon dark>mdi-pencil</v-icon></v-btn
+          >
+          <v-list-item-avatar
+            style="border-radius:10px"
+            width="200px"
+            height="150px"
+          >
+            <v-img :src="episode.episodeThumbnailUrl" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title
+              ><h3>
+                {{ episode.episodeName }} | {{ episode.episodeDescription }}
+              </h3></v-list-item-title
+            >
+            <v-list-item-subtitle>{{
+              episode.updatedAt.slice(0, 10)
+            }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider :key="episode.id"></v-divider>
+      </template>
+    </v-list>
+    <!-- <v-card-text>
       <v-simple-table>
         <template v-slot:default>
           <thead>
@@ -63,7 +91,7 @@
           </tbody>
         </template>
       </v-simple-table>
-    </v-card-text>
+    </v-card-text> -->
   </v-card>
 </template>
 
