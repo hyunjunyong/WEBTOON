@@ -80,7 +80,7 @@
 
 <script>
 import axios from "axios";
-
+// asdf
 export default {
   name: "webtoonList",
   data() {
