@@ -4,7 +4,7 @@
   /writer에서 사용됨
   해당 작품홈으로 이동해야함
 -->
-  <v-card class="overflow-y-auto" max-height="600">
+  <v-card class="overflow-y-auto" max-height="600" elevation="0">
     <v-banner class="justify-center white" sticky>
       <h3>작가의 작품</h3>
       <v-btn @click="webtoons.sort(title_Order)" color="black" text>
@@ -28,9 +28,9 @@
             <v-list-item-avatar
               width="200px"
               height="100px"
-              style="border-radius:5px;"
+              style="border-radius:5px"
             >
-              <v-img :src="webtoon.thumbnail" />
+              <v-img :src="webtoon.thumbnail" style="border-radius:10px" />
             </v-list-item-avatar>
 
             <v-list-item-content>

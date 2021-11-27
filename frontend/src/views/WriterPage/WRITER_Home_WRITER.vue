@@ -6,6 +6,7 @@
         <v-img
           src="../../img/webtoon/04. 물고기인간(출판형)/01_01.png"
           height="200"
+          style="border-radius:10px"
         />
       </v-col>
     </v-row>
@@ -18,7 +19,7 @@
             <v-img
               src="../../img/webtoon/04. 물고기인간(출판형)/01_01.png"
               alt=""
-              style="border-radius:70%"
+              style="border-radius:10px"
               max-width="160px"
               max-height="160px"
             />
