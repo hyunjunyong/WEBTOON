@@ -23,10 +23,28 @@
                   item-text="title"
                   label="작품선택"
                   v-model="selectedWork"
+                  @change="selectedWorkId"
                 ></v-select>
               </v-col>
             </v-row>
-
+            <v-row justify="center">
+              <v-col justify="center" align-self="center" cols="5">
+                <v-card v-if="recentEpisodeOrder == 0" elevation="0"
+                  >최근 에피소드가 존재하지 않습니다.</v-card
+                >
+                <v-card v-else elevation="0"
+                  >최근 에피소드는 {{ recentEpisodeOrder }}화입니다</v-card
+                ></v-col
+              >
+              <v-col cols="5">
+                <v-text-field
+                  v-model="episodeOrder"
+                  label="에피소드 순서(숫자만 입력 해주세요!)"
+                  width="50px"
+                >
+                </v-text-field>
+              </v-col>
+            </v-row>
             <!-- 에피소드 명 작성 -->
             <v-row>
               <v-col cols="4" class="d-flex text-center">
@@ -133,16 +151,16 @@
 </template>
 
 <script>
-import axios from 'axios';
-import router from '../../router/index.js';
-import { mapState } from 'vuex';
+import axios from "axios";
+import router from "../../router/index.js";
+import { mapState } from "vuex";
 
 export default {
-  name: '',
+  name: "",
   components: {},
   created() {
     axios
-      .get('http://localhost:5000/writer/upload', {
+      .get("http://localhost:5000/writer/upload", {
         withCredentials: true,
       })
       .then((res) => {
@@ -151,32 +169,47 @@ export default {
       });
   },
   computed: {
-    ...mapState(['userInfo']),
+    ...mapState(["userInfo"]),
   },
   data() {
     return {
+      onlyNumber: "",
+      episodeOrder: null,
       episodeName: null,
       episodeDescription: null,
+      recentEpisodeOrder: "",
       items: [],
-      selectedWorkId: '',
     };
   },
+  mounted() {},
   methods: {
+    selectedWorkId(e) {
+      axios
+        .get(`http://localhost:5000/writer/work/${e}/episodeOrder`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          this.recentEpisodeOrder = res.data.episodeOrder;
+          console.log(this.recentEpisodeOrder);
+          // res.data.episodeOrder
+        });
+    },
     //created 시에 user id를 보내면 이 작가의
     //{작품id, 작품제목}
     add_Episode() {
       let form = new FormData();
 
-      const thumbnail = document.getElementById('thumbnail');
-      const episodeI = document.getElementById('episodeI');
+      const thumbnail = document.getElementById("thumbnail");
+      const episodeI = document.getElementById("episodeI");
 
       let writer_info = {
         workId: this.$store.state.workId,
         episodeName: this.episodeName,
         episodeDescription: this.episodeDescription,
+        episodeOrder: this.episodeOrder,
       };
 
-      if (this.userInfo.userType == 'author') {
+      if (this.userInfo.userType == "author") {
         writer_info.workId = this.selectedWork;
       }
 
@@ -189,27 +222,32 @@ export default {
 
       for (let file of episodeI.files) {
         console.log(file);
-        form.append('episodeImages', file, file.name);
+        form.append("episodeImages", file, file.name);
       }
 
-      form.append('episodeThumbnail', thumbnail.files[0]);
-      form.append('episodeInfo', JSON.stringify(writer_info));
+      form.append("episodeThumbnail", thumbnail.files[0]);
+      form.append("episodeInfo", JSON.stringify(writer_info));
       console.log(form);
       axios
-        .post('http://localhost:5000/writer/upload', form, {
+        .post("http://localhost:5000/writer/upload", form, {
           withCredentials: true,
         })
         .then((respon) => {
           console.log(respon);
           alert(
-            '정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다.'
+            "정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다."
           );
-          router.push('/');
+          router.push("/");
         })
         .catch((err) => {
           console.error(err);
         });
       console.log(writer_info);
+    },
+  },
+  watch: {
+    onlyNumber() {
+      return (this.onlyNumber = this.onlyNumber.replace(/[^0-9]/g, ""));
     },
   },
 };
