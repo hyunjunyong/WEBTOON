@@ -20,7 +20,7 @@
         <!-- url : 썸네일 이미지, round : 에피소드 이름, date : 날짜 -->
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <!-- <webtoonround :webtoon_round_State="0" :webtoons="webtoons" /> -->
-        <EpisodeList />
+        <EpisodeList :webtoon="webtoon" />
       </v-col>
       <v-col cols="2">
         <v-row class="justify-end">
@@ -66,8 +66,9 @@ export default {
     };
   },
   mounted() {
+    // ?episodeOrder=desc
     axios
-      .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
+      .get(`http://localhost:5000/${this.$route.params.id}/episode`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -78,14 +79,7 @@ export default {
         console.log(err);
       });
   },
-  methods: {
-    getWriterInfo() {
-      //api로 가져와야하는 값
-      //작가의 썸네일
-      //작가의 이름
-      //작가의 한줄 소개
-    },
-  },
+  methods: {},
   components: {
     WriterWebtoonIntro,
     // Writerprofile,

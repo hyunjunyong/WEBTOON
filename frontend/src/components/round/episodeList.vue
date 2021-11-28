@@ -4,11 +4,21 @@
   -->
   <v-card elevation="0" max-height="1200" elvation="0">
     <v-banner class="justify-center white text-end" sticky>
-      <v-btn @click="webtoon.episode.sort(round_Order)" color="black" text>
-        최신화부터
-      </v-btn>
-      <v-btn @click="webtoon.episode.sort(date_Order)" color="black" text>
+      <v-btn
+        v-if="sortToggle === 'desc'"
+        @click="SortToggleBtn()"
+        color="black"
+        text
+      >
         1화부터
+      </v-btn>
+      <v-btn
+        v-if="sortToggle === 'asc'"
+        @click="SortToggleBtn()"
+        color="black"
+        text
+      >
+        최신화부터
       </v-btn>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
@@ -38,42 +48,6 @@
         <v-divider :key="episode.id"></v-divider>
       </template>
     </v-list>
-    <!-- <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left"></th>
-            <th class="text-left">
-              에피소드
-            </th>
-            <th class="text-right">
-              등록일
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="episode in webtoon.episode"
-            :key="episode.id"
-            @click="useRouter(episode.id)"
-          >
-            <td>
-              <v-img
-                :src="episode.episodeThumbnailUrl"
-                width="150"
-                height="150"
-              />
-            </td>
-            <td>
-              {{ episode.episodeName }}
-            </td>
-            <td class="text-right">
-              {{ episode.updatedAt.slice(0, 10) }}
-            </td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table> -->
   </v-card>
 </template>
 
@@ -82,35 +56,56 @@ import axios from "axios";
 
 export default {
   name: "EpisodeList",
+  props: {
+    webtoon: Object,
+  },
   data() {
     return {
-      webtoon: [
-        // {
-        //   id: 0,
-        //   name: "helloWorld",
-        //   date: "2008.1.3",
-        //   thumbnail: require("../../img/nums/1.png"),
-        // },
-      ],
+      // 최신화,1화부터 변수
+      sortToggle: "desc",
     };
   },
   created() {
-    this.getEpisodeList();
+    // this.getEpisodeList();
   },
+  mounted() {},
   methods: {
-    // 날짜순 정렬
-    date_Order(a, b) {
-      var dateA = new Date(a["date"]).getTime();
-      var dateB = new Date(b["date"]).getTime();
+    // 최신화,1화부터 버튼
+    SortToggleBtn() {
+      if (this.sortToggle === "desc") {
+        this.sortToggle = "asc";
+      } else {
+        this.sortToggle = "desc";
+      }
 
-      return dateA < dateB ? 1 : -1;
+      axios
+        .get(
+          `http://localhost:5000/${this.$route.params.id}/episode?episodeOrder=${this.sortToggle}`,
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          this.webtoon = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    //화수 정렬
-    round_Order(a, b) {
-      return (
-        Number(a.round.match(/(\d+)/g)[0]) - Number(b.round.match(/(\d+)/g)[0])
-      );
-    },
+
+    // 날짜순 정렬
+    // date_Order(a, b) {
+    //   var dateA = new Date(a["date"]).getTime();
+    //   var dateB = new Date(b["date"]).getTime();
+
+    //   return dateA < dateB ? 1 : -1;
+    // },
+    // 화수 정렬
+    // round_Order(a, b) {
+    //   return (
+    //     Number(a.round.match(/(\d+)/g)[0]) - Number(b.round.match(/(\d+)/g)[0])
+    //   );
+    // },
     useRouter(index) {
       this.$router.push({
         name: "Episode",
@@ -124,17 +119,20 @@ export default {
       //data의 webtoon에 넣어야함...
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜? 등록날짜}
-      axios
-        .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
-          withCredentials: true,
-        })
-        .then((res) => {
-          this.webtoon = res.data;
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // axios
+      //   .get(
+      //     `http://localhost:5000/${this.$route.params.id}/episode?episodeOrder=asc/`,
+      //     {
+      //       withCredentials: true,
+      //     }
+      //   )
+      //   .then((res) => {
+      //     this.webtoon = res.data;
+      //     console.log(res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     },
   },
 };
