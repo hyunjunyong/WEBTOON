@@ -19,6 +19,12 @@
 
     <v-card-text>
       <v-list height="200px">
+        <v-btn class="ma-2" color="#388E3C" dark>
+          웹툰추가하기
+          <v-icon dark>
+            mdi-plus
+          </v-icon>
+        </v-btn>
         <template v-for="webtoon in webtoons" @click="useRouter(webtoon.id)">
           <v-list-item
             @click="useRouter(episode.id)"
@@ -41,7 +47,7 @@
               >
             </v-list-item-content>
           </v-list-item>
-          <v-divider :key="webtoon.id" :inset="inset"></v-divider>
+          <v-divider :key="webtoon.id"></v-divider>
         </template>
       </v-list>
       <!-- <v-simple-table>

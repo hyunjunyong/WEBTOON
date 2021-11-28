@@ -37,12 +37,9 @@
                 ></v-col
               >
               <v-col cols="5">
-                <v-text-field
-                  v-model="episodeOrder"
-                  label="에피소드 순서(숫자만 입력 해주세요!)"
-                  width="50px"
-                >
-                </v-text-field>
+                <v-card elevation="0" v-model="recentEpisodeOrder"
+                  >{{ recentEpisodeOrder + 1 }}화로 등록됩니다.
+                </v-card>
               </v-col>
             </v-row>
             <!-- 에피소드 명 작성 -->
@@ -206,7 +203,7 @@ export default {
         workId: this.$store.state.workId,
         episodeName: this.episodeName,
         episodeDescription: this.episodeDescription,
-        episodeOrder: this.episodeOrder,
+        episodeOrder: this.recentEpisodeOrder + 1,
       };
 
       if (this.userInfo.userType == "author") {

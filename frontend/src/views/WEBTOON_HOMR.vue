@@ -7,7 +7,7 @@
   -->
   <v-container>
     <v-row justify="center">
-      <v-col cols="12">
+      <v-col cols="8">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
         <WriterWebtoonIntro :webtoonId="$route.params.id" />
@@ -23,27 +23,28 @@
         <EpisodeList :webtoon="webtoon" />
       </v-col>
       <v-col cols="2">
-        <v-row class="justify-end">
-          <v-col align="center">
-            <v-img
-              :src="webtoon.user.authorAvatar"
-              alt=""
-              style="border-radius:10%"
-              max-width="200px"
-              max-height="200px"
-            />
-          </v-col>
-        </v-row>
+        <v-card @click="useRouter(webtoon.user.id)" elevation="0">
+          <v-row class="justify-end">
+            <v-col align="center">
+              <v-img
+                :src="webtoon.user.authorAvatar"
+                alt=""
+                style="border-radius:10%"
+                max-width="200px"
+                max-height="200px"
+              />
+            </v-col>
+          </v-row>
 
-        <v-row>
-          <v-col class="pa-0">
-            <v-card elevation="0" class="mb-3">
-              <v-card-title>{{ webtoon.user.authorName }}</v-card-title>
-              <v-card-text>{{ webtoon.user.authorDescription }}</v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-
+          <v-row>
+            <v-col class="pa-0">
+              <v-card elevation="0" class="mb-3">
+                <v-card-title>{{ webtoon.user.authorName }}</v-card-title>
+                <v-card-text>{{ webtoon.user.authorDescription }}</v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-card>
         <!-- 작가 프로필 -->
         <!-- <Writerprofile/> -->
       </v-col>
@@ -79,7 +80,16 @@ export default {
         console.log(err);
       });
   },
-  methods: {},
+  methods: {
+    useRouter(index) {
+      this.$router.push({
+        name: "WRITER_Home",
+        params: {
+          id: index,
+        },
+      });
+    },
+  },
   components: {
     WriterWebtoonIntro,
     // Writerprofile,

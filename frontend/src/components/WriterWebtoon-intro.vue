@@ -2,7 +2,7 @@
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
     <v-row justify="center">
-      <v-col cols="3">
+      <v-col cols="3" class="mr-10">
         <v-row>
           <v-col>
             <h2>{{ webtoon.title }}</h2>
@@ -16,7 +16,10 @@
                 <div class="grey--text">
                   {{ webtoon.genreType[0].genre.name }}
                 </div>
-                <div class="grey--text">{{ webtoon.user.authorName }}</div>
+
+                <div @click="useRouter(webtoon.user.id)" class="grey--text">
+                  {{ webtoon.user.authorName }}
+                </div>
               </v-col>
               <v-col>
                 <v-chip outlined color="primary" @click="like">
@@ -34,11 +37,11 @@
         </v-row>
       </v-col>
 
-      <v-col cols="5">
+      <v-col cols="8">
         <v-img
           :src="webtoon.workThumbnail"
-          max-height="200px"
-          max-width="auto"
+          max-height="300px"
+          max-width="720px"
           style="border-radius:10px"
         />
       </v-col>
@@ -67,9 +70,15 @@ export default {
     },
   },
   methods: {
-    increment() {
-      this.$store.commit("increment");
+    useRouter(index) {
+      this.$router.push({
+        name: "WRITER_Home",
+        params: {
+          id: index,
+        },
+      });
     },
+
     like() {
       axios
         .post(

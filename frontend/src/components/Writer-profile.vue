@@ -3,7 +3,7 @@
   <v-row class="justify-end">
     <v-col align="center" cols="2">
       <v-img
-        src="../img/webtoon/04. 물고기인간(출판형)/01_01.png"
+        :src="writerHomeInfo.authorAvatar"
         alt=""
         style="border-radius:70%"
         max-width="160px"
@@ -12,8 +12,8 @@
     </v-col>
     <v-col cols="10">
       <v-card elevation="0" class="mb-3">
-        <v-card-title>작가 A</v-card-title>
-        <v-card-text>작가 한줄 소개</v-card-text>
+        <v-card-title>{{ writerHomeInfo.authorName }}</v-card-title>
+        <v-card-text>{{ writerHomeInfo.authorDescription }}</v-card-text>
       </v-card>
     </v-col>
   </v-row>
@@ -26,6 +26,9 @@ export default {
   name: "Writer_profile",
   components: {
     // Modal,
+  },
+  props: {
+    writerHomeInfo: Object,
   },
   data() {
     return {
