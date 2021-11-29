@@ -8,7 +8,6 @@
             <h2>{{ webtoon.title }}</h2>
           </v-col>
         </v-row>
-
         <v-row>
           <v-card elevation="0" height="90px">
             <v-row>
@@ -56,12 +55,15 @@ export default {
   name: "WriterWebtoon_intro",
   props: {
     // webtoonId : 부모 컴포넌트에서 받아온 작가 아이디
-    webtoonId: String,
+    webtoonId: null,
   },
   data() {
     return {
       likes: 0,
-      webtoon: [],
+      webtoon: {
+        genreType: Array,
+        user: null,
+      },
     };
   },
   computed: {
@@ -118,6 +120,16 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+  },
+  created() {
+    this.webtoon.genreType[0] = {
+      genre: {
+        name: null,
+      },
+    };
+    this.webtoon.user = {
+      AuthorName: null,
+    };
     axios
       .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
         withCredentials: true,

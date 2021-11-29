@@ -136,18 +136,20 @@
 </template>
 
 <script>
-import Webtoonimage from '../../components/Webtoon-image';
+import Webtoonimage from "../../components/Webtoon-image";
 // import Reject_reason from "../../components/reject-reason.vue";
-import axios from 'axios';
-import router from '../../router/index';
+import axios from "axios";
+import router from "../../router/index";
 export default {
-  name: 'VIEWER',
+  name: "VIEWER",
 
-  data: () => ({
-    writer_Status: {},
-    reason: null,
-    data: null,
-  }),
+  data() {
+    return {
+      writer_Status: {},
+      reason: null,
+      data: null,
+    };
+  },
   created() {
     axios
       .get(
@@ -172,9 +174,9 @@ export default {
 
       axios
         .patch(
-          'http://localhost:5000/admin/applications',
+          "http://localhost:5000/admin/applications",
           {
-            status: 'approved',
+            status: "approved",
             applicationId,
             userId: this.writer_Status.userAppliedWork.userId,
           },
@@ -184,8 +186,8 @@ export default {
         )
         .then((res) => {
           console.log(res.data);
-          alert('승인되었습니다.');
-          router.push('/');
+          alert("승인되었습니다.");
+          router.push("/");
         })
         .catch((err) => {
           console.log(err.message);
@@ -194,9 +196,9 @@ export default {
     rejectEpisode() {
       axios
         .patch(
-          'http://localhost:5000/admin/applications',
+          "http://localhost:5000/admin/applications",
           {
-            status: 'declined',
+            status: "declined",
             applicationId: this.writer_Status.applicationId,
             userId: this.writer_Status.userAppliedWork.userId,
             reason: this.reason,
@@ -206,8 +208,8 @@ export default {
           }
         )
         .then((res) => {
-          alert('반려되었습니다.');
-          router.push('/');
+          alert("반려되었습니다.");
+          router.push("/");
           console.log(res);
         });
     },

@@ -10,7 +10,7 @@
       <v-col cols="8">
         <!-- 작품 설명 -->
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
-        <WriterWebtoonIntro :webtoonId="$route.params.id" />
+        <WriterWebtoonIntro :webtoonId="webtoonId" />
       </v-col>
     </v-row>
 
@@ -20,7 +20,7 @@
         <!-- url : 썸네일 이미지, round : 에피소드 이름, date : 날짜 -->
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <!-- <webtoonround :webtoon_round_State="0" :webtoons="webtoons" /> -->
-        <EpisodeList :webtoon="webtoon" />
+        <EpisodeList :webtoon="webtoon.episode" />
       </v-col>
       <v-col cols="2">
         <v-card @click="useRouter(webtoon.user.id)" elevation="0">
@@ -63,18 +63,32 @@ export default {
   name: "WEBTOON_Home",
   data() {
     return {
-      webtoon: null,
+      webtoon: {
+        id: null,
+        title: null,
+        user: {
+          authorAvatar: null,
+          authorDescription: null,
+          authorauthorName: null,
+          id: null,
+        },
+        userId: null,
+        workDescription: null,
+        workThumbnail: null,
+      },
+      webtoonId: String,
     };
   },
-  mounted() {
+  created() {
     // ?episodeOrder=desc
+    this.webtoonId = this.$route.params.id;
     axios
       .get(`http://localhost:5000/${this.$route.params.id}/episode`, {
         withCredentials: true,
       })
       .then((res) => {
         this.webtoon = res.data;
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
