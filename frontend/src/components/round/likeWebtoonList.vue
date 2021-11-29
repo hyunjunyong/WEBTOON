@@ -1,0 +1,139 @@
+<template>
+  <!-- 
+    내가 찜한 작픔를 보는 컴포넌트
+    자신의 코맨트를 적을 수 있어야함
+    코맨트를 적는 부분을 단순하게 text-area 라고 하면 안되고 수정하는 버튼이 있어야 한다고 생각됨
+
+    지금은 modal창에 뜨도록 할 예정
+ -->
+
+  <v-card elevation="0" class="overflow-y-auto" height="700">
+    <v-banner class="white" sticky>
+      <v-card class="d-flex justify-end">
+        <v-btn @click="writer.sort(title_Order)" text>
+          제목순
+        </v-btn>
+        <v-btn @click="writer.sort(date_Order)" text>
+          업데이트순
+        </v-btn>
+      </v-card>
+    </v-banner>
+
+    <v-list>
+      <template v-for="writer in writers">
+        <v-list-item @click="useRouter(writer.id)" :key="writer.id">
+          <v-list-item-avatar
+            style="border-radius:10px"
+            width="200px"
+            height="150px"
+          >
+            <v-img :src="writer.profile" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>
+              <h3>{{ writer.name }} | {{ writer.description }}</h3>
+            </v-list-item-title>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-dialog v-model="dialog" width="auto">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  cols="1"
+                  dark
+                  small
+                  right
+                  color="primary"
+                  height="150"
+                  v-bind="attrs"
+                  v-on="on"
+                  >삭제</v-btn
+                >
+              </template>
+
+              <v-card>
+                <v-card-title class="text-h6 grey lighten-2">
+                  관심 작품 목록에서 삭제 하시겠습니까?
+                </v-card-title>
+                <v-divider />
+                <v-spacer></v-spacer>
+                <v-btn block color="primary" text @click="dialog = false">
+                  확인
+                </v-btn>
+              </v-card>
+            </v-dialog>
+          </v-list-item-action>
+        </v-list-item>
+        <v-divider :key="`Divider_` + writer.id"></v-divider>
+      </template>
+    </v-list>
+  </v-card>
+</template>
+
+<script>
+// import axios from 'axios';
+
+export default {
+  props: {
+    webtoonInfo: Array,
+  },
+  data() {
+    return {
+      // dialog: false,
+      writers: [
+        {
+          id: 1,
+          name: '작품1',
+          profile: require('../../img/nums/1.png'),
+          description: 'html is not programming language1',
+        },
+        {
+          id: 2,
+          name: '작품2',
+          profile: require('../../img/nums/2.png'),
+          description: 'html is not programming language2',
+        },
+        {
+          id: 3,
+          name: '작품3',
+          profile: require('../../img/nums/3.png'),
+          description: 'html is not programming language3',
+        },
+      ],
+    };
+  },
+  methods: {
+    title_Order(a, b) {
+      return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
+    },
+    date_Order(a, b) {
+      var dateA = new Date(a['date']).getTime();
+      var dateB = new Date(b['date']).getTime();
+      return dateA < dateB ? 1 : -1;
+    },
+    useRouter(index) {
+      this.$router.push({
+        name: 'Webtoon',
+        params: {
+          id: index,
+        },
+      });
+    },
+    /*   getWriterList() {
+      //내가 찜한 작가 리스트를 받아서
+      //data의 writers 넣어야함...
+      //던져줄 데이터는 나의 id
+      //받는 데이터는 {작가id, 작가 이름, 내가 적은 코맨트}
+      axios
+        .get('http://localhost:5000/', {}, { withCredentials: true })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, */
+  },
+};
+</script>

@@ -48,7 +48,7 @@
 // import axios from "axios";
 
 export default {
-  name: "webtoonList",
+  name: 'webtoonList',
   props: {
     writerHomeInfo: Object,
   },
@@ -57,9 +57,9 @@ export default {
       webtoons: [
         {
           id: 1,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
+          name: 'helloWorld',
+          date: '2008.1.3',
+          thumbnail: require('../../img/nums/1.png'),
         },
       ],
     };
@@ -70,13 +70,13 @@ export default {
       return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
     },
     date_Order(a, b) {
-      var dateA = new Date(a["date"]).getTime();
-      var dateB = new Date(b["date"]).getTime();
+      var dateA = new Date(a['date']).getTime();
+      var dateB = new Date(b['date']).getTime();
       return dateA < dateB ? 1 : -1;
     },
     useRouter(index) {
       this.$router.push({
-        name: "WEBTOON_HOMR",
+        name: 'WEBTOON_HOMR',
         params: {
           id: index,
         },

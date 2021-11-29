@@ -50,8 +50,7 @@
               </v-btn>
             </router-link>
           </p>
-
-          <v-menu v-if="isLogin" min-width="350px" rounded offset-y>
+          <v-menu v-if="isLogin" min-width="200px" tile rounded offset-y>
             <template v-slot:activator="{ on }">
               <v-btn icon x-large v-on="on" class="ma-2">
                 <v-avatar color="primary" size="40">
@@ -81,9 +80,9 @@
                     to="/apply/writer"
                     v-if="userInfo.userType == 'user'"
                   >
-                    <v-btn depressed rounded text>
-                      작가 신청 하기
-                    </v-btn>
+                    <v-list-item-title>
+                      작가 신청
+                    </v-list-item-title>
                   </router-link>
 
                   <!--
@@ -99,9 +98,9 @@
                     to="/writer_home_writer"
                     v-if="userInfo.userType == 'author'"
                   >
-                    <v-btn depressed rounded text>
+                    <v-list-item-title>
                       작가 홈
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider
@@ -114,9 +113,9 @@
                     to="/add/webtoon/"
                     v-if="userInfo.userType == 'author'"
                   >
-                    <v-btn depressed rounded text>
+                    <v-list-item-title>
                       작품 등록
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider
@@ -129,9 +128,9 @@
                     to="/add/episode/"
                     v-if="userInfo.userType == 'author'"
                   >
-                    <v-btn depressed rounded text>
+                    <v-list-item-title>
                       에피소드 등록
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider
@@ -144,9 +143,9 @@
                     to="/register_state"
                     v-if="userInfo.userType == 'author'"
                   >
-                    <v-btn depressed rounded text>
-                      등록 작품 상태
-                    </v-btn>
+                    <v-list-item-title>
+                      등록작품 상태
+                    </v-list-item-title>
                   </router-link>
 
                   <!-- 
@@ -163,9 +162,9 @@
                     style="text-decoration:none"
                     v-if="userInfo.userType == 'admin'"
                   >
-                    <v-btn depressed rounded text>
+                    <v-list-item-title>
                       관리자 홈
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider
@@ -178,14 +177,14 @@
                     to="/Notice_list"
                     v-if="userInfo.userType == 'admin'"
                   >
-                    <v-btn
+                    <v-list-item-title
                       depressed
                       rounded
                       text
                       v-if="userInfo.userType == 'admin'"
                     >
                       작품 승인 요청
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider
@@ -198,14 +197,14 @@
                     to="/Notice_list"
                     v-if="userInfo.userType == 'admin'"
                   >
-                    <v-btn
+                    <v-list-item-title
                       depressed
                       rounded
                       text
                       v-if="userInfo.userType == 'admin'"
                     >
                       공지
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider
@@ -218,17 +217,17 @@
                     to="/"
                     v-if="userInfo.userType == 'admin'"
                   >
-                    <v-btn depressed rounded text>
+                    <v-list-item-title>
                       작가 승인
-                    </v-btn>
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider class="my-3"></v-divider>
 
                   <router-link style="text-decoration:none" to="/like_list">
-                    <v-btn depressed rounded text>
-                      찜한 작품 목록보기
-                    </v-btn>
+                    <v-list-item-title>
+                      찜한 작품
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider class="my-3"></v-divider>
@@ -237,16 +236,22 @@
                     style="text-decoration:none"
                     to="/personal_information"
                   >
-                    <v-btn depressed rounded text>
-                      회원 정보 변경
-                    </v-btn>
+                    <v-list-item-title>
+                      정보 변경
+                    </v-list-item-title>
                   </router-link>
 
                   <v-divider class="my-3"></v-divider>
 
-                  <v-btn depressed rounded text @click="signout">
+                  <v-list-item-title
+                    depressed
+                    rounded
+                    text
+                    color="grey"
+                    @click="signout"
+                  >
                     로그아웃
-                  </v-btn>
+                  </v-list-item-title>
                 </div>
               </v-list-item-content>
             </v-card>
@@ -272,20 +277,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       dialog: false,
     };
   },
   methods: {
-    ...mapActions(["signout", "signout"]),
+    ...mapActions(['signout', 'signout']),
   },
   computed: {
-    ...mapState(["isLogin", "userInfo"]),
+    ...mapState(['isLogin', 'userInfo']),
   },
 };
 </script>
