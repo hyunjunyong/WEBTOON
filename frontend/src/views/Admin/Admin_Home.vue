@@ -34,6 +34,9 @@
                     :items-per-page="5"
                     @click:row="detailPosting"
                   >
+                    <template v-slot:item.createdAt="{ item }">
+                      {{ item.createdAt.slice(0, 10) }}
+                    </template>
                   </v-data-table>
                 </v-card>
               </v-col>
@@ -81,6 +84,9 @@
                   :items-per-page="5"
                   @click:row="addDetailPosting"
                 >
+                  <template v-slot:item.createdAt="{ item }">
+                    {{ item.createdAt.slice(0, 10) }}
+                  </template>
                 </v-data-table>
               </v-card>
             </v-col>
@@ -92,13 +98,13 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'Home',
+  name: "Home",
   data() {
     return {
-      search: '',
+      search: "",
       // list: this.$store.state.writer_Status.filter(
       //   (e) => e.status == "pending"
       // ),
@@ -106,32 +112,32 @@ export default {
       appliedEpisodeList: [],
       writerHeaders: [
         {
-          text: '작가명',
-          align: 'start',
+          text: "작가명",
+          align: "start",
           sortable: false,
-          value: 'authorName',
+          value: "authorName",
         },
-        { text: '날짜', value: 'createdAt' },
-        { text: '상태', value: 'status' },
+        { text: "날짜", value: "createdAt" },
+        { text: "상태", value: "status" },
       ],
       episodeHeaders: [
         {
-          text: '작가명',
-          align: 'start',
+          text: "작가명",
+          align: "start",
           sortable: false,
-          value: 'user.authorName',
+          value: "user.authorName",
         },
-        { text: '작품명', value: 'title' },
-        { text: '에피소드명', value: 'episode[0].episodeName' },
-        { text: '날짜', value: 'createdAt' },
-        { text: '상태', value: 'episode[0].episodeStatus' },
+        { text: "작품명", value: "title" },
+        { text: "에피소드명", value: "episode[0].episodeName" },
+        { text: "날짜", value: "createdAt" },
+        { text: "상태", value: "episode[0].episodeStatus" },
       ],
     };
   },
-  mounted() {
+  created() {
     //작가 승인 데이터 받는 곳
     axios
-      .get('http://localhost:5000/admin/applications', {
+      .get("http://localhost:5000/admin/applications", {
         withCredentials: true,
       })
       .then((res) => {
@@ -144,7 +150,7 @@ export default {
       });
     // 에피소드 승인 데이터 받는 곳
     axios
-      .get('http://localhost:5000/admin/episodes', {
+      .get("http://localhost:5000/admin/episodes", {
         withCredentials: true,
       })
       .then((res) => {
@@ -159,14 +165,14 @@ export default {
     detailPosting(application) {
       //  console.log(application);
       this.$router.push({
-        name: 'APPLY_WEBTOON_DETAIL',
+        name: "APPLY_WEBTOON_DETAIL",
         params: { id: application.id },
       });
     },
     addDetailPosting(appliedEpisode) {
       console.log(appliedEpisode);
       this.$router.push({
-        name: 'APPLY_ADD_WEBTOON_DETAIL',
+        name: "APPLY_ADD_WEBTOON_DETAIL",
         params: { id: appliedEpisode.episode[0].id },
       });
     },
