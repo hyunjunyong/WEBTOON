@@ -33,13 +33,14 @@
           <!-- 
           webtoon 배열의 값을 보냄
           한줄에 4개의 썸네일을 만듬
+          
           h는 높이
+
          -->
           <TestThumbnail
             :webtoonState="3"
             :webtoon="webtoonThumbnails"
             :h="350"
-            :limited="3"
           />
 
           <!-- <Thumbnail :webtoon="n" /> -->
@@ -65,7 +66,6 @@
          -->
           <TestThumbnail
             :webtoonState="4"
-            :limited="4"
             :webtoon="webtoonThumbnails"
             :h="220"
           />
@@ -91,7 +91,6 @@
          -->
           <TestThumbnail
             :webtoonState="4"
-            :limited="4"
             :webtoon="webtoonThumbnails"
             :h="180"
           />
@@ -127,7 +126,6 @@ export default {
           src: require("../img/신규가입.png"),
         },
       ],
-      webtoon: [],
     };
   },
   computed: {
