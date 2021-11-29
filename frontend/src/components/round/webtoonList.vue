@@ -38,7 +38,7 @@
             }}</v-list-item-subtitle> -->
           </v-list-item-content>
         </v-list-item>
-        <v-divider :key="webtoon.id"></v-divider>
+        <v-divider :key="`Divider_` + webtoon.id"></v-divider>
       </template>
     </v-list>
   </v-card>

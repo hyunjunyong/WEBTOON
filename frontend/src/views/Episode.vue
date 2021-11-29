@@ -28,7 +28,10 @@ export default {
   },
   data() {
     return {
-      episodeImages: null,
+      episodeImages: {
+        count: null,
+        episodeImages: Array,
+      },
     };
   },
   created() {
@@ -44,7 +47,6 @@ export default {
         .get(`http://localhost:5000/episode/${this.$route.params.id}`)
         .then((res) => {
           this.episodeImages = res.data;
-          console.log(this.episodeImages);
         })
         .catch((err) => {
           console.log(err);

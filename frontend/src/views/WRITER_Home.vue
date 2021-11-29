@@ -34,7 +34,13 @@ export default {
   name: "WRITER_Home",
   data() {
     return {
-      writerHomeInfo: "",
+      writerHomeInfo: {
+        id: null,
+        authorAvatar: null,
+        authorDescription: null,
+        authorName: null,
+        work: Array,
+      },
     };
   },
   components: {
@@ -47,7 +53,7 @@ export default {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res);
+        //console.log(res.data);
         this.writerHomeInfo = res.data;
       })
       .catch((err) => {

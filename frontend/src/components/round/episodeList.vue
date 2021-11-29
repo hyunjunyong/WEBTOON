@@ -25,7 +25,6 @@
 
     <v-list>
       <template v-for="episode in webtoon">
-        {{ episode }}
         <v-list-item @click="useRouter(episode.id)" :key="episode.id">
           <v-list-item-avatar
             style="border-radius:10px"
@@ -45,9 +44,8 @@
               episode.updatedAt.slice(0, 10)
             }}</v-list-item-subtitle>
           </v-list-item-content>
-
-          <v-divider></v-divider>
         </v-list-item>
+        <v-divider :key="`Divider_` + episode.id"></v-divider>
       </template>
     </v-list>
   </v-card>

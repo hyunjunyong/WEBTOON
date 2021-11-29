@@ -23,7 +23,7 @@
     ></v-img> -->
     <v-img
       v-for="index in writer_Status.episodeImages"
-      :key="index"
+      :key="index.id"
       :src="index.imageUrl"
       alt=""
     />

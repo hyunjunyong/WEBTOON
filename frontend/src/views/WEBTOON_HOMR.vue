@@ -88,7 +88,6 @@ export default {
       })
       .then((res) => {
         this.webtoon = res.data;
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
