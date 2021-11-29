@@ -3,18 +3,17 @@
     <!-- <v-app-bar height="80px" app color="white" elevation="0"> -->
     <template>
       <v-row justify="center" no-gutters>
-        <v-col cols="1" class="mt-3">
+        <v-col cols="1" class="mt-2">
           <router-link to="/" style="text-decoration:none" center>
-            <v-icon x-large color="primary" ma="10"> mdi-heart </v-icon>
+            <!-- <v-icon x-large color="primary" ma="10"> mdi-heart </v-icon> -->
+            <v-img src="../img/logo.png" height="60px" contain></v-img>
           </router-link>
         </v-col>
 
         <!-- 화면 이동용 라우터 -->
-        <v-col cols="3" class="mt-5">
+        <v-col cols="3" class="ma-5">
           <router-link to="/total" style="text-decoration:none">
-            <strong class="router-text d-none d-sm-flex"
-              >전체만화</strong
-            ></router-link
+            <strong class="router-text">전체만화</strong></router-link
           >
         </v-col>
 
@@ -183,42 +182,7 @@
                       text
                       v-if="userInfo.userType == 'admin'"
                     >
-                      작품 승인 요청
-                    </v-list-item-title>
-                  </router-link>
-
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'admin'"
-                  ></v-divider>
-
-                  <router-link
-                    style="text-decoration:none"
-                    to="/Notice_list"
-                    v-if="userInfo.userType == 'admin'"
-                  >
-                    <v-list-item-title
-                      depressed
-                      rounded
-                      text
-                      v-if="userInfo.userType == 'admin'"
-                    >
                       공지
-                    </v-list-item-title>
-                  </router-link>
-
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'admin'"
-                  ></v-divider>
-
-                  <router-link
-                    style="text-decoration:none"
-                    to="/"
-                    v-if="userInfo.userType == 'admin'"
-                  >
-                    <v-list-item-title>
-                      작가 승인
                     </v-list-item-title>
                   </router-link>
 
@@ -243,13 +207,7 @@
 
                   <v-divider class="my-3"></v-divider>
 
-                  <v-list-item-title
-                    depressed
-                    rounded
-                    text
-                    color="grey"
-                    @click="signout"
-                  >
+                  <v-list-item-title @click="signout">
                     로그아웃
                   </v-list-item-title>
                 </div>
