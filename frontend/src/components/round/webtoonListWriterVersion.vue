@@ -19,67 +19,34 @@
 
     <v-card-text>
       <v-list height="200px">
-        <v-btn class="ma-2" color="#388E3C" dark>
+        <v-btn class="ma-2" color="#388E3C" dark block height="50px">
           웹툰추가하기
           <v-icon dark>
             mdi-plus
           </v-icon>
         </v-btn>
         <template v-for="webtoon in webtoons" @click="useRouter(webtoon.id)">
-          <v-list-item
-            @click="useRouter(episode.id)"
-            :key="webtoon.id"
-            height="100px"
-          >
+          <v-list-item :key="webtoon.id" height="100px">
             <v-list-item-avatar
               width="200px"
               height="100px"
               style="border-radius:5px"
             >
-              <v-img :src="webtoon.thumbnail" style="border-radius:10px" />
+              <v-img :src="webtoon.workThumbnail" style="border-radius:10px" />
             </v-list-item-avatar>
 
             <v-list-item-content>
               <v-list-item-title
                 ><h3>
-                  {{ webtoon.name }}
+                  {{ webtoon.title }}
                 </h3></v-list-item-title
               >
+              <v-list-sub-title>{{ webtoon.workDescription }}</v-list-sub-title>
             </v-list-item-content>
           </v-list-item>
           <v-divider :key="webtoon.id"></v-divider>
         </template>
       </v-list>
-      <!-- <v-simple-table>
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th class="text-left">
-                이미지
-              </th>
-              <th class="text-left">
-                작품명
-              </th>
-              <th class="text-right">
-                등록일
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="webtoon in webtoons"
-              :key="webtoon.id"
-              @click="useRouter(webtoon.id)"
-            >
-              <td>
-                <v-img :src="webtoon.thumbnail" width="50" height="50" />
-              </td>
-              <td>{{ webtoon.name }}</td>
-              <td class="text-right">{{ webtoon.date }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table> -->
     </v-card-text>
   </v-card>
 </template>
@@ -90,16 +57,10 @@ import axios from "axios";
 export default {
   name: "webtoonList",
   data() {
-    return {
-      webtoons: [
-        {
-          id: 1,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
-        },
-      ],
-    };
+    return {};
+  },
+  props: {
+    webtoons: Object,
   },
   methods: {
     useRouter(index) {

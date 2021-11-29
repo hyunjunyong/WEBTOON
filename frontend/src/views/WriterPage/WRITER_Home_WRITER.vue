@@ -17,7 +17,7 @@
         <v-row class="justify-end">
           <v-col align="center" cols="2">
             <v-img
-              src="../../img/webtoon/04. 물고기인간(출판형)/01_01.png"
+              :src="webtoons[0].user.authorAvatar"
               alt=""
               style="border-radius:10px"
               max-width="160px"
@@ -26,8 +26,10 @@
           </v-col>
           <v-col cols="10">
             <v-card elevation="0" class="mb-3">
-              <v-card-title>작가 A</v-card-title>
-              <v-card-text>작가 한줄 소개</v-card-text>
+              <v-card-title>{{ webtoons[0].user.authorName }}</v-card-title>
+              <v-card-text>{{
+                webtoons[0].user.authorDescription
+              }}</v-card-text>
             </v-card>
 
             <Modal :modalState="5" />
@@ -40,7 +42,7 @@
       <v-col cols="8">
         <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
         <!-- <webtoonround :webtoon_round_State="1" :webtoons="webtoons" /> -->
-        <WebtoonListWriterVersion />
+        <WebtoonListWriterVersion :webtoons="webtoons" />
       </v-col>
     </v-row>
   </v-container>
@@ -51,6 +53,8 @@
 //import webtoonround from "../../components/webtoon-round.vue";
 import WebtoonListWriterVersion from "../../components/round/webtoonListWriterVersion.vue";
 import Modal from "../../components/modal.vue";
+import axios from "axios";
+
 export default {
   name: "WRITER_Home",
   data() {
@@ -63,6 +67,16 @@ export default {
     //webtoonround,
     WebtoonListWriterVersion,
     Modal,
+  },
+  mounted() {
+    axios
+      .get("http://localhost:5000/writer/work", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.webtoons = res.data;
+        console.log(res);
+      });
   },
 };
 </script>
