@@ -1,27 +1,27 @@
 <template>
   <!-- 작가가 자신의 작품 등록 상태를 보는 화면 -->
-  <v-card elevation="0">
+  <v-container>
     <v-row justify="center">
-      <v-col cols="8">
-        <v-card class="mb-5 pa-2" height="60" elevation="0">
-          <v-card-title>
-            작품 등록 상태
+      <v-col cols="8" class="ma-2">
+        <v-card elevation="0">
+          <v-card-title class="text-h5 font-weight-bold">
+            등록 작품 상태
           </v-card-title>
-        </v-card>
 
-        <Admin />
+          <RegisterWebtoon />
+        </v-card>
       </v-col>
     </v-row>
-  </v-card>
+  </v-container>
 </template>
 
 <script>
-import Admin from '../../components/round/admin.vue';
+import RegisterWebtoon from '../../components/round/registerWebtoon.vue';
 
 export default {
   name: '',
   components: {
-    Admin,
+    RegisterWebtoon,
   },
   data() {
     return {};
