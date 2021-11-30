@@ -51,7 +51,7 @@
         <v-col cols="8" class="mb-3">
           <v-card elevation="0">
             <v-card-title class="text-h5 font-weight-bold">
-              신작 웹툰
+              추천 웹툰
             </v-card-title>
           </v-card>
         </v-col>
@@ -101,11 +101,11 @@
 </template>
 
 <script>
-import TestThumbnail from "../components/TestThumbnail";
-import { mapGetters } from "vuex";
+import TestThumbnail from '../components/TestThumbnail';
+import { mapGetters } from 'vuex';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     TestThumbnail,
   },
@@ -114,22 +114,22 @@ export default {
       items: [
         {
           src:
-            "http://images.battlecomics.co.kr/web_home_banner/526/banner-bannerid_526-w_1900-h_420-t_20211112180952.jpg",
+            'http://images.battlecomics.co.kr/web_home_banner/526/banner-bannerid_526-w_1900-h_420-t_20211112180952.jpg',
         },
         {
-          src: require("../img/santa.png"),
+          src: require('../img/santa.png'),
         },
         {
-          src: require("../img/봄툰출첵.png"),
+          src: require('../img/봄툰출첵.png'),
         },
         {
-          src: require("../img/신규가입.png"),
+          src: require('../img/신규가입.png'),
         },
       ],
     };
   },
   computed: {
-    ...mapGetters({ webtoonThumbnails: "getWebtoonThumbnails" }),
+    ...mapGetters({ webtoonThumbnails: 'getWebtoonThumbnails' }),
   },
 };
 </script>

@@ -2,8 +2,8 @@
   <v-app-bar height="80px" app color="white" elevation="0" hide-on-scroll>
     <!-- <v-app-bar height="80px" app color="white" elevation="0"> -->
     <template>
-      <v-row justify="center" no-gutters>
-        <v-col cols="1" class="mt-2">
+      <v-row justify="center" align="center" height="80px">
+        <v-col cols="1">
           <router-link to="/" style="text-decoration:none" center>
             <!-- <v-icon x-large color="primary" ma="10"> mdi-heart </v-icon> -->
             <v-img src="../img/logo.png" height="60px" contain></v-img>
@@ -11,7 +11,7 @@
         </v-col>
 
         <!-- 화면 이동용 라우터 -->
-        <v-col cols="3" class="ma-5">
+        <v-col cols="3">
           <router-link to="/total" style="text-decoration:none">
             <strong class="router-text">전체만화</strong></router-link
           >
@@ -20,7 +20,7 @@
         <!-- 검색창 -->
         <v-col cols="2">
           <v-btn
-            class="primary--text mt-3 d-flex d-sm-none"
+            class="primary--text d-flex d-sm-none"
             icon
             @click="dialog = !dialog"
           >
@@ -36,13 +36,13 @@
             label="작품/작가 검색"
             prepend-inner-icon="mdi-magnify"
             color="primary"
-            class="mt-4 d-none d-sm-flex"
+            class="d-none d-sm-flex mt-7"
           ></v-text-field>
         </v-col>
 
         <!-- 로그인 버튼 -->
         <v-col cols="1">
-          <p class="ma-4" v-if="!isLogin">
+          <p v-if="!isLogin">
             <router-link to="/login" style="text-decoration:none">
               <v-btn depressed color="primary" outlined rounded>
                 <span class="primary--text font-weight-bold">로그인</span>
@@ -51,7 +51,7 @@
           </p>
           <v-menu v-if="isLogin" min-width="200px" tile rounded offset-y>
             <template v-slot:activator="{ on }">
-              <v-btn icon x-large v-on="on" class="ma-2">
+              <v-btn icon x-large v-on="on">
                 <v-avatar color="primary" size="40">
                   <v-icon dark>
                     mdi-account-circle
@@ -207,9 +207,11 @@
 
                   <v-divider class="my-3"></v-divider>
 
-                  <v-list-item-title @click="signout">
-                    로그아웃
-                  </v-list-item-title>
+                  <router-link style="text-decoration:none" to="*">
+                    <v-list-item-title @click="signout">
+                      로그아웃
+                    </v-list-item-title>
+                  </router-link>
                 </div>
               </v-list-item-content>
             </v-card>

@@ -7,7 +7,7 @@
     <v-banner class="justify-center white text-end" sticky>
       <router-link style="text-decoration:none" to="/add/episode">
         <v-btn class="ma-2" color="#388E3C" dark>
-          웹툰추가하기
+          에피소드 추가
           <v-icon dark>
             mdi-plus
           </v-icon>
@@ -44,84 +44,39 @@
         <v-divider :key="episode.id"></v-divider>
       </template>
     </v-list>
-    <!-- <v-card-text>
-      <v-simple-table>
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th class="text-left"></th>
-              <th class="text-left">
-                썸네일
-              </th>
-              <th class="text-left">
-                작품
-              </th>
-              <th class="text-right">
-                등록일
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(toon, index) in webtoons" :key="index">
-              <td>
-                <v-btn dark small color="green" width="50" height="50">
-                  <v-icon dark>mdi-pencil</v-icon></v-btn
-                >
-              </td>
-              <td>
-                <router-link to="/webtoon_home_writer"
-                  ><v-img :src="toon.url" width="50" height="50"
-                /></router-link>
-              </td>
-              <td>
-                <router-link
-                  to="/webtoon_home_writer"
-                  style="text-decoration: none; color: inherit;"
-                  >{{ toon.round }}
-                </router-link>
-              </td>
-              <td>
-                <router-link
-                  to="/webtoon_home_writer"
-                  style="text-decoration: none; color: inherit;"
-                  >{{ toon.date }}</router-link
-                >
-              </td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table>
-    </v-card-text> -->
   </v-card>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "episodeList",
+  name: 'episodeList',
   data() {
     return {
       webtoons: [
         {
           id: 1,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
+          name: 'helloWorld',
+          date: '2008.1.3',
+          thumbnail: require('../../img/nums/1.png'),
         },
         {
           id: 2,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/2.png"),
+          name: 'helloWorld',
+          date: '2008.1.3',
+          thumbnail: require('../../img/nums/2.png'),
         },
       ],
     };
   },
+  props: {
+    episodes: Object,
+  },
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "Episode",
+        name: 'Episode',
         params: {
           id: index,
         },
@@ -133,7 +88,7 @@ export default {
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜}
       axios
-        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .get('http://localhost:5000/', {}, { withCredentials: true })
         .then((res) => {
           console.log(res);
         })
