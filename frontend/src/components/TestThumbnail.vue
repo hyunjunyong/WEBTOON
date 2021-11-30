@@ -17,7 +17,7 @@
             :height="h"
             :src="i.workThumbnail"
             class="radius"
-            width="300px"
+            width="200px"
           />
 
           <v-card-title>
@@ -25,16 +25,7 @@
           </v-card-title>
 
           <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
-          <v-row class="fill-height" align="center" justify="center">
-            <!-- <v-scale-transition>
-              <v-icon
-                v-if="active"
-                color="white"
-                size="48"
-                v-text="'mdi-close-circle-outline'"
-              ></v-icon>
-            </v-scale-transition> -->
-          </v-row>
+          <v-row class="fill-height" align="center" justify="center"> </v-row>
         </v-card>
       </v-slide-item>
     </v-slide-group>
@@ -66,7 +57,7 @@
 <script>
 // import axiosx from "axios";
 export default {
-  name: "TestThumbnail",
+  name: 'TestThumbnail',
   data() {
     return {
       // c는 한 줄에 들어갈 썸네일의 갯수가 된다.
