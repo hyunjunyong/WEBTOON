@@ -37,6 +37,8 @@
             prepend-inner-icon="mdi-magnify"
             color="primary"
             class="d-none d-sm-flex mt-7"
+            v-model="searchInfo"
+            @keyup.enter="search"
           ></v-text-field>
         </v-col>
 
@@ -237,20 +239,38 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-
+import { mapState, mapActions } from "vuex";
+import axios from "axios";
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {
       dialog: false,
+      searchInfo: null,
     };
   },
   methods: {
-    ...mapActions(['signout', 'signout']),
+    ...mapActions(["signout", "signout"]),
+
+    // 검색창 메소드
+    search() {
+      console.log(this.searchInfo);
+      axios
+        .get(`http://localhost:5000/search?searchInput=${this.searchInfo}`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          this.$store.searchInfo = res;
+          this.$router.push("searchResult").catch(() => {});
+          console.log(res);
+        })
+        .then((err) => {
+          console.log(err);
+        });
+    },
   },
   computed: {
-    ...mapState(['isLogin', 'userInfo']),
+    ...mapState(["isLogin", "userInfo"]),
   },
 };
 </script>

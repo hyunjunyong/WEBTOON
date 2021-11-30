@@ -182,6 +182,11 @@ const routes = [
     name: "boardview",
     component: () => import("../views/Boardview.vue"),
   },
+  {
+    path: "/searchResult",
+    name: "searchResult",
+    component: () => import("../views/searchResult.vue"),
+  },
 ];
 
 const router = new VueRouter({
