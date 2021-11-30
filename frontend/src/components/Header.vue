@@ -86,6 +86,21 @@
                     </v-list-item-title>
                   </router-link>
 
+                  <v-divider
+                    class="my-3"
+                    v-if="userInfo.userType == 'user'"
+                  ></v-divider>
+
+                  <router-link
+                    style="text-decoration:none"
+                    to="/like_list"
+                    v-if="userInfo.userType == 'user'"
+                  >
+                    <v-list-item-title>
+                      찜한 작품
+                    </v-list-item-title>
+                  </router-link>
+
                   <!--
                 작가용
               -->
@@ -149,6 +164,21 @@
                     </v-list-item-title>
                   </router-link>
 
+                  <v-divider
+                    class="my-3"
+                    v-if="userInfo.userType == 'author'"
+                  ></v-divider>
+
+                  <router-link
+                    style="text-decoration:none"
+                    to="/like_list"
+                    v-if="userInfo.userType == 'author'"
+                  >
+                    <v-list-item-title>
+                      찜한 작품
+                    </v-list-item-title>
+                  </router-link>
+
                   <!-- 
                 관리자용
               -->
@@ -185,14 +215,6 @@
                       v-if="userInfo.userType == 'admin'"
                     >
                       공지
-                    </v-list-item-title>
-                  </router-link>
-
-                  <v-divider class="my-3"></v-divider>
-
-                  <router-link style="text-decoration:none" to="/like_list">
-                    <v-list-item-title>
-                      찜한 작품
                     </v-list-item-title>
                   </router-link>
 
@@ -239,10 +261,10 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import axios from "axios";
+import { mapState, mapActions } from 'vuex';
+import axios from 'axios';
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       dialog: false,
@@ -250,7 +272,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["signout", "signout"]),
+    ...mapActions(['signout', 'signout']),
 
     // 검색창 메소드
     search() {
@@ -261,7 +283,7 @@ export default {
         })
         .then((res) => {
           this.$store.searchInfo = res;
-          this.$router.push("searchResult").catch(() => {});
+          this.$router.push('searchResult').catch(() => {});
           console.log(res);
         })
         .then((err) => {
@@ -270,7 +292,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["isLogin", "userInfo"]),
+    ...mapState(['isLogin', 'userInfo']),
   },
 };
 </script>

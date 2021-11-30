@@ -4,23 +4,18 @@
   /writer에서 사용됨
   해당 작품홈으로 이동해야함
 -->
-  <v-card class="overflow-y-auto" max-height="600" elevation="0">
-    <v-banner class="justify-center white" sticky>
-      <h3>작가의 작품</h3>
-      <v-btn @click="webtoons.sort(title_Order)" color="black" text>
-        제목순
-      </v-btn>
-      /
-      <v-btn @click="webtoons.sort(date_Order)" color="black" text>
-        날짜 순
-      </v-btn>
-      <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
-    </v-banner>
-
+  <v-card max-height="auto" elevation="0">
     <v-card-text>
-      <v-list height="200px">
+      <v-list>
         <router-link style="text-decoration:none" to="/add/webtoon/">
-          <v-btn class="ma-2" color="#388E3C" dark block height="50px">
+          <v-btn
+            depressed
+            class="ma-2"
+            color="#388E3C"
+            dark
+            block
+            height="50px"
+          >
             웹툰 추가
             <v-icon dark>
               mdi-plus
@@ -61,7 +56,7 @@
 // import axios from "axios";
 // asdf
 export default {
-  name: "webtoonList",
+  name: 'webtoonList',
   data() {
     return {};
   },
@@ -71,7 +66,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WEBTOON_Home_WRITER",
+        name: 'WEBTOON_Home_WRITER',
         params: {
           id: index,
         },

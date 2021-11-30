@@ -3,7 +3,7 @@
     작가가 자신이 등록한 에피소드의 승인반려상태를 확인할 수 있는 리스트
     
  -->
-  <v-card max-height="600">
+  <v-card>
     <v-banner class="justify-center white text-end" sticky>
       <router-link style="text-decoration:none" to="/add/episode">
         <v-btn class="ma-2" color="#388E3C" dark>
@@ -78,10 +78,10 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "episodeList",
+  name: 'episodeList',
   data() {
     return {};
   },
@@ -92,7 +92,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "Episode",
+        name: 'Episode',
         params: {
           id: index,
         },
@@ -104,7 +104,7 @@ export default {
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜}
       axios
-        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .get('http://localhost:5000/', {}, { withCredentials: true })
         .then((res) => {
           console.log(res);
         })
