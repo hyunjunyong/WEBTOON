@@ -18,7 +18,11 @@
     <v-simple-table elevation="0">
       <template v-slot:default>
         <tbody>
-          <tr v-for="index in webtoons[0].episode" :key="index">
+          <tr
+            v-for="index in webtoons[0].episode"
+            :key="index"
+            @click="useRouter(index.id)"
+          >
             <td>
               <v-img
                 :src="index.episodeThumbnailUrl"

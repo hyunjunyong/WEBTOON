@@ -142,7 +142,7 @@ const routes = [
     component: () => import("../views/WriterPage/WRITER_Home_WRITER.vue"),
   },
   {
-    path: "/webtoon_home_writer",
+    path: "/webtoon_home_writer/:id",
     name: "WEBTOON_Home_WRITER",
     component: () => import("../views/WriterPage/WEBTOON_Home_WRITER.vue"),
   },
