@@ -144,7 +144,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
         <v-row class="align-center">
           <v-col cols="6" sm="6">
             <v-file-input
-              id="Thumbnail"
+              id="banner"
               show-size
               counter
               truncate-length="50"
@@ -160,7 +160,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn color="red" text @click="dialog = false">
+          <v-btn color="red" text @click="bannerBtn()">
             확인
           </v-btn>
           <v-btn color="primary" text @click="dialog = false">
@@ -173,6 +173,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: ["modalState"],
   data() {
@@ -209,6 +210,19 @@ export default {
     onFileChange(e) {
       const file = e;
       this.url = URL.createObjectURL(file);
+    },
+    bannerBtn() {
+      let form = new FormData();
+      let banner = document.getElementById("banner");
+
+      form.append("authorBanner", banner.files[0]);
+      axios
+        .patch("http://localhost:5000/writer/banner", form, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res);
+        });
     },
   },
 };

@@ -1,7 +1,16 @@
 <template>
   <!-- 작가 입장에서보는 작가홈 -->
   <v-card elevation="0">
-    <v-card elevation="0" height="200" ma="5" color="primary"> </v-card>
+    <v-card
+      v-if="webtoons[0].user.authorBanner"
+      elevation="0"
+      height="200"
+      ma="5"
+      ><v-img :src="webtoons[0].user.authorBanner" height="200" />
+    </v-card>
+    <v-card v-else elevation="0" height="200" ma="5" color="primary"
+      >+배너를 추가해주세요!
+    </v-card>
 
     <!-- 최상단 이미지 -->
     <v-container>
@@ -54,7 +63,7 @@ export default {
   name: "WRITER_Home",
   data() {
     return {
-      webtoons: [],
+      webtoons: null,
     };
   },
   components: {
