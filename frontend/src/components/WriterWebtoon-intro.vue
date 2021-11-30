@@ -21,7 +21,7 @@
                 </div>
               </v-col>
               <v-col>
-                <v-chip outlined color="primary" @click="like">
+                <v-chip outlined @click="like" :color="isBtnColor">
                   좋아요 : {{ likes }}
                 </v-chip>
               </v-col>
@@ -60,10 +60,12 @@ export default {
   data() {
     return {
       likes: 0,
+      isBtnColor: null,
       webtoon: {
         genreType: Array,
         user: null,
       },
+      isLike: null,
     };
   },
   computed: {
@@ -92,9 +94,17 @@ export default {
         )
         .then((res) => {
           // this.genre = response.data;
-          console.log(res);
-          //likes;
-          this.likes++;
+
+          if (res.data.isLike == true) {
+            this.likes++;
+            this.isBtnColor = "blue";
+          } else if (res.data.isLike == false && this.likes != 0) {
+            this.likes--;
+            this.isBtnColor = "primary";
+          } else {
+            this.isBtnColor = "primary";
+            this.likes = 0;
+          }
         });
     },
     getWebtoonBanner() {
@@ -113,9 +123,9 @@ export default {
         withCredentials: true,
       })
       .then((res) => {
+        this.isLike = res.data.isLike;
+
         // this.genre = response.data;
-        this.likes = res.data.likeCounts;
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -147,5 +157,8 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-size: 2.5em;
+}
+.blue {
+  background-color: blue;
 }
 </style>
