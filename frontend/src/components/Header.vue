@@ -209,7 +209,7 @@
 
                   <v-divider class="my-3"></v-divider>
 
-                  <router-link style="text-decoration:none" to="*">
+                  <router-link style="text-decoration:none" to="">
                     <v-list-item-title @click="signout">
                       로그아웃
                     </v-list-item-title>

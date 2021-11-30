@@ -35,11 +35,11 @@
               <p>{{ index.episodeDescription }}</p>
               {{ index.episodeName }}
             </td>
-            <td>
+            <!-- <td>
               <v-btn dark small color="green" width="50" height="50">
                 <v-icon dark>mdi-pencil</v-icon></v-btn
               >
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </template>

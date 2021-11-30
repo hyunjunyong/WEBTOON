@@ -5,8 +5,8 @@
       <!-- <v-btn @click="$emit('change')" outlined color="secondary" rounded>
         {{ item.name }}
       </v-btn> -->
-      <v-chip-group column multiple>
-        <v-chip filter outlined @click="$emit('change')">
+      <v-chip-group>
+        <v-chip outlined @click="$emit('change')">
           {{ item.name }}
         </v-chip>
       </v-chip-group>
