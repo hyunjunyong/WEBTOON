@@ -45,7 +45,9 @@
               <v-list-item-title>
                 <h3>{{ webtoon.title }}</h3>
               </v-list-item-title>
-              <v-list-sub-title>{{ webtoon.workDescription }}</v-list-sub-title>
+              <v-list-item-subtitle>{{
+                webtoon.workDescription
+              }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
           <v-divider :key="webtoon.id"></v-divider>
@@ -56,7 +58,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 // asdf
 export default {
   name: "webtoonList",
@@ -74,20 +76,6 @@ export default {
           id: index,
         },
       });
-    },
-    getWebtoonList() {
-      //해당 작가의 작품 리스트를 받아서
-      //data의 webtoon에 넣어야함...
-      //던져줄 데이터는 작가 id
-      //받는 데이터는 {작품id, 작품 이름, 작품 썸네일, 작품 승인날짜}
-      axios
-        .get("http://localhost:5000/", {}, { withCredentials: true })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
     },
   },
 };

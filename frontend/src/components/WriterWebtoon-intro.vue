@@ -21,7 +21,7 @@
                 </div>
               </v-col>
               <v-col>
-                <v-chip outlined @click="like" :color="isBtnColor">
+                <v-chip @click="like" color="blue" :outlined="isBtnOutLine">
                   좋아요 : {{ likes }}
                 </v-chip>
               </v-col>
@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       likes: 0,
-      isBtnColor: null,
+      isBtnOutLine: null,
       webtoon: {
         genreType: Array,
         user: null,
@@ -94,15 +94,15 @@ export default {
         )
         .then((res) => {
           // this.genre = response.data;
-
+          console.log(res);
           if (res.data.isLike == true) {
             this.likes++;
-            this.isBtnColor = "blue";
+            this.isBtnOutLine = false;
           } else if (res.data.isLike == false && this.likes != 0) {
             this.likes--;
-            this.isBtnColor = "primary";
+            this.isBtnOutLine = true;
           } else {
-            this.isBtnColor = "primary";
+            this.isBtnOutLine = true;
             this.likes = 0;
           }
         });
@@ -123,8 +123,14 @@ export default {
         withCredentials: true,
       })
       .then((res) => {
+        console.log(res);
         this.isLike = res.data.isLike;
-
+        this.likes = res.data.likeCounts;
+        if (res.data.userLikeStatus.isLike == true) {
+          this.isBtnOutLine = false;
+        } else {
+          this.isBtnOutLine = true;
+        }
         // this.genre = response.data;
       })
       .catch((err) => {

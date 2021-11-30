@@ -15,10 +15,35 @@
       </router-link>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
+    <v-simple-table elevation="0">
+      <template v-slot:default>
+        <tbody>
+          <tr v-for="index in webtoons[0].episode" :key="index">
+            <td>
+              <v-img
+                :src="index.episodeThumbnailUrl"
+                width="200px"
+                height="100px"
+                style="border-radius:10px"
+              />
+            </td>
+            <td>
+              <p>{{ index.episodeDescription }}</p>
+              {{ index.episodeName }}
+            </td>
+            <td>
+              <v-btn dark small color="green" width="50" height="50">
+                <v-icon dark>mdi-pencil</v-icon></v-btn
+              >
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
 
-    <v-list>
-      <template v-for="episode in webtoon.episode">
-        <v-list-item @click="useRouter(episode.id)" :key="episode.id">
+    <!-- <v-list>
+      <template v-for="index in webtoons[0].episode">
+        <v-list-item @click="useRouter(index.workId)" :key="index.id">
           <v-btn dark small color="green" width="50" height="50">
             <v-icon dark>mdi-pencil</v-icon></v-btn
           >
@@ -27,71 +52,24 @@
             width="200px"
             height="150px"
           >
-            <v-img :src="episode.episodeThumbnailUrl" />
+            <v-img :src="index.episodeThumbnailUrl" />
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title
               ><h3>
-                {{ episode.episodeName }} | {{ episode.episodeDescription }}
+                {{ index.episodeName }} |
+                {{ index.episodeDescription }}
               </h3></v-list-item-title
             >
             <v-list-item-subtitle>{{
-              episode.updatedAt.slice(0, 10)
+              index.updatedAt.slice(0, 10)
             }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-divider :key="episode.id"></v-divider>
+        <v-divider :key="index.id"></v-divider>
       </template>
-    </v-list>
-    <!-- <v-card-text>
-      <v-simple-table>
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th class="text-left"></th>
-              <th class="text-left">
-                썸네일
-              </th>
-              <th class="text-left">
-                작품
-              </th>
-              <th class="text-right">
-                등록일
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(toon, index) in webtoons" :key="index">
-              <td>
-                <v-btn dark small color="green" width="50" height="50">
-                  <v-icon dark>mdi-pencil</v-icon></v-btn
-                >
-              </td>
-              <td>
-                <router-link to="/webtoon_home_writer"
-                  ><v-img :src="toon.url" width="50" height="50"
-                /></router-link>
-              </td>
-              <td>
-                <router-link
-                  to="/webtoon_home_writer"
-                  style="text-decoration: none; color: inherit;"
-                  >{{ toon.round }}
-                </router-link>
-              </td>
-              <td>
-                <router-link
-                  to="/webtoon_home_writer"
-                  style="text-decoration: none; color: inherit;"
-                  >{{ toon.date }}</router-link
-                >
-              </td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table>
-    </v-card-text> -->
+    </v-list> -->
   </v-card>
 </template>
 
@@ -101,22 +79,10 @@ import axios from "axios";
 export default {
   name: "episodeList",
   data() {
-    return {
-      webtoons: [
-        {
-          id: 1,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
-        },
-        {
-          id: 2,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/2.png"),
-        },
-      ],
-    };
+    return {};
+  },
+  props: {
+    webtoons: Object,
   },
   methods: {
     useRouter(index) {

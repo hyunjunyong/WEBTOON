@@ -19,7 +19,7 @@
     <v-row justify="center">
       <v-col cols="8">
         <!-- 특정화수를 수정할 수 있는 컴포넌트 -->
-        <EpisodeListWriterVersion />
+        <EpisodeListWriterVersion :webtoons="webtoons" />
       </v-col>
     </v-row>
   </v-container>
@@ -29,16 +29,24 @@
 import WriterWebtoonIntro from "../../components/WriterWebtoon-intro.vue";
 // import Writerprofile from "../../components/Writer-profile.vue";
 import EpisodeListWriterVersion from "../../components/round/episodeListWriterVersion.vue";
-
+import axios from "axios";
 export default {
   name: "WEBTOON_Home_WRITER",
   data: () => ({
     webtoons: [],
   }),
-  created() {
-    // getWebtoons(){
-    //   axios.get().then().catch();
-    // }
+  mounted() {
+    axios
+      .get(`http://localhost:5000/writer/work/${this.$route.params.id}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.webtoons = res.data;
+        console.log(this.webtoons);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   components: {
     WriterWebtoonIntro,
