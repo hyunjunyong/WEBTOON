@@ -40,7 +40,7 @@
           <TestThumbnail
             :webtoonState="3"
             :webtoons="worksHot"
-            :h="350"
+            :h="300"
             :limited="4"
           />
 
