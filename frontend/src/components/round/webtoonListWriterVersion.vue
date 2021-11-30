@@ -27,8 +27,12 @@
             </v-icon>
           </v-btn>
         </router-link>
-        <template v-for="webtoon in webtoons" @click="useRouter(webtoon.id)">
-          <v-list-item :key="webtoon.id" height="100px">
+        <template v-for="webtoon in webtoons">
+          <v-list-item
+            :key="webtoon.id"
+            height="100px"
+            @click="useRouter(webtoon.id)"
+          >
             <v-list-item-avatar
               width="200px"
               height="100px"
@@ -52,10 +56,10 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 // asdf
 export default {
-  name: 'webtoonList',
+  name: "webtoonList",
   data() {
     return {};
   },
@@ -65,7 +69,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: 'WEBTOON_Home_WRITER',
+        name: "WEBTOON_Home_WRITER",
         params: {
           id: index,
         },
@@ -77,7 +81,7 @@ export default {
       //던져줄 데이터는 작가 id
       //받는 데이터는 {작품id, 작품 이름, 작품 썸네일, 작품 승인날짜}
       axios
-        .get('http://localhost:5000/', {}, { withCredentials: true })
+        .get("http://localhost:5000/", {}, { withCredentials: true })
         .then((res) => {
           console.log(res);
         })
