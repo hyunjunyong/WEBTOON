@@ -8,8 +8,15 @@
       ma="5"
       ><v-img :src="webtoons[0].user.authorBanner" height="200" />
     </v-card>
-    <v-card v-else elevation="0" height="200" ma="5" color="primary"
-      >+배너를 추가해주세요!
+    <v-card
+      align="center"
+      v-else
+      elevation="0"
+      height="200"
+      ma="5"
+      color="primary"
+    >
+      <v-card-title center>배너 이미지를 추가해주세요!</v-card-title>
     </v-card>
 
     <!-- 최상단 이미지 -->
@@ -55,12 +62,12 @@
 <script>
 // import writerprofile from "../../components/Writer-profile.vue";
 //import webtoonround from "../../components/webtoon-round.vue";
-import WebtoonListWriterVersion from "../../components/round/webtoonListWriterVersion.vue";
-import Modal from "../../components/modal.vue";
-import axios from "axios";
+import WebtoonListWriterVersion from '../../components/round/webtoonListWriterVersion.vue';
+import Modal from '../../components/modal.vue';
+import axios from 'axios';
 
 export default {
-  name: "WRITER_Home",
+  name: 'WRITER_Home',
   data() {
     return {
       webtoons: null,
@@ -74,7 +81,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:5000/writer/work", {
+      .get('http://localhost:5000/writer/work', {
         withCredentials: true,
       })
       .then((res) => {

@@ -13,7 +13,7 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
   <div class="modal">
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
+        <v-btn depressed color="primary" dark v-bind="attrs" v-on="on">
           {{ btnName[modalState] }}
         </v-btn>
       </template>
@@ -173,36 +173,36 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  props: ["modalState"],
+  props: ['modalState'],
   data() {
     return {
       url: null,
       dialog: false,
       btnName: [
-        "btn_TMP",
-        "삭제하기",
-        "수정하기",
-        "이미지선택",
-        "반려사유",
-        "상단 배너 썸네일 추가하기",
+        'btn_TMP',
+        '삭제',
+        '수정',
+        '이미지선택',
+        '반려사유',
+        '상단 배너 썸네일 추가',
       ],
       modalTitle: [
-        "modalTitle",
-        "작품삭제",
-        "수정하기",
-        "이미지선택",
-        "반려사유작성",
-        "상단 배너 썸네일 추가",
+        'modalTitle',
+        '작품삭제',
+        '수정',
+        '이미지선택',
+        '반려사유작성',
+        '상단 배너 썸네일 추가',
       ],
       modalText: [
-        "modalText",
+        'modalText',
         `한 번 삭제한 작품은 복구하기 어렵습니다. <br /> 다시한번 확인해주시기 바랍니다`,
-        "확인을 누르면 즉시 수정됩니다",
-        "이미지선택 모달창 화면입니다.",
-        "반려사유 모달창 화면입니다.",
-        "ㅁㄴㅇㄹ",
+        '확인을 누르면 즉시 수정됩니다',
+        '이미지선택 모달창 화면입니다.',
+        '반려사유 모달창 화면입니다.',
+        'ㅁㄴㅇㄹ',
       ],
     };
   },
@@ -213,16 +213,16 @@ export default {
     },
     bannerBtn() {
       let form = new FormData();
-      let banner = document.getElementById("banner");
+      let banner = document.getElementById('banner');
 
-      form.append("authorBanner", banner.files[0]);
+      form.append('authorBanner', banner.files[0]);
       axios
-        .patch("http://localhost:5000/writer/banner", form, {
+        .patch('http://localhost:5000/writer/banner', form, {
           withCredentials: true,
         })
         .then((res) => {
           console.log(res);
-          alert("배너가 추가되었습니다. 새로고침을 눌러주세요!");
+          alert('배너가 추가되었습니다. 새로고침을 눌러주세요!');
           this.dialog = false;
         });
     },

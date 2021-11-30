@@ -4,7 +4,19 @@
     <v-row justify="center">
       <v-col cols="8">
         <v-row justify="center">
-          <Genre :item="n" v-for="n in genre" :key="n.id" />
+          <v-chip-group active-class="primary--text">
+            <v-chip
+              :item="n"
+              v-for="n in genre"
+              :key="n.id"
+              filter
+              outlined
+              @click="$emit('change')"
+            >
+              {{ n.name }}
+            </v-chip>
+          </v-chip-group>
+          <!-- <Genre :item="n" v-for="n in genre" :key="n.id" /> -->
         </v-row>
       </v-col>
     </v-row>
@@ -23,7 +35,7 @@
 
 <script>
 import TestThumbnail from '../components/TestThumbnail';
-import Genre from '../components/genre';
+// import Genre from '../components/genre';
 import axios from 'axios';
 import { mapGetters } from 'vuex';
 //import store from "../store/index";
@@ -32,7 +44,7 @@ export default {
   name: 'TOTAL',
   components: {
     TestThumbnail,
-    Genre,
+    // Genre,
   },
   created() {
     // this.getThumbnails();
