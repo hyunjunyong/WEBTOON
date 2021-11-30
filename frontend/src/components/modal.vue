@@ -222,6 +222,8 @@ export default {
         })
         .then((res) => {
           console.log(res);
+          alert("배너가 추가되었습니다. 새로고침을 눌러주세요!");
+          this.dialog = false;
         });
     },
   },
