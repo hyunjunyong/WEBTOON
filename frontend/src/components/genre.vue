@@ -1,17 +1,10 @@
 <template>
   <!--  장르 선택 컴포넌트 -->
-  <v-col>
-    <v-card elevation="0">
-      <!-- <v-btn @click="$emit('change')" outlined color="secondary" rounded>
-        {{ item.name }}
-      </v-btn> -->
-      <v-chip-group>
-        <v-chip outlined @click="$emit('change')">
-          {{ item.name }}
-        </v-chip>
-      </v-chip-group>
-    </v-card>
-  </v-col>
+  <v-chip-group active-class="primary--text">
+    <v-chip filter outlined @click="$emit('change')">
+      {{ item.name }}
+    </v-chip>
+  </v-chip-group>
 </template>
 
 <script>
