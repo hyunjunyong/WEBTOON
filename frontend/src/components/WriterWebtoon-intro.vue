@@ -65,14 +65,50 @@ export default {
         genreType: Array,
         user: null,
       },
-      isLike: null,
     };
   },
-  computed: {
-    count() {
-      return this.$store.state.count;
-    },
+
+  created() {
+    // 좋아요 갯수받는 api
+    axios
+      .get("http://localhost:5000/like/" + this.webtoonId, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res);
+
+        this.likes = res.data.likeCounts;
+        if (res.data.userLikeStatus == true) {
+          this.isBtnOutLine = false;
+        } else {
+          this.isBtnOutLine = true;
+        }
+
+        // this.genre = response.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    this.webtoon.genreType[0] = {
+      genre: {
+        name: null,
+      },
+    };
+    this.webtoon.user = {
+      AuthorName: null,
+    };
+    axios
+      .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.webtoon = res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
+  mounted() {},
   methods: {
     useRouter(index) {
       this.$router.push({
@@ -95,10 +131,10 @@ export default {
         .then((res) => {
           // this.genre = response.data;
           console.log(res);
-          if (res.data.isLike == true) {
+          if (res.data == true) {
             this.likes++;
             this.isBtnOutLine = false;
-          } else if (res.data.isLike == false && this.likes != 0) {
+          } else if (res.data.userLikeStatus == false && this.likes != 0) {
             this.likes--;
             this.isBtnOutLine = true;
           } else {
@@ -107,55 +143,6 @@ export default {
           }
         });
     },
-    getWebtoonBanner() {
-      //현재 페이지에서 작품에 대한
-      //api로 가져와야하는 값
-      //썸네일(썸네일 보다는 Banner를 가져오는게 좋을꺼 같은데 현재에는 banner 라는 것이 없으니 썸네일로 대체)
-      //작품 제목
-      //작품 장르
-      //작가 이름
-    },
-  },
-  mounted() {
-    // 좋아요 갯수받는 api
-    axios
-      .get("http://localhost:5000/like/" + this.webtoonId, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        console.log(res);
-        this.isLike = res.data.isLike;
-        this.likes = res.data.likeCounts;
-        if (res.data.userLikeStatus.isLike == true) {
-          this.isBtnOutLine = false;
-        } else {
-          this.isBtnOutLine = true;
-        }
-        // this.genre = response.data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },
-  created() {
-    this.webtoon.genreType[0] = {
-      genre: {
-        name: null,
-      },
-    };
-    this.webtoon.user = {
-      AuthorName: null,
-    };
-    axios
-      .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        this.webtoon = res.data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   },
 };
 </script>
