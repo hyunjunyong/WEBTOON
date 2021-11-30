@@ -7,7 +7,7 @@
     <v-banner class="justify-center white text-end" sticky>
       <router-link style="text-decoration:none" to="/add/episode">
         <v-btn class="ma-2" color="#388E3C" dark>
-          웹툰추가하기
+          에피소드 추가
           <v-icon dark>
             mdi-plus
           </v-icon>
@@ -84,6 +84,7 @@ export default {
   props: {
     webtoons: Object,
   },
+
   methods: {
     useRouter(index) {
       this.$router.push({
