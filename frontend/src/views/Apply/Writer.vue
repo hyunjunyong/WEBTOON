@@ -107,15 +107,26 @@
 
       <v-row justify="center">
         <v-col cols="auto">
-          <v-card
-            elevation="0"
-            class="ma-10 red--text grey lighten-3"
-          >
+          <v-card elevation="0" class="ma-10 red--text grey lighten-3">
             - 작가 신청 후 에피소드를 1개 이상 승인 받아야 작가 승인이 완료
             됩니다 -</v-card
           >
         </v-col>
       </v-row>
+
+      <!-- dialog 추가했습니다 -->
+      <v-dialog v-model="dialog" persistent width="300">
+        <v-card color="primary" dark>
+          <v-card-text>
+            Please stand by
+            <v-progress-linear
+              indeterminate
+              color="white"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -131,10 +142,13 @@ export default {
     return {
       authorName: "asdf",
       description: "asdf",
+      dialog: false,
     };
   },
   methods: {
     assign_Writer() {
+      //여기에서 dialog가 나오게 하고
+      this.dialog = true;
       let form = new FormData();
       var photoFile = document.getElementById("photo");
       const writer_info = {
@@ -149,12 +163,18 @@ export default {
           withCredentials: true,
         })
         .then((respon) => {
+          //여기서 화면 전체를 막는거 실행
           console.log(respon);
           router.push("/register_Webtoon");
           this.$store.state.id = respon.data.id;
           this.$store.state.userId = respon.data.userId;
         })
+        .then(() => {
+          //여기서 dialog가 끝나게 하면 됩니다.
+          this.dialog = false;
+        })
         .catch((err) => {
+          this.dialog = false;
           alert("에러");
           console.log(err);
         });

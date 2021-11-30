@@ -34,7 +34,7 @@
                     :items-per-page="5"
                     @click:row="detailPosting"
                   >
-                    <template v-slot:item.createdAt="{ item }">
+                    <template v-slot:item="{ item }">
                       {{ item.createdAt.slice(0, 10) }}
                     </template>
                   </v-data-table>
@@ -73,7 +73,7 @@
                   :items-per-page="5"
                   @click:row="addDetailPosting"
                 >
-                  <template v-slot:item.createdAt="{ item }">
+                  <template v-slot:item="{ item }">
                     {{ item.createdAt.slice(0, 10) }}
                   </template>
                 </v-data-table>

@@ -7,29 +7,35 @@
   <v-sheet class="mx-auto" elevation="0" max-width="1200">
     <v-slide-group show-arrows>
       <v-slide-item v-for="i in webtoons" :key="i.id">
-        <v-card
-          :elevation="0"
-          class="radius ma-4"
-          router-link
-          :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
-        >
-          <v-img
-            :height="h"
-            :src="i.workThumbnail"
-            class="radius"
-            width="200px"
-          />
+        <!--
+          
+        -->
+        <v-hover v-slot:default="{ hover }">
+          <v-card
+            :elevation="hover ? 10 : 0"
+            class="radius ma-4"
+            router-link
+            :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
+          >
+            <v-img
+              :height="h"
+              :src="i.workThumbnail"
+              class="radius"
+              width="200px"
+            />
 
-          <v-card-title>
-            {{ i.title }}
-          </v-card-title>
+            <v-card-title>
+              {{ i.title }}
+            </v-card-title>
 
-          <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
-          <v-row class="fill-height" align="center" justify="center"> </v-row>
-        </v-card>
+            <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
+            <v-row class="fill-height" align="center" justify="center"> </v-row>
+          </v-card>
+        </v-hover>
       </v-slide-item>
     </v-slide-group>
   </v-sheet>
+
   <!-- <v-row class="mt-1">
     <v-col v-for="i in webtoons" :key="i" :cols="c">
       <v-hover v-slot:default="{ hover }">
@@ -57,7 +63,7 @@
 <script>
 // import axiosx from "axios";
 export default {
-  name: 'TestThumbnail',
+  name: "TestThumbnail",
   data() {
     return {
       // c는 한 줄에 들어갈 썸네일의 갯수가 된다.

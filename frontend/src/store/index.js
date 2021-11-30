@@ -160,7 +160,7 @@ export default new Vuex.Store({
         .delete("http://localhost:5000/auth/session", { withCredentials: true })
         .then(() => {
           commit("delUserInfo");
-          // router.push('/');
+          router.push("/");
         })
         .catch((err) => {
           console.log(err);

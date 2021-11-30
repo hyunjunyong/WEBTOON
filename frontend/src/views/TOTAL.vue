@@ -23,45 +23,39 @@
 
     <v-row no-gutters justify="center">
       <v-col cols="8">
-        <TestThumbnail
-          :webtoonState="4"
-          :webtoon="webtoonThumbnails"
-          :h="200"
-        />
+        <Thumbnail :webtoonState="4" :webtoons="webtoonThumbnails" :h="200" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import TestThumbnail from '../components/TestThumbnail';
+import Thumbnail from "../components/Thumbnail";
 // import Genre from '../components/genre';
-import axios from 'axios';
-import { mapGetters } from 'vuex';
+import axios from "axios";
+import { mapGetters } from "vuex";
 //import store from "../store/index";
 
 export default {
-  name: 'TOTAL',
+  name: "TOTAL",
   components: {
-    TestThumbnail,
+    Thumbnail,
     // Genre,
   },
   created() {
     // this.getThumbnails();
-    axios.get('http://localhost:5000/genre').then((response) => {
+    axios.get("http://localhost:5000/genre").then((response) => {
       // this.genre = response.data;
       this.genre = response.data;
     });
   },
-
-  methods: {},
   data() {
     return {
       genre: [],
     };
   },
   computed: {
-    ...mapGetters({ webtoonThumbnails: 'getWebtoonThumbnails' }),
+    ...mapGetters({ webtoonThumbnails: "getWebtoonThumbnails" }),
   },
 };
 </script>

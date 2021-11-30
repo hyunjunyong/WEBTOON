@@ -5,35 +5,51 @@
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
 
-  <v-card elevation="0" hover>
-    <router-link
-      style="text-decoration: none; color: inherit;"
-      v-bind:to="path"
-    >
-      <v-img max-height="260" :src="webtoon.workThumbnail" />
+  <v-row class="mt-1">
+    <v-col v-for="i in webtoons" :key="i.id" :cols="c">
+      <v-hover v-slot:default="{ hover }">
+        <v-card
+          :elevation="hover ? 10 : 0"
+          router-link
+          :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
+          class="radius"
+        >
+          <v-img :height="h" :src="i.workThumbnail" class="radius" />
 
-      <v-card-title>
-        {{ webtoon.title }}
-      </v-card-title>
+          <v-card-title>
+            {{ i.title }}
+          </v-card-title>
 
-      <v-card-subtitle>
-        {{ webtoon.writer }}
-      </v-card-subtitle>
-    </router-link>
-  </v-card>
+          <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
+        </v-card>
+      </v-hover>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+// import axiosx from "axios";
 export default {
   name: "Thumbnail",
-  props: {
-    webtoon: Object,
-  },
   data() {
     return {
-      path: "webtoon/" + this.webtoon.id,
+      // c는 한 줄에 들어갈 썸네일의 갯수가 된다.
+      //
+      // model=null,
+      c: Math.floor(12 / this.webtoonState),
     };
   },
-  mount() {},
+  props: {
+    webtoonState: Number,
+    h: Number,
+    webtoons: Array,
+  },
+  mounted() {},
 };
 </script>
+
+<style scoped>
+.radius {
+  border-radius: 15px;
+}
+</style>

@@ -261,10 +261,10 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import axios from 'axios';
+import { mapState, mapActions } from "vuex";
+import axios from "axios";
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {
       dialog: false,
@@ -272,18 +272,19 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['signout', 'signout']),
+    ...mapActions(["signout", "signout"]),
 
     // 검색창 메소드
     search() {
       console.log(this.searchInfo);
+
       axios
         .get(`http://localhost:5000/search?searchInput=${this.searchInfo}`, {
           withCredentials: true,
         })
         .then((res) => {
           this.$store.searchInfo = res;
-          this.$router.push('searchResult').catch(() => {});
+          this.$router.push("searchResult").catch(() => {});
           console.log(res);
         })
         .then((err) => {
@@ -292,7 +293,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(['isLogin', 'userInfo']),
+    ...mapState(["isLogin", "userInfo"]),
   },
 };
 </script>

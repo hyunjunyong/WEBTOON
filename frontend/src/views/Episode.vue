@@ -12,6 +12,19 @@
     <v-row>
       <Viewerend />
     </v-row>
+
+    <v-dialog v-model="dialog" persistent width="300">
+      <v-card color="primary" dark>
+        <v-card-text>
+          Please stand by
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -32,6 +45,7 @@ export default {
         count: null,
         episodeImages: Array,
       },
+      dialog: false,
     };
   },
   created() {
@@ -39,6 +53,7 @@ export default {
   },
   methods: {
     getEpisodeImages() {
+      this.dialog = true;
       //해당 에피소드의 에피소드 이미지 리스트를 받아서
       //data의 episodeImages에 넣어야함...
       //던져줄 데이터는 에피소드 id
@@ -48,7 +63,12 @@ export default {
         .then((res) => {
           this.episodeImages = res.data;
         })
+        .then(() => {
+          setTimeout(() => (this.dialog = false), 600);
+          this.dialog = false;
+        })
         .catch((err) => {
+          this.dialog = false;
           console.log(err);
         });
     },
