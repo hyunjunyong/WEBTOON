@@ -19,12 +19,14 @@
 
     <v-card-text>
       <v-list height="200px">
-        <v-btn class="ma-2" color="#388E3C" dark block height="50px">
-          웹툰추가하기
-          <v-icon dark>
-            mdi-plus
-          </v-icon>
-        </v-btn>
+        <router-link style="text-decoration:none" to="/add/webtoon/">
+          <v-btn class="ma-2" color="#388E3C" dark block height="50px">
+            웹툰 추가
+            <v-icon dark>
+              mdi-plus
+            </v-icon>
+          </v-btn>
+        </router-link>
         <template v-for="webtoon in webtoons" @click="useRouter(webtoon.id)">
           <v-list-item :key="webtoon.id" height="100px">
             <v-list-item-avatar
@@ -36,11 +38,9 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title
-                ><h3>
-                  {{ webtoon.title }}
-                </h3></v-list-item-title
-              >
+              <v-list-item-title>
+                <h3>{{ webtoon.title }}</h3>
+              </v-list-item-title>
               <v-list-sub-title>{{ webtoon.workDescription }}</v-list-sub-title>
             </v-list-item-content>
           </v-list-item>
@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 // asdf
 export default {
-  name: "webtoonList",
+  name: 'webtoonList',
   data() {
     return {};
   },
@@ -65,7 +65,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WEBTOON_Home_WRITER",
+        name: 'WEBTOON_Home_WRITER',
         params: {
           id: index,
         },
@@ -77,7 +77,7 @@ export default {
       //던져줄 데이터는 작가 id
       //받는 데이터는 {작품id, 작품 이름, 작품 썸네일, 작품 승인날짜}
       axios
-        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .get('http://localhost:5000/', {}, { withCredentials: true })
         .then((res) => {
           console.log(res);
         })
