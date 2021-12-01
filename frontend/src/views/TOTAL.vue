@@ -9,6 +9,7 @@
               :item="n"
               v-for="n in genre"
               :key="n.id"
+              :input-value="active"
               filter
               outlined
               @click="genreSort(n.id)"
@@ -47,13 +48,18 @@ export default {
     // this.getThumbnails();
     axios.get('http://localhost:5000/genre').then((response) => {
       // this.genre = response.data;
+
       this.genre = response.data;
+    });
+    axios.get(`http://localhost:5000/works`).then((res) => {
+      this.webtoons = res.data;
     });
   },
   data() {
     return {
       genre: [],
       webtoons: null,
+      active: false,
     };
   },
   computed: {
@@ -61,10 +67,19 @@ export default {
   },
   methods: {
     genreSort(index) {
-      axios.get(`http://localhost:5000/works/${index}`).then((res) => {
-        console.log(res.data.worksOfGenre);
-        this.webtoons = res.data.worksOfGenre;
-      });
+      if (this.active == false) {
+        this.active = true;
+        axios
+          .get(`http://localhost:5000/works?genreId=${index}`)
+          .then((res) => {
+            this.webtoons = res.data;
+          });
+      } else {
+        this.active = false;
+        axios.get(`http://localhost:5000/works`).then((res) => {
+          this.webtoons = res.data;
+        });
+      }
     },
   },
 };
