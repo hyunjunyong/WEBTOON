@@ -5,7 +5,8 @@
   해당 작품홈으로 이동해야함
 -->
   <v-card elevation="0" max-height="auto">
-    <v-banner class="justify-center white text-end" sticky>
+    <v-card-title> 작품 목록 </v-card-title>
+    <!-- <v-banner class="justify-center white text-end" sticky>
       <v-btn @click="webtoons.sort(title_Order)" color="black" text>
         제목순
       </v-btn>
@@ -13,11 +14,15 @@
       <v-btn @click="webtoons.sort(date_Order)" color="black" text>
         업데이트 순
       </v-btn>
-      <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
-    </v-banner>
+    </v-banner> -->
     <v-list>
       <template v-for="webtoon in writerHomeInfo.work">
-        <v-list-item @click="useRouter(webtoon.id)" :key="webtoon.id" two-line>
+        <v-divider :key="webtoon.id"></v-divider>
+        <v-list-item
+          @click="useRouter(webtoon.id)"
+          :key="webtoon.id"
+          three-line
+        >
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
@@ -29,9 +34,9 @@
 
           <v-list-item-content>
             <v-list-item-title>
-              <h4>
+              <h2>
                 {{ webtoon.title }}
-              </h4>
+              </h2>
             </v-list-item-title>
 
             <v-list-item-subtitle>
@@ -69,14 +74,14 @@ export default {
   },
   mounted() {},
   methods: {
-    title_Order(a, b) {
+    /*title_Order(a, b) {
       return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
     },
     date_Order(a, b) {
       var dateA = new Date(a["date"]).getTime();
       var dateB = new Date(b["date"]).getTime();
       return dateA < dateB ? 1 : -1;
-    },
+    }, */
     useRouter(index) {
       this.$router.push({
         name: "WEBTOON_HOMR",

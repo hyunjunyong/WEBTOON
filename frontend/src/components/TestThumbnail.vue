@@ -4,12 +4,9 @@
     props를 통해서 웹툰 정보를 받아오는 형식으로 수정
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
-  <v-sheet elevation="0" max-width="1200">
+  <v-sheet elevation="0">
     <v-slide-group show-arrows>
       <v-slide-item v-for="i in webtoons" :key="i.id">
-        <!--
-          
-        -->
         <v-hover v-slot:default="{ hover }">
           <v-card
             :elevation="hover ? 10 : 0"
@@ -21,15 +18,19 @@
               :height="h"
               :src="i.workThumbnail"
               class="radius"
-              width="200px"
+              width="240px"
+              aspect-ratio="1"
             />
 
-            <v-card-title>
+            <v-card-subtitle class="cyan--text pb-0">
+              //장르//
+            </v-card-subtitle>
+            <v-card-title class="py-2">
               {{ i.title }}
             </v-card-title>
-
-            <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
-            <v-row class="fill-height" align="center" justify="center"> </v-row>
+            <v-card-subtitle class="py-1">
+              작가 : {{ i.user.authorName }}
+            </v-card-subtitle>
           </v-card>
         </v-hover>
       </v-slide-item>
