@@ -24,8 +24,8 @@
     </v-banner>
 
     <v-list>
-      <template v-for="episode in webtoon">
-        <v-list-item @click="useRouter(episode.id)" :key="episode.episodeOrder">
+      <template v-for="episode in webtoon.episode">
+        <v-list-item @click="useRouter(episode.id)" :key="episode.id">
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
@@ -45,7 +45,7 @@
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-divider :key="episode.id"></v-divider>
+        <v-divider :key="'divider' + episode.id"></v-divider>
       </template>
     </v-list>
   </v-card>
@@ -57,7 +57,7 @@ import axios from 'axios';
 export default {
   name: 'EpisodeList',
   props: {
-    webtoon: Array,
+    webtoon: Object,
   },
   data() {
     return {

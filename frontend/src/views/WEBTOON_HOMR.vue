@@ -20,7 +20,7 @@
         <!-- url : 썸네일 이미지, round : 에피소드 이름, date : 날짜 -->
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <!-- <webtoonround :webtoon_round_State="0" :webtoons="webtoons" /> -->
-        <EpisodeList :webtoon="webtoon.episode" />
+        <EpisodeList :webtoon="webtoon" />
         <!-- 
             형진님이 콘솔에러 수정하시려고 한건데 이렇게되면 함수가 작동을안함
         

@@ -75,7 +75,7 @@ export default {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
 
         this.likes = res.data.likeCounts;
         if (res.data.userLikeStatus == true) {
