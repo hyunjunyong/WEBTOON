@@ -4,15 +4,13 @@
     <v-row justify="center">
       <v-col cols="8" class="ma-5">
         <v-row justify="center">
-          <v-chip-group>
+          <v-chip-group v-model="selection" active-class="primary white--text">
             <v-chip
               :item="n"
               v-for="n in genre"
               :key="n.id"
               :input-value="active"
               @click="genreSort(n.id)"
-              color="primary"
-              dark
             >
               <!-- @click="$emit('change')" -->
               {{ n.name }}
@@ -60,6 +58,7 @@ export default {
       genre: [],
       webtoons: null,
       active: false,
+      selection: null,
     };
   },
   computed: {

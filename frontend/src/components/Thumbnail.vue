@@ -14,13 +14,22 @@
           :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
           class="radius"
         >
-          <v-img :height="h" :src="i.workThumbnail" class="radius" />
+          <v-img
+            :height="h"
+            :src="i.workThumbnail"
+            class="radius"
+            aspect-ratio="1"
+          />
 
-          <v-card-title>
+          <v-card-subtitle class="cyan--text pb-0">
+            //장르//
+          </v-card-subtitle>
+          <v-card-title class="py-2">
             {{ i.title }}
           </v-card-title>
-
-          <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
+          <v-card-subtitle class="py-1">
+            작가 : {{ i.user.authorName }}
+          </v-card-subtitle>
         </v-card>
       </v-hover>
     </v-col>

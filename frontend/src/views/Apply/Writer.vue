@@ -2,7 +2,7 @@
   <!-- 작가 신청 페이지 -->
   <div id="background">
     <v-container>
-      <v-row justify="center" class="mt-10">
+      <v-row justify="center" align="center" class="mt-10">
         <v-col cols="auto">
           <v-card elevation="0" width="500">
             <v-toolbar flat>
@@ -14,28 +14,25 @@
             </v-toolbar>
 
             <!-- 작가 필명 작성 -->
-            <v-row>
-              <v-col cols="4" class="d-flex text-center">
+            <v-row justify="center" align="center">
+              <v-col cols="4" class="text-center">
                 <v-card elevation="0" class="ma-auto">작가 필명</v-card>
               </v-col>
-              <v-col cols="5">
+              <v-col cols="6">
                 <v-text-field v-model="authorName" id="authorName" required>
                 </v-text-field>
-              </v-col>
-              <v-col cols="3" class="ma-auto ">
-                <v-btn depressed color="grey lighten-3"> 중복<br />확인 </v-btn>
               </v-col>
             </v-row>
 
             <!-- 소개글 작성 -->
-            <v-row>
-              <v-col cols="4" class="d-flex text-center">
+            <v-row justify="center" align="center">
+              <v-col cols="4" class="text-center">
                 <v-card elevation="0" class="ma-auto"
                   >소개글<br />(30자 이상)</v-card
                 >
               </v-col>
 
-              <v-col cols="5">
+              <v-col cols="6">
                 <v-textarea
                   v-model="description"
                   id="description"
@@ -52,8 +49,8 @@
             </v-row>
 
             <!-- 작가 프로필 사진 올리기 -->
-            <v-row class="mb-5">
-              <v-col cols="4" class="d-flex text-center">
+            <v-row justify="center" align="center" class="mb-5">
+              <v-col cols="4" class="text-center">
                 <v-card elevation="0" class="ma-auto"
                   >프로필 사진<br />(200px * 200px)</v-card
                 >
@@ -67,7 +64,7 @@
           style="border-radius:100%"
         />
       </v-col> -->
-              <v-col cols="5">
+              <v-col cols="6">
                 <v-file-input
                   id="photo"
                   show-size
@@ -132,16 +129,16 @@
 </template>
 
 <script>
-import axios from "axios";
-import router from "../../router/index";
+import axios from 'axios';
+import router from '../../router/index';
 // import { mapActions } from "vuex";
 
 export default {
-  name: "Writer",
+  name: 'Writer',
   data() {
     return {
-      authorName: "asdf",
-      description: "asdf",
+      authorName: 'asdf',
+      description: 'asdf',
       dialog: false,
     };
   },
@@ -150,22 +147,22 @@ export default {
       //여기에서 dialog가 나오게 하고
       this.dialog = true;
       let form = new FormData();
-      var photoFile = document.getElementById("photo");
+      var photoFile = document.getElementById('photo');
       const writer_info = {
         authorName: this.authorName,
         description: this.description,
       };
-      form.append("avatar", photoFile.files[0]);
-      form.append("datas", JSON.stringify(writer_info));
+      form.append('avatar', photoFile.files[0]);
+      form.append('datas', JSON.stringify(writer_info));
       console.log(writer_info);
       axios
-        .post("http://localhost:5000/user/apply-author", form, {
+        .post('http://localhost:5000/user/apply-author', form, {
           withCredentials: true,
         })
         .then((respon) => {
           //여기서 화면 전체를 막는거 실행
           console.log(respon);
-          router.push("/register_Webtoon");
+          router.push('/register_Webtoon');
           this.$store.state.id = respon.data.id;
           this.$store.state.userId = respon.data.userId;
         })
@@ -175,7 +172,7 @@ export default {
         })
         .catch((err) => {
           this.dialog = false;
-          alert("에러");
+          alert('에러');
           console.log(err);
         });
     },

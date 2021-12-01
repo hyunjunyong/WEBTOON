@@ -5,7 +5,7 @@
 
   <v-container>
     <v-row justify="center">
-      <v-col cols="8" class="ma-2">
+      <v-col cols="6" class="ma-2">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
             찜한 작품

@@ -42,7 +42,7 @@
         </v-col>
 
         <!-- 로그인 버튼 -->
-        <v-col cols="1">
+        <v-col cols="1" class="text-center">
           <p v-if="!isLogin">
             <router-link to="/login" style="text-decoration:none">
               <v-btn class="mt-5" depressed color="primary" outlined rounded>
@@ -76,15 +76,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'user'"
+                      @click="useRoute('/apply/writer')"
                     >
-                      <router-link
-                        style="text-decoration:none"
-                        to="/apply/writer"
-                      >
-                        <v-list-item-title>
-                          작가 신청
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        작가 신청
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider v-if="userInfo.userType == 'user'"></v-divider>
@@ -92,12 +88,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'user'"
+                      @click="useRoute('/like_list')"
                     >
-                      <router-link style="text-decoration:none" to="/like_list">
-                        <v-list-item-title>
-                          찜한 작품
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        찜한 작품
+                      </v-list-item-title>
                     </v-list-item>
 
                     <!--
@@ -106,15 +101,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'author'"
+                      @click="useRoute('/writer_home_writer')"
                     >
-                      <router-link
-                        style="text-decoration:none"
-                        to="/writer_home_writer"
-                      >
-                        <v-list-item-title class="center">
-                          작가 홈
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title class="center">
+                        작가 홈
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider v-if="userInfo.userType == 'author'"></v-divider>
@@ -122,15 +113,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'author'"
+                      @click="useRoute('/add/webtoon/')"
                     >
-                      <router-link
-                        style="text-decoration:none"
-                        to="/add/webtoon/"
-                      >
-                        <v-list-item-title>
-                          작품 등록
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        작품 등록
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider v-if="userInfo.userType == 'author'"></v-divider>
@@ -138,15 +125,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'author'"
+                      @click="useRoute('/add/episode/')"
                     >
-                      <router-link
-                        style="text-decoration:none"
-                        to="/add/episode/"
-                      >
-                        <v-list-item-title>
-                          에피소드 등록
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        에피소드 등록
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider v-if="userInfo.userType == 'author'"></v-divider>
@@ -154,28 +137,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'author'"
+                      @click="useRoute('/like_list')"
                     >
-                      <router-link
-                        style="text-decoration:none"
-                        to="/register_state"
-                      >
-                        <v-list-item-title>
-                          등록작품 상태
-                        </v-list-item-title>
-                      </router-link>
-                    </v-list-item>
-
-                    <v-divider v-if="userInfo.userType == 'author'"></v-divider>
-
-                    <v-list-item
-                      class="justify-center"
-                      v-if="userInfo.userType == 'author'"
-                    >
-                      <router-link style="text-decoration:none" to="/like_list">
-                        <v-list-item-title>
-                          찜한 작품
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        찜한 작품
+                      </v-list-item-title>
                     </v-list-item>
 
                     <!-- 
@@ -185,12 +151,11 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'admin'"
+                      @click="useRoute('/admin')"
                     >
-                      <router-link to="/admin" style="text-decoration:none">
-                        <v-list-item-title>
-                          관리자 홈
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        관리자 홈
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider v-if="userInfo.userType == 'admin'"></v-divider>
@@ -198,38 +163,30 @@
                     <v-list-item
                       class="justify-center"
                       v-if="userInfo.userType == 'admin'"
+                      @click="useRoute('/Notice_list')"
                     >
-                      <router-link
-                        style="text-decoration:none"
-                        to="/Notice_list"
-                      >
-                        <v-list-item-title>
-                          공지
-                        </v-list-item-title>
-                      </router-link>
+                      <v-list-item-title>
+                        공지
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider></v-divider>
 
-                    <v-list-item class="justify-center">
-                      <router-link
-                        style="text-decoration:none"
-                        to="/personal_information"
-                      >
-                        <v-list-item-title>
-                          정보 변경
-                        </v-list-item-title>
-                      </router-link>
+                    <v-list-item
+                      class="justify-center"
+                      @click="useRoute('/personal_information')"
+                    >
+                      <v-list-item-title>
+                        정보 변경
+                      </v-list-item-title>
                     </v-list-item>
 
                     <v-divider></v-divider>
 
-                    <v-list-item class="justify-center">
-                      <router-link style="text-decoration:none" to="">
-                        <v-list-item-title @click="signout">
-                          로그아웃
-                        </v-list-item-title>
-                      </router-link>
+                    <v-list-item class="justify-center" @click="useRoute('*')">
+                      <v-list-item-title @click="signout">
+                        로그아웃
+                      </v-list-item-title>
                     </v-list-item>
                   </div>
                 </v-list-item-group>
@@ -286,6 +243,9 @@ export default {
         .then((err) => {
           console.log(err);
         });
+    },
+    useRoute(url) {
+      this.$router.push(url);
     },
   },
   computed: {

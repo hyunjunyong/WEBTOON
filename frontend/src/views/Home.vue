@@ -16,20 +16,15 @@
 
     <v-container>
       <v-row justify="center">
-        <v-col cols="8" class="mt-2">
+        <v-col cols="8">
           <v-card elevation="0">
-            <v-card-title class="text-h5 font-weight-bold mb-1">
+            <v-card-title class="text-h5 font-weight-bold pb-0">
               초절정 인기 웹툰
             </v-card-title>
-            <v-card-subtitle class="text-h6 font-weight-bold">
-              하드코딩 3대장
-            </v-card-subtitle>
           </v-card>
         </v-col>
-      </v-row>
 
-      <v-row no-gutters justify="center">
-        <v-col cols="8">
+        <v-col cols="10">
           <!-- 
           webtoon 배열의 값을 보냄
           한줄에 4개의 썸네일을 만듬
@@ -49,16 +44,14 @@
       </v-row>
 
       <v-row justify="center">
-        <v-col cols="8" class="mb-3">
+        <v-col cols="8">
           <v-card elevation="0">
-            <v-card-title class="text-h5 font-weight-bold">
+            <v-card-title class="text-h5 font-weight-bold py-0">
               추천 웹툰
             </v-card-title>
           </v-card>
         </v-col>
-      </v-row>
 
-      <v-row no-gutters justify="center">
         <v-col cols="8">
           <!-- 
           webtoon 배열의 값을 보냄
@@ -75,17 +68,15 @@
       </v-row>
 
       <v-row justify="center">
-        <v-col cols="8" class="mb-3">
+        <v-col cols="8">
           <v-card elevation="0">
-            <v-card-title class="text-h5 font-weight-bold">
+            <v-card-title class="text-h5 font-weight-bold py-0">
               신작 웹툰
             </v-card-title>
           </v-card>
         </v-col>
-      </v-row>
 
-      <v-row justify="center" class="mb-10">
-        <v-col cols="8" class="mb-5">
+        <v-col cols="8">
           <!-- 
           webtoon 배열의 값을 보냄
           한줄에 2개의 썸네일을 만듬

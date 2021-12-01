@@ -8,12 +8,21 @@
         style="border-radius:70%"
         max-width="160px"
         max-height="160px"
+        aspect-ratio="1"
       />
     </v-col>
     <v-col cols="10">
       <v-card elevation="0" class="mb-3">
-        <v-card-title>{{ writerHomeInfo.authorName }}</v-card-title>
-        <v-card-text>{{ writerHomeInfo.authorDescription }}</v-card-text>
+        <v-card-title>
+          <h4>
+            {{ writerHomeInfo.authorName }}
+          </h4>
+        </v-card-title>
+        <v-card-text>
+          <h3>
+            {{ writerHomeInfo.authorDescription }}
+          </h3>
+        </v-card-text>
       </v-card>
     </v-col>
   </v-row>
@@ -23,7 +32,7 @@
 <script>
 // import Modal from "../components/modal.vue";
 export default {
-  name: "Writer_profile",
+  name: 'Writer_profile',
   components: {
     // Modal,
   },
@@ -42,7 +51,7 @@ export default {
   },
   methods: {
     increment() {
-      this.$store.commit("increment");
+      this.$store.commit('increment');
     },
   },
 };

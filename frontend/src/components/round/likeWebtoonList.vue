@@ -7,10 +7,10 @@
     지금은 modal창에 뜨도록 할 예정
  -->
 
-  <v-card elevation="0" class="overflow-y-auto" height="700">
+  <v-card elevation="0" class="overflow-y-auto" height="500">
     <v-list>
       <template v-for="i in webtoons">
-        <v-list-item @click="useRouter(i.work.id)" :key="i.id" two-line>
+        <v-list-item @click="useRouter(i.work.id)" :key="i.id" three-line>
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
@@ -22,19 +22,15 @@
 
           <v-list-item-content>
             <v-list-item-title>
-              <h4>
+              <h2>
                 {{ i.work.title }}
-              </h4>
+              </h2>
             </v-list-item-title>
 
             <v-list-item-subtitle>
               <v-card color="transparent">
                 {{ i.work.workDescription }}
               </v-card>
-            </v-list-item-subtitle>
-
-            <v-list-item-subtitle>
-              {{ i.work.updatedAt.slice(0, 10) }}
             </v-list-item-subtitle>
           </v-list-item-content>
 
@@ -47,7 +43,6 @@
                   small
                   right
                   color="primary"
-                  height="150"
                   v-bind="attrs"
                   v-on="on"
                   >삭제</v-btn

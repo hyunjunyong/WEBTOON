@@ -49,6 +49,7 @@ export default {
       .then((res) => {
         //console.log(res.data);
         this.writerHomeInfo = res.data;
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
