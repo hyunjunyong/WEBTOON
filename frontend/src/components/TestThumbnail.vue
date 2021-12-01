@@ -4,7 +4,7 @@
     props를 통해서 웹툰 정보를 받아오는 형식으로 수정
     클릭시 props에 해당하는 웹툰 정보를 호출해서 이미지들을 불러 오도록 수정
   -->
-  <v-sheet class="mx-auto" elevation="0" max-width="1200">
+  <v-sheet elevation="0" max-width="1200">
     <v-slide-group show-arrows>
       <v-slide-item v-for="i in webtoons" :key="i.id">
         <!--
@@ -13,7 +13,7 @@
         <v-hover v-slot:default="{ hover }">
           <v-card
             :elevation="hover ? 10 : 0"
-            class="radius ma-4"
+            class="radius ma-2 pb-2"
             router-link
             :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
           >
@@ -63,7 +63,7 @@
 <script>
 // import axiosx from "axios";
 export default {
-  name: "TestThumbnail",
+  name: 'TestThumbnail',
   data() {
     return {
       // c는 한 줄에 들어갈 썸네일의 갯수가 된다.
