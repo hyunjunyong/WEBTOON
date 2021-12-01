@@ -164,7 +164,7 @@ export default {
         })
         .then((respon) => {
           //여기서 화면 전체를 막는거 실행
-          console.log(respon);
+          //console.log(respon);
           router.push("/register_Webtoon");
           this.$store.state.id = respon.data.id;
           this.$store.state.userId = respon.data.userId;

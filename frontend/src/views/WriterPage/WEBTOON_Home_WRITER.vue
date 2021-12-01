@@ -42,7 +42,7 @@ export default {
       })
       .then((res) => {
         this.webtoons = res.data;
-        console.log(this.webtoons);
+        //console.log(this.webtoons);
       })
       .catch((err) => {
         console.log(err);

@@ -160,7 +160,7 @@ export default {
       )
       .then((response) => {
         this.writer_Status = response.data;
-        console.log(response.data);
+        //console.log(response.data);
       });
   },
   components: {
@@ -184,8 +184,8 @@ export default {
             withCredentials: true,
           }
         )
-        .then((res) => {
-          console.log(res.data);
+        .then(() => {
+          //console.log(res.data);
           alert("승인되었습니다.");
           router.push("/");
         })
@@ -207,10 +207,10 @@ export default {
             withCredentials: true,
           }
         )
-        .then((res) => {
+        .then(() => {
           alert("반려되었습니다.");
           router.push("/");
-          console.log(res);
+          //console.log(res);
         });
     },
   },

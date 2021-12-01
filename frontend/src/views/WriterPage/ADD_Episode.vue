@@ -162,7 +162,7 @@ export default {
       })
       .then((res) => {
         this.items = res.data;
-        console.log(res);
+        //console.log(res);
       });
   },
   computed: {
@@ -187,7 +187,7 @@ export default {
         })
         .then((res) => {
           this.recentEpisodeOrder = res.data.episodeOrder;
-          console.log(this.recentEpisodeOrder);
+          //console.log(this.recentEpisodeOrder);
           // res.data.episodeOrder
         });
     },
@@ -229,8 +229,8 @@ export default {
         .post("http://localhost:5000/writer/upload", form, {
           withCredentials: true,
         })
-        .then((respon) => {
-          console.log(respon);
+        .then(() => {
+          //console.log(respon);
           alert(
             "정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다."
           );
@@ -239,7 +239,7 @@ export default {
         .catch((err) => {
           console.error(err);
         });
-      console.log(writer_info);
+      //console.log(writer_info);
     },
   },
   watch: {

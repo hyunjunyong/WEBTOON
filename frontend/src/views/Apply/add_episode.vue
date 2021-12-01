@@ -134,12 +134,12 @@
 </template>
 
 <script>
-import Webtoonimage from '../../components/Webtoon-image';
+import Webtoonimage from "../../components/Webtoon-image";
 // import Reject_reason from "../../components/reject-reason.vue";
-import axios from 'axios';
-import router from '../../router/index';
+import axios from "axios";
+import router from "../../router/index";
 export default {
-  name: 'VIEWER',
+  name: "VIEWER",
 
   data: () => ({
     writer_Status: {},
@@ -153,7 +153,7 @@ export default {
       })
       .then((response) => {
         this.writer_Status = response.data;
-        console.log(this.writer_Status);
+        //console.log(this.writer_Status);
       });
   },
   components: {
@@ -164,9 +164,9 @@ export default {
     approveEpisode() {
       axios
         .patch(
-          'http://localhost:5000/admin/episodes',
+          "http://localhost:5000/admin/episodes",
           {
-            episodeStatus: 'approved',
+            episodeStatus: "approved",
             episodeId: this.writer_Status.id,
             workId: this.writer_Status.workId,
           },
@@ -174,10 +174,10 @@ export default {
             withCredentials: true,
           }
         )
-        .then((res) => {
-          console.log(res.data);
-          alert('승인되었습니다.');
-          router.push('/');
+        .then(() => {
+          //console.log(res.data);
+          alert("승인되었습니다.");
+          router.push("/");
         })
         .catch((err) => {
           console.log(err.message);
@@ -186,9 +186,9 @@ export default {
     rejectEpisode() {
       axios
         .patch(
-          'http://localhost:5000/admin/episodes',
+          "http://localhost:5000/admin/episodes",
           {
-            episodeStatus: 'declined',
+            episodeStatus: "declined",
             episodeId: this.writer_Status.id,
             // reason: this.reason,
           },
@@ -196,10 +196,10 @@ export default {
             withCredentials: true,
           }
         )
-        .then((res) => {
-          alert('반려되었습니다.');
-          router.push('/');
-          console.log(res);
+        .then(() => {
+          alert("반려되었습니다.");
+          router.push("/");
+          //console.log(res);
         });
     },
   },

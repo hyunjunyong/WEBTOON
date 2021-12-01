@@ -49,7 +49,10 @@
                   outlined
                   v-model="password_check"
                   type="password"
-                  :rules="[(password === password_check) || '비밀번호가 동일하지 않습니다.']"
+                  :rules="[
+                    password === password_check ||
+                      '비밀번호가 동일하지 않습니다.',
+                  ]"
                   required
                 ></v-text-field>
 
@@ -125,9 +128,9 @@ export default {
           email: this.email,
           password: this.password,
         })
-        .then((respon) => {
+        .then(() => {
           router.push("/login");
-          console.log(respon);
+          //console.log(respon);
         })
         .catch((err) => {
           alert("회원가입이 되지 않았습니다.");

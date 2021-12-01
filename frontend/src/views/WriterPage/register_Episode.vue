@@ -133,23 +133,23 @@
 </template>
 
 <script>
-import axios from 'axios';
-import router from '../../router/index.js';
-import { mapState } from 'vuex';
+import axios from "axios";
+import router from "../../router/index.js";
+import { mapState } from "vuex";
 
 export default {
-  name: '',
+  name: "",
   components: {},
 
   computed: {
-    ...mapState(['userInfo']),
+    ...mapState(["userInfo"]),
   },
   data() {
     return {
       episodeName: null,
       episodeDescription: null,
       items: [],
-      selectedWorkId: '',
+      selectedWorkId: "",
     };
   },
   methods: {
@@ -158,8 +158,8 @@ export default {
     add_Episode() {
       let form = new FormData();
 
-      const thumbnail = document.getElementById('thumbnail');
-      const episodeI = document.getElementById('episodeI');
+      const thumbnail = document.getElementById("thumbnail");
+      const episodeI = document.getElementById("episodeI");
 
       let writer_info = {
         workId: this.$store.state.workId,
@@ -167,7 +167,7 @@ export default {
         episodeDescription: this.episodeDescription,
       };
 
-      if (this.userInfo.userType == 'author') {
+      if (this.userInfo.userType == "author") {
         writer_info.workId = this.selectedWork;
       }
 
@@ -179,28 +179,28 @@ export default {
       // };
 
       for (let file of episodeI.files) {
-        console.log(file);
-        form.append('episodeImages', file, file.name);
+        //console.log(file);
+        form.append("episodeImages", file, file.name);
       }
 
-      form.append('episodeThumbnail', thumbnail.files[0]);
-      form.append('episodeInfo', JSON.stringify(writer_info));
+      form.append("episodeThumbnail", thumbnail.files[0]);
+      form.append("episodeInfo", JSON.stringify(writer_info));
       console.log(form);
       axios
-        .post('http://localhost:5000/user/upload-episode', form, {
+        .post("http://localhost:5000/user/upload-episode", form, {
           withCredentials: true,
         })
-        .then((respon) => {
-          console.log(respon);
+        .then(() => {
+          //console.log(respon);
           alert(
-            '정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다.'
+            "정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다."
           );
-          router.push('/');
+          router.push("/");
         })
         .catch((err) => {
           console.error(err);
         });
-      console.log(writer_info);
+      //console.log(writer_info);
     },
   },
 };
