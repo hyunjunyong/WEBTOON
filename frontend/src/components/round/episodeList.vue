@@ -24,12 +24,8 @@
     </v-banner>
 
     <v-list>
-      <template v-for="episode in webtoon">
-        <v-list-item
-          @click="useRouter(episode.id)"
-          :key="episode.episodeOrder"
-          two-line
-        >
+      <template v-for="episode in webtoon.episode">
+        <v-list-item @click="useRouter(episode.id)" :key="episode.id" two-line>
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
