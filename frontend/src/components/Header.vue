@@ -35,7 +35,6 @@
             depressed
             label="작품/작가 검색"
             prepend-inner-icon="mdi-magnify"
-            color="primary"
             class="d-none d-sm-flex mt-7"
             v-model="searchInfo"
             @keyup.enter="search"
@@ -43,7 +42,7 @@
         </v-col>
 
         <!-- 로그인 버튼 -->
-        <v-col cols="1">
+        <v-col cols="1" class="mt-5">
           <p v-if="!isLogin">
             <router-link to="/login" style="text-decoration:none">
               <v-btn depressed color="primary" outlined rounded>
@@ -63,181 +62,178 @@
             </template>
 
             <v-card>
-              <v-list-item-content class="justify-center">
-                <div class="mx-auto text-center">
-                  <v-avatar color="primary" size="70">
-                    {{ userInfo.name }}
-                  </v-avatar>
+              <v-list flat>
+                <v-list-item-group>
+                  <div class="text-center">
+                    <v-avatar color="primary" size="70">
+                      {{ userInfo.name }}
+                    </v-avatar>
 
-                  <h3 class="mt-3">{{ userInfo.name }}</h3>
+                    <h3 class="my-3">{{ userInfo.name }}</h3>
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'user'"
-                  ></v-divider>
+                    <v-divider></v-divider>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/apply/writer"
-                    v-if="userInfo.userType == 'user'"
-                  >
-                    <v-list-item-title>
-                      작가 신청
-                    </v-list-item-title>
-                  </router-link>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'user'"
+                    >
+                      <router-link
+                        style="text-decoration:none"
+                        to="/apply/writer"
+                      >
+                        <v-list-item-title>
+                          작가 신청
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'user'"
-                  ></v-divider>
+                    <v-divider v-if="userInfo.userType == 'user'"></v-divider>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/like_list"
-                    v-if="userInfo.userType == 'user'"
-                  >
-                    <v-list-item-title>
-                      찜한 작품
-                    </v-list-item-title>
-                  </router-link>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'user'"
+                    >
+                      <router-link style="text-decoration:none" to="/like_list">
+                        <v-list-item-title>
+                          찜한 작품
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <!--
+                    <!--
                 작가용
               -->
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'author'"
-                  ></v-divider>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'author'"
+                    >
+                      <router-link
+                        style="text-decoration:none"
+                        to="/writer_home_writer"
+                      >
+                        <v-list-item-title class="center">
+                          작가 홈
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/writer_home_writer"
-                    v-if="userInfo.userType == 'author'"
-                  >
-                    <v-list-item-title>
-                      작가 홈
-                    </v-list-item-title>
-                  </router-link>
+                    <v-divider v-if="userInfo.userType == 'author'"></v-divider>
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'author'"
-                  ></v-divider>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'author'"
+                    >
+                      <router-link
+                        style="text-decoration:none"
+                        to="/add/webtoon/"
+                      >
+                        <v-list-item-title>
+                          작품 등록
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/add/webtoon/"
-                    v-if="userInfo.userType == 'author'"
-                  >
-                    <v-list-item-title>
-                      작품 등록
-                    </v-list-item-title>
-                  </router-link>
+                    <v-divider v-if="userInfo.userType == 'author'"></v-divider>
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'author'"
-                  ></v-divider>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'author'"
+                    >
+                      <router-link
+                        style="text-decoration:none"
+                        to="/add/episode/"
+                      >
+                        <v-list-item-title>
+                          에피소드 등록
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/add/episode/"
-                    v-if="userInfo.userType == 'author'"
-                  >
-                    <v-list-item-title>
-                      에피소드 등록
-                    </v-list-item-title>
-                  </router-link>
+                    <v-divider v-if="userInfo.userType == 'author'"></v-divider>
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'author'"
-                  ></v-divider>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'author'"
+                    >
+                      <router-link
+                        style="text-decoration:none"
+                        to="/register_state"
+                      >
+                        <v-list-item-title>
+                          등록작품 상태
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/register_state"
-                    v-if="userInfo.userType == 'author'"
-                  >
-                    <v-list-item-title>
-                      등록작품 상태
-                    </v-list-item-title>
-                  </router-link>
+                    <v-divider v-if="userInfo.userType == 'author'"></v-divider>
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'author'"
-                  ></v-divider>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'author'"
+                    >
+                      <router-link style="text-decoration:none" to="/like_list">
+                        <v-list-item-title>
+                          찜한 작품
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/like_list"
-                    v-if="userInfo.userType == 'author'"
-                  >
-                    <v-list-item-title>
-                      찜한 작품
-                    </v-list-item-title>
-                  </router-link>
-
-                  <!-- 
+                    <!-- 
                 관리자용
               -->
 
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'admin'"
-                  ></v-divider>
-
-                  <router-link
-                    to="/admin"
-                    style="text-decoration:none"
-                    v-if="userInfo.userType == 'admin'"
-                  >
-                    <v-list-item-title>
-                      관리자 홈
-                    </v-list-item-title>
-                  </router-link>
-
-                  <v-divider
-                    class="my-3"
-                    v-if="userInfo.userType == 'admin'"
-                  ></v-divider>
-
-                  <router-link
-                    style="text-decoration:none"
-                    to="/Notice_list"
-                    v-if="userInfo.userType == 'admin'"
-                  >
-                    <v-list-item-title
-                      depressed
-                      rounded
-                      text
+                    <v-list-item
+                      class="justify-center"
                       v-if="userInfo.userType == 'admin'"
                     >
-                      공지
-                    </v-list-item-title>
-                  </router-link>
+                      <router-link to="/admin" style="text-decoration:none">
+                        <v-list-item-title>
+                          관리자 홈
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <v-divider class="my-3"></v-divider>
+                    <v-divider v-if="userInfo.userType == 'admin'"></v-divider>
 
-                  <router-link
-                    style="text-decoration:none"
-                    to="/personal_information"
-                  >
-                    <v-list-item-title>
-                      정보 변경
-                    </v-list-item-title>
-                  </router-link>
+                    <v-list-item
+                      class="justify-center"
+                      v-if="userInfo.userType == 'admin'"
+                    >
+                      <router-link
+                        style="text-decoration:none"
+                        to="/Notice_list"
+                      >
+                        <v-list-item-title>
+                          공지
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
 
-                  <v-divider class="my-3"></v-divider>
+                    <v-divider></v-divider>
 
-                  <router-link style="text-decoration:none" to="">
-                    <v-list-item-title @click="signout">
-                      로그아웃
-                    </v-list-item-title>
-                  </router-link>
-                </div>
-              </v-list-item-content>
+                    <v-list-item class="justify-center">
+                      <router-link
+                        style="text-decoration:none"
+                        to="/personal_information"
+                      >
+                        <v-list-item-title>
+                          정보 변경
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
+
+                    <v-divider></v-divider>
+
+                    <v-list-item class="justify-center">
+                      <router-link style="text-decoration:none" to="">
+                        <v-list-item-title @click="signout">
+                          로그아웃
+                        </v-list-item-title>
+                      </router-link>
+                    </v-list-item>
+                  </div>
+                </v-list-item-group>
+              </v-list>
             </v-card>
           </v-menu>
         </v-col>
@@ -261,10 +257,10 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import axios from "axios";
+import { mapState, mapActions } from 'vuex';
+import axios from 'axios';
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       dialog: false,
@@ -272,7 +268,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["signout", "signout"]),
+    ...mapActions(['signout', 'signout']),
 
     // 검색창 메소드
     search() {
@@ -284,7 +280,7 @@ export default {
         })
         .then((res) => {
           this.$store.searchInfo = res;
-          this.$router.push("searchResult").catch(() => {});
+          this.$router.push('searchResult').catch(() => {});
           console.log(res);
         })
         .then((err) => {
@@ -293,7 +289,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["isLogin", "userInfo"]),
+    ...mapState(['isLogin', 'userInfo']),
   },
 };
 </script>
