@@ -26,7 +26,7 @@
 
 <script>
 import LikeWebtoonList from '../../components/round/likeWebtoonList.vue';
-
+import axios from 'axios';
 export default {
   name: 'LIKE_LIST',
   components: {
@@ -34,6 +34,15 @@ export default {
   },
   data() {
     return {};
+  },
+  created() {
+    axios
+      .get('http://localhost:5000/user/like', {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res);
+      });
   },
 };
 </script>
