@@ -58,17 +58,17 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'EpisodeList',
+  name: "EpisodeList",
   props: {
     webtoon: Object,
   },
   data() {
     return {
       // 최신화,1화부터 변수
-      sortToggle: 'desc',
+      sortToggle: "desc",
       webtoons: this.webtoon,
     };
   },
@@ -80,10 +80,10 @@ export default {
   methods: {
     // 최신화,1화부터 버튼
     SortToggleBtn() {
-      if (this.sortToggle === 'desc') {
-        this.sortToggle = 'asc';
+      if (this.sortToggle === "desc") {
+        this.sortToggle = "asc";
       } else {
-        this.sortToggle = 'desc';
+        this.sortToggle = "desc";
       }
 
       axios
@@ -102,7 +102,7 @@ export default {
     },
     useRouter(index) {
       this.$router.push({
-        name: 'Episode',
+        name: "Episode",
         params: {
           id: index,
         },

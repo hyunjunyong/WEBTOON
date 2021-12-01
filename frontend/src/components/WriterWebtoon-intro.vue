@@ -119,7 +119,7 @@ export default {
         )
         .then((res) => {
           // this.genre = response.data;
-          console.log(res);
+          //console.log(res);
           if (res.data.isLike == true) {
             this.likes++;
             this.isBtnOutLine = false;

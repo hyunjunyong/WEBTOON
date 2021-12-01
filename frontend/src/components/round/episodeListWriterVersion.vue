@@ -44,10 +44,10 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'episodeList',
+  name: "episodeList",
   data() {
     return {};
   },
@@ -58,7 +58,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: 'Episode',
+        name: "Episode",
         params: {
           id: index,
         },
@@ -70,9 +70,9 @@ export default {
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜}
       axios
-        .get('http://localhost:5000/', {}, { withCredentials: true })
-        .then((res) => {
-          console.log(res);
+        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .then(() => {
+          //console.log(res);
         })
         .catch((err) => {
           console.log(err);

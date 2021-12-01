@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   props: {
@@ -95,15 +95,15 @@ export default {
     deleteLike(workId) {
       axios
         .post(
-          'http://localhost:5000/user/like',
+          "http://localhost:5000/user/like",
           {
             workId,
           },
           { withCredentials: true }
         )
-        .then((res) => {
+        .then(() => {
           this.dialog = false;
-          console.log(res);
+          //console.log(res);
           this.$router.go();
         });
     },

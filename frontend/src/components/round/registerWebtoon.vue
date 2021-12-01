@@ -29,33 +29,33 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'admin-apply-episode-list',
+  name: "admin-apply-episode-list",
   data() {
     return {
-      search: '',
+      search: "",
       webtoonList: [],
       webtoonHeaders: [
         {
-          text: '썸내일',
-          align: 'start',
+          text: "썸내일",
+          align: "start",
           sortable: false,
-          value: '',
+          value: "",
         },
-        { text: '작품명', value: '' },
-        { text: '에피소드명', value: '' },
-        { text: '날짜', value: 'createdAt' },
-        { text: '상태', value: '' },
+        { text: "작품명", value: "" },
+        { text: "에피소드명", value: "" },
+        { text: "날짜", value: "createdAt" },
+        { text: "상태", value: "" },
       ],
     };
   },
   methods: {
     useRouter(webtoon) {
-      console.log(webtoon);
+      //console.log(webtoon);
       this.$router.push({
-        name: 'Episode',
+        name: "Episode",
         params: { id: webtoon },
       });
     },
@@ -65,10 +65,10 @@ export default {
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜, episode apply}
       axios
-        .get('http://localhost:5000/', {}, { withCredentials: true })
-        .then((res) => {
+        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .then(() => {
           //episodes = res.data
-          console.log(res);
+          //console.log(res);
         })
         .catch((err) => {
           console.log(err);
