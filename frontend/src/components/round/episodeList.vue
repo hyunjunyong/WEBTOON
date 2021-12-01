@@ -2,7 +2,7 @@
   <!-- 작가홈의 에피소드 화수를 표현하는 컴포넌트 
     /webtoon에 들어감
   -->
-  <v-card elevation="0" max-height="1200" elvation="0">
+  <v-card elevation="0" max-height="1200">
     <v-banner class="justify-center white text-end" sticky>
       <v-btn
         v-if="sortToggle === 'desc'"
@@ -24,22 +24,32 @@
     </v-banner>
 
     <v-list>
-      <template v-for="episode in webtoon.episode">
-        <v-list-item @click="useRouter(episode.id)" :key="episode.id">
+      <template v-for="episode in webtoon">
+        <v-list-item
+          @click="useRouter(episode.id)"
+          :key="episode.episodeOrder"
+          two-line
+        >
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
             height="150px"
+            aspect-ratio="1"
           >
             <v-img :src="episode.episodeThumbnailUrl" />
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title
-              ><h3>
-                {{ episode.episodeName }} | {{ episode.episodeDescription }}
-              </h3></v-list-item-title
+              ><h4>{{ episode.episodeName }}</h4></v-list-item-title
             >
+
+            <v-list-item-subtitle>
+              <v-card color="transparent">
+                {{ episode.episodeDescription }}
+              </v-card>
+            </v-list-item-subtitle>
+
             <v-list-item-subtitle>
               {{ episode.updatedAt.slice(0, 10) }}
             </v-list-item-subtitle>

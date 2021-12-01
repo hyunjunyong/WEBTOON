@@ -42,10 +42,10 @@
         </v-col>
 
         <!-- 로그인 버튼 -->
-        <v-col cols="1" class="mt-5">
+        <v-col cols="1">
           <p v-if="!isLogin">
             <router-link to="/login" style="text-decoration:none">
-              <v-btn depressed color="primary" outlined rounded>
+              <v-btn class="mt-5" depressed color="primary" outlined rounded>
                 <span class="primary--text font-weight-bold">로그인</span>
               </v-btn>
             </router-link>

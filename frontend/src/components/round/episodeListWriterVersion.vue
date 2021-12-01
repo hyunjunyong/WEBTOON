@@ -3,18 +3,18 @@
     작가가 자신이 등록한 에피소드의 승인반려상태를 확인할 수 있는 리스트
     
  -->
-  <v-card>
+  <v-card elevation="0" max-height="1200">
     <v-banner class="justify-center white text-end" sticky>
       <router-link style="text-decoration:none" to="/add/episode">
-        <v-btn class="ma-2" color="#388E3C" dark>
+        <v-btn class="ma-2" color="green" dark rounded>
           에피소드 추가
           <v-icon dark>
             mdi-plus
           </v-icon>
         </v-btn>
       </router-link>
-      <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
+
     <v-simple-table elevation="0">
       <template v-slot:default>
         <tbody>
@@ -27,53 +27,19 @@
               <v-img
                 :src="index.episodeThumbnailUrl"
                 width="200px"
-                height="100px"
+                height="150px"
                 style="border-radius:10px"
+                aspect-ratio="1"
               />
             </td>
             <td>
-              <p>{{ index.episodeDescription }}</p>
-              {{ index.episodeName }}
+              <p>{{ index.episodeName }}</p>
+              {{ index.episodeDescription }}
             </td>
-            <!-- <td>
-              <v-btn dark small color="green" width="50" height="50">
-                <v-icon dark>mdi-pencil</v-icon></v-btn
-              >
-            </td> -->
           </tr>
         </tbody>
       </template>
     </v-simple-table>
-
-    <!-- <v-list>
-      <template v-for="index in webtoons[0].episode">
-        <v-list-item @click="useRouter(index.workId)" :key="index.id">
-          <v-btn dark small color="green" width="50" height="50">
-            <v-icon dark>mdi-pencil</v-icon></v-btn
-          >
-          <v-list-item-avatar
-            style="border-radius:10px"
-            width="200px"
-            height="150px"
-          >
-            <v-img :src="index.episodeThumbnailUrl" />
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title
-              ><h3>
-                {{ index.episodeName }} |
-                {{ index.episodeDescription }}
-              </h3></v-list-item-title
-            >
-            <v-list-item-subtitle>{{
-              index.updatedAt.slice(0, 10)
-            }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider :key="index.id"></v-divider>
-      </template>
-    </v-list> -->
   </v-card>
 </template>
 

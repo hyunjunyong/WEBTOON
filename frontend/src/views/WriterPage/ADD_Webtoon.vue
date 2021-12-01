@@ -59,7 +59,7 @@
             <v-row>
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
-                  >작품 소개글<br />(300자 이상)</v-card
+                  >작품 소개글<br />(100자 이상)</v-card
                 >
               </v-col>
 
