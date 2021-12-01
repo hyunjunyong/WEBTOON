@@ -69,31 +69,31 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
-      email: "user@test.com",
-      password: "password123",
+      email: 'user@test.com',
+      password: 'password123',
       NotSuccess: false,
       Success: false,
     };
   },
   methods: {
-    ...mapActions(["signin"]),
+    ...mapActions(['signin']),
     a() {
       //일반
-      (this.email = "user111@test.com"), (this.password = "password123");
+      (this.email = 'user111@test.com'), (this.password = 'password123');
     },
     b() {
       //작가
-      (this.email = "user01@test.com"), (this.password = "password123");
+      (this.email = 'user01@test.com'), (this.password = 'password123');
     },
     c() {
       //관리자
-      (this.email = "admin@test.com"), (this.password = "password123");
+      (this.email = 'admin@test.com'), (this.password = 'password123');
     },
     // axios
     //   .post(

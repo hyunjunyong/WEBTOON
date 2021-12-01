@@ -1,8 +1,8 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import axios from "axios";
-import router from "../router/index";
-import VueCookies from "vue-cookies";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import axios from 'axios';
+import router from '../router/index';
+import VueCookies from 'vue-cookies';
 
 Vue.use(Vuex);
 
@@ -46,6 +46,8 @@ export default new Vuex.Store({
     writer_Status: [], // 관리자 홈에서 작가신청 반려,승인페이지로 넘어가기 위한 ID
 
     searchInfo: null,
+
+    episodeWebtoon: null,
   },
   mutations: {
     setUserInfo(state, payload) {
@@ -66,9 +68,9 @@ export default new Vuex.Store({
       //로그아웃시 localStorage에 저장한 사용자 정보를 삭제함
       state.isLogin = false;
 
-      localStorage.removeItem("name");
-      localStorage.removeItem("userType");
-      localStorage.removeItem("isLogin");
+      localStorage.removeItem('name');
+      localStorage.removeItem('userType');
+      localStorage.removeItem('isLogin');
     },
     setWebtoonThumbnails(state, payload) {
       state.webtoonThumbnails = payload;
@@ -77,24 +79,24 @@ export default new Vuex.Store({
   },
   actions: {
     refresh5({ commit }) {
-      console.log("refresh5");
+      console.log('refresh5');
 
       let payload = {
-        name: localStorage.getItem("name"),
-        userType: localStorage.getItem("userType"),
+        name: localStorage.getItem('name'),
+        userType: localStorage.getItem('userType'),
       };
 
-      commit("setUserInfo", payload);
+      commit('setUserInfo', payload);
 
       payload = [];
 
       //webtoonThumbnails에 모든 썸네일을 저장한다.
       axios
-        .get("http://localhost:5000/works")
+        .get('http://localhost:5000/works')
         .then((res) => {
           payload = res.data;
           // console.log(payload);
-          commit("setWebtoonThumbnails", payload);
+          commit('setWebtoonThumbnails', payload);
           // console.log('setWebtoonThumbnails');
         })
         // .then(() => {
@@ -118,7 +120,7 @@ export default new Vuex.Store({
     signin({ commit }, loginObj) {
       axios
         .post(
-          "http://localhost:5000/auth/session",
+          'http://localhost:5000/auth/session',
           {
             email: loginObj.email,
             password: loginObj.password,
@@ -134,33 +136,33 @@ export default new Vuex.Store({
 
           // console.log(userInfo);
 
-          localStorage.setItem("name", userInfo.name);
-          localStorage.setItem("userType", userInfo.userType);
-          localStorage.setItem("isLogin", true);
+          localStorage.setItem('name', userInfo.name);
+          localStorage.setItem('userType', userInfo.userType);
+          localStorage.setItem('isLogin', true);
 
           let cookies = {
-            accessToken: VueCookies.get("accessToken"),
-            refreshToken: VueCookies.get("refreshToken"),
+            accessToken: VueCookies.get('accessToken'),
+            refreshToken: VueCookies.get('refreshToken'),
           };
 
           //사용자 정보 수정
-          commit("setUserInfo", userInfo);
-          commit("setCookies", cookies);
+          commit('setUserInfo', userInfo);
+          commit('setCookies', cookies);
 
           //로그인 성공시 홈 화면으로 이동
-          router.push("/");
+          router.push('/');
         })
         .catch((err) => {
-          console.log("login FAILE");
+          console.log('login FAILE');
           console.log(err);
         });
     },
     signout({ commit }) {
       axios
-        .delete("http://localhost:5000/auth/session", { withCredentials: true })
+        .delete('http://localhost:5000/auth/session', { withCredentials: true })
         .then(() => {
-          commit("delUserInfo");
-          router.push("/");
+          commit('delUserInfo');
+          router.push('/');
         })
         .catch((err) => {
           console.log(err);

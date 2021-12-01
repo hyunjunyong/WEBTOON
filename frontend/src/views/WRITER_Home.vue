@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import Writerprofile from "../components/Writer-profile.vue";
-import WebtoonList from "../components/round/webtoonList.vue";
-import axios from "axios";
+import Writerprofile from '../components/Writer-profile.vue';
+import WebtoonList from '../components/round/webtoonList.vue';
+import axios from 'axios';
 
 export default {
-  name: "WRITER_Home",
+  name: 'WRITER_Home',
   data() {
     return {
       writerHomeInfo: {
@@ -45,9 +45,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`http://localhost:5000/writer/${this.$route.params.id}`, {
-        withCredentials: true,
-      })
+      .get(`http://localhost:5000/author/${this.$route.params.id}`)
       .then((res) => {
         //console.log(res.data);
         this.writerHomeInfo = res.data;

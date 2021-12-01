@@ -4,13 +4,19 @@
    -->
   <v-container>
     <v-row justify="center" class="ma-0">
-      <v-col cols="8"><Webtoonimage :writer_Status="episodeImages" /> </v-col>
+      <v-col cols="8">
+        <Webtoonimage :writer_Status="episodeImages" />
+      </v-col>
 
       <!-- 웹툰 특정 화수를 클릭할 때 나타나는 이미지 컴포넌트 -->
     </v-row>
 
     <v-row>
-      <Viewerend />
+      <Viewerend
+        :episodeImages="episodeImages"
+        :nextdisabledBtn="nextdisabledBtn"
+        :prevdisabledBtn="prevdisabledBtn"
+      />
     </v-row>
 
     <v-dialog v-model="dialog" persistent width="300">
@@ -41,10 +47,9 @@ export default {
   },
   data() {
     return {
-      episodeImages: {
-        count: null,
-        episodeImages: Array,
-      },
+      prevdisabledBtn: null,
+      nextdisabledBtn: null,
+      episodeImages: {},
       dialog: false,
     };
   },
@@ -62,6 +67,18 @@ export default {
         .get(`http://localhost:5000/episode/${this.$route.params.id}`)
         .then((res) => {
           this.episodeImages = res.data;
+          if (this.episodeImages.prevEpisodeInfo == null) {
+            this.prevdisabledBtn = true;
+          } else {
+            this.prevdisabledBtn = false;
+          }
+          if (this.episodeImages.nextEpisodeInfo == null) {
+            this.nextdisabledBtn = true;
+          } else {
+            this.nextdisabledBtn = false;
+          }
+
+          console.log(res);
         })
         .then(() => {
           setTimeout(() => (this.dialog = false), 600);

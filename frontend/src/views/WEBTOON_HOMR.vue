@@ -21,6 +21,10 @@
         <!-- webtoon_round_State=0 에피소드 리스트 출력 -->
         <!-- <webtoonround :webtoon_round_State="0" :webtoons="webtoons" /> -->
         <EpisodeList :webtoon="webtoon.episode" />
+        <!-- 
+            형진님이 콘솔에러 수정하시려고 한건데 이렇게되면 함수가 작동을안함
+        
+        -->
       </v-col>
       <v-col cols="2">
         <v-card @click="useRouter(webtoon.user.id)" elevation="0">
@@ -53,14 +57,14 @@
 </template>
 
 <script>
-import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
+import WriterWebtoonIntro from '../components/WriterWebtoon-intro.vue'; // 작품 설명
 // import Writerprofile from "../components/Writer-profile.vue";
-import axios from "axios";
-import EpisodeList from "../components/round/episodeList.vue";
+import axios from 'axios';
+import EpisodeList from '../components/round/episodeList.vue';
 //import webtoonround from "../components/webtoon-round.vue";
 
 export default {
-  name: "WEBTOON_Home",
+  name: 'WEBTOON_Home',
   data() {
     return {
       webtoon: {
@@ -88,6 +92,7 @@ export default {
       })
       .then((res) => {
         this.webtoon = res.data;
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -96,7 +101,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WRITER_Home",
+        name: 'WRITER_Home',
         params: {
           id: index,
         },
