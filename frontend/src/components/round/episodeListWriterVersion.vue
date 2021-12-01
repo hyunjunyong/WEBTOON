@@ -19,7 +19,7 @@
       <template v-slot:default>
         <tbody>
           <tr
-            v-for="index in webtoons[0].episode"
+            v-for="index in webtoons.episode"
             :key="index"
             @click="useRouter(index.id)"
           >

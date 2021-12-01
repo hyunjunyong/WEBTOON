@@ -2,6 +2,7 @@
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
     <v-row justify="center">
+      {{ webtoon }}
       <v-col cols="3" class="mr-10">
         <v-row>
           <v-col>
@@ -61,10 +62,7 @@ export default {
     return {
       likes: 0,
       isBtnOutLine: null,
-      webtoon: {
-        genreType: Array,
-        user: null,
-      },
+      webtoon: null,
     };
   },
 
@@ -98,11 +96,12 @@ export default {
       AuthorName: null,
     };
     axios
-      .get(`http://localhost:5000/${this.$route.params.id}/episode/`, {
+      .get(`http://localhost:5000/writer/work/${this.$route.params.id}`, {
         withCredentials: true,
       })
       .then((res) => {
         this.webtoon = res.data;
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

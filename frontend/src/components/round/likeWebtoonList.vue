@@ -8,35 +8,34 @@
  -->
 
   <v-card elevation="0" class="overflow-y-auto" height="700">
-    <!-- <v-banner class="white" sticky>
-      <v-card class="d-flex justify-end">
-        <v-btn @click="writer.sort(title_Order)" text>
-          제목순
-        </v-btn>
-        <v-btn @click="writer.sort(date_Order)" text>
-          업데이트순
-        </v-btn>
-      </v-card>
-    </v-banner> -->
-
     <v-list>
       <template v-for="i in webtoons">
-        <v-list-item @click="useRouter(i.work.id)" :key="i.id">
+        <v-list-item @click="useRouter(i.work.id)" :key="i.id" two-line>
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
             height="150px"
+            aspect-ratio="1"
           >
             <v-img :src="i.work.workThumbnail" />
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title>
-              <h3>
-                {{ i.work.title }} |
-                {{ i.work.workDescription }}
-              </h3>
+              <h4>
+                {{ i.work.title }}
+              </h4>
             </v-list-item-title>
+
+            <v-list-item-subtitle>
+              <v-card color="transparent">
+                {{ i.work.workDescription }}
+              </v-card>
+            </v-list-item-subtitle>
+
+            <v-list-item-subtitle>
+              {{ i.work.updatedAt.slice(0, 10) }}
+            </v-list-item-subtitle>
           </v-list-item-content>
 
           <v-list-item-action>

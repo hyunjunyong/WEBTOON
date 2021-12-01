@@ -2,17 +2,17 @@
   <v-container class="TOTAL">
     <!-- 장르선택  -->
     <v-row justify="center">
-      <v-col cols="8">
+      <v-col cols="8" class="ma-5">
         <v-row justify="center">
-          <v-chip-group active-class="primary--text">
+          <v-chip-group>
             <v-chip
               :item="n"
               v-for="n in genre"
               :key="n.id"
               :input-value="active"
-              filter
-              outlined
               @click="genreSort(n.id)"
+              color="primary"
+              dark
             >
               <!-- @click="$emit('change')" -->
               {{ n.name }}
