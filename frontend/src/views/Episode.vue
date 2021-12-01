@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import Webtoonimage from "../components/Webtoon-image";
-import Viewerend from "../components/viewer-end.vue";
-import axios from "axios";
+import Webtoonimage from '../components/Webtoon-image';
+import Viewerend from '../components/viewer-end.vue';
+import axios from 'axios';
 
 export default {
-  name: "VIEWER",
+  name: 'VIEWER',
   components: {
     Webtoonimage,
     Viewerend,

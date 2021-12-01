@@ -168,6 +168,7 @@ export default {
           {
             episodeStatus: 'approved',
             episodeId: this.writer_Status.id,
+            workId: this.writer_Status.workId,
           },
           {
             withCredentials: true,
