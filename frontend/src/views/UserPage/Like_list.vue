@@ -13,9 +13,9 @@
 
           <!-- 찜한 작품 / 작가 리스트 -->
           <v-row justify="center">
-            <v-col cols="auto">
+            <v-col>
               <!-- 찜한 작품 리스트 -->
-              <LikeWebtoonList />
+              <LikeWebtoonList :webtoons="webtoons" />
             </v-col>
           </v-row>
         </v-card>
@@ -33,7 +33,9 @@ export default {
     LikeWebtoonList,
   },
   data() {
-    return {};
+    return {
+      webtoons: null,
+    };
   },
   created() {
     axios
@@ -41,6 +43,7 @@ export default {
         withCredentials: true,
       })
       .then((res) => {
+        this.webtoons = res.data;
         console.log(res);
       });
   },

@@ -8,7 +8,7 @@
  -->
 
   <v-card elevation="0" class="overflow-y-auto" height="700">
-    <v-banner class="white" sticky>
+    <!-- <v-banner class="white" sticky>
       <v-card class="d-flex justify-end">
         <v-btn @click="writer.sort(title_Order)" text>
           제목순
@@ -17,27 +17,30 @@
           업데이트순
         </v-btn>
       </v-card>
-    </v-banner>
+    </v-banner> -->
 
     <v-list>
-      <template v-for="writer in writers">
-        <v-list-item @click="useRouter(writer.id)" :key="writer.id">
+      <template v-for="i in webtoons">
+        <v-list-item @click="useRouter(i.work.id)" :key="i.id">
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
             height="150px"
           >
-            <v-img :src="writer.profile" />
+            <v-img :src="i.work.workThumbnail" />
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title>
-              <h3>{{ writer.name }} | {{ writer.description }}</h3>
+              <h3>
+                {{ i.work.title }} |
+                {{ i.work.workDescription }}
+              </h3>
             </v-list-item-title>
           </v-list-item-content>
 
           <v-list-item-action>
-            <v-dialog v-model="dialog" width="auto">
+            <v-dialog v-model="dialog" width="500px">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
                   cols="1"
@@ -58,68 +61,69 @@
                 </v-card-title>
                 <v-divider />
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" text @click="dialog = false">
+                <v-btn
+                  block
+                  color="primary"
+                  text
+                  @click="[deleteLike(i.work.id)]"
+                >
                   확인
                 </v-btn>
               </v-card>
             </v-dialog>
           </v-list-item-action>
         </v-list-item>
-        <v-divider :key="`Divider_` + writer.id"></v-divider>
+        <v-divider :key="`Divider_` + i.id"></v-divider>
       </template>
     </v-list>
   </v-card>
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
   props: {
     webtoonInfo: Array,
+    webtoons: Array,
   },
   data() {
     return {
       // dialog: false,
-      writers: [
-        {
-          id: 1,
-          name: '작품1',
-          profile: require('../../img/nums/1.png'),
-          description: 'html is not programming language1',
-        },
-        {
-          id: 2,
-          name: '작품2',
-          profile: require('../../img/nums/2.png'),
-          description: 'html is not programming language2',
-        },
-        {
-          id: 3,
-          name: '작품3',
-          profile: require('../../img/nums/3.png'),
-          description: 'html is not programming language3',
-        },
-      ],
     };
   },
   methods: {
-    title_Order(a, b) {
-      return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
+    deleteLike(workId) {
+      axios
+        .post(
+          'http://localhost:5000/user/like',
+          {
+            workId,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          this.dialog = false;
+          console.log(res);
+          this.$router.go();
+        });
     },
-    date_Order(a, b) {
-      var dateA = new Date(a['date']).getTime();
-      var dateB = new Date(b['date']).getTime();
-      return dateA < dateB ? 1 : -1;
-    },
-    useRouter(index) {
-      this.$router.push({
-        name: 'Webtoon',
-        params: {
-          id: index,
-        },
-      });
-    },
+    // title_Order(a, b) {
+    //   return a.round < b.round ? -1 : a.round > b.round ? 1 : 0;
+    // },
+    // date_Order(a, b) {
+    //   var dateA = new Date(a['date']).getTime();
+    //   var dateB = new Date(b['date']).getTime();
+    //   return dateA < dateB ? 1 : -1;
+    // },
+    // useRouter(index) {
+    //   this.$router.push({
+    //     name: 'Webtoon',
+    //     params: {
+    //       id: index,
+    //     },
+    //   });
+    // },
     /*   getWriterList() {
       //내가 찜한 작가 리스트를 받아서
       //data의 writers 넣어야함...
