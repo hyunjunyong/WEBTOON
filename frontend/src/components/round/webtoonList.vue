@@ -4,41 +4,44 @@
   /writer에서 사용됨
   해당 작품홈으로 이동해야함
 -->
-  <v-card elevation="0" class="overflow-y-auto" max-height="600">
-    <v-banner class="justify-center white" sticky>
-      <h3>작가의 작품</h3>
+  <v-card elevation="0" max-height="auto">
+    <v-banner class="justify-center white text-end" sticky>
       <v-btn @click="webtoons.sort(title_Order)" color="black" text>
         제목순
       </v-btn>
       /
       <v-btn @click="webtoons.sort(date_Order)" color="black" text>
-        날짜 순
+        업데이트 순
       </v-btn>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
     <v-list>
       <template v-for="webtoon in writerHomeInfo.work">
-        <v-list-item @click="useRouter(webtoon.id)" :key="webtoon.id">
+        <v-list-item @click="useRouter(webtoon.id)" :key="webtoon.id" two-line>
           <v-list-item-avatar
             style="border-radius:10px"
             width="200px"
             height="150px"
+            aspect-ratio="1"
           >
             <v-img :src="webtoon.workThumbnail" />
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title
-              ><h3>
-                {{ webtoon.title }} | {{ webtoon.workDescription }}
-              </h3></v-list-item-title
-            >
-            <!-- <v-list-item-subtitle>{{
-              episode.updatedAt.slice(0, 10)
-            }}</v-list-item-subtitle> -->
+            <v-list-item-title>
+              <h4>
+                {{ webtoon.title }}
+              </h4>
+            </v-list-item-title>
+
+            <v-list-item-subtitle>
+              <v-card color="transparent">
+                {{ webtoon.workDescription }}
+              </v-card>
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-divider :key="`Divider_` + webtoon.id"></v-divider>
+        <v-divider :key="webtoon.id"></v-divider>
       </template>
     </v-list>
   </v-card>
