@@ -144,7 +144,7 @@ export default {
       })
       .then((res) => {
         this.appliedEpisodeList = res.data;
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
