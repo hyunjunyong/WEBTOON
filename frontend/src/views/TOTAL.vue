@@ -11,8 +11,9 @@
               :key="n.id"
               filter
               outlined
-              @click="$emit('change')"
+              @click="genreSort(n.id)"
             >
+              <!-- @click="$emit('change')" -->
               {{ n.name }}
             </v-chip>
           </v-chip-group>
@@ -23,28 +24,28 @@
 
     <v-row no-gutters justify="center">
       <v-col cols="8">
-        <Thumbnail :webtoonState="4" :webtoons="webtoonThumbnails" :h="200" />
+        <Thumbnail :webtoonState="4" :webtoons="webtoons" :h="200" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Thumbnail from "../components/Thumbnail";
+import Thumbnail from '../components/Thumbnail';
 // import Genre from '../components/genre';
-import axios from "axios";
-import { mapGetters } from "vuex";
+import axios from 'axios';
+// import { mapGetters } from 'vuex';
 //import store from "../store/index";
 
 export default {
-  name: "TOTAL",
+  name: 'TOTAL',
   components: {
     Thumbnail,
     // Genre,
   },
   created() {
     // this.getThumbnails();
-    axios.get("http://localhost:5000/genre").then((response) => {
+    axios.get('http://localhost:5000/genre').then((response) => {
       // this.genre = response.data;
       this.genre = response.data;
     });
@@ -52,10 +53,19 @@ export default {
   data() {
     return {
       genre: [],
+      webtoons: null,
     };
   },
   computed: {
-    ...mapGetters({ webtoonThumbnails: "getWebtoonThumbnails" }),
+    // ...mapGetters({ webtoonThumbnails: 'getWebtoonThumbnails' }),
+  },
+  methods: {
+    genreSort(index) {
+      axios.get(`http://localhost:5000/works/${index}`).then((res) => {
+        console.log(res.data.worksOfGenre);
+        this.webtoons = res.data.worksOfGenre;
+      });
+    },
   },
 };
 </script>

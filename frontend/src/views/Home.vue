@@ -39,7 +39,7 @@
          -->
           <TestThumbnail
             :webtoonState="3"
-            :webtoons="webtoonThumbnails"
+            :webtoons="worksHot"
             :h="300"
             :limited="4"
           />
@@ -67,7 +67,7 @@
          -->
           <TestThumbnail
             :webtoonState="4"
-            :webtoons="webtoonThumbnails"
+            :webtoons="worksHighView"
             :h="220"
             :limited="4"
           />
@@ -93,7 +93,7 @@
          -->
           <TestThumbnail
             :webtoonState="4"
-            :webtoons="webtoonThumbnails"
+            :webtoons="recentWork"
             :h="180"
             :limited="4"
           />
@@ -104,11 +104,11 @@
 </template>
 
 <script>
-import TestThumbnail from "../components/TestThumbnail";
-import { mapGetters } from "vuex";
-
+import TestThumbnail from '../components/TestThumbnail';
+// import { mapGetters } from "vuex";
+import axios from 'axios';
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     TestThumbnail,
   },
@@ -117,22 +117,37 @@ export default {
       items: [
         {
           src:
-            "http://images.battlecomics.co.kr/web_home_banner/526/banner-bannerid_526-w_1900-h_420-t_20211112180952.jpg",
+            'http://images.battlecomics.co.kr/web_home_banner/526/banner-bannerid_526-w_1900-h_420-t_20211112180952.jpg',
         },
         {
-          src: require("../img/santa.png"),
+          src: require('../img/santa.png'),
         },
         {
-          src: require("../img/봄툰출첵.png"),
+          src: require('../img/봄툰출첵.png'),
         },
         {
-          src: require("../img/신규가입.png"),
+          src: require('../img/신규가입.png'),
         },
       ],
+      recentWork: null,
+      worksHighView: null,
+      worksHot: null,
     };
   },
   computed: {
-    ...mapGetters({ webtoonThumbnails: "getWebtoonThumbnails" }),
+    // ...mapGetters({ webtoonThumbnails: 'getWebtoonThumbnails' }),
+  },
+  mounted() {
+    axios
+      .get('http://localhost:5000/works/home', {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.recentWork = res.data.recentWork;
+        this.worksHighView = res.data.worksHighView;
+        this.worksHot = res.data.worksHot;
+        console.log(res);
+      });
   },
 };
 </script>

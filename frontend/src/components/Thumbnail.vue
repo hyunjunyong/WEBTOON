@@ -11,16 +11,18 @@
         <v-card
           :elevation="hover ? 10 : 0"
           router-link
-          :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
+          :to="{ name: 'WEBTOON_HOMR', params: { id: i.work.id } }"
           class="radius"
         >
-          <v-img :height="h" :src="i.workThumbnail" class="radius" />
+          <v-img :height="h" :src="i.work.workThumbnail" class="radius" />
 
           <v-card-title>
-            {{ i.title }}
+            {{ i.work.title }}
           </v-card-title>
 
-          <v-card-subtitle> 작가 : {{ i.user.authorName }} </v-card-subtitle>
+          <v-card-subtitle>
+            작가 : {{ i.work.user.authorName }}
+          </v-card-subtitle>
         </v-card>
       </v-hover>
     </v-col>
@@ -30,7 +32,7 @@
 <script>
 // import axiosx from "axios";
 export default {
-  name: "Thumbnail",
+  name: 'Thumbnail',
   data() {
     return {
       // c는 한 줄에 들어갈 썸네일의 갯수가 된다.
