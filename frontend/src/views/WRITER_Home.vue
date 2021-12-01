@@ -46,7 +46,6 @@ export default {
   mounted() {
     axios
       .get(`http://localhost:5000/author/${this.$route.params.id}`)
-
       .then((res) => {
         //console.log(res.data);
         this.writerHomeInfo = res.data;
