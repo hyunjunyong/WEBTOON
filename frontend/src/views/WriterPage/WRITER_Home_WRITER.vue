@@ -37,12 +37,11 @@
             <v-col cols="10">
               <v-card elevation="0" class="mb-3">
                 <v-card-title>{{ webtoons[0].user.authorName }}</v-card-title>
-                <v-card-text>{{
-                  webtoons[0].user.authorDescription
-                }}</v-card-text>
+                <v-card-text
+                  >{{ webtoons[0].user.authorDescription
+                  }}<span class="text-right"><Modal :modalState="5"/></span
+                ></v-card-text>
               </v-card>
-
-              <Modal :modalState="5" />
             </v-col>
           </v-row>
           <!-- <writerprofile /> -->
@@ -62,12 +61,12 @@
 <script>
 // import writerprofile from "../../components/Writer-profile.vue";
 //import webtoonround from "../../components/webtoon-round.vue";
-import WebtoonListWriterVersion from "../../components/round/webtoonListWriterVersion.vue";
-import Modal from "../../components/modal.vue";
-import axios from "axios";
+import WebtoonListWriterVersion from '../../components/round/webtoonListWriterVersion.vue';
+import Modal from '../../components/modal.vue';
+import axios from 'axios';
 
 export default {
-  name: "WRITER_Home",
+  name: 'WRITER_Home',
   data() {
     return {
       webtoons: null,
@@ -81,7 +80,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:5000/writer/work", {
+      .get('http://localhost:5000/writer/work', {
         withCredentials: true,
       })
       .then((res) => {

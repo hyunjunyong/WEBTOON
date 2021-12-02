@@ -17,7 +17,7 @@
 
     <v-list>
       <template v-for="index in webtoons.episode">
-        <v-list-item @click="useRouter(index.id)" :key="index" three-line>
+        <v-list-item @click="useRouter(index.id)" :key="index.id" three-line>
           <v-list-item-avatar
             style="border-radius:10px"
             width="150px"

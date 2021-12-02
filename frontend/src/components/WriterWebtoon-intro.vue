@@ -3,39 +3,23 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="3" class="mr-5">
-        <!-- <v-row>
-          <v-col> -->
-
         <h1>{{ webtoon.title }}</h1>
-        <!-- </v-col>
-        </v-row>
-        <v-row> -->
+
         <v-card elevation="0" height="90px">
-          <!-- <v-row>
-              <v-col> -->
           <v-card-subtitle class="grey--text pl-0 pb-0 text-subtitle-1">
             {{ webtoon.genreType[0].genre.name }}
           </v-card-subtitle>
-          <!-- </v-col>
-              <v-col> -->
-          <!-- <v-chip @click="like" color="blue" :outlined="isBtnOutLine">
-                  좋아요 : {{ likes }}
-                </v-chip> -->
+
           <v-card-subtitle class="pa-0 text-subtitle-1"
             ><v-btn icon :color="isBtnColor" @click="like">
               <v-icon>mdi-heart</v-icon>{{ likes }}
             </v-btn></v-card-subtitle
           >
-          <!-- </v-col>
-            </v-row> -->
 
-          <!-- <v-row class="mt-10"> -->
           <v-card-text class="pl-0 black--text ">
             {{ webtoon.workDescription }}
           </v-card-text>
-          <!-- </v-row> -->
         </v-card>
-        <!-- </v-row> -->
       </v-col>
 
       <v-col cols="8">

@@ -4,7 +4,7 @@
     <v-row justify="center">
       <v-col cols="8">
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
-        <MyWebtoonIntro :webtoonId="$route.params.id" />
+        <MyWebtoonIntro :webtoonId="$route.params.id" :webtoons="webtoons" />
       </v-col>
     </v-row>
 
@@ -42,7 +42,7 @@ export default {
       })
       .then((res) => {
         this.webtoons = res.data;
-        console.log(this.webtoons);
+        // console.log(this.webtoons);
       })
       .catch((err) => {
         console.log(err);
