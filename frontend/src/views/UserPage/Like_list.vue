@@ -1,6 +1,6 @@
 <template>
   <!--
-    찜한 작품 리스트
+    좋아요한 작품 리스트
   -->
 
   <v-container>
@@ -8,13 +8,13 @@
       <v-col cols="6" class="ma-2">
         <v-card elevation="0">
           <v-card-title class="text-h5 font-weight-bold">
-            찜한 작품
+            좋아요한 작품
           </v-card-title>
 
-          <!-- 찜한 작품 / 작가 리스트 -->
+          <!-- 좋아요한 작품 / 작가 리스트 -->
           <v-row justify="center">
             <v-col>
-              <!-- 찜한 작품 리스트 -->
+              <!-- 좋아요한 작품 리스트 -->
               <LikeWebtoonList :webtoons="webtoons" />
             </v-col>
           </v-row>

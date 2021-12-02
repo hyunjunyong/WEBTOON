@@ -54,11 +54,7 @@
             <v-chip v-if="index.episodeStatus === 'declined'" color="red" dark>
               승인 반려
             </v-chip>
-            <v-chip
-              v-if="index.episodeStatus === 'panding'"
-              color="yellow"
-              dark
-            >
+            <v-chip v-if="index.episodeStatus === 'pending'" color="yellow">
               승인 대기중
             </v-chip>
           </v-list-item-action>
