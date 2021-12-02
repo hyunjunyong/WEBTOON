@@ -4,15 +4,18 @@
     
  -->
   <v-card elevation="0" max-height="1200">
-    <v-banner class="justify-center white text-end" sticky>
-      <router-link style="text-decoration:none" to="/add/episode">
-        <v-btn class="ma-2" color="green" dark rounded>
-          에피소드 추가
-          <v-icon dark>
-            mdi-plus
-          </v-icon>
-        </v-btn>
-      </router-link>
+    <v-banner class="justify-space-around white" sticky>
+      총 {{ webtoons.episodeCounts }}화
+      <template v-slot:actions>
+        <router-link style="text-decoration:none" to="/add/episode">
+          <v-btn class="ma-2" color="green" dark rounded>
+            에피소드 추가
+            <v-icon dark>
+              mdi-plus
+            </v-icon>
+          </v-btn>
+        </router-link>
+      </template>
     </v-banner>
 
     <v-list>

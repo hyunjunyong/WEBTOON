@@ -3,23 +3,26 @@
     /webtoon에 들어감
   -->
   <v-card elevation="0" max-height="1200">
-    <v-banner class="justify-center white text-end" sticky>
-      <v-btn
-        v-if="sortToggle === 'desc'"
-        @click="SortToggleBtn()"
-        color="black"
-        text
-      >
-        첫화부터
-      </v-btn>
-      <v-btn
-        v-if="sortToggle === 'asc'"
-        @click="SortToggleBtn()"
-        color="black"
-        text
-      >
-        최신화부터
-      </v-btn>
+    <v-banner sticky>
+      총 {{ webtoon.episodeCounts }}화
+      <template v-slot:actions>
+        <v-btn
+          v-if="sortToggle === 'desc'"
+          @click="SortToggleBtn()"
+          color="black"
+          text
+        >
+          첫화부터
+        </v-btn>
+        <v-btn
+          v-if="sortToggle === 'asc'"
+          @click="SortToggleBtn()"
+          color="black"
+          text
+        >
+          최신화부터
+        </v-btn>
+      </template>
       <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
     </v-banner>
 
