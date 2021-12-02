@@ -139,15 +139,15 @@
 
 <script>
 // import Genre from '../../components/genre.vue';
-import axios from "axios";
-import router from "../../router/index";
+import axios from 'axios';
+import router from '../../router/index';
 export default {
-  name: "",
+  name: '',
   data() {
     return {
       url: null,
-      workDescription: "작품을 소개합니다.",
-      title: "작품 이름",
+      workDescription: '작품을 소개합니다.',
+      title: '작품 이름',
       genreId: null,
     };
   },
@@ -157,7 +157,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:5000/genre", { withCredentials: true })
+      .get('http://localhost:5000/genre', { withCredentials: true })
       .then((response) => {
         // this.genre = response.data;
         this.$store.state.genre = response.data;
@@ -174,7 +174,7 @@ export default {
     },
     register_Webtoon() {
       let form = new FormData();
-      var workThumbnail = document.getElementById("Thumbnail");
+      var workThumbnail = document.getElementById('Thumbnail');
       const writer_info = {
         genreId: this.genreId,
         // userId: this.$store.state.userInfo.id,
@@ -184,21 +184,21 @@ export default {
       // console.log("사용자id : " + this.$store.state.userInfo.id);
       //console.log(writer_info);
 
-      form.append("workThumbnail", workThumbnail.files[0]);
-      form.append("workInfo", JSON.stringify(writer_info));
+      form.append('workThumbnail', workThumbnail.files[0]);
+      form.append('workInfo', JSON.stringify(writer_info));
 
       axios
-        .post("http://localhost:5000/writer/work", form, {
+        .post('http://localhost:5000/writer/work', form, {
           withCredentials: true,
         })
         .then(() => {
           //console.log(respon);
-          alert("정상적으로 등록되었습니다.");
-          router.push("/writer_home_writer");
+          alert('정상적으로 등록되었습니다.');
+          router.push('/writer_home_writer');
         })
         .catch((err) => {
           console.error(err);
-          alert("정보가 기입되지 않았습니다.");
+          alert('정보가 기입되지 않았습니다.');
         });
     },
   },

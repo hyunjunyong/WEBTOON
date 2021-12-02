@@ -45,6 +45,17 @@
               </v-card>
             </v-list-item-subtitle>
           </v-list-item-content>
+          <v-list-item-action>
+            <v-chip v-if="webtoon.status === 'regular'" color="blue" dark>
+              승인 완료
+            </v-chip>
+            <v-chip v-if="webtoon.status === 'declined'" color="red" dark>
+              승인 반려
+            </v-chip>
+            <v-chip v-if="webtoon.status === 'pending'" color="yellow">
+              승인 대기중
+            </v-chip>
+          </v-list-item-action>
         </v-list-item>
         <v-divider :key="webtoon.id"></v-divider>
       </template>

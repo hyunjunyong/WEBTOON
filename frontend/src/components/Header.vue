@@ -69,9 +69,7 @@
                       {{ userInfo.name }}
                     </v-avatar>
 
-                    <h3 class="my-3">{{ userInfo.name }}</h3>
-
-                    <v-divider></v-divider>
+                    <v-divider class="mt-3"></v-divider>
 
                     <v-list-item
                       class="justify-center"
@@ -140,7 +138,7 @@
                       @click="useRoute('/like_list')"
                     >
                       <v-list-item-title>
-                        찜한 작품
+                        좋아요한 작품
                       </v-list-item-title>
                     </v-list-item>
 
