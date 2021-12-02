@@ -17,9 +17,12 @@
                 </div>
               </v-col>
               <v-col>
-                <v-chip @click="like" color="blue" :outlined="isBtnOutLine">
+                <!-- <v-chip @click="like" color="blue" :outlined="isBtnOutLine">
                   좋아요 : {{ likes }}
-                </v-chip>
+                </v-chip> -->
+                <v-btn icon :color="isBtnColor" @click="like">
+                  <v-icon>mdi-heart</v-icon>{{ likes }}
+                </v-btn>
               </v-col>
             </v-row>
 
@@ -45,18 +48,19 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "WriterWebtoon_intro",
+  name: 'WriterWebtoon_intro',
   props: {
     // webtoonId : 부모 컴포넌트에서 받아온 작가 아이디
     webtoonId: null,
   },
+  components: {},
   data() {
     return {
       likes: 0,
-      isBtnOutLine: null,
+      isBtnColor: 'primary',
       webtoon: {
         title: null,
         workDescription: null,
@@ -68,7 +72,7 @@ export default {
   created() {
     // 좋아요 갯수받는 api
     axios
-      .get("http://localhost:5000/like/" + this.webtoonId, {
+      .get('http://localhost:5000/like/' + this.webtoonId, {
         withCredentials: true,
       })
       .then((res) => {
@@ -76,9 +80,9 @@ export default {
 
         this.likes = res.data.likeCounts;
         if (res.data.userLikeStatus == true) {
-          this.isBtnOutLine = false;
+          this.isBtnColor = 'primary';
         } else {
-          this.isBtnOutLine = true;
+          this.isBtnColor = 'grey';
         }
 
         // this.genre = response.data;
@@ -101,7 +105,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WRITER_Home",
+        name: 'WRITER_Home',
         params: {
           id: index,
         },
@@ -111,7 +115,7 @@ export default {
     like() {
       axios
         .post(
-          "http://localhost:5000/user/like",
+          'http://localhost:5000/user/like',
           {
             workId: this.webtoonId,
           },
@@ -122,10 +126,10 @@ export default {
           //console.log(res);
           if (res.data.isLike == true) {
             this.likes++;
-            this.isBtnOutLine = false;
+            this.isBtnColor = 'primary';
           } else if (res.data.isLike == false && this.likes != 0) {
             this.likes--;
-            this.isBtnOutLine = true;
+            this.isBtnColor = 'grey';
           }
         });
     },
