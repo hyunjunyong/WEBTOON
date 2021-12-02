@@ -16,7 +16,7 @@
 
     <v-container>
       <v-row justify="center">
-        <v-col cols="8">
+        <v-col cols="10">
           <v-card elevation="0">
             <v-card-title class="text-h5 font-weight-bold pb-0">
               초절정 인기 웹툰
@@ -24,7 +24,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="10">
+        <v-col cols="11">
           <!-- 
           webtoon 배열의 값을 보냄
           한줄에 4개의 썸네일을 만듬
@@ -44,7 +44,7 @@
       </v-row>
 
       <v-row justify="center">
-        <v-col cols="8">
+        <v-col cols="10">
           <v-card elevation="0">
             <v-card-title class="text-h5 font-weight-bold py-0">
               추천 웹툰
@@ -52,7 +52,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="8">
+        <v-col cols="11">
           <!-- 
           webtoon 배열의 값을 보냄
           한줄에 3개의 썸네일을 만듬
@@ -68,7 +68,7 @@
       </v-row>
 
       <v-row justify="center">
-        <v-col cols="8">
+        <v-col cols="10">
           <v-card elevation="0">
             <v-card-title class="text-h5 font-weight-bold py-0">
               신작 웹툰
@@ -76,18 +76,13 @@
           </v-card>
         </v-col>
 
-        <v-col cols="8">
+        <v-col cols="10">
           <!-- 
           webtoon 배열의 값을 보냄
           한줄에 2개의 썸네일을 만듬
           h는 높이
          -->
-          <TestThumbnail
-            :webtoonState="4"
-            :webtoons="recentWork"
-            :h="180"
-            :limited="4"
-          />
+          <Thumbnail :webtoonState="4" :webtoons="recentWork" :h="200" />
         </v-col>
       </v-row>
     </v-container>
@@ -96,12 +91,14 @@
 
 <script>
 import TestThumbnail from '../components/TestThumbnail';
+import Thumbnail from '../components/Thumbnail';
 // import { mapGetters } from "vuex";
 import axios from 'axios';
 export default {
   name: 'Home',
   components: {
     TestThumbnail,
+    Thumbnail,
   },
   data() {
     return {

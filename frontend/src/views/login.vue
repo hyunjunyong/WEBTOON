@@ -4,20 +4,7 @@
     <v-container>
       <!-- 로그인 작성 폼 -->
       <v-row justify="center" class="ma-5">
-        <v-col cols="1" class="mt-16">
-          <v-row class="mb-10">
-            <v-btn @click="a">일반회원 </v-btn>
-          </v-row>
-
-          <v-row class="mb-10">
-            <v-btn @click="b">작가회원</v-btn>
-          </v-row>
-
-          <v-row class="mb-10">
-            <v-btn @click="c">관리자</v-btn>
-          </v-row>
-        </v-col>
-        <v-col cols="7">
+        <v-col cols="auto">
           <!-- 이메일, 비밀번호 작성 폼 -->
           <v-card elevation="0" width="300">
             <v-toolbar flat>
@@ -75,26 +62,14 @@ export default {
   name: 'Login',
   data() {
     return {
-      email: 'user@test.com',
-      password: 'password123',
+      email: null,
+      password: null,
       NotSuccess: false,
       Success: false,
     };
   },
   methods: {
     ...mapActions(['signin']),
-    a() {
-      //일반
-      (this.email = 'user111@test.com'), (this.password = 'password123');
-    },
-    b() {
-      //작가
-      (this.email = 'user01@test.com'), (this.password = 'password123');
-    },
-    c() {
-      //관리자
-      (this.email = 'admin@test.com'), (this.password = 'password123');
-    },
     // axios
     //   .post(
     //     "http://localhost:5000/auth/session",
