@@ -137,8 +137,8 @@ export default {
   name: 'Writer',
   data() {
     return {
-      authorName: 'asdf',
-      description: 'asdf',
+      authorName: '',
+      description: '',
       dialog: false,
     };
   },

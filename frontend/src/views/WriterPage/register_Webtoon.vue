@@ -161,8 +161,8 @@ export default {
   data() {
     return {
       url: null,
-      workDescription: '작품을 소개합니다.',
-      title: '작품 이름',
+      workDescription: '',
+      title: '',
       genreId: null,
       dialog: false,
     };
