@@ -147,21 +147,34 @@
           </v-card>
         </v-col>
       </v-row>
+
+      <v-dialog v-model="dialog" persistent width="300">
+        <v-card color="primary" dark>
+          <v-card-text>
+            Please stand by
+            <v-progress-linear
+              indeterminate
+              color="white"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-container>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import router from '../../router/index.js';
-import { mapState } from 'vuex';
+import axios from "axios";
+import router from "../../router/index.js";
+import { mapState } from "vuex";
 
 export default {
-  name: '',
+  name: "",
   components: {},
   created() {
     axios
-      .get('http://localhost:5000/writer/upload', {
+      .get("http://localhost:5000/writer/upload", {
         withCredentials: true,
       })
       .then((res) => {
@@ -170,15 +183,16 @@ export default {
       });
   },
   computed: {
-    ...mapState(['userInfo']),
+    ...mapState(["userInfo"]),
   },
   data() {
     return {
-      onlyNumber: '',
+      dialog: false,
+      onlyNumber: "",
       episodeOrder: null,
       episodeName: null,
       episodeDescription: null,
-      recentEpisodeOrder: '',
+      recentEpisodeOrder: "",
       items: [],
     };
   },
@@ -198,10 +212,11 @@ export default {
     //created 시에 user id를 보내면 이 작가의
     //{작품id, 작품제목}
     add_Episode() {
+      this.dialog = true;
       let form = new FormData();
 
-      const thumbnail = document.getElementById('thumbnail');
-      const episodeI = document.getElementById('episodeI');
+      const thumbnail = document.getElementById("thumbnail");
+      const episodeI = document.getElementById("episodeI");
 
       let writer_info = {
         workId: this.$store.state.workId,
@@ -210,7 +225,7 @@ export default {
         episodeOrder: this.recentEpisodeOrder + 1,
       };
 
-      if (this.userInfo.userType == 'author') {
+      if (this.userInfo.userType == "author") {
         writer_info.workId = this.selectedWork;
       }
 
@@ -223,22 +238,25 @@ export default {
 
       for (let file of episodeI.files) {
         console.log(file);
-        form.append('episodeImages', file, file.name);
+        form.append("episodeImages", file, file.name);
       }
 
-      form.append('episodeThumbnail', thumbnail.files[0]);
-      form.append('episodeInfo', JSON.stringify(writer_info));
+      form.append("episodeThumbnail", thumbnail.files[0]);
+      form.append("episodeInfo", JSON.stringify(writer_info));
       console.log(form);
       axios
-        .post('http://localhost:5000/writer/upload', form, {
+        .post("http://localhost:5000/writer/upload", form, {
           withCredentials: true,
         })
         .then(() => {
           //console.log(respon);
           alert(
-            '정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다.'
+            "정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다."
           );
-          router.push('/');
+          router.push("/");
+        })
+        .then(() => {
+          this.dialog = false;
         })
         .catch((err) => {
           console.error(err);
@@ -248,7 +266,7 @@ export default {
   },
   watch: {
     onlyNumber() {
-      return (this.onlyNumber = this.onlyNumber.replace(/[^0-9]/g, ''));
+      return (this.onlyNumber = this.onlyNumber.replace(/[^0-9]/g, ""));
     },
   },
 };

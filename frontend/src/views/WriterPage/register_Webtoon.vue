@@ -131,6 +131,19 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <v-dialog v-model="dialog" persistent width="300">
+      <v-card color="primary" dark>
+        <v-card-text>
+          Please stand by
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -151,6 +164,7 @@ export default {
       workDescription: '작품을 소개합니다.',
       title: '작품 이름',
       genreId: null,
+      dialog: false,
     };
   },
   setup() {},
@@ -172,6 +186,7 @@ export default {
       this.genreId = n.id;
     },
     register_Webtoon() {
+      this.dialog = true;
       let form = new FormData();
       var workThumbnail = document.getElementById('Thumbnail');
       const writer_info = {
@@ -194,6 +209,9 @@ export default {
           //console.log(respon);
           router.push('/register_Episode');
           this.$store.state.workId = respon.data.work.id;
+        })
+        .then(() => {
+          this.dialog = false;
         })
         .catch((err) => {
           console.error(err);
