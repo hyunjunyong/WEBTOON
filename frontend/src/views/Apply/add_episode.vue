@@ -20,6 +20,29 @@
             max-width="250px"
           ></v-img>
         </v-row>
+        작품명
+        <v-text-field
+          v-model="writer_Status.work.title"
+          id="webtoonTitle"
+          dense
+          single-line
+          color="primary"
+        >
+        </v-text-field>
+        작품 소개
+        <v-textarea
+          v-model="writer_Status.work.workDescription"
+          id="webtoonDescription"
+          required
+          height="100"
+          dense
+          filled
+          full-width
+          single-line
+          counter
+          color="primary"
+        >
+        </v-textarea>
       </v-col>
     </v-row>
 
@@ -60,29 +83,6 @@
 
             <!-- 에피소드 설명 -->
             <v-card elevation="0">
-              에피소드 승인
-              <v-text-field
-                v-model="writer_Status.work.title"
-                id="webtoonTitle"
-                dense
-                single-line
-                color="primary"
-              >
-              </v-text-field>
-              작품 소개
-              <v-textarea
-                v-model="writer_Status.work.workDescription"
-                id="webtoonDescription"
-                required
-                height="100"
-                dense
-                filled
-                full-width
-                single-line
-                counter
-                color="primary"
-              >
-              </v-textarea>
               에피소드명
               <v-text-field
                 v-model="writer_Status.episodeName"
@@ -134,12 +134,12 @@
 </template>
 
 <script>
-import Webtoonimage from "../../components/Webtoon-image";
+import Webtoonimage from '../../components/Webtoon-image';
 // import Reject_reason from "../../components/reject-reason.vue";
-import axios from "axios";
-import router from "../../router/index";
+import axios from 'axios';
+import router from '../../router/index';
 export default {
-  name: "VIEWER",
+  name: 'VIEWER',
 
   data: () => ({
     writer_Status: {},
@@ -164,9 +164,9 @@ export default {
     approveEpisode() {
       axios
         .patch(
-          "http://localhost:5000/admin/episodes",
+          'http://localhost:5000/admin/episodes',
           {
-            episodeStatus: "approved",
+            episodeStatus: 'approved',
             episodeId: this.writer_Status.id,
             workId: this.writer_Status.workId,
           },
@@ -176,8 +176,8 @@ export default {
         )
         .then(() => {
           //console.log(res.data);
-          alert("승인되었습니다.");
-          router.push("/");
+          alert('승인되었습니다.');
+          router.push('/');
         })
         .catch((err) => {
           console.log(err.message);
@@ -186,9 +186,9 @@ export default {
     rejectEpisode() {
       axios
         .patch(
-          "http://localhost:5000/admin/episodes",
+          'http://localhost:5000/admin/episodes',
           {
-            episodeStatus: "declined",
+            episodeStatus: 'declined',
             episodeId: this.writer_Status.id,
             // reason: this.reason,
           },
@@ -197,8 +197,8 @@ export default {
           }
         )
         .then(() => {
-          alert("반려되었습니다.");
-          router.push("/");
+          alert('반려되었습니다.');
+          router.push('/');
           //console.log(res);
         });
     },
