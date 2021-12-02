@@ -1,6 +1,14 @@
 <template>
   <v-card elevation="0">
-    <v-card elevation="0" height="200" ma="5" color="primary"> </v-card>
+    <v-card
+      v-if="writerHomeInfo.authorBanner"
+      elevation="0"
+      height="200"
+      ma="5"
+      color="primary"
+      ><v-img :src="writerHomeInfo.authorBanner" height="200" />
+    </v-card>
+    <v-card v-else elevation="0" height="200" ma="5" color="primary"> </v-card>
 
     <!-- 최상단 이미지 -->
     <v-container>

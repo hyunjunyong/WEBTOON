@@ -16,7 +16,9 @@
       ma="5"
       color="primary"
     >
-      <v-card-title center>배너 이미지를 추가해주세요!</v-card-title>
+      <v-card-title class="text-center justify-center" center
+        >배너 이미지를 추가해주세요!</v-card-title
+      >
     </v-card>
 
     <!-- 최상단 이미지 -->

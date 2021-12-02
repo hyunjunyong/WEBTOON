@@ -181,7 +181,7 @@
 
                     <v-divider></v-divider>
 
-                    <v-list-item class="justify-center" @click="useRoute('*')">
+                    <v-list-item class="justify-center" @click="useRoute('/')">
                       <v-list-item-title @click="signout">
                         로그아웃
                       </v-list-item-title>
