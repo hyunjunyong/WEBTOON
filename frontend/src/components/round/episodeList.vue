@@ -25,11 +25,15 @@
 
     <v-list>
       <template v-for="episode in webtoon.episode">
-        <v-list-item @click="useRouter(episode.id)" :key="episode.id" two-line>
+        <v-list-item
+          @click="useRouter(episode.id)"
+          :key="episode.id"
+          three-line
+        >
           <v-list-item-avatar
             style="border-radius:10px"
-            width="200px"
-            height="150px"
+            width="150px"
+            height="100px"
             aspect-ratio="1"
           >
             <v-img :src="episode.episodeThumbnailUrl" />
@@ -37,7 +41,9 @@
 
           <v-list-item-content>
             <v-list-item-title
-              ><h4>{{ episode.episodeName }}</h4></v-list-item-title
+              ><h2>
+                {{ episode.episodeName }}
+              </h2></v-list-item-title
             >
 
             <v-list-item-subtitle>
@@ -58,17 +64,17 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "EpisodeList",
+  name: 'EpisodeList',
   props: {
     webtoon: Object,
   },
   data() {
     return {
       // 최신화,1화부터 변수
-      sortToggle: "desc",
+      sortToggle: 'desc',
       webtoons: this.webtoon,
     };
   },
@@ -80,10 +86,10 @@ export default {
   methods: {
     // 최신화,1화부터 버튼
     SortToggleBtn() {
-      if (this.sortToggle === "desc") {
-        this.sortToggle = "asc";
+      if (this.sortToggle === 'desc') {
+        this.sortToggle = 'asc';
       } else {
-        this.sortToggle = "desc";
+        this.sortToggle = 'desc';
       }
 
       axios
@@ -102,7 +108,7 @@ export default {
     },
     useRouter(index) {
       this.$router.push({
-        name: "Episode",
+        name: 'Episode',
         params: {
           id: index,
         },

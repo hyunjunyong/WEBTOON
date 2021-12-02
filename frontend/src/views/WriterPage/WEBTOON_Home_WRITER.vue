@@ -4,7 +4,7 @@
     <v-row justify="center">
       <v-col cols="8">
         <!-- 특정 웹툰을 소개하는 컴포넌트 -->
-        <WriterWebtoonIntro :webtoonId="$route.params.id" />
+        <MyWebtoonIntro :webtoonId="$route.params.id" />
       </v-col>
     </v-row>
 
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import WriterWebtoonIntro from "../../components/WriterWebtoon-intro.vue";
+import MyWebtoonIntro from '../../components/myWebtoon-intro.vue';
 // import Writerprofile from "../../components/Writer-profile.vue";
-import EpisodeListWriterVersion from "../../components/round/episodeListWriterVersion.vue";
-import axios from "axios";
+import EpisodeListWriterVersion from '../../components/round/episodeListWriterVersion.vue';
+import axios from 'axios';
 export default {
-  name: "WEBTOON_Home_WRITER",
+  name: 'WEBTOON_Home_WRITER',
   data: () => ({
     webtoons: [],
   }),
@@ -42,14 +42,14 @@ export default {
       })
       .then((res) => {
         this.webtoons = res.data;
-        //console.log(this.webtoons);
+        console.log(this.webtoons);
       })
       .catch((err) => {
         console.log(err);
       });
   },
   components: {
-    WriterWebtoonIntro,
+    MyWebtoonIntro,
     // Writerprofile,
     EpisodeListWriterVersion,
   },

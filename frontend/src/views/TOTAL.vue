@@ -51,6 +51,7 @@ export default {
     });
     axios.get(`http://localhost:5000/works`).then((res) => {
       this.webtoons = res.data;
+      // console.log(res.data);
     });
   },
   data() {

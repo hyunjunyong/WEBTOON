@@ -57,14 +57,14 @@
 </template>
 
 <script>
-import WriterWebtoonIntro from "../components/WriterWebtoon-intro.vue"; // 작품 설명
+import WriterWebtoonIntro from '../components/WriterWebtoon-intro.vue'; // 작품 설명
 // import Writerprofile from "../components/Writer-profile.vue";
-import axios from "axios";
-import EpisodeList from "../components/round/episodeList.vue";
+import axios from 'axios';
+import EpisodeList from '../components/round/episodeList.vue';
 //import webtoonround from "../components/webtoon-round.vue";
 
 export default {
-  name: "WEBTOON_Home",
+  name: 'WEBTOON_Home',
   data() {
     return {
       webtoon: {
@@ -92,6 +92,7 @@ export default {
       })
       .then((res) => {
         this.webtoon = res.data;
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -100,7 +101,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WRITER_Home",
+        name: 'WRITER_Home',
         params: {
           id: index,
         },

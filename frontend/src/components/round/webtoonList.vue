@@ -25,8 +25,8 @@
         >
           <v-list-item-avatar
             style="border-radius:10px"
-            width="200px"
-            height="150px"
+            width="150px"
+            height="100px"
             aspect-ratio="1"
           >
             <v-img :src="webtoon.workThumbnail" />
@@ -56,7 +56,7 @@
 // import axios from "axios";
 
 export default {
-  name: "webtoonList",
+  name: 'webtoonList',
   props: {
     writerHomeInfo: Object,
   },
@@ -65,9 +65,9 @@ export default {
       webtoons: [
         {
           id: 1,
-          name: "helloWorld",
-          date: "2008.1.3",
-          thumbnail: require("../../img/nums/1.png"),
+          name: 'helloWorld',
+          date: '2008.1.3',
+          thumbnail: require('../../img/nums/1.png'),
         },
       ],
     };
@@ -84,7 +84,7 @@ export default {
     }, */
     useRouter(index) {
       this.$router.push({
-        name: "WEBTOON_HOMR",
+        name: 'WEBTOON_HOMR',
         params: {
           id: index,
         },
