@@ -100,25 +100,29 @@ export default {
     },
 
     like() {
-      axios
-        .post(
-          'http://localhost:5000/user/like',
-          {
-            workId: this.webtoonId,
-          },
-          { withCredentials: true }
-        )
-        .then((res) => {
-          // this.genre = response.data;
-          //console.log(res);
-          if (res.data.isLike == true) {
-            this.likes++;
-            this.isBtnColor = 'primary';
-          } else if (res.data.isLike == false && this.likes != 0) {
-            this.likes--;
-            this.isBtnColor = 'grey';
-          }
-        });
+      if (this.$store.userInfo == null) {
+        this.$router.push('/login');
+      } else {
+        axios
+          .post(
+            'http://localhost:5000/user/like',
+            {
+              workId: this.webtoonId,
+            },
+            { withCredentials: true }
+          )
+          .then((res) => {
+            // this.genre = response.data;
+            //console.log(res);
+            if (res.data.isLike == true) {
+              this.likes++;
+              this.isBtnColor = 'primary';
+            } else if (res.data.isLike == false && this.likes != 0) {
+              this.likes--;
+              this.isBtnColor = 'grey';
+            }
+          });
+      }
     },
   },
 };
