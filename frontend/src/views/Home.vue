@@ -104,10 +104,6 @@ export default {
     return {
       items: [
         {
-          src:
-            'http://images.battlecomics.co.kr/web_home_banner/526/banner-bannerid_526-w_1900-h_420-t_20211112180952.jpg',
-        },
-        {
           src: require('../img/santa.png'),
         },
         {
