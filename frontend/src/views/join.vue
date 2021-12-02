@@ -96,45 +96,45 @@
 </template>
 
 <script>
-import axios from "axios";
-import router from "../router/index";
+import axios from 'axios';
+import router from '../router/index';
 export default {
   data: () => ({
     valid: true,
-    nickname: "",
+    nickname: '',
     nicknameRules: [
-      (v) => !!v || "닉네임은 필수항목입니다.",
-      (v) => (v && v.length <= 10) || "닉네임은 10자 이하로 적어주세요.",
+      (v) => !!v || '닉네임은 필수항목입니다.',
+      (v) => (v && v.length <= 10) || '닉네임은 10자 이하로 적어주세요.',
     ],
-    email: "",
+    email: '',
     emailRules: [
-      (v) => !!v || "이메일은 필수항목입니다.",
-      (v) => /.+@.+\..+/.test(v) || "이메일이 올바르지 않습니다.",
+      (v) => !!v || '이메일은 필수항목입니다.',
+      (v) => /.+@.+\..+/.test(v) || '이메일이 올바르지 않습니다.',
     ],
-    password: "",
+    password: '',
     passwordRules: [
-      (v) => !!v || "비밀번호는 필수항목입니다.",
-      (v) => (v && v.length >= 5) || "비밀번호는 5자 이상으로 적어주세요.",
+      (v) => !!v || '비밀번호는 필수항목입니다.',
+      (v) => (v && v.length >= 5) || '비밀번호는 5자 이상으로 적어주세요.',
     ],
-    password_check: "",
+    password_check: '',
     checkbox: false,
   }),
   methods: {
     validate() {
       //회원가입
       axios
-        .post("http://localhost:5000/auth/signup", {
+        .post('http://localhost:5000/auth/signup', {
           name: this.nickname,
           email: this.email,
           password: this.password,
         })
         .then(() => {
-          router.push("/login");
+          router.push('/login');
           //console.log(respon);
         })
         .catch((err) => {
-          alert("회원가입이 되지 않았습니다.");
-          router.push("/");
+          alert('회원가입이 되지 않았습니다.');
+          router.push('/');
           console.err(err);
         });
     },

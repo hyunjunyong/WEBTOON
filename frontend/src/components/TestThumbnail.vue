@@ -9,7 +9,7 @@
       <v-slide-item v-for="i in webtoons" :key="i.id">
         <v-hover v-slot:default="{ hover }">
           <v-card
-            :elevation="hover ? 5 : 0"
+            :elevation="hover ? 3 : 0"
             class="radius ma-2 pb-2"
             router-link
             :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
