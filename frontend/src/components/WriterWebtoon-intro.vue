@@ -1,38 +1,41 @@
 <template>
   <!-- 작품 소개 컴포넌트 -->
-  <v-container fluid>
+  <v-container>
     <v-row justify="center">
-      <v-col cols="3" class="mr-10">
-        <v-row>
-          <v-col>
-            <h2>{{ webtoon.title }}</h2>
-          </v-col>
+      <v-col cols="3" class="mr-5">
+        <!-- <v-row>
+          <v-col> -->
+
+        <h1>{{ webtoon.title }}</h1>
+        <!-- </v-col>
         </v-row>
-        <v-row>
-          <v-card elevation="0" height="90px">
-            <v-row>
-              <v-col>
-                <div class="grey--text">
-                  {{ webtoon.genreType[0].genre.name }}
-                </div>
-              </v-col>
-              <v-col>
-                <!-- <v-chip @click="like" color="blue" :outlined="isBtnOutLine">
+        <v-row> -->
+        <v-card elevation="0" height="90px">
+          <!-- <v-row>
+              <v-col> -->
+          <v-card-subtitle class="grey--text pl-0 pb-0 text-subtitle-1">
+            {{ webtoon.genreType[0].genre.name }}
+          </v-card-subtitle>
+          <!-- </v-col>
+              <v-col> -->
+          <!-- <v-chip @click="like" color="blue" :outlined="isBtnOutLine">
                   좋아요 : {{ likes }}
                 </v-chip> -->
-                <v-btn icon :color="isBtnColor" @click="like">
-                  <v-icon>mdi-heart</v-icon>{{ likes }}
-                </v-btn>
-              </v-col>
-            </v-row>
+          <v-card-subtitle class="pa-0 text-subtitle-1"
+            ><v-btn icon :color="isBtnColor" @click="like">
+              <v-icon>mdi-heart</v-icon>{{ likes }}
+            </v-btn></v-card-subtitle
+          >
+          <!-- </v-col>
+            </v-row> -->
 
-            <v-row class="mt-10">
-              <span>
-                {{ webtoon.workDescription }}
-              </span>
-            </v-row>
-          </v-card>
-        </v-row>
+          <!-- <v-row class="mt-10"> -->
+          <v-card-text class="pl-0 black--text ">
+            {{ webtoon.workDescription }}
+          </v-card-text>
+          <!-- </v-row> -->
+        </v-card>
+        <!-- </v-row> -->
       </v-col>
 
       <v-col cols="8">
