@@ -7,10 +7,11 @@
           <v-chip-group v-model="selection" active-class="primary white--text">
             <v-chip
               :item="n"
-              v-for="n in genre"
-              :key="n.id"
+              v-for="(n, i) in genre"
+              :key="i"
               :input-value="active"
-              @click="genreSort(n.id)"
+              :class="{ active: i === activeItem }"
+              @click="genreSort(i, n.id)"
             >
               <!-- @click="$emit('change')" -->
               {{ n.name }}
@@ -51,11 +52,12 @@ export default {
     });
     axios.get(`http://localhost:5000/works`).then((res) => {
       this.webtoons = res.data;
-      // console.log(res.data);
+      console.log(res.data);
     });
   },
   data() {
     return {
+      activeItem: null,
       genre: [],
       webtoons: null,
       active: false,
@@ -66,18 +68,24 @@ export default {
     // ...mapGetters({ webtoonThumbnails: 'getWebtoonThumbnails' }),
   },
   methods: {
-    genreSort(index) {
-      if (this.active == false) {
+    genreSort(i, index) {
+      // for(i in webtoon){
+
+      // }
+      if (this.activeItem != i) {
+        this.activeItem = i;
         this.active = true;
         axios
           .get(`http://localhost:5000/works?genreId=${index}`)
           .then((res) => {
             this.webtoons = res.data;
+            console.log(res);
           });
       } else {
         this.active = false;
         axios.get(`http://localhost:5000/works`).then((res) => {
           this.webtoons = res.data;
+          console.log(res);
         });
       }
     },
