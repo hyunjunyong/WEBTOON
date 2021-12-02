@@ -143,6 +143,19 @@
           </v-card>
         </v-col>
       </v-row>
+
+      <v-dialog v-model="dialog" persistent width="300">
+        <v-card color="primary" dark>
+          <v-card-text>
+            Please stand by
+            <v-progress-linear
+              indeterminate
+              color="white"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -170,6 +183,7 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       onlyNumber: "",
       episodeOrder: null,
       episodeName: null,
@@ -194,6 +208,7 @@ export default {
     //created 시에 user id를 보내면 이 작가의
     //{작품id, 작품제목}
     add_Episode() {
+      this.dialog = true;
       let form = new FormData();
 
       const thumbnail = document.getElementById("thumbnail");
@@ -235,6 +250,9 @@ export default {
             "정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다."
           );
           router.push("/");
+        })
+        .then(() => {
+          this.dialog = false;
         })
         .catch((err) => {
           console.error(err);
