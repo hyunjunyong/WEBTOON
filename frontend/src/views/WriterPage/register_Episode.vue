@@ -26,6 +26,7 @@
                   item-value="id"
                   item-text="title"
                   label="작품선택"
+                  hide-details="auto"
                   v-model="selectedWork"
                 ></v-select>
               </v-col>

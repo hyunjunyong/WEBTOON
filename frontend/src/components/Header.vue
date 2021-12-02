@@ -33,7 +33,6 @@
             outlined
             rounded
             depressed
-            label="작품/작가 검색"
             prepend-inner-icon="mdi-magnify"
             class="d-none d-sm-flex mt-7"
             v-model="searchInfo"

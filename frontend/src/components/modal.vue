@@ -117,7 +117,13 @@ modalState에 따라서 버튼 색, 글자색, 내부 용어?, 크기, 구조가
 
         <v-row>
           <v-col cols="12" sm="12">
-            <v-text-field label="txst" single-line solo height="100">
+            <v-text-field
+              label="txst"
+              hide-details="auto"
+              single-line
+              solo
+              height="100"
+            >
               반려사유작성
             </v-text-field>
           </v-col>

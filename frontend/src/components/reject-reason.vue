@@ -7,6 +7,7 @@
           v-model="reason"
           class="mx-2"
           label="반려사유작성"
+          hide-details="auto"
           rows="1"
         ></v-textarea>
       </v-col>
@@ -29,7 +30,7 @@
 </template>
 <script>
 export default {
-  name: "",
+  name: '',
   components: {},
 
   data() {

@@ -58,6 +58,7 @@
                   v-model="checkbox"
                   :rules="[(v) => !!v || '동의는 필수항목입니다.']"
                   label="이용약관에 동의하십니까?"
+                  hide-details="auto"
                   required
                 ></v-checkbox>
 

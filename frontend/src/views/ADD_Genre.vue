@@ -42,6 +42,7 @@
                 <v-text-field
                   v-model="addGenre"
                   label="추가할 장르 작성"
+                  hide-details="auto"
                   color="primary"
                   outlined
                   rounded
@@ -67,6 +68,7 @@
                 <v-text-field
                   v-model="genreName"
                   label="추가할 장르 작성"
+                  hide-details="auto"
                   color="primary"
                   outlined
                   rounded
@@ -92,6 +94,7 @@
                 <v-text-field
                   v-model="delGenre"
                   label="삭제할 장르 작성"
+                  hide-details="auto"
                   color="primary"
                   outlined
                   rounded
@@ -122,10 +125,10 @@
 </template>
 
 <script>
-import Genre from "../components/genre";
+import Genre from '../components/genre';
 // import axios from "axios"
 export default {
-  name: "",
+  name: '',
   components: {
     Genre,
   },
