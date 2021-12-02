@@ -8,11 +8,9 @@
           <!-- 이메일, 비밀번호 작성 폼 -->
           <v-card elevation="0" width="300">
             <v-toolbar flat>
-              <v-spacer></v-spacer>
-              <v-toolbar-title class="font-weight-bold pt-3"
+              <v-toolbar-title class="justify-center font-weight-bold pt-3"
                 >로그인</v-toolbar-title
               >
-              <v-spacer></v-spacer>
             </v-toolbar>
 
             <div class="pa-5">

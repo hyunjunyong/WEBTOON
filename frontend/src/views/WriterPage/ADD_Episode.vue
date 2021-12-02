@@ -7,7 +7,6 @@
           <v-card elevation="0" width="600">
             <v-toolbar flat>
               <v-spacer></v-spacer>
-
               <v-toolbar-title class="font-weight-bold pt-3">
                 에피소드 등록
               </v-toolbar-title>
@@ -15,7 +14,11 @@
               <v-spacer></v-spacer>
             </v-toolbar>
 
-            <v-row justify="center" v-if="userInfo.userType == 'author'">
+            <v-row
+              justify="center"
+              align="center"
+              v-if="userInfo.userType == 'author'"
+            >
               <v-col cols="10">
                 <v-select
                   :items="items"
@@ -27,16 +30,16 @@
                 ></v-select>
               </v-col>
             </v-row>
-            <v-row justify="center">
-              <v-col justify="center" align-self="center" cols="5">
+            <v-row justify="center" class="text-center">
+              <v-col cols="10">
                 <v-card v-if="recentEpisodeOrder == 0" elevation="0"
                   >최근 에피소드가 존재하지 않습니다.</v-card
                 >
-                <v-card v-else elevation="0"
-                  >최근 에피소드는 {{ recentEpisodeOrder }}화입니다</v-card
+                <v-card v-else elevation="0">
+                  최근 에피소드는 {{ recentEpisodeOrder }}화입니다</v-card
                 ></v-col
               >
-              <v-col cols="5">
+              <v-col cols="10">
                 <v-card elevation="0" v-model="recentEpisodeOrder"
                   >{{ recentEpisodeOrder + 1 }}화로 등록됩니다.
                 </v-card>
@@ -148,16 +151,16 @@
 </template>
 
 <script>
-import axios from "axios";
-import router from "../../router/index.js";
-import { mapState } from "vuex";
+import axios from 'axios';
+import router from '../../router/index.js';
+import { mapState } from 'vuex';
 
 export default {
-  name: "",
+  name: '',
   components: {},
   created() {
     axios
-      .get("http://localhost:5000/writer/upload", {
+      .get('http://localhost:5000/writer/upload', {
         withCredentials: true,
       })
       .then((res) => {
@@ -166,15 +169,15 @@ export default {
       });
   },
   computed: {
-    ...mapState(["userInfo"]),
+    ...mapState(['userInfo']),
   },
   data() {
     return {
-      onlyNumber: "",
+      onlyNumber: '',
       episodeOrder: null,
       episodeName: null,
       episodeDescription: null,
-      recentEpisodeOrder: "",
+      recentEpisodeOrder: '',
       items: [],
     };
   },
@@ -196,8 +199,8 @@ export default {
     add_Episode() {
       let form = new FormData();
 
-      const thumbnail = document.getElementById("thumbnail");
-      const episodeI = document.getElementById("episodeI");
+      const thumbnail = document.getElementById('thumbnail');
+      const episodeI = document.getElementById('episodeI');
 
       let writer_info = {
         workId: this.$store.state.workId,
@@ -206,7 +209,7 @@ export default {
         episodeOrder: this.recentEpisodeOrder + 1,
       };
 
-      if (this.userInfo.userType == "author") {
+      if (this.userInfo.userType == 'author') {
         writer_info.workId = this.selectedWork;
       }
 
@@ -219,22 +222,22 @@ export default {
 
       for (let file of episodeI.files) {
         console.log(file);
-        form.append("episodeImages", file, file.name);
+        form.append('episodeImages', file, file.name);
       }
 
-      form.append("episodeThumbnail", thumbnail.files[0]);
-      form.append("episodeInfo", JSON.stringify(writer_info));
+      form.append('episodeThumbnail', thumbnail.files[0]);
+      form.append('episodeInfo', JSON.stringify(writer_info));
       console.log(form);
       axios
-        .post("http://localhost:5000/writer/upload", form, {
+        .post('http://localhost:5000/writer/upload', form, {
           withCredentials: true,
         })
         .then(() => {
           //console.log(respon);
           alert(
-            "정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다."
+            '정상적으로 등록되었습니다. 추후 심사 후 결과를 안내해드릴 예정입니다.'
           );
-          router.push("/");
+          router.push('/');
         })
         .catch((err) => {
           console.error(err);
@@ -244,7 +247,7 @@ export default {
   },
   watch: {
     onlyNumber() {
-      return (this.onlyNumber = this.onlyNumber.replace(/[^0-9]/g, ""));
+      return (this.onlyNumber = this.onlyNumber.replace(/[^0-9]/g, ''));
     },
   },
 };
