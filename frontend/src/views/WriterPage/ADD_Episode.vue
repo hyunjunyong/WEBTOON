@@ -46,7 +46,7 @@
               </v-col>
             </v-row>
             <!-- 에피소드 명 작성 -->
-            <v-row>
+            <v-row justify="center" align="center">
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto">에피소드명</v-card>
               </v-col>
@@ -63,7 +63,7 @@
             </v-row>
 
             <!-- 에피소드 소개 작성 -->
-            <v-row>
+            <v-row justify="center" align="center">
               <v-col cols="4" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
                   >에피소드 소개<br />(50자 이상)</v-card
@@ -87,7 +87,7 @@
             </v-row>
 
             <!-- 에피소드 썸내일과 에피소드 웹툰 올리기 -->
-            <v-row class="mb-5" justify="center">
+            <v-row justify="center" align="center" class="mb-5">
               <v-spacer></v-spacer>
               <v-col cols="auto" class="d-flex text-center">
                 <v-card elevation="0" class="ma-auto"
@@ -96,7 +96,7 @@
                     id="thumbnail"
                     show-size
                     counter
-                    truncate-length="15"
+                    truncate-length="10"
                   ></v-file-input>
                 </v-card>
               </v-col>
@@ -108,7 +108,7 @@
                     id="episodeI"
                     show-size
                     counter
-                    truncate-length="15"
+                    truncate-length="10"
                     multiple
                   ></v-file-input>
                 </v-card>
