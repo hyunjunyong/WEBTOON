@@ -9,7 +9,7 @@
     <v-col v-for="i in webtoons" :key="i.id" :cols="c">
       <v-hover v-slot:default="{ hover }">
         <v-card
-          :elevation="hover ? 5 : 0"
+          :elevation="hover ? 3 : 0"
           router-link
           :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
           class="radius"
