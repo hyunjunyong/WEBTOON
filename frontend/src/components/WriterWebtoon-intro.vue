@@ -100,7 +100,7 @@ export default {
     },
 
     like() {
-      if (this.$store.userInfo == null) {
+      if (this.$store.state.userInfo == null) {
         this.$router.push('/login');
       } else {
         axios
