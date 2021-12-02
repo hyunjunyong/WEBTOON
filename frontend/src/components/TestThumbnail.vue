@@ -9,7 +9,7 @@
       <v-slide-item v-for="i in webtoons" :key="i.id">
         <v-hover v-slot:default="{ hover }">
           <v-card
-            :elevation="hover ? 10 : 0"
+            :elevation="hover ? 5 : 0"
             class="radius ma-2 pb-2"
             router-link
             :to="{ name: 'WEBTOON_HOMR', params: { id: i.id } }"
@@ -23,7 +23,7 @@
             />
 
             <v-card-subtitle class="cyan--text pb-0">
-              //장르//
+              {{ i.genreType[0].genre.name }}
             </v-card-subtitle>
             <v-card-title class="py-2">
               {{ i.title }}

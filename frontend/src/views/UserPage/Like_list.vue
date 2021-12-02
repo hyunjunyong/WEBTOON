@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import LikeWebtoonList from "../../components/round/likeWebtoonList.vue";
-import axios from "axios";
+import LikeWebtoonList from '../../components/round/likeWebtoonList.vue';
+import axios from 'axios';
 export default {
-  name: "LIKE_LIST",
+  name: 'LIKE_LIST',
   components: {
     LikeWebtoonList,
   },
@@ -39,12 +39,12 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:5000/user/like", {
+      .get('http://localhost:5000/user/like', {
         withCredentials: true,
       })
       .then((res) => {
         this.webtoons = res.data;
-        //console.log(res);
+        console.log(res);
       });
   },
 };

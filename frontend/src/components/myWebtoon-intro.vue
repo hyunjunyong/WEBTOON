@@ -2,7 +2,6 @@
   <!-- 작품 소개 컴포넌트 -->
   <v-container fluid>
     <v-row justify="center">
-      {{ webtoon }}
       <v-col cols="3" class="mr-10">
         <v-row>
           <v-col>
@@ -15,10 +14,6 @@
               <v-col>
                 <div class="grey--text">
                   {{ webtoon.genreType[0].genre.name }}
-                </div>
-
-                <div @click="useRouter(webtoon.user.id)" class="grey--text">
-                  {{ webtoon.user.authorName }}
                 </div>
               </v-col>
               <v-col>
@@ -50,10 +45,10 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "WriterWebtoon_intro",
+  name: 'MyWebtoon_intro',
   props: {
     // webtoonId : 부모 컴포넌트에서 받아온 작가 아이디
     webtoonId: null,
@@ -62,14 +57,18 @@ export default {
     return {
       likes: 0,
       isBtnOutLine: null,
-      webtoon: null,
+      webtoon: {
+        title: null,
+        workDescription: null,
+        genreType: [{ genre: { name: null } }],
+      },
     };
   },
 
   created() {
     // 좋아요 갯수받는 api
     axios
-      .get("http://localhost:5000/like/" + this.webtoonId, {
+      .get('http://localhost:5000/like/' + this.webtoonId, {
         withCredentials: true,
       })
       .then((res) => {
@@ -87,21 +86,12 @@ export default {
       .catch((err) => {
         console.log(err);
       });
-    this.webtoon.genreType[0] = {
-      genre: {
-        name: null,
-      },
-    };
-    this.webtoon.user = {
-      AuthorName: null,
-    };
     axios
       .get(`http://localhost:5000/writer/work/${this.$route.params.id}`, {
         withCredentials: true,
       })
       .then((res) => {
         this.webtoon = res.data;
-        //console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -111,7 +101,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WRITER_Home",
+        name: 'WRITER_Home',
         params: {
           id: index,
         },
@@ -121,7 +111,7 @@ export default {
     like() {
       axios
         .post(
-          "http://localhost:5000/user/like",
+          'http://localhost:5000/user/like',
           {
             workId: this.webtoonId,
           },

@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "WriterWebtoon_intro",
+  name: 'WriterWebtoon_intro',
   props: {
     // webtoonId : 부모 컴포넌트에서 받아온 작가 아이디
     webtoonId: null,
@@ -68,7 +68,7 @@ export default {
   created() {
     // 좋아요 갯수받는 api
     axios
-      .get("http://localhost:5000/like/" + this.webtoonId, {
+      .get('http://localhost:5000/like/' + this.webtoonId, {
         withCredentials: true,
       })
       .then((res) => {
@@ -101,7 +101,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "WRITER_Home",
+        name: 'WRITER_Home',
         params: {
           id: index,
         },
@@ -111,7 +111,7 @@ export default {
     like() {
       axios
         .post(
-          "http://localhost:5000/user/like",
+          'http://localhost:5000/user/like',
           {
             workId: this.webtoonId,
           },

@@ -27,6 +27,10 @@
               </h2>
             </v-list-item-title>
 
+            <!-- <v-list-item-subtitle>
+              {{ 작가이름 }}
+            </v-list-item-subtitle> -->
+
             <v-list-item-subtitle>
               <v-card color="transparent">
                 {{ i.work.workDescription }}
@@ -74,7 +78,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   props: {
@@ -90,7 +94,7 @@ export default {
     deleteLike(workId) {
       axios
         .post(
-          "http://localhost:5000/user/like",
+          'http://localhost:5000/user/like',
           {
             workId,
           },

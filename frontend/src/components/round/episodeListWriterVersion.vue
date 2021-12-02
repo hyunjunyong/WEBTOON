@@ -15,39 +15,62 @@
       </router-link>
     </v-banner>
 
-    <v-simple-table elevation="0">
-      <template v-slot:default>
-        <tbody>
-          <tr
-            v-for="index in webtoons.episode"
-            :key="index"
-            @click="useRouter(index.id)"
+    <v-list>
+      <template v-for="index in webtoons.episode">
+        <v-list-item @click="useRouter(index.id)" :key="index" three-line>
+          <v-list-item-avatar
+            style="border-radius:10px"
+            width="150px"
+            height="100px"
+            aspect-ratio="1"
           >
-            <td>
-              <v-img
-                :src="index.episodeThumbnailUrl"
-                width="200px"
-                height="150px"
-                style="border-radius:10px"
-                aspect-ratio="1"
-              />
-            </td>
-            <td>
-              <p>{{ index.episodeName }}</p>
-              {{ index.episodeDescription }}
-            </td>
-          </tr>
-        </tbody>
+            <v-img :src="index.episodeThumbnailUrl" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>
+              <h2>
+                {{ index.episodeName }}
+              </h2>
+            </v-list-item-title>
+
+            <v-list-item-subtitle>
+              <v-card color="transparent">
+                {{ index.episodeDescription }}
+              </v-card>
+            </v-list-item-subtitle>
+
+            <v-list-item-subtitle>
+              {{ index.updatedAt.slice(0, 10) }}
+            </v-list-item-subtitle>
+          </v-list-item-content>
+          <v-list-item-action>
+            <v-chip v-if="index.episodeStatus === 'approved'" color="blue" dark>
+              승인 완료
+            </v-chip>
+            <v-chip v-if="index.episodeStatus === 'declined'" color="red" dark>
+              승인 반려
+            </v-chip>
+            <v-chip
+              v-if="index.episodeStatus === 'panding'"
+              color="yellow"
+              dark
+            >
+              승인 대기중
+            </v-chip>
+          </v-list-item-action>
+        </v-list-item>
+        <v-divider :key="'divider' + index.id"></v-divider>
       </template>
-    </v-simple-table>
+    </v-list>
   </v-card>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "episodeList",
+  name: 'episodeList',
   data() {
     return {};
   },
@@ -58,7 +81,7 @@ export default {
   methods: {
     useRouter(index) {
       this.$router.push({
-        name: "Episode",
+        name: 'Episode',
         params: {
           id: index,
         },
@@ -70,7 +93,7 @@ export default {
       //던져줄 데이터는 작품 id
       //받는 데이터는 {episode id, episode 이름, episode 썸네일, episode 승인날짜}
       axios
-        .get("http://localhost:5000/", {}, { withCredentials: true })
+        .get('http://localhost:5000/', {}, { withCredentials: true })
         .then(() => {
           //console.log(res);
         })

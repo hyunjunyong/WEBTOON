@@ -6,14 +6,6 @@
 -->
   <v-card max-height="auto" elevation="0">
     <v-banner class="white text-end" sticky>
-      <v-btn @click="webtoons.sort(title_Order)" color="black" text>
-        제목순
-      </v-btn>
-      /
-      <v-btn @click="webtoons.sort(date_Order)" color="black" text>
-        업데이트 순
-      </v-btn>
-      <!-- <span class="font-weight-bold" v-text="scrollInvoked"></span> -->
       <router-link style="text-decoration:none" to="/add/webtoon">
         <v-btn class="ma-2" color="green" dark rounded>
           작품 추가
@@ -26,10 +18,14 @@
 
     <v-list>
       <template v-for="webtoon in webtoons">
-        <v-list-item :key="webtoon.id" @click="useRouter(webtoon.id)" two-line>
+        <v-list-item
+          :key="webtoon.id"
+          @click="useRouter(webtoon.id)"
+          three-line
+        >
           <v-list-item-avatar
-            width="200px"
-            height="150px"
+            width="150px"
+            height="100px"
             style="border-radius:10px"
             aspect-ratio="1"
           >
@@ -38,9 +34,9 @@
 
           <v-list-item-content>
             <v-list-item-title>
-              <h4>
+              <h2>
                 {{ webtoon.title }}
-              </h4>
+              </h2>
             </v-list-item-title>
 
             <v-list-item-subtitle>
