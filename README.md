@@ -19,3 +19,6 @@
 
 ## Skill
 vue,vuex,vuetify,nodejs,express,sequelize,mysql
+
+## 해당 협업 git 사이트
+* https://github.com/developer-s-quality3/WEBTOON
