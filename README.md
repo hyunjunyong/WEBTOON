@@ -18,7 +18,12 @@
 
 
 ## Skill
-vue,vuex,vuetify,nodejs,express,sequelize,mysql
+### front-end
+<img src="https://img.shields.io/badge/-Vue.js-%234FC08D?logo=Vue.js"><img src="https://img.shields.io/badge/-Vuetify-%231867C0?logo=Vuetify"><img src="https://img.shields.io/badge/-Vuex-critical">
 
-## 해당 협업 git 사이트
+### back-end
+<img src="https://img.shields.io/badge/-Node.js-%23339933?logo=Node.js"><img src="https://img.shields.io/badge/-Express-%23000000?logo=Express"><img src="https://img.shields.io/badge/-Sequelize-%2352B0E7?logo=Sequelize"><img src="https://img.shields.io/badge/-Mysql-%234479A1?logo=Mysql">
+
+
+## 해당 원본 git 사이트
 * https://github.com/developer-s-quality3/WEBTOON
